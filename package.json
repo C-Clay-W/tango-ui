@@ -1,0 +1,39 @@
+{
+  "name": "tango-ui-doc",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env PORT=4000 next dev",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^12.23.3",
+    "gsap": "^3.13.0",
+    "mysql2": "^3.14.1",
+    "next": "^14.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.6.1",
+    "tango-excel-cw": "^0.0.3",
+    "tango-pdf-cw": "^0.0.1",
+    "tango-ui-cw": "^0.4.3",
+    "tango-watermark": "^0.1.1",
+    "three": "^0.178.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
