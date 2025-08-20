@@ -13,7 +13,7 @@ const page = () => {
   return (
     <>
     <div>tangoui</div>
-    <Button onClick={enter}>Enter2222</Button>
+    <Button onClick={enter}>Enter111</Button>
     </>
     
   )
