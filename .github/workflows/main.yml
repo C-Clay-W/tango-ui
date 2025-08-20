@@ -35,7 +35,7 @@ jobs:
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
           script: |
-            cd /root/tango
+            cd /root/tango-ui
             git reset --hard
             git pull origin main
             docker stop tango-ui-doc || true
