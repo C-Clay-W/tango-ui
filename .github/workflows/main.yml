@@ -30,7 +30,7 @@ jobs:
 
       # 5. 打包 Docker 镜像
       - name: Build Docker image
-        run: docker build -t tango-ui-cw-v2 .
+        run: docker build -t tango-ui-cw .
 
       # 6. 部署到远程服务器 via SSH
       - name: Deploy to remote server
@@ -41,6 +41,6 @@ jobs:
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: ${{ secrets.REMOTE_PORT }}
           script: |
-            docker stop my-next-app || true
-            docker rm my-next-app || true
-            docker run -d --name my-next-app -p 3000:3000 my-next-app
+            docker stop tango-ui-cw || true
+            docker rm tango-ui-cw || true
+            docker run -d --name tango-ui-cw -p 80:3000 tango-ui-cw
