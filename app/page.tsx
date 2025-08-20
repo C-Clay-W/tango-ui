@@ -12,11 +12,12 @@ const page = () => {
   }
   return (
     <>
-    <div>tangoui</div>
-    <Button onClick={enter}>Enter111</Button>
-    </>
-    
-  )
-}
+      <div>tangoui</div>
+      <div className="text-amber-500">已接入CICD流水线</div>
 
-export default page
+      <Button onClick={enter}>Enter</Button>
+    </>
+  );
+};
+
+export default page;
