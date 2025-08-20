@@ -36,10 +36,10 @@ jobs:
       - name: Deploy to remote server
         uses: appleboy/ssh-action@v0.1.9
         with:
-          host: ${{ secrets.REMOTE_HOST }}
+          host: ${{ secrets.SERVER_HOST }}
           username: root
-          key: ${{ secrets.REMOTE_SSH_KEY }}
-          port: ${{ secrets.REMOTE_PORT }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
           script: |
             docker stop tango-ui-cw || true
             docker rm tango-ui-cw || true
