@@ -41,4 +41,4 @@ jobs:
             docker stop tango-ui-doc || true
             docker rm tango-ui-doc || true
             docker build -t tango-ui-doc .
-            docker run -d --name tango-ui-doc -p 80:3000 tango-ui-doc
+            docker run -d --name tango-ui-doc -p 80:80 tango-ui-doc
