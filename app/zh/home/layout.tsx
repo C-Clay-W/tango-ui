@@ -118,7 +118,7 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-30 h-10 ${activeIndex === 0 ? "font-bold" : ""}`}
+                className={`w-19 h-10 ${activeIndex === 0 ? "font-bold" : ""}`}
                 onClick={() => handleClick(0)}
               >
                 <Link href="/zh/home/introduction" className={style}>
@@ -126,7 +126,7 @@ export default function HomeLayout({
                 </Link>
               </li>
               <li
-                className={`w-30 h-10 ${activeIndex === 1 ? "font-bold" : ""}`}
+                className={`w-19 h-10 ${activeIndex === 1 ? "font-bold" : ""}`}
                 onClick={() => handleClick(1)}
               >
                 <Link href="/zh/home/installation" className={style}>
@@ -143,11 +143,19 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-55 h-10 ${activeIndex === 18 ? "font-bold" : ""}`}
+                className={`w-43 h-10 ${activeIndex === 29 ? "font-bold" : ""}`}
                 onClick={() => handleClick(29)}
               >
                 <Link href="/zh/home/tangocss" className={style}>
                   Tango Css 样式
+                </Link>
+              </li>
+              <li
+                className={`w-27 h-10 ${activeIndex === 30 ? "font-bold" : ""}`}
+                onClick={() => handleClick(30)}
+              >
+                <Link href="/zh/home/tangocss/mapping" className={style}>
+                  样式映射
                 </Link>
               </li>
             </ul>

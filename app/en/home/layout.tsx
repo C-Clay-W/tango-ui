@@ -147,11 +147,19 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-55 h-10 ${activeIndex === 18 ? "font-bold" : ""}`}
+                className={`w-32 h-10 ${activeIndex === 18 ? "font-bold" : ""}`}
                 onClick={() => handleClick(29)}
               >
                 <Link href="/en/home/tangocss" className={style}>
                   Tango Css
+                </Link>
+              </li>
+              <li
+                className={`w-27 h-10 ${activeIndex === 30 ? "font-bold" : ""}`}
+                onClick={() => handleClick(30)}
+              >
+                <Link href="/en/home/tangocss/mapping" className={style}>
+                  Mapping
                 </Link>
               </li>
             </ul>

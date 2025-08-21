@@ -7,7 +7,16 @@ function Log() {
 
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
-         <div className={BOX_STYLE}>
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2025-08-21</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Improve TangoCSS documentation and add a mapping table between
+            TangoCSS and standard CSS
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2025-08-08</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>

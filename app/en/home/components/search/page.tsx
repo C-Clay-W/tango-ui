@@ -158,6 +158,7 @@ const SearchComponent = () => {
           placeholder="enter your words..."
           onSearch={onSearch}
           btnText="Search"
+          btnStyles={{ letterSpacing:0.5,fontSize:14}}
         />
       </>
     );
