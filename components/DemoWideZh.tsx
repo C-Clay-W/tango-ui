@@ -56,14 +56,14 @@ export default function DemoWide({
       <div className="mb-5">
         <span
           onClick={switchToPreview}
-          className="ml-5 p-2 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-neutral-300"
+          className="ml-5 p-2 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-neutral-300 cursor-pointer"
           ref={previewRef}
         >
           预览
         </span>
         <span
           onClick={switchToCode}
-          className="p-2 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-neutral-300"
+          className="p-2 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-neutral-300 cursor-pointer"
           ref={codeRef}
         >
           代码

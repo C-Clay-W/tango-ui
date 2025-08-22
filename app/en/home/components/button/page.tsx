@@ -226,7 +226,7 @@ const ButtonComponent = () => {
               title="Diasbled"
               imports="Button"
               code={`<Button disabled>Disabled</Button>`}
-              jsx={<Button disabled>disabled</Button>}
+              jsx={<Button disabled>Disabled</Button>}
             />
           </div>
 

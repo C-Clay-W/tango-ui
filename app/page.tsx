@@ -13,7 +13,7 @@ const page = () => {
   return (
     <>
       <div>tangoui</div>
-      <div className="text-amber-500">已接入CICD流水线1</div>
+      <div className="text-amber-500">已接入CICD流水线</div>
 
       <Button onClick={enter}>Enter</Button>
     </>

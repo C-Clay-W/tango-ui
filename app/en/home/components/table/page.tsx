@@ -3,10 +3,15 @@ import React, { useState } from "react";
 import { Button, Table, Space } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoWideEn";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const TableComponent = () => {
   const [activeSection, setActiveSection] = useState("");
   const theme = useCurrentTheme();
+  const codeStyle = theme === "dark" ? atomOneDark : coy;
+
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -296,6 +301,91 @@ const TableComponent = () => {
       default: "-",
     },
   ];
+
+    // cellStyle columns
+    const cellStyleColumnsEN = [
+      {
+        title: "Params",
+        dataIndex: "property",
+        key: "property",
+      },
+      {
+        title: "Discription",
+        dataIndex: "discription",
+        key: "discription",
+      },
+    ];
+  
+    // cellStyle dataSource
+    const cellStyleDataSourceEN = [
+      {
+        key: "1",
+        property: "row",
+        discription: "The entire row data object where the current cell is located (a record in dataSource)",
+      },
+      {
+        key: "2",
+        property: "col",
+        discription:
+          "The column definition object corresponding to the current cell (an item in columns, including title, dataIndex, etc.)",
+      },
+      {
+        key: "3",
+        property: "rowIndex",
+        discription: "The index of the current row (starting from 0)",
+      },
+      {
+        key: "4",
+        property: "colIndex",
+        discription: "The index of the current column (starting from 0)",
+      },
+      {
+        key: "5",
+        property: "rowParity",
+        discription:
+          "The parity status string of the current row, the value is 'even' or 'odd' (calculated internally by rowIndex % 2 in the component)",
+      },
+      {
+        key: "6",
+        property: "colParity",
+        discription:
+          "The parity status string of the current column, the value is 'even' or 'odd' (calculated internally by colIndex % 2 in the component)",
+      },
+    ];
+  
+    // rowStyle columns
+    const rowStyleColumnsEN = [
+      {
+        title: "Params",
+        dataIndex: "property",
+        key: "property",
+      },
+      {
+        title: "Discription",
+        dataIndex: "discription",
+        key: "discription",
+      },
+    ];
+  
+    // rowStyle dataSource
+    const rowStyleDataSourceEN = [
+      {
+        key: "1",
+        property: "row",
+        discription: "The entire row data object where the current cell is located (a record in dataSource)",
+      },
+      {
+        key: "2",
+        property: "rowIndex",
+        discription: "The index of the current row (starting from 0)",
+      },
+      {
+        key: "3",
+        property: "rowParity",
+        discription:
+          "The parity status string of the current row, the value is 'even' or 'odd' (calculated internally by rowIndex % 2 in the component)",
+      },
+    ];
 
   function DefaultDemo() {
     const dataSource = [
@@ -975,9 +1065,141 @@ export function Demo () {
             />
           </div>
 
+          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+            Usage
+          </div>
+          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+            rowStyle
+          </div>
+          <p className="mb-5 dark:text-neutral-300">Grammar</p>
+          <div className="">
+            <SyntaxHighlighter
+              language="jsx"
+              style={codeStyle}
+              className="rounded-xl mb-2"
+            >
+              {`rowStyle = (row, rowIndex, rowParity) => {...}`}
+            </SyntaxHighlighter>
+          </div>
+          <p className="mb-5 mt-5 dark:text-neutral-300">Example</p>
+          <div className="">
+            <SyntaxHighlighter
+              language="jsx"
+              style={codeStyle}
+              className="rounded-xl mb-2"
+            >
+              {`// example 1 (simple):
+<Table
+  dataSource={dataSource}
+  columns={columns}
+  rowStyle={(row, rowIndex, rowParity) =>
+    rowParity === "odd" ? { backgroundColor: "#f9f9f9" } : {}
+  }
+/>
+
+// example 2 (full):
+<Table
+  dataSource={dataSource}
+  columns={columns}
+  rowStyle={(row, rowIndex, rowParity) => {
+    if (rowIndex === 0) {
+      return { fontWeight: "bold" }; // first line bold
+    }
+    if (row.status === "error") {
+      return { backgroundColor: "#ffe6e6" }; // error status lines are marked in red
+    }
+    if (rowParity === "odd") {
+      return { backgroundColor: "#f9f9f9" }; // odd row background color
+    }
+    return {};
+  }}
+/>
+`}
+            </SyntaxHighlighter>
+          </div>
+          <div>
+            <p className="mb-5 mt-5 dark:text-neutral-300">
+            Use the rowStyle property to adjust the style of the row. If you want to update the precise style of each cell, including the style of each row, or more complex requirements such as zebra crossings, highlighting key columns, etc., then use the more powerful cellStyle property.
+            </p>
+          </div>
+          <Table
+            dataSource={rowStyleDataSourceEN}
+            columns={rowStyleColumnsEN}
+            containerStyles={theme === "light" ? {} : { color: "white" }}
+            hoverColor="#a6a6a6"
+          />
+          <div className="text-2xl font-bold mb-5 mt-5 dark:text-neutral-300">
+            cellStyle
+          </div>
+          <p className="mb-5 dark:text-neutral-300">Grammar</p>
+          <div className="">
+            <SyntaxHighlighter
+              language="jsx"
+              style={codeStyle}
+              className="rounded-xl mb-2"
+            >
+              {`cellStyle = (row, col, rowIndex, colIndex, rowParity, colParity) => {...}`}
+            </SyntaxHighlighter>
+          </div>
+          <p className="mb-5 mt-5 dark:text-neutral-300">Example</p>
+          <div className="">
+            <SyntaxHighlighter
+              language="jsx"
+              style={codeStyle}
+              className="rounded-xl mb-2"
+            >
+              {`// example 1 (simple):
+<Table
+  dataSource={dataSource}
+  columns={columns}
+  cellStyle={(row, col, rowIndex, colIndex, rowParity, colParity) =>
+    colParity === "even" ? { color: "blue" } : {}
+  }
+/>
+
+// example 2 (full):
+<Table
+  dataSource={dataSource}
+  columns={columns}
+  cellStyle={(
+    row,        // the data object of the current row
+    col,        // the configuration object for the current column
+    rowIndex,   // current row index
+    colIndex,   // current column index
+    rowParity,  // the parity of the current row
+    colParity   // the parity of the current column
+  ) => {
+    if (rowIndex === 0) return { fontWeight: "bold" }; // first line bold
+    if (colIndex === 0) return { color: "blue" }; // first column text color
+    if (rowParity === "odd") return { backgroundColor: "#f9f9f9" }; // odd row background
+    if (colParity === "even") return { color: "green" }; // even column text color
+    if (row[col.dataIndex] > 100) return { color: "red" }; // greater than 100 marked in red
+    return {};
+  }}
+/>
+`}
+            </SyntaxHighlighter>
+          </div>
+          <div>
+            <p className="mb-5 mt-5 dark:text-neutral-300">
+            Using the cellStyle property, you can precisely control the style of each cell, such as setting the background color or font color, and can customize it as needed. cellStyle takes precedence over rowStyle and will override the default style at the rendering level. If you only want to set the style for an entire row, use the rowStyle property.
+            </p>
+            <p className="mb-5 mt-5 dark:text-neutral-300">
+            <b>Suggestion</b>:<br/>
+              &emsp;&emsp;&emsp;Entire row style: use rowStyle<br/>
+              &emsp;&emsp;&emsp;Cell style: use cellStyle
+            </p>
+          </div>
+          <Table
+            dataSource={cellStyleDataSourceEN}
+            columns={cellStyleColumnsEN}
+            containerStyles={theme === "light" ? {} : { color: "white" }}
+            hoverColor="#a6a6a6"
+          />
+
           {/* props */}
           {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-2xl font-bold mb-5 mt-20 dark:text-neutral-300">
             Props
           </div>
           <div id="table" className="scroll-mt-10">

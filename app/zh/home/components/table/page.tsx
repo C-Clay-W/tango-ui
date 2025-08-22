@@ -1,12 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { Button, Table,Space } from "tango-ui-cw";
+import { Button, Table, Space } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoWideZh";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const TableComponent = () => {
   const [activeSection, setActiveSection] = useState("");
   const theme = useCurrentTheme();
+  const codeStyle = theme === "dark" ? atomOneDark : coy;
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -71,7 +75,6 @@ const TableComponent = () => {
   ];
 
   const dataSourceZh = [
-  
     {
       key: "1",
       property: "dataSource",
@@ -293,6 +296,91 @@ const TableComponent = () => {
       values: "Object",
       description: "当前整行的数据对象",
       default: "-",
+    },
+  ];
+
+  // cellStyle columns
+  const cellStyleColumnsZh = [
+    {
+      title: "参数名",
+      dataIndex: "property",
+      key: "property",
+    },
+    {
+      title: "说明",
+      dataIndex: "discription",
+      key: "discription",
+    },
+  ];
+
+  // cellStyle dataSource
+  const cellStyleDataSourceZh = [
+    {
+      key: "1",
+      property: "row",
+      discription: "当前单元格所在的整行数据对象（dataSource中的一条记录）",
+    },
+    {
+      key: "2",
+      property: "col",
+      discription:
+        "当前单元格对应的列定义对象（columns中的一项，含title、dataIndex等）",
+    },
+    {
+      key: "3",
+      property: "rowIndex",
+      discription: "当前行的索引（从0开始）",
+    },
+    {
+      key: "4",
+      property: "colIndex",
+      discription: "当前列的索引（从0开始）",
+    },
+    {
+      key: "5",
+      property: "rowParity",
+      discription:
+        "当前行的奇偶状态字符串，值为'even'或'odd'（组件内部根据rowIndex % 2计算）",
+    },
+    {
+      key: "6",
+      property: "colParity",
+      discription:
+        "当前列的奇偶状态字符串，值为'even'或'odd'（组件内部根据colIndex % 2计算）",
+    },
+  ];
+
+  // rowStyle columns
+  const rowStyleColumnsZh = [
+    {
+      title: "参数名",
+      dataIndex: "property",
+      key: "property",
+    },
+    {
+      title: "说明",
+      dataIndex: "discription",
+      key: "discription",
+    },
+  ];
+
+  // rowStyle dataSource
+  const rowStyleDataSourceZh = [
+    {
+      key: "1",
+      property: "row",
+      discription: "当前单元格所在的整行数据对象（dataSource中的一条记录）",
+    },
+    {
+      key: "2",
+      property: "rowIndex",
+      discription: "当前行的索引（从0开始）",
+    },
+    {
+      key: "3",
+      property: "rowParity",
+      discription:
+        "当前行的奇偶状态字符串，值为'even'或'odd'（组件内部根据rowIndex % 2计算）",
     },
   ];
 
@@ -860,8 +948,8 @@ export function Demo () {
             />
           </div>
 
-              {/* styles */}
-              <div id="styles" className="scroll-mt-10">
+          {/* styles */}
+          <div id="styles" className="scroll-mt-10">
             <DemoBlock
               title="样式定制"
               imports="Table"
@@ -976,9 +1064,141 @@ export function Demo () {
             />
           </div>
 
+          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+            使用
+          </div>
+          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+            rowStyle
+          </div>
+          <p className="mb-5 dark:text-neutral-300">语法结构</p>
+          <div className="">
+            <SyntaxHighlighter
+              language="jsx"
+              style={codeStyle}
+              className="rounded-xl mb-2"
+            >
+              {`rowStyle = (row, rowIndex, rowParity) => {...}`}
+            </SyntaxHighlighter>
+          </div>
+          <p className="mb-5 mt-5 dark:text-neutral-300">使用示例</p>
+          <div className="">
+            <SyntaxHighlighter
+              language="jsx"
+              style={codeStyle}
+              className="rounded-xl mb-2"
+            >
+              {`// 示例 1（简洁）:
+<Table
+  dataSource={dataSource}
+  columns={columns}
+  rowStyle={(row, rowIndex, rowParity) =>
+    rowParity === "odd" ? { backgroundColor: "#f9f9f9" } : {}
+  }
+/>
+
+// 示例 2（完整）:
+<Table
+  dataSource={dataSource}
+  columns={columns}
+  rowStyle={(row, rowIndex, rowParity) => {
+    if (rowIndex === 0) {
+      return { fontWeight: "bold" }; // 第一行加粗
+    }
+    if (row.status === "error") {
+      return { backgroundColor: "#ffe6e6" }; // 错误状态行标红
+    }
+    if (rowParity === "odd") {
+      return { backgroundColor: "#f9f9f9" }; // 奇数行背景色
+    }
+    return {};
+  }}
+/>
+`}
+            </SyntaxHighlighter>
+          </div>
+          <div>
+            <p className="mb-5 mt-5 dark:text-neutral-300">
+              使用rowStyle属性，可以调整行的样式，如果你想更新精确设置每个单元格的样式，包括每行的样式，或更复杂的需求如斑马线、重点列高亮等，那么请使用更强大的cellStyle属性。
+            </p>
+          </div>
+          <Table
+            dataSource={rowStyleDataSourceZh}
+            columns={rowStyleColumnsZh}
+            containerStyles={theme === "light" ? {} : { color: "white" }}
+            hoverColor="#a6a6a6"
+          />
+          <div className="text-2xl font-bold mb-5 mt-5 dark:text-neutral-300">
+            cellStyle
+          </div>
+          <p className="mb-5 dark:text-neutral-300">语法结构</p>
+          <div className="">
+            <SyntaxHighlighter
+              language="jsx"
+              style={codeStyle}
+              className="rounded-xl mb-2"
+            >
+              {`cellStyle = (row, col, rowIndex, colIndex, rowParity, colParity) => {...}`}
+            </SyntaxHighlighter>
+          </div>
+          <p className="mb-5 mt-5 dark:text-neutral-300">使用示例</p>
+          <div className="">
+            <SyntaxHighlighter
+              language="jsx"
+              style={codeStyle}
+              className="rounded-xl mb-2"
+            >
+              {`// 示例 1（简洁）:
+<Table
+  dataSource={dataSource}
+  columns={columns}
+  cellStyle={(row, col, rowIndex, colIndex, rowParity, colParity) =>
+    colParity === "even" ? { color: "blue" } : {}
+  }
+/>
+
+// 示例 2（完整）:
+<Table
+  dataSource={dataSource}
+  columns={columns}
+  cellStyle={(
+    row,        // 当前行的数据对象
+    col,        // 当前列的配置对象
+    rowIndex,   // 当前行索引
+    colIndex,   // 当前列索引
+    rowParity,  // 当前行的奇偶性
+    colParity   // 当前列的奇偶性
+  ) => {
+    if (rowIndex === 0) return { fontWeight: "bold" }; // 第一行加粗
+    if (colIndex === 0) return { color: "blue" }; // 第一列文字颜色
+    if (rowParity === "odd") return { backgroundColor: "#f9f9f9" }; // 奇数行背景
+    if (colParity === "even") return { color: "green" }; // 偶数列文字颜色
+    if (row[col.dataIndex] > 100) return { color: "red" }; // 大于100标红
+    return {};
+  }}
+/>
+`}
+            </SyntaxHighlighter>
+          </div>
+          <div>
+            <p className="mb-5 mt-5 dark:text-neutral-300">
+              使用cellStyle属性，可以精确控制每个单元格的样式，如设置背景色或字体颜色等，可以根据需要进行个性化设置。cellStyle的优先级要高于rowStyle，渲染层面会覆盖掉默认样式，如果你只想设置一整行，那么请使用rowStyle属性。
+            </p>
+            <p className="mb-5 mt-5 dark:text-neutral-300">
+              建议：<br/>
+              &emsp;&emsp;&emsp;整行样式：使用rowStyle<br/>
+              &emsp;&emsp;&emsp;单元格样式：使用cellStyle
+            </p>
+          </div>
+          <Table
+            dataSource={cellStyleDataSourceZh}
+            columns={cellStyleColumnsZh}
+            containerStyles={theme === "light" ? {} : { color: "white" }}
+            hoverColor="#a6a6a6"
+          />
+
           {/* props */}
           {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-2xl font-bold mb-5 dark:text-neutral-300 mt-20">
             属性
           </div>
           <div id="table" className="scroll-mt-10">
