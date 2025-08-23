@@ -151,7 +151,7 @@ const DateComponent = () => {
           sx={{
             size: 30,
             fwb: true,
-            backgroundColor:oklch(70.4% .191 22.216)",
+            backgroundColor:"oklch(70.4% .191 22.216)",
             WebkitBackgroundClip: "text",
             c: "transparent",
           }}

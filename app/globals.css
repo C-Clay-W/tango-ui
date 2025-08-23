@@ -27,11 +27,11 @@ body {
 }
 
 .hide-scrollbar {
-  scrollbar-width: none !important; /* Firefox */
-  -ms-overflow-style: none !important; /* IE 10+ */
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important; 
 }
 .hide-scrollbar::-webkit-scrollbar {
-  display: none !important; /* Chrome/Safari */
+  display: none !important; 
 }
 @font-face {
   font-family: "Roboto Mono";
@@ -52,5 +52,19 @@ body {
 html, body {
   font-family: "Roboto Mono", monospace;
   min-width: 880px !important;
+  background-color: black !important;
 }
 
+.darkVeil canvas{
+  height: 100vh !important;
+}
+
+.codeArea pre{
+  background: none !important;
+  line-height: 5px  !important;
+  font-weight: 100  !important;
+}
+.codeArea span{
+  font-size: 14px !important;
+  line-height: 5px !important;;
+}
