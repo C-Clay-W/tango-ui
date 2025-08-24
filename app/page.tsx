@@ -11,13 +11,27 @@ import {
   Date,
 } from "tango-ui-cw";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import LogoWhite from "@/assets/logowhite.png";
-import SplitText from "@/components/ReactBits/SplitText";
-import DarkVeil from "@/components/ReactBits/DarkVeil";
-import TiltedCard from "@/components/ReactBits/TiltedCard";
-import SpotlightCard from "@/components/ReactBits/SpotlightCard";
-import Particles from "@/components/ReactBits/Particles";
-import GridMotion from "@/components/ReactBits/GridMotion";
+const SplitText = dynamic(() => import("@/components/ReactBits/SplitText"), {
+  ssr: false,
+});
+const DarkVeil = dynamic(() => import("@/components/ReactBits/DarkVeil"), {
+  ssr: false,
+});
+const TiltedCard = dynamic(() => import("@/components/ReactBits/TiltedCard"), {
+  ssr: false,
+});
+const SpotlightCard = dynamic(
+  () => import("@/components/ReactBits/SpotlightCard"),
+  { ssr: false }
+);
+const Particles = dynamic(() => import("@/components/ReactBits/Particles"), {
+  ssr: false,
+});
+const GridMotion = dynamic(() => import("@/components/ReactBits/GridMotion"), {
+  ssr: false,
+});
 
 import {
   motion,
