@@ -63,7 +63,7 @@ const Page = () => {
   const splitOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return; // SSR 阶段直接跳过
+    if (typeof window === "undefined") return; // SSR 阶段直接跳过。
 
     const handleScroll = () => {
       setVisible(false);
