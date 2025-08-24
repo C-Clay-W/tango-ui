@@ -17,6 +17,8 @@ import DarkVeil from "@/components/ReactBits/DarkVeil";
 import TiltedCard from "@/components/ReactBits/TiltedCard";
 import SpotlightCard from "@/components/ReactBits/SpotlightCard";
 import Particles from "@/components/ReactBits/Particles";
+import GridMotion from "@/components/ReactBits/GridMotion";
+
 
 import {
   motion,
@@ -107,6 +109,8 @@ const Page = () => {
   const s1 = useRef<HTMLDivElement>(null);
   const s2 = useRef<HTMLDivElement>(null);
   const s3 = useRef<HTMLDivElement>(null);
+  const s4 = useRef<HTMLDivElement>(null);
+  const s5 = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress: p1 } = useScroll({
     target: s1,
@@ -120,21 +124,86 @@ const Page = () => {
     target: s3,
     offset: ["start 70%", "end 30%"],
   });
+  const { scrollYProgress: p4 } = useScroll({
+    target: s4,
+    offset: ["start 70%", "end 30%"],
+  });
+  const { scrollYProgress: p5 } = useScroll({
+    target: s5,
+    offset: ["start 70%", "end 30%"],
+  });
 
   const y1 = useTransform(p1, [0, 0.4], ["8%", "0%"]);
-  const scale1 = useTransform(p1, [0, 1], [0.97, 1]);
+  const scale1 = useTransform(p1, [0, 1], [0.8, 1.0]);
   const opacity1 = useTransform(p1, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   const y2 = useTransform(p2, [0, 0.4], ["8%", "0%"]);
-  const scale2 = useTransform(p2, [0, 1], [0.97, 1]);
+  const scale2 = useTransform(p2, [0, 1], [0.8, 1.0]);
   const opacity2 = useTransform(p2, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   const y3 = useTransform(p3, [0, 0.4], ["8%", "0%"]);
-  const scale3 = useTransform(p3, [0, 1], [0.97, 1]);
+  const scale3 = useTransform(p3, [0, 1], [0.8, 1.0]);
   const opacity3 = useTransform(p3, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
+  const y4 = useTransform(p4, [0, 0.4], ["8%", "0%"]);
+  const scale4 = useTransform(p4, [0, 1], [0.8, 1.0]);
+  const opacity4 = useTransform(p4, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  const y5 = useTransform(p5, [0, 0.4], ["8%", "0%"]);
+  const scale5 = useTransform(p5, [0, 1], [0.8, 1.0]);
+  const opacity5 = useTransform(p5, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  const items = [
+    "",
+    <div key="jsx-item-1">
+      Gmail: <br />
+      poochaini@gmail.com
+    </div>,
+    "",
+    "",
+    <div key="jsx-item-2">
+      Gmail: <br />
+      poochaini@gmail.com
+    </div>,
+    "",
+    <div key="jsx-item-2">
+      Gmail: <br />
+      poochaini@gmail.com
+    </div>,
+    "",
+    "",
+    <div key="jsx-item-2">
+      Gmail: <br />
+      poochaini@gmail.com
+    </div>,
+
+    <div key="jsx-item-2">
+      <div className="rounded-2xl overflow-hidden">
+        <img src="/qq.jpg" alt="" />
+      </div>
+    </div>,
+
+    <div key="jsx-item-3">
+      <div className="rounded-2xl overflow-hidden">
+        <img src="/wechat.jpg" alt="" />
+      </div>
+    </div>,
+
+    <div key="jsx-item-2">
+      Instagram: <br />
+      @c.clay.c
+    </div>,
+    "",
+    <div key="jsx-item-4">
+      Gmail: <br />
+      poochaini@gmail.com
+    </div>,
+    "",
+    "",
+  ];
+
   return (
-    <div className="flex flex-col min-h-screen ">
+    <div className="flex flex-col min-h-screen">
       {/* 顶部导航栏 */}
       <header className="h-13 min-w-[800px] flex items-center justify-between px-6 fixed w-full z-[999]">
         <div className="flex items-center gap-7">
@@ -220,6 +289,12 @@ const Page = () => {
             utility hooks to help you ship new features faster. Start with Tango
             UI, our fully-loaded component library, or bring your own design
             system to our production-ready components.
+            <a
+              href="https://github.com/C-Clay-W/tango-ui"
+              className="underline"
+            >
+              @ClayW
+            </a>
           </p>
         </motion.div>
 
@@ -562,8 +637,8 @@ const columns = [
                 </div>
                 <div className="w-full flex items-center justify-center space-x-15 mb-5">
                   <SpotlightCard
-                    className="custom-spotlight-card w-100 h-30 flex items-center justify-center "
-                    spotlightColor="rgba(0, 229, 255, 0.2)"
+                    className="custom-spotlight-card w-100 h-30 flex items-center justify-center !bg-[#fff0] border !border-[#bab8b97d]"
+                    spotlightColor="rgba(158, 239, 205, 0.9)"
                   >
                     <p className="text-bold absolute top-4 left-4 text-sm">
                       Material Button
@@ -571,8 +646,8 @@ const columns = [
                     <MaterialButton>Click Me</MaterialButton>
                   </SpotlightCard>
                   <SpotlightCard
-                    className="custom-spotlight-card w-100 h-30 flex items-center justify-center "
-                    spotlightColor="rgba(0, 229, 255, 0.2)"
+                    className="custom-spotlight-card w-100 h-30 flex items-center justify-center !bg-[#fff0] border !border-[#bab8b97d]"
+                    spotlightColor="rgba(158, 239, 205, 0.9)"
                   >
                     <p className="text-bold absolute top-4 left-4 text-sm">
                       Material Input
@@ -588,8 +663,8 @@ const columns = [
                 </div>
                 <div className="w-full flex items-center justify-center space-x-15">
                   <SpotlightCard
-                    className="custom-spotlight-card w-100 h-30 flex items-center justify-center "
-                    spotlightColor="rgba(0, 229, 255, 0.2)"
+                    className="custom-spotlight-card w-100 h-30 flex items-center justify-center !bg-[#fff0] border !border-[#bab8b97d]"
+                    spotlightColor="rgba(158, 239, 205, 0.9)"
                   >
                     <p className="text-bold absolute top-4 left-4 text-sm">
                       Tango Date
@@ -607,8 +682,8 @@ const columns = [
                     />
                   </SpotlightCard>
                   <SpotlightCard
-                    className="custom-spotlight-card w-100 h-30 flex items-center justify-center "
-                    spotlightColor="rgba(0, 229, 255, 0.2)"
+                    className="custom-spotlight-card w-100 h-30 flex items-center justify-center !bg-[#fff0] border !border-[#bab8b97d]"
+                    spotlightColor="rgba(158, 239, 205, 0.9)"
                   >
                     <p className="text-bold absolute top-4 left-4 text-sm">
                       Tango Notice
@@ -649,6 +724,147 @@ const columns = [
                       <span className="text-[16px] ml-2">Success!</span>
                     </div>
                   </SpotlightCard>
+                </div>
+              </Particles>
+            </motion.div>
+          </section>
+          {/* Box 4 */}
+          <section ref={s4} className="relative h-[160vh]">
+            <motion.div
+              style={{ y: y4, scale: scale4, opacity: opacity4 }}
+              className="sticky top-0 h-screen flex items-center justify-center text-white text-5xl font-bold"
+            >
+              <Particles
+                particleColors={["#ffffff", "#ffffff"]}
+                particleCount={200}
+                particleSpread={10}
+                speed={0.1}
+                particleBaseSize={100}
+                moveParticlesOnHover={true}
+                alphaParticles={false}
+                disableRotation={false}
+                className="!w-[80%] !h-[60%] rounded-2xl flex items-center justify-center  overflow-hidden"
+                style={{ display: "block" }}
+              >
+                <div className="w-full p-12 text-center">
+                  <span className="text-[#638efb] text-bold text-sm">
+                    Many npm libraries witch you can use
+                  </span>
+                  {/* 副标题 */}
+                  <p className="mt-6 text-[22px] sm:text-[26px] md:text-[30px] text-neutral-200 text-center">
+                    <span className="text-[#638efb] text-bold">You </span>
+                    make this possible
+                  </p>
+                </div>
+                <div className="w-full flex items-center justify-center space-x-10 mb-5">
+                  <SpotlightCard
+                    className="custom-spotlight-card w-100 h-60  !bg-[#fff0] border !border-[#bab8b97d]"
+                    spotlightColor="rgba(158, 239, 205, 0.9)"
+                  >
+                    <p className="text-bold text-center text-2xl text-[#638efb] mb-2">
+                      tango-store-cw
+                    </p>
+                    <p className="text-neutral-300 text-sm text-center">
+                      npm install tango-store-cw
+                    </p>
+
+                    <p className="text-[gray] text-[14px] text-center mt-2">
+                      A minimalist state management library developed based on
+                      React & Next. The package size is only 7kb. You can use it
+                      in your project with confidence without any performance
+                      loss!
+                    </p>
+                  </SpotlightCard>
+                  <SpotlightCard
+                    className="custom-spotlight-card w-100 h-60  !bg-[#fff0] border !border-[#bab8b97d]"
+                    spotlightColor="rgba(158, 239, 205, 0.9)"
+                  >
+                    <p className="text-bold text-center text-2xl text-[#638efb] mb-2">
+                      tango-watermark
+                    </p>
+                    <p className="text-neutral-300 text-sm text-center">
+                      npm install tango-watermark
+                    </p>
+
+                    <p className="text-[gray] text-[14px] text-center mt-2">
+                      useInkify hook can help you quickly realize the need to
+                      add watermarks on images,and you can use this hook to
+                      easily modify watermark parameters, such as multi-line
+                      watermarks, deflection angles, and transparency.
+                    </p>
+                  </SpotlightCard>
+                  <SpotlightCard
+                    className="custom-spotlight-card w-100 h-60  !bg-[#fff0] border !border-[#bab8b97d]"
+                    spotlightColor="rgba(158, 239, 205, 0.9)"
+                  >
+                    <p className="text-bold text-center text-2xl text-[#638efb] mb-2">
+                      tango-pdf-cw
+                    </p>
+                    <p className="text-neutral-300 text-sm text-center">
+                      npm install tango-pdf-cw
+                    </p>
+
+                    <p className="text-[gray] text-[14px] text-center mt-2">
+                      A media preview library for permission control. The
+                      usePreview hook function is used for the safe display of
+                      restricted resources. It determines whether access to
+                      resources is allowed by detecting the user role.
+                    </p>
+                  </SpotlightCard>
+                  <SpotlightCard
+                    className="custom-spotlight-card w-100 h-60  !bg-[#fff0] border !border-[#bab8b97d]"
+                    spotlightColor="rgba(158, 239, 205, 0.9)"
+                  >
+                    <p className="text-bold text-center text-2xl text-[#638efb] mb-2">
+                      tango-excel-cw
+                    </p>
+                    <p className="text-neutral-300 text-sm text-center">
+                      npm install tango-excel-cw
+                    </p>
+
+                    <p className="text-[gray] text-[14px] text-center mt-2">
+                      A library for exporting or generating Excel files using a
+                      useExcelExporter hook function. The config object allows
+                      you to quickly configure the relevant information for
+                      Excel export.
+                    </p>
+                  </SpotlightCard>
+                </div>
+              </Particles>
+            </motion.div>
+          </section>
+
+          {/* Box 5 */}
+          <section ref={s5} className="relative h-[160vh]">
+            <motion.div
+              style={{ y: y5, scale: scale5, opacity: opacity5 }}
+              className="sticky top-0 h-screen flex items-center justify-center text-white text-5xl font-bold"
+            >
+              <Particles
+                particleColors={["#ffffff", "#ffffff"]}
+                particleCount={200}
+                particleSpread={10}
+                speed={0.1}
+                particleBaseSize={100}
+                moveParticlesOnHover={true}
+                alphaParticles={false}
+                disableRotation={false}
+                className="!w-[80%] !h-[60%] rounded-2xl flex items-center justify-center  overflow-hidden"
+                style={{ display: "block" }}
+              >
+                <div className="w-full p-12 text-center">
+                  {/* 标题 */}
+                  <p className="mt-6 text-[22px] sm:text-[26px] md:text-[30px] text-neutral-200 text-center">
+                    <span className="text-[#638efb] text-bold">Contact </span>
+                    Me
+                  </p>
+                  <p
+                    className="w-[20%] mt-4 mx-auto"
+                    style={{ boxShadow: "-1px 6px 7px 3px #9a9a9a" }}
+                  ></p>
+                </div>
+                <div className="w-full flex items-center justify-center space-x-10 mb-5">
+                  <GridMotion items={items} />
                 </div>
               </Particles>
             </motion.div>
