@@ -203,7 +203,7 @@ const Page = () => {
 
     <div key="jsx-item-2">
       Instagram: <br />
-      @c.clay.c
+      @c.clay.w
     </div>,
     "",
     <div key="jsx-item-4">
@@ -252,7 +252,7 @@ const Page = () => {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <span className="bg-gray-200 text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
+          <span className="text-gray-500 px-[6px] py-[1px] border rounded">
             MVP Version: <span className="tracking-[-2px]">0.4.3</span> beta
           </span>
         </div>
@@ -461,15 +461,15 @@ const columns = [
                     for you and your users
                   </p>
                 </div>
-                <div className="w-full flex items-center justify-center space-x-15">
+                <div className="w-full flex items-center justify-around space-x-15">
                   <TiltedCard
                     imageSrc="/uibg.png"
                     altText="Kendrick Lamar - GNX Album Cover"
                     captionText="永恒美学"
-                    containerHeight="250px"
-                    containerWidth="250px"
-                    imageHeight="250px"
-                    imageWidth="250px"
+                    containerHeight="15vw"
+                    containerWidth="15vw"
+                    imageHeight="15vw"
+                    imageWidth="15vw"
                     rotateAmplitude={20}
                     scaleOnHover={1.2}
                     showMobileWarning={false}
@@ -488,14 +488,15 @@ const columns = [
                             height={20}
                           />
                         </p>
-
-                        <p className="tilted-card-demo-text text-[20px] p-8">
-                          Timeless aesthetics
-                        </p>
-                        <p className="text-[14px] px-8 text-neutral-300 -mt-2">
-                          Build beautiful UIs with ease. Start with Tango UI, or
-                          create your own sophisticated theme.
-                        </p>
+                        <div className="w-[15vw] h-[11vw] lg:h-[10vw] xl:h-[11vw] overflow-hidden">
+                          <p className="tilted-card-demo-text text-xs lg:text-sm xl:text-xl 2xl:text-2xl p-8">
+                            Timeless aesthetics
+                          </p>
+                          <p className="text-xs px-8 text-neutral-300 -mt-7 xl:-mt-5 2xl:-mt-3 2xl:text-sm">
+                            Build beautiful UIs with ease. Start with Tango UI,
+                            or create your own sophisticated theme.
+                          </p>
+                        </div>
                       </>
                     }
                   />
@@ -503,10 +504,10 @@ const columns = [
                     imageSrc="/uibg.png"
                     altText="Kendrick Lamar - GNX Album Cover"
                     captionText="直观的定制"
-                    containerHeight="250px"
-                    containerWidth="250px"
-                    imageHeight="250px"
-                    imageWidth="250px"
+                    containerHeight="15vw"
+                    containerWidth="15vw"
+                    imageHeight="15vw"
+                    imageWidth="15vw"
                     rotateAmplitude={20}
                     scaleOnHover={1.2}
                     showMobileWarning={false}
@@ -525,15 +526,16 @@ const columns = [
                             height={20}
                           />
                         </p>
-
-                        <p className="tilted-card-demo-text text-[20px] p-8">
-                          Intuitive customization
-                        </p>
-                        <p className="text-[14px] px-8 text-neutral-300 -mt-2">
-                          Our components are as flexible as they are powerful.
-                          You always have full control over how they look and
-                          behave.
-                        </p>
+                        <div className="w-[15vw] h-[11vw] lg:h-[10vw] xl:h-[12vw] overflow-hidden">
+                          <p className="tilted-card-demo-text text-xs lg:text-sm xl:text-xl 2xl:text-2xl p-8">
+                            Intuitive customization
+                          </p>
+                          <p className="text-xs px-8 text-neutral-300 -mt-7 xl:-mt-5 2xl:-mt-3 2xl:text-sm">
+                            Our components are as flexible as they are powerful.
+                            You always have full control over how they look and
+                            behave.
+                          </p>
+                        </div>
                       </>
                     }
                   />
@@ -541,10 +543,10 @@ const columns = [
                     imageSrc="/uibg.png"
                     altText="Kendrick Lamar - GNX Album Cover"
                     captionText="'0'依赖"
-                    containerHeight="250px"
-                    containerWidth="250px"
-                    imageHeight="250px"
-                    imageWidth="250px"
+                    containerHeight="15vw"
+                    containerWidth="15vw"
+                    imageHeight="15vw"
+                    imageWidth="15vw"
                     rotateAmplitude={20}
                     scaleOnHover={1.2}
                     showMobileWarning={false}
@@ -564,14 +566,16 @@ const columns = [
                           />
                         </p>
 
-                        <p className="tilted-card-demo-text text-[20px] p-8">
-                          Zero dependencies
-                        </p>
-                        <p className="text-[14px] px-8 text-neutral-300 -mt-2">
-                          A lightweight UI component library that has no
-                          third-party dependencies and can be used
-                          independently.
-                        </p>
+                        <div className="w-[15vw] h-[11vw] lg:h-[10vw] xl:h-[11vw] overflow-hidden">
+                          <p className="tilted-card-demo-text text-xs lg:text-sm xl:text-xl 2xl:text-2xl p-8">
+                            Zero dependencies
+                          </p>
+                          <p className="text-xs px-8 text-neutral-300 -mt-7 xl:-mt-5 2xl:-mt-3 2xl:text-sm">
+                            A lightweight UI component library that has no
+                            third-party dependencies and can be used
+                            independently.
+                          </p>
+                        </div>
                       </>
                     }
                   />
@@ -579,10 +583,10 @@ const columns = [
                     imageSrc="/uibg.png"
                     altText="Kendrick Lamar - GNX Album Cover"
                     captionText="可访问性"
-                    containerHeight="250px"
-                    containerWidth="250px"
-                    imageHeight="250px"
-                    imageWidth="250px"
+                    containerHeight="15vw"
+                    containerWidth="15vw"
+                    imageHeight="15vw"
+                    imageWidth="15vw"
                     rotateAmplitude={20}
                     scaleOnHover={1.2}
                     showMobileWarning={false}
@@ -602,14 +606,16 @@ const columns = [
                           />
                         </p>
 
-                        <p className="tilted-card-demo-text text-[20px] p-8">
-                          Dedicated to accessibility
-                        </p>
-                        <p className="text-[14px] px-8 text-neutral-300 -mt-2">
-                          We believe in building for everyone. That's why
-                          accessibility is a high priority with every new
-                          feature we ship.
-                        </p>
+                        <div className="w-[15vw] h-[11vw] lg:h-[10vw] xl:h-[12vw] overflow-hidden">
+                          <p className="tilted-card-demo-text text-xs lg:text-sm xl:text-xl 2xl:text-2xl p-8">
+                            Dedicated to accessibility
+                          </p>
+                          <p className="text-xs px-8 text-neutral-300 -mt-7 xl:-mt-5 2xl:-mt-3 2xl:text-sm">
+                            We believe in building for everyone. That's why
+                            accessibility is a high priority with every new
+                            feature we ship.
+                          </p>
+                        </div>
                       </>
                     }
                   />
@@ -647,7 +653,7 @@ const columns = [
                     </span>
                   </p>
                 </div>
-                <div className="w-full flex items-center justify-center space-x-15 mb-5">
+                <div className="w-full flex items-center justify-center space-x-15 mb-10">
                   <SpotlightCard
                     className="custom-spotlight-card w-100 h-30 flex items-center justify-center !bg-[#fff0] border !border-[#bab8b97d]"
                     spotlightColor="rgba(158, 239, 205, 0.9)"
@@ -845,7 +851,6 @@ const columns = [
               </Particles>
             </motion.div>
           </section>
-
           {/* Box 5 */}
           <section ref={s5} className="relative h-[160vh]">
             <motion.div
