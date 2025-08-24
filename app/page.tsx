@@ -19,7 +19,6 @@ import SpotlightCard from "@/components/ReactBits/SpotlightCard";
 import Particles from "@/components/ReactBits/Particles";
 import GridMotion from "@/components/ReactBits/GridMotion";
 
-
 import {
   motion,
   useScroll,
@@ -49,10 +48,9 @@ const Page = () => {
   const splitY = useTransform(scrollYProgress, [0, 0.15], ["0%", "-200%"]);
   const splitOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
-  // 生成多个 box
-  const boxes = Array.from({ length: 5 }, (_, i) => i);
-
   useEffect(() => {
+    if (typeof window === "undefined") return; // SSR 阶段直接跳过
+
     const handleScroll = () => {
       setVisible(false);
       if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
