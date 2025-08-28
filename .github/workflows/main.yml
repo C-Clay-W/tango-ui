@@ -36,9 +36,11 @@ jobs:
           port: 22
           script: |
             cd /root/tango-ui
-            git reset --hard
-            git pull origin main
+            git fetch --all
+            git checkout main
+            git reset --hard origin/main
             docker stop tango-ui-doc || true
             docker rm tango-ui-doc || true
-            docker build -t tango-ui-doc .
+            docker build --no-cache -t tango-ui-doc .
             docker run -d --name tango-ui-doc -p 80:80 tango-ui-doc
+
