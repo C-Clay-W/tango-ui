@@ -44,7 +44,6 @@ import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const Page = () => {
   const router = useRouter();
-  const [isDark, setIsDark] = useState(false);
   const [visible, setVisible] = useState(true);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -221,39 +220,39 @@ const Page = () => {
         <div className="flex items-center gap-7">
           <Image src={LogoWhite} alt="Logo" width={26} height={26} />
           <span
-            className="relative text-xl font-bold ml-[-5px] mr-3 text-black dark:text-neutral-300 cursor-pointer"
+            className="relative text-xl font-bold ml-[-5px] mr-3 text-neutral-300 cursor-pointer"
             onClick={() => router.push("/")}
           >
             Tango UI
           </span>
           <Link
             href="/en/home/components/button"
-            className="text-black dark:text-neutral-300"
+            className="text-neutral-300"
           >
             Components
           </Link>
           <Link
             href="/en/home/store"
-            className="text-black dark:text-neutral-300"
+            className="text-neutral-300"
           >
             Tango Store
           </Link>
           <Link
             href="/en/home/tools/watermark"
-            className="text-black dark:text-neutral-300"
+            className="text-neutral-300"
           >
             Tools
           </Link>
           <Link
             href="/en/home/log"
-            className="text-black dark:text-neutral-300"
+            className="text-neutral-300"
           >
             Update Log
           </Link>
         </div>
         <div className="flex items-center gap-4">
           <span className="text-gray-500 px-[6px] py-[1px] border rounded">
-            MVP Version: <span className="tracking-[-2px]">0.4.3</span> beta
+            MVP Version: <span className="tracking-[-2px]">0.4.8</span> beta
           </span>
         </div>
       </header>

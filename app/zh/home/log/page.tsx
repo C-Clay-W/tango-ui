@@ -8,6 +8,22 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2025-08-28</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>Tooltip组件新增左侧气泡</li>
+
+          <li className={CONTENT_STYLE}>Notice组件新增Material Design风格</li>
+
+          <li className={CONTENT_STYLE}>Table组件新增暂无数据显示</li>
+          <li className={CONTENT_STYLE}>
+            修复Modal组件和Drawer组件按钮样式及文字优先级问题
+          </li>
+          <li className={CONTENT_STYLE}>
+            修复Modal组件和Drawer组件蒙版点击maskClosable属性作用域问题
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2025-08-24</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>完善封面页</li>

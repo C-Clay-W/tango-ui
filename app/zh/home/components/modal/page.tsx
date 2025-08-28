@@ -180,7 +180,6 @@ const ModalComponent = () => {
           显示弹窗
         </Button>
         <Modal title="自定义标题" open={isShowModal} onClose={closeModal}
-        headerStyles={{ color: "black" }}
         btnStyles={{
           cancel: { color: "black", backgroundColor: "white" },
           ok: { color: "white", backgroundColor: "black" },

@@ -193,14 +193,9 @@ const DrawerComponent = () => {
           title="自定义标题"
           open={isShowDrawer}
           onClose={closeDrawer}
-          headerStyles={{ color: "black" }}
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
           }}
-          footerButtons={[
-            { key: "cancel", text: "取消", onClick: closeDrawer },
-            { key: "ok", text: "确定", onClick: closeDrawer },
-          ]}
         >
           <p className="dark:text-black">这是抽屉的内容区域...</p>
           <p className="dark:text-black">这是抽屉的内容区域...</p>
@@ -244,14 +239,9 @@ const DrawerComponent = () => {
           open={drawerState.visible}
           onClose={closeDrawer}
           type={drawerState.type}
-          headerStyles={{ color: "black" }}
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
           }}
-          footerButtons={[
-            { key: "cancel", text: "取消", onClick: closeDrawer },
-            { key: "ok", text: "确定", onClick: closeDrawer },
-          ]}
         >
           <p className="dark:text-black">这是抽屉的内容区域...</p>
           <p className="dark:text-black">这是抽屉的内容区域...</p>
@@ -353,10 +343,6 @@ export function Demo () {
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
           }}
-          footerButtons={[
-          { key: "cancel", text: "取消", onClick: closeDrawer },
-          { key: "ok", text: "确定", onClick: closeDrawer },
-        ]}
         >
           <p className="dark:text-black">这是抽屉的内容区域...</p>
           <p className="dark:text-black">这是抽屉的内容区域...</p>
@@ -417,15 +403,14 @@ export function Demo () {
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
           }}
-          footerButtons={[
-            { key: "cancel", text: "取消", onClick: closeDrawer },
-            { key: "ok", text: "确定", onClick: closeDrawer },
-          ]}
         >
           <p className="dark:text-black">这是抽屉的内容区域...</p>
           <p className="dark:text-black">这是抽屉的内容区域...</p>
           <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="font-bold mt-5 dark:text-black">当前为 {directions.find(d => d.type === drawerState.type)?.label} 抽屉.</p>
+          <p className="font-bold mt-5 dark:text-black">
+            当前为{directions.find((d) => d.type === drawerState.type)?.label}
+            抽屉。
+          </p>
         </Drawer>
       </Space>
     );

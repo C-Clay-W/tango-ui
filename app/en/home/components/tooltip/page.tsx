@@ -13,8 +13,6 @@ const TooltipComponent = () => {
     { id: "default", label: "Default" },
     { id: "direction", label: "Direction" },
     { id: "color", label: "Color" },
-
-    
   ];
 
   const sections2 = [{ id: "props", label: "Universal Props" }];
@@ -61,7 +59,6 @@ const TooltipComponent = () => {
       key: "default",
     },
     { title: "Version", dataIndex: "version", key: "version" },
-
   ];
 
   const dataSource = [
@@ -69,11 +66,11 @@ const TooltipComponent = () => {
       key: "1",
       property: "placement",
       type: "string",
-      values: "top | bottom | right",
-      description: "Provides three positioning options: top, bottom, and right",
+      values: "top | bottom | left | right",
+      description:
+        "Provides three positioning options: top, bottom, left and right",
       default: "top",
       version: "-",
-
     },
     {
       key: "2",
@@ -83,7 +80,6 @@ const TooltipComponent = () => {
       description: "Text content displayed within the Tooltip",
       default: "-",
       version: "-",
-
     },
     {
       key: "3",
@@ -93,16 +89,16 @@ const TooltipComponent = () => {
       description: "Custom class name for the Tooltip",
       default: "-",
       version: "0.3.2",
-
     },
-  
   ];
 
   return (
     <>
       <div className="flex w-full">
         <div className="w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">Tooltip</div>
+          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">
+            Tooltip
+          </div>
           <div className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw] dark:text-neutral-300">
             A popup that displays information related to an element when the
             element receives keyboard focus or the mouse hovers over it.
@@ -140,6 +136,9 @@ const TooltipComponent = () => {
     </Tooltip>`}
               jsx={
                 <div className="!flex !flex-col !space-y-2 !items-center">
+                  <Tooltip tooltipText="Here is a left tip" placement="left">
+                    <Button>left</Button>
+                  </Tooltip>
                   <Tooltip tooltipText="Here is a right tip" placement="right">
                     <Button>right</Button>
                   </Tooltip>
@@ -186,12 +185,19 @@ const TooltipComponent = () => {
 
           {/* props */}
           {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">Props</div>
+          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+            Props
+          </div>
           <div id="props" className="scroll-mt-10">
             <div className="mb-5 dark:text-neutral-300">Universal Props</div>
           </div>
 
-          <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+          <Table
+            dataSource={dataSource}
+            columns={columns}
+            containerStyles={theme === "light" ? {} : { color: "white" }}
+            hoverColor="#a6a6a6"
+          />
           {/* </div> */}
         </div>
 
@@ -200,7 +206,9 @@ const TooltipComponent = () => {
           <div className="text-gray-400 dark:text-gray-400 text-sm mb-3">
             On This Page
           </div>
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300">Tooltip</div>
+          <div className="text-sm mb-3 font-bold  dark:text-neutral-300">
+            Tooltip
+          </div>
 
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             {sections.map(({ id, label }) => (
@@ -213,7 +221,9 @@ const TooltipComponent = () => {
                       : "hover:text-black dark:hover:text-white"
                   }`}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">-</span>
+                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                    -
+                  </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
                     {label}
                   </span>
@@ -236,7 +246,9 @@ const TooltipComponent = () => {
                       : "hover:text-black dark:hover:text-white"
                   }`}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">-</span>
+                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                    -
+                  </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
                     {label}
                   </span>

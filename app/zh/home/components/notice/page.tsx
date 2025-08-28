@@ -13,6 +13,8 @@ const NoticeComponent = () => {
     { id: "success", label: "成功" },
     { id: "warn", label: "警告" },
     { id: "fail", label: "错误" },
+    { id: "md", label: "Material Design" },
+
   ];
 
   const sections2 = [{ id: "props", label: "通用属性" }];
@@ -33,22 +35,33 @@ const NoticeComponent = () => {
   };
 
   const dataSource = [
+
     {
       key: '1',
-      property: 'type',
-      type: 'string',
-      values: 'success | fail | caution',
-      description: '提供三种通知类型：成功、失败、警告',
-      defaultValue: '-'
-    },
-    
-    {
-      key: '2',
       property: 'message',
       type: 'ReactNode',
       values: '-',
       description: '通知内容',
-      defaultValue: '-'
+      defaultValue: '-',
+      version: "-",
+    },
+    {
+      key: '2',
+      property: 'variant',
+      type: 'string',
+      values: 'default | md',
+      description: '可启用Material Design风格，通知弹窗位于左下角',
+      defaultValue: 'default',
+      version: "md >= 0.4.7",
+    },
+    {
+      key: '3',
+      property: 'method',
+      type: 'function',
+      values: 'success() | fail() | caution()',
+      description: '提供三种通知类型：成功、失败、警告',
+      defaultValue: '-',
+      version: "-",
     }
   ];
 
@@ -82,7 +95,9 @@ const NoticeComponent = () => {
       dataIndex: 'defaultValue',
       key: 'defaultValue',
       className: 'TABLE_TH_STYLE'
-    }
+    },
+    { title: "版本", dataIndex: "version", key: "version" },
+
   ];
 
   function SuccessDemo() {
@@ -122,6 +137,20 @@ const NoticeComponent = () => {
       <>
         <Button type="danger" onClick={fail}>
         错误
+        </Button>
+      </>
+    );
+  }
+
+  function MDDemo() {
+    const notice = useNotice();
+
+    const success  = () => notice.md.success("Material Design风格!");
+
+    return (
+      <>
+        <Button type="success" onClick={success}>
+        Material Design风格
         </Button>
       </>
     );
@@ -205,6 +234,30 @@ export function Demo () {
   }
   `}
               jsx={<FailDemo />}
+            />
+          </div>
+
+            {/* md */}
+            <div id="md" className="scroll-mt-10">
+            <DemoBlock
+              title="Material Design"
+              imports="Button, useNotice"
+              code={`import { Button, useNotice } from 'tango-ui-cw' 
+
+export function Demo () {
+  const notice = useNotice();
+  const success  = () => notice.md.success("Material Design风格!");
+
+    return (
+      <>
+        <Button type="success" onClick={success}>
+        Material Design风格
+        </Button>
+      </>
+    );
+  }
+  `}
+              jsx={<MDDemo />}
             />
           </div>
 

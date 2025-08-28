@@ -24,7 +24,7 @@
     "resend": "^6.0.1",
     "tango-excel-cw": "^0.0.3",
     "tango-pdf-cw": "^0.0.1",
-    "tango-ui-cw": "^0.4.3",
+    "tango-ui-cw": "^0.4.8",
     "tango-watermark": "^0.1.1",
     "three": "^0.178.0"
   },

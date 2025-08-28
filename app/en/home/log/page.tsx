@@ -8,6 +8,30 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2025-08-28</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Tooltip component adds a tip on the left
+          </li>
+
+          <li className={CONTENT_STYLE}>
+            Notice component adds Material Design style
+          </li>
+
+          <li className={CONTENT_STYLE}>
+            Table component has been added and no data is displayed yet
+          </li>
+          <li className={CONTENT_STYLE}>
+            Fixed the button style and text priority issues of Modal and Drawer
+            components
+          </li>
+          <li className={CONTENT_STYLE}>
+            Fixed the maskClosable property scope issue in Modal and Drawer
+            components.
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2025-08-24</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>Complete the cover page</li>

@@ -13,6 +13,8 @@ const NoticeComponent = () => {
     { id: "success", label: "Success" },
     { id: "warn", label: "Caution" },
     { id: "fail", label: "Fail" },
+    { id: "md", label: "Material Design" },
+
   ];
 
   const sections2 = [{ id: "props", label: "Universal Props" }];
@@ -35,22 +37,33 @@ const NoticeComponent = () => {
   const dataSource = [
     {
       key: '1',
-      property: 'type',
-      type: 'string',
-      values: 'success | fail | caution',
-      description: 'Provides three types of notification alerts: success, failure, and warning',
-      defaultValue: '-'
-    },
-  
-    {
-      key: '2',
       property: 'message',
       type: 'ReactNode',
       values: '-',
       description: 'Notification content',
-      defaultValue: '-'
+      defaultValue: '-',
+      version: "-",
+    },
+    {
+      key: '2',
+      property: 'variant',
+      type: 'string',
+      values: 'default | md',
+      description: 'The Material Design style can be enabled, and the notification pop-up window is located in the lower left corner.',
+      defaultValue: 'default',
+      version: "md >= 0.4.7",
+    },
+    {
+      key: '3',
+      property: 'method',
+      type: 'function',
+      values: 'success() | fail() | caution()',
+      description: 'Notification type method. Determines icon/color and is triggered via useNotice().',
+      defaultValue: '-',
+      version: "-",
     }
   ];
+  
 
   const columns = [
     {
@@ -82,7 +95,9 @@ const NoticeComponent = () => {
       dataIndex: 'defaultValue',
       key: 'defaultValue',
       className: 'TABLE_TH_STYLE'
-    }
+    },
+    { title: "Version", dataIndex: "version", key: "version" },
+
   ];
 
   function SuccessDemo() {
@@ -122,6 +137,20 @@ const NoticeComponent = () => {
       <>
         <Button type="danger" onClick={fail}>
         Fail
+        </Button>
+      </>
+    );
+  }
+
+  function MDDemo() {
+    const notice = useNotice();
+
+    const success  = () => notice.md.success("Material Design success!");
+
+    return (
+      <>
+        <Button type="success" onClick={success}>
+        Material Design
         </Button>
       </>
     );
@@ -208,6 +237,29 @@ export function Demo () {
             />
           </div>
 
+           {/* md */}
+           <div id="md" className="scroll-mt-10">
+            <DemoBlock
+              title="Material Design"
+              imports="Button, useNotice"
+              code={`import { Button, useNotice } from 'tango-ui-cw' 
+
+export function Demo () {
+  const notice = useNotice();
+  const success  = () => notice.md.success("Material Design success!");
+
+    return (
+      <>
+        <Button type="success" onClick={success}>
+        Material Design
+        </Button>
+      </>
+    );
+  }
+  `}
+              jsx={<MDDemo />}
+            />
+          </div>
           {/* props */}
           {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
           <div className="text-2xl font-bold mb-5 dark:text-neutral-300">Props</div>

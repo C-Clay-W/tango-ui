@@ -194,14 +194,11 @@ const DrawerComponent = () => {
           title="Title"
           open={isShowDrawer}
           onClose={closeDrawer}
-          headerStyles={{ color: "black" }}
+          okText="Ok"
+          cancelText="Cancel"
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
           }}
-          footerButtons={[
-            { key: "cancel", text: "Cancel", onClick: closeDrawer },
-            { key: "ok", text: "Ok", onClick: closeDrawer },
-          ]}
         >
           <p className="dark:text-black">here is drawer info...</p>
           <p className="dark:text-black">here is drawer info...</p>
@@ -245,14 +242,9 @@ const DrawerComponent = () => {
           open={drawerState.visible}
           onClose={closeDrawer}
           type={drawerState.type}
-          headerStyles={{ color: "black" }}
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
           }}
-          footerButtons={[
-            { key: "cancel", text: "Cancel", onClick: closeDrawer },
-            { key: "ok", text: "Ok", onClick: closeDrawer },
-          ]}
         >
           <p className="dark:text-black">here is drawer info...</p>
           <p className="dark:text-black">here is drawer info...</p>
@@ -353,17 +345,15 @@ export function Demo () {
           title="Title"
           open={isShowDrawer}
           onClose={closeDrawer}
+          okText="Ok"
+          cancelText="Cancel"
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
           }}
-          footerButtons={[
-          { key: "cancel", text: "Cancel", onClick: closeDrawer },
-          { key: "ok", text: "Ok", onClick: closeDrawer },
-        ]}
         >
-          <p>here is drawer info...</p>
-          <p>here is drawer info...</p>
-          <p>here is drawer info...</p>
+          <p className="dark:text-black">here is drawer info...</p>
+          <p className="dark:text-black">here is drawer info...</p>
+          <p className="dark:text-black">here is drawer info...</p>
         </Drawer>
       </>
     );
@@ -420,10 +410,6 @@ export function Demo () {
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
           }}
-          footerButtons={[
-          { key: "cancel", text: "Cancel", onClick: closeDrawer },
-          { key: "ok", text: "Ok", onClick: closeDrawer },
-        ]}
         >
           <p>here is drawer info...</p>
           <p>here is drawer info...</p>
