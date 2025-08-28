@@ -122,7 +122,7 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-40 h-10 ${activeIndex === 0 ? "font-bold" : ""}`} // 条件添加背景色
+                className={`w-40 h-10 ${activeIndex === 0 ? "font-bold" : ""}`} // 条件添加背景色1
                 onClick={() => handleClick(0)}
               >
                 <Link href="/en/home/introduction" className={style}>
