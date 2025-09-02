@@ -218,7 +218,7 @@ const WaterMark = () => {
             </Space>
           </Tooltip>
           <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
-            0.1.1
+            0.1.2
           </Space>
         </Space>
 

@@ -213,7 +213,7 @@ const PrePDF = () => {
             </Space>
           </Tooltip>
           <Space className="ml-3 text-xs text-black dark:text-white  rounded tracking-[-2px]">
-            0.0.1
+            0.0.2
           </Space>
         </Space>
 

@@ -194,6 +194,7 @@ const ExportExcel = () => {
       value: "String",
       description: "img src",
       defaultValue: "-",
+      verson: "-",
     },
     {
       key: 2,
@@ -202,6 +203,17 @@ const ExportExcel = () => {
       value: "Object",
       description: "coordinate object control",
       defaultValue: "-",
+      verson: "-",
+    },
+    {
+      key: 3,
+      name: "keepOriginalSize",
+      type: "Boolean",
+      value: "Boolean",
+      description:
+        "Enable the image to maintain its original proportions within the excel grid",
+      defaultValue: "false",
+      verson: "0.0.4",
     },
   ];
 
@@ -285,7 +297,7 @@ const ExportExcel = () => {
     {
       title: "action",
       key: "action",
-      render: (text:string, record:any) => (
+      render: (text: string, record: any) => (
         <>
           <MaterialButton
             size="small"
@@ -359,7 +371,7 @@ const ExportExcel = () => {
             </Space>
           </Tooltip>
           <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
-            0.0.3
+            0.0.5
           </Space>
         </Space>
 
@@ -583,32 +595,39 @@ export default Demo;
           hoverColor="#a6a6a6"
         />
 
-<Space className="text-xl font-bold mb-3 mt-3 dark:text-neutral-300">
-Batch data insertion and precise control
+        <Space className="text-xl font-bold mb-3 mt-3 dark:text-neutral-300">
+          Batch data insertion and precise control
         </Space>
         <Space className=" mb-3 mt-3 dark:text-neutral-300">
-        Scenario: The format after table export is: the first row of the table needs to be filled with a unified {`'`}table export time{`'`}, and the third row of the table is the first row of table data. In this case, only using the <code>startRow</code> parameter to control the starting insertion position of the data cannot fill the {`'`}table export time{`'`} data into the first row of the table. Therefore, you can combine the <code>cellMapStatic</code> parameter to achieve this requirement. The sample code is as follows:
+          Scenario: The format after table export is: the first row of the table
+          needs to be filled with a unified {`'`}table export time{`'`}, and the
+          third row of the table is the first row of table data. In this case,
+          only using the <code>startRow</code> parameter to control the starting
+          insertion position of the data cannot fill the {`'`}table export time
+          {`'`} data into the first row of the table. Therefore, you can combine
+          the <code>cellMapStatic</code> parameter to achieve this requirement.
+          The sample code is as follows:
         </Space>
         <Space
-            className="rounded-2xl border border-gray-800 mb-3 bg-[#fdfdfd] overflow-hidden relative"
-            style={{
-              border: "1px solid #d5d5d5",
-            }}
-            ref={createRef}
+          className="rounded-2xl border border-gray-800 mb-3 bg-[#fdfdfd] overflow-hidden relative"
+          style={{
+            border: "1px solid #d5d5d5",
+          }}
+          ref={createRef}
+        >
+          <Image
+            src={theme === "dark" ? copylogoblack : copylogowhite}
+            alt="Copy Logo"
+            width={24}
+            height={24}
+            className="absolute top-3 right-3 z-10 cursor-pointer"
+            onClick={copyCreateRef}
+          />
+          <SyntaxHighlighter
+            language="jsx"
+            style={theme === "dark" ? atomOneDark : coy}
           >
-            <Image
-              src={theme === "dark" ? copylogoblack : copylogowhite}
-              alt="Copy Logo"
-              width={24}
-              height={24}
-              className="absolute top-3 right-3 z-10 cursor-pointer"
-              onClick={copyCreateRef}
-            />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`
+            {`
   // traverse the form data finalDatas requested
   const dataRows = finalDatas.map(item => ({
     date: item.time,
@@ -639,8 +658,8 @@ Batch data insertion and precise control
     },
   };
 `}
-            </SyntaxHighlighter>
-          </Space>
+          </SyntaxHighlighter>
+        </Space>
 
         <Space className="text-xl font-bold mb-3 mt-30 dark:text-neutral-300">
           useExcelExporter Function

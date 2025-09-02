@@ -37,7 +37,7 @@ const ExportExcel = () => {
     });
   };
 
-  const openModel = (record:any) => {
+  const openModel = (record: any) => {
     console.log(record);
 
     setIsShowModal(true);
@@ -162,8 +162,6 @@ const ExportExcel = () => {
       defaultValue: "-",
       verson: "0.0.3",
     },
-    
-
   ];
 
   const columnsProps = [
@@ -191,6 +189,7 @@ const ExportExcel = () => {
       value: "String",
       description: "图片文件的地址",
       defaultValue: "-",
+      verson: "-",
     },
     {
       key: 2,
@@ -199,6 +198,16 @@ const ExportExcel = () => {
       value: "Object",
       description: "坐标对象控制",
       defaultValue: "-",
+      verson: "-",
+    },
+    {
+      key: 3,
+      name: "keepOriginalSize",
+      type: "Boolean",
+      value: "Boolean",
+      description: "启用图片在格内保持原始比例",
+      defaultValue: "false",
+      verson: "0.0.4",
     },
   ];
 
@@ -281,7 +290,7 @@ const ExportExcel = () => {
     {
       title: "操作",
       key: "action",
-      render: (text:string, record:any) => (
+      render: (text: string, record: any) => (
         <>
           <MaterialButton
             size="small"
@@ -356,7 +365,7 @@ const ExportExcel = () => {
             </Space>
           </Tooltip>
           <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
-            0.0.3
+            0.0.5
           </Space>
         </Space>
 
@@ -571,34 +580,42 @@ export default Demo;
         <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
           导出示例
         </Space>
-        <Table dataSource={dataSourceDemo} columns={columnsDemo} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table
+          dataSource={dataSourceDemo}
+          columns={columnsDemo}
+          containerStyles={theme === "light" ? {} : { color: "white" }}
+          hoverColor="#a6a6a6"
+        />
 
         <Space className="text-xl font-bold mb-3 mt-3 dark:text-neutral-300">
           批量插入数据与精准控制
         </Space>
         <Space className=" mb-3 mt-3 dark:text-neutral-300">
-          场景：表格导出后的格式为：表格第一行需要填写统一的‘表格导出时间’，表格的第三行是表格数据的第一行，这时仅通过 <code>startRow</code> 参数控制数据的起始插入位置做不到将‘表格导出时间’这个数据填写进表格第一行中，所以可以结合 <code>cellMapStatic</code> 参数实现这一需求，示例代码如下：
+          场景：表格导出后的格式为：表格第一行需要填写统一的‘表格导出时间’，表格的第三行是表格数据的第一行，这时仅通过{" "}
+          <code>startRow</code>{" "}
+          参数控制数据的起始插入位置做不到将‘表格导出时间’这个数据填写进表格第一行中，所以可以结合{" "}
+          <code>cellMapStatic</code> 参数实现这一需求，示例代码如下：
         </Space>
         <Space
-            className="rounded-2xl border border-gray-800 mb-3 bg-[#fdfdfd] overflow-hidden relative"
-            style={{
-              border: "1px solid #d5d5d5",
-            }}
-            ref={createRef}
+          className="rounded-2xl border border-gray-800 mb-3 bg-[#fdfdfd] overflow-hidden relative"
+          style={{
+            border: "1px solid #d5d5d5",
+          }}
+          ref={createRef}
+        >
+          <Image
+            src={theme === "dark" ? copylogoblack : copylogowhite}
+            alt="Copy Logo"
+            width={24}
+            height={24}
+            className="absolute top-3 right-3 z-10 cursor-pointer"
+            onClick={copyCreateRef}
+          />
+          <SyntaxHighlighter
+            language="jsx"
+            style={theme === "dark" ? atomOneDark : coy}
           >
-            <Image
-              src={theme === "dark" ? copylogoblack : copylogowhite}
-              alt="Copy Logo"
-              width={24}
-              height={24}
-              className="absolute top-3 right-3 z-10 cursor-pointer"
-              onClick={copyCreateRef}
-            />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`
+            {`
   // 遍历请求回来的表格数据finalDatas
   const dataRows = finalDatas.map(item => ({
     date: item.time,
@@ -629,38 +646,63 @@ export default Demo;
     },
   };
 `}
-            </SyntaxHighlighter>
-          </Space>
+          </SyntaxHighlighter>
+        </Space>
 
         <Space className="text-xl font-bold mb-3 mt-30 dark:text-neutral-300">
           useExcelExporter Function
         </Space>
 
-        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          containerStyles={theme === "light" ? {} : { color: "white" }}
+          hoverColor="#a6a6a6"
+        />
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
           Config Props
         </Space>
 
-        <Table dataSource={dataSourceProps} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table
+          dataSource={dataSourceProps}
+          columns={columnsProps}
+          containerStyles={theme === "light" ? {} : { color: "white" }}
+          hoverColor="#a6a6a6"
+        />
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
           Image Props
         </Space>
 
-        <Table dataSource={dataSourceImage} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table
+          dataSource={dataSourceImage}
+          columns={columnsProps}
+          containerStyles={theme === "light" ? {} : { color: "white" }}
+          hoverColor="#a6a6a6"
+        />
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
           Range Props
         </Space>
 
-        <Table dataSource={dataSourceRange} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table
+          dataSource={dataSourceRange}
+          columns={columnsProps}
+          containerStyles={theme === "light" ? {} : { color: "white" }}
+          hoverColor="#a6a6a6"
+        />
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
           InRange Props
         </Space>
 
-        <Table dataSource={dataSourceInRange} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table
+          dataSource={dataSourceInRange}
+          columns={columnsProps}
+          containerStyles={theme === "light" ? {} : { color: "white" }}
+          hoverColor="#a6a6a6"
+        />
       </Space>
       <Modal
         title="查看古树信息"

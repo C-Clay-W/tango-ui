@@ -252,7 +252,7 @@ const Page = () => {
         </div>
         <div className="flex items-center gap-4">
           <span className="text-gray-500 px-[6px] py-[1px] border rounded">
-            MVP Version: <span className="tracking-[-2px]">0.4.8</span> beta
+            MVP Version: <span className="tracking-[-2px]">0.4.9</span> beta
           </span>
         </div>
       </header>
@@ -464,7 +464,7 @@ const columns = [
                   <TiltedCard
                     imageSrc="/uibg.png"
                     altText="Kendrick Lamar - GNX Album Cover"
-                    captionText="永恒美学"
+                    captionText="Headless风格"
                     containerHeight="15vw"
                     containerWidth="15vw"
                     imageHeight="15vw"
@@ -489,7 +489,7 @@ const columns = [
                         </p>
                         <div className="w-[15vw] h-[11vw] lg:h-[10vw] xl:h-[11vw] overflow-hidden">
                           <p className="tilted-card-demo-text text-xs lg:text-sm xl:text-xl 2xl:text-2xl p-8">
-                            Timeless aesthetics
+                          Headless <br/>Style
                           </p>
                           <p className="text-xs px-8 text-neutral-300 -mt-7 xl:-mt-5 2xl:-mt-3 2xl:text-sm">
                             Build beautiful UIs with ease. Start with Tango UI,
