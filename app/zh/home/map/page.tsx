@@ -1,8 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
+const TangoMapViewer = dynamic(
+  () => import("tango-map-cw").then(mod => mod.TangoMapViewer),
+  { ssr: false }
+);
+
 import { useState, useRef } from "react";
 import { Space, Tooltip, MaterialButton, Table } from "tango-ui-cw";
-import { TangoMapViewer } from "tango-map-cw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
