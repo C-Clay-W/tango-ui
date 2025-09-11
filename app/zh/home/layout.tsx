@@ -229,6 +229,22 @@ export default function HomeLayout({
                 </Link>
               </li>
             </ul>
+
+            {/* 地图 */}
+            <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
+              地图
+            </div>
+            <ul className="space-y-1">
+              <li
+                className={`w-43 h-10 ${activeIndex === 31 ? "font-bold" : ""}`}
+                onClick={() => handleClick(31)}
+              >
+                <Link href="/zh/home/map" className={style}>
+                  TangoMapViewer
+                </Link>
+              </li>
+            </ul>
+
             {/* 工具 */}
             <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
               工具

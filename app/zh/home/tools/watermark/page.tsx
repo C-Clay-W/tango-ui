@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Space, useNotice, Table, MaterialButton, Input,Tooltip } from "tango-ui-cw";
+import {
+  Space,
+  useNotice,
+  Table,
+  MaterialButton,
+  Input,
+  Tooltip,
+} from "tango-ui-cw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -194,10 +201,10 @@ const WaterMark = () => {
     };
 
     useInkify(imageUrl, watermarkConfig2)
-      .then((watermarkedImageUrl:string) => {
+      .then((watermarkedImageUrl: string) => {
         setFinalUrl(watermarkedImageUrl);
       })
-      .catch((error:any) => {
+      .catch((error: any) => {
         console.error("生成水印失败:", error);
       });
   }
@@ -206,7 +213,7 @@ const WaterMark = () => {
     <Space className="flex">
       <Space className="sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
         <Space className="flex">
-        <Tooltip tooltipText="点击前往NPM >>>" placement="right">
+          <Tooltip tooltipText="点击前往NPM >>>" placement="right">
             <Space className="text-4xl font-bold mb-5">
               <a
                 href="https://www.npmjs.com/package/tango-watermark"
@@ -223,10 +230,15 @@ const WaterMark = () => {
         </Space>
 
         <Space className="mb-10 dark:text-neutral-300">
-          <code className="font-bold">useInkify</code> 钩子可以很快速的帮你实现在图像上加水印的需求。
+          <code className="font-bold">useInkify</code>{" "}
+          钩子可以很快速的帮你实现在图像上加水印的需求。
         </Space>
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">如何使用？</Space>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">1.安装</Space>
+        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+          如何使用？
+        </Space>
+        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          1.安装
+        </Space>
         <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
           <SyntaxHighlighter
             language="tsx"
@@ -236,7 +248,9 @@ const WaterMark = () => {
           </SyntaxHighlighter>
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">2.引入</Space>
+        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          2.引入
+        </Space>
         <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
           <SyntaxHighlighter
             language="tsx"
@@ -246,7 +260,9 @@ const WaterMark = () => {
           </SyntaxHighlighter>
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">3.使用</Space>
+        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          3.使用
+        </Space>
         <Space className="mb-2">
           <MaterialButton
             size="small"
@@ -436,12 +452,16 @@ export default Demo;
           </Space>
         )}
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">图片水印示例</Space>
+        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+          图片水印示例
+        </Space>
 
         <Space className="flex flex-col items-center gap-5 p-5 font-sans">
           <Space className="flex gap-10 justify-center">
             <Space className="text-center">
-              <h3 className="my-2 text-gray-600  dark:text-neutral-300">水印前</h3>
+              <h3 className="my-2 text-gray-600  dark:text-neutral-300">
+                水印前
+              </h3>
               <Image
                 src={imageUrl}
                 alt="原图"
@@ -452,7 +472,9 @@ export default Demo;
             </Space>
 
             <Space className="text-center">
-              <h3 className="my-2 text-gray-600 dark:text-neutral-300">水印后</h3>
+              <h3 className="my-2 text-gray-600 dark:text-neutral-300">
+                水印后
+              </h3>
               {finalUrl ? (
                 <Image
                   src={finalUrl}
@@ -558,13 +580,27 @@ export default Demo;
           </Space>
         </Space>
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">useInkify Props</Space>
+        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+          useInkify Props
+        </Space>
 
-        <Table dataSource={inkifyDataSource} columns={inkifyColumns} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table
+          dataSource={inkifyDataSource}
+          columns={inkifyColumns}
+          containerStyles={theme === "light" ? {} : { color: "white" }}
+          hoverColor="#a6a6a6"
+        />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">useInkify Tokens</Space>
+        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+          useInkify Tokens
+        </Space>
 
-        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          containerStyles={theme === "light" ? {} : { color: "white" }}
+          hoverColor="#a6a6a6"
+        />
       </Space>
     </Space>
   );
