@@ -3,12 +3,12 @@
 import dynamic from "next/dynamic";
 
 const TangoMapViewer = dynamic(
-  () => import("tango-map-cw").then(mod => mod.TangoMapViewer),
+  () => import("tango-map-cw").then((mod) => mod.TangoMapViewer),
   { ssr: false }
 );
 
 import { useState, useRef } from "react";
-import { Space, Tooltip, MaterialButton, Table } from "tango-ui-cw";
+import { Space, Tooltip, MaterialButton, Table, useNotice } from "tango-ui-cw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -20,8 +20,13 @@ import copylogowhite from "@/assets/copywhite.png";
 const Page = () => {
   const theme = useCurrentTheme();
   const [mode, setMode] = useState("2D");
-  const createRef = useRef();
+  const createRef = useRef(); // 使用
+  const markersRef = useRef(); // 点
+  const lineRef = useRef(); // 折线
+  const locationRef = useRef(); // 位置
+
   const [activeSection, setActiveSection] = useState("");
+  const notice = useNotice();
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -114,7 +119,7 @@ const Page = () => {
       name: "provider",
       type: "String",
       value: "amap | ol",
-      description: "地图供应商",
+      description: "地图供应商（Next支持amap，React支持amap和ol）",
       defaultValue: "ol",
     },
     {
@@ -343,7 +348,17 @@ const Page = () => {
               language="tsx"
               style={theme === "dark" ? atomOneDark : coy}
             >
-              {`import { TangoMapViewer } from "tango-map-cw";`}
+              {`// React
+import { TangoMapViewer } from "tango-map-cw";
+
+// Next
+import dynamic from "next/dynamic";
+
+const TangoMapViewer = dynamic(
+  () => import("tango-map-cw").then(mod => mod.TangoMapViewer),
+  { ssr: false }
+);
+`}
             </SyntaxHighlighter>
           </div>
           <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
@@ -363,7 +378,6 @@ const Page = () => {
             style={{
               border: "1px solid #d5d5d5",
             }}
-            ref={createRef}
           >
             <Image
               src={theme === "dark" ? copylogoblack : copylogowhite}
@@ -373,11 +387,13 @@ const Page = () => {
               className="absolute top-3 right-3 z-10 cursor-pointer"
               onClick={copyCreateRef}
             />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`// 提供WGS84坐标系
+
+            <div ref={createRef}>
+              <SyntaxHighlighter
+                language="jsx"
+                style={theme === "dark" ? atomOneDark : coy}
+              >
+                {`// 提供WGS84坐标系
 const beijingGugong: [number, number] = [116.390741, 39.917351];
 
 <TangoMapViewer
@@ -388,7 +404,8 @@ const beijingGugong: [number, number] = [116.390741, 39.917351];
   style={{ width: "600px", height: "400px" }}
 />
 `}
-            </SyntaxHighlighter>
+              </SyntaxHighlighter>
+            </div>
           </Space>
 
           <div id="markers">
@@ -510,6 +527,10 @@ const allLines = [
             <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
               在地图上获取当前位置
             </Space>
+            <div className="mt-3 mb-3 text-amber-500 text-sm">
+              * 您的服务器必须为<span className="font-bold">HTTPS</span>
+              （或localhost）才可使用此功能，且用户需要授权浏览器定位权限
+            </div>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
               <SyntaxHighlighter
                 language="tsx"

@@ -3,12 +3,12 @@
 import dynamic from "next/dynamic";
 
 const TangoMapViewer = dynamic(
-  () => import("tango-map-cw").then(mod => mod.TangoMapViewer),
+  () => import("tango-map-cw").then((mod) => mod.TangoMapViewer),
   { ssr: false }
 );
 
 import { useState, useRef } from "react";
-import { Space, Tooltip, MaterialButton, Table } from "tango-ui-cw";
+import { Space, Tooltip, MaterialButton, Table, useNotice } from "tango-ui-cw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -22,6 +22,7 @@ const Page = () => {
   const [mode, setMode] = useState("2D");
   const createRef = useRef();
   const [activeSection, setActiveSection] = useState("");
+  const notice = useNotice();
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -114,7 +115,8 @@ const Page = () => {
       name: "provider",
       type: "String",
       value: "amap | ol",
-      description: "map provider",
+      description:
+        "map provider（Next support amap，React support amap and ol）",
       defaultValue: "ol",
     },
     {
@@ -122,7 +124,7 @@ const Page = () => {
       name: "mapKey",
       type: "String",
       value: "-",
-      description: "ypur map key",
+      description: "your map key",
       defaultValue: "-",
     },
     {
@@ -180,7 +182,8 @@ const Page = () => {
       name: "onLocate",
       type: "() => void",
       value: "-",
-      description: "callback after successful positioning (data.position.pos is the coordinate after positioning)",
+      description:
+        "callback after successful positioning (data.position.pos is the coordinate after positioning)",
       defaultValue: "-",
     },
     {
@@ -196,7 +199,8 @@ const Page = () => {
       name: "line",
       type: "Array",
       value: "-",
-      description: "the coordinate array of the vector polyline nodes on the map, supporting one or more vector polylines",
+      description:
+        "the coordinate array of the vector polyline nodes on the map, supporting one or more vector polylines",
       defaultValue: "-",
     },
 
@@ -233,7 +237,10 @@ const Page = () => {
   return (
     <>
       <Space className="flex">
-        <Space sx={{vw:60}} className="!sm:w-[60vw] !md:w-[60vw] !lg:w-[60vw]  !xl:w-[40vw] !2xl:w-[50vw]">
+        <Space
+          sx={{ vw: 60 }}
+          className="!sm:w-[60vw] !md:w-[60vw] !lg:w-[60vw]  !xl:w-[40vw] !2xl:w-[50vw]"
+        >
           <Space className="flex">
             <Tooltip tooltipText="Click to NPM >>>" placement="right">
               <Space className="text-4xl font-bold mb-5">
@@ -251,15 +258,22 @@ const Page = () => {
             </Space>
           </Space>
           <Space className="mb-10 dark:text-neutral-300">
-          This is a React map component based on OpenLayers, suitable for React and Next;
+            This is a React map component based on OpenLayers, suitable for
+            React and Next;
             <br />
-            Currently supported map service providers include Amap and OpenStreetMap), <br/>and a unified interface is provided to facilitate developers to integrate map functions.
+            Currently supported map service providers include Amap and
+            OpenStreetMap), <br />
+            and a unified interface is provided to facilitate developers to
+            integrate map functions.
           </Space>
           <div className="mb-3 text-amber-500 text-sm bg-amber-100 p-3 rounded-xl font-bold">
-          The maps shown in this document are for development and testing purposes only and are not suitable for production environments or commercial use. If you want to use them in a production environment, please be sure to apply for and use your own map service key!&emsp;
+            The maps shown in this document are for development and testing
+            purposes only and are not suitable for production environments or
+            commercial use. If you want to use them in a production environment,
+            please be sure to apply for and use your own map service key!&emsp;
             <span className="underline">
               <a href="https://lbs.amap.com/api/javascript-api-v2/prerequisites">
-              Go to the developer platform
+                Go to the developer platform
               </a>
               （AMap）
             </span>
@@ -320,8 +334,8 @@ const Page = () => {
             </SyntaxHighlighter>
           </div>
           <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
-            *
-          If you want to use the OpenLayers basemap and implement more native OpenLayers features, you need to install additional:
+            * If you want to use the OpenLayers basemap and implement more
+            native OpenLayers features, you need to install additional:
           </div>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
             <SyntaxHighlighter
@@ -332,7 +346,9 @@ const Page = () => {
             </SyntaxHighlighter>
           </div>
           <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
-          After that, you can use it in TangoMapViewer. Tango-map-cw has exposed the native capabilities of ol to developers, and can directly call all native APIs.
+            After that, you can use it in TangoMapViewer. Tango-map-cw has
+            exposed the native capabilities of ol to developers, and can
+            directly call all native APIs.
           </div>
 
           <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
@@ -343,17 +359,29 @@ const Page = () => {
               language="tsx"
               style={theme === "dark" ? atomOneDark : coy}
             >
-              {`import { TangoMapViewer } from "tango-map-cw";`}
+              {`// React
+import { TangoMapViewer } from "tango-map-cw";
+
+// Next
+import dynamic from "next/dynamic";
+
+const TangoMapViewer = dynamic(
+  () => import("tango-map-cw").then(mod => mod.TangoMapViewer),
+  { ssr: false }
+);
+`}
             </SyntaxHighlighter>
           </div>
           <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
             3.Usage
           </Space>
           <div className="mt-3 mb-3 text-amber-500 text-sm bg-amber-100 p-3 rounded-xl font-bold">
-          To properly call the API, please register as a developer on the AutoNavi Open Platform and apply for a web platform （JS API） key and security key.&emsp;
+            To properly call the API, please register as a developer on the
+            AutoNavi Open Platform and apply for a web platform （JS API） key
+            and security key.&emsp;
             <span className="underline">
               <a href="https://lbs.amap.com/api/javascript-api-v2/prerequisites">
-              Go to the developer platform
+                Go to the developer platform
               </a>
             </span>
           </div>
@@ -362,7 +390,6 @@ const Page = () => {
             style={{
               border: "1px solid #d5d5d5",
             }}
-            ref={createRef}
           >
             <Image
               src={theme === "dark" ? copylogoblack : copylogowhite}
@@ -372,11 +399,12 @@ const Page = () => {
               className="absolute top-3 right-3 z-10 cursor-pointer"
               onClick={copyCreateRef}
             />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`// provide WGS84
+            <div ref={createRef}>
+              <SyntaxHighlighter
+                language="jsx"
+                style={theme === "dark" ? atomOneDark : coy}
+              >
+                {`// provide WGS84
 const beijingGugong: [number, number] = [116.390741, 39.917351];
 
 <TangoMapViewer
@@ -387,12 +415,13 @@ const beijingGugong: [number, number] = [116.390741, 39.917351];
   style={{ width: "600px", height: "400px" }}
 />
 `}
-            </SyntaxHighlighter>
+              </SyntaxHighlighter>
+            </div>
           </Space>
 
           <div id="markers">
             <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
-            Create markers on the map
+              Create markers on the map
             </Space>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
               <SyntaxHighlighter
@@ -449,7 +478,7 @@ const markers = [
           </div>
           <div id="lines">
             <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
-            Creating vector polylines on the map
+              Creating vector polylines on the map
             </Space>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
               <SyntaxHighlighter
@@ -507,8 +536,13 @@ const allLines = [
           </div>
           <div id="location">
             <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
-            Get location on the map
+              Get location on the map
             </Space>
+            <div className="mt-3 mb-3 text-amber-500 text-sm">
+              * Your server must be <span className="font-bold">HTTPS</span>（or
+              localhost）to use this feature, and users need to authorize
+              browser location permissions
+            </div>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
               <SyntaxHighlighter
                 language="tsx"
@@ -540,7 +574,8 @@ const allLines = [
               }}
             />
             <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
-              * check the print information of successful positioning in the browser console
+              * check the print information of successful positioning in the
+              browser console
             </div>
           </div>
 
