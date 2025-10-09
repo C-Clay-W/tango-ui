@@ -258,7 +258,7 @@ const Page = () => {
           <Space className="mb-10 dark:text-neutral-300">
             这是一个基于 OpenLayers 实现的 React 地图组件，适用于React和Next；
             <br />
-            当前支持的地图服务商有高德和OpenStreetMap），并提供统一的接口，方便开发者集成地图功能。
+            （当前支持的地图服务商有高德和OpenStreetMap），并提供统一的接口，方便开发者集成地图功能。
           </Space>
           <div className="mb-3 text-amber-500 text-sm bg-amber-100 p-3 rounded-xl font-bold">
             此文档展示的地图仅为开发测试用途，不适用于生产环境及商业用途，若您想在生产环境中使用，请务必申请并使用您自己的地图服务Key！

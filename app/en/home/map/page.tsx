@@ -261,7 +261,7 @@ const Page = () => {
             This is a React map component based on OpenLayers, suitable for
             React and Next;
             <br />
-            Currently supported map service providers include Amap and
+            (Currently supported map service providers include Amap and
             OpenStreetMap), <br />
             and a unified interface is provided to facilitate developers to
             integrate map functions.

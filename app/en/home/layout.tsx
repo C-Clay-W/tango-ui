@@ -75,7 +75,7 @@ export default function HomeLayout({
           >
             Tango UI
             <span className="absolute -top-2 -right-9 tracking-[-2px] text-xs bg-black dark:bg-white text-neutral-300 dark:text-black px-[4px] py-[1px] pt-[1px] rounded">
-              0.4.9
+              0.5.2
             </span>
           </span>
           <Link
@@ -105,7 +105,7 @@ export default function HomeLayout({
         </div>
         <div className="flex items-center gap-4">
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
-            MVP Verson: <span className="tracking-[-2px]">0.4.9</span> beta
+            MVP Verson: <span className="tracking-[-2px]">0.5.2</span> beta
           </span>
           <ThemeToggle />
         </div>
@@ -187,6 +187,7 @@ export default function HomeLayout({
                 "Mark",
                 "ColorPicker",
                 "DatePicker",
+                "Upload",
               ].map((item, index) => (
                 <li
                   key={index}

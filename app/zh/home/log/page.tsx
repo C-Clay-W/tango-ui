@@ -8,6 +8,12 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2025-10-09</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>新增Upload上传组件</li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2025-09-11</h2>
         <ul className="m-0 p-0 list-none">
           <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red bg-gray-100 dark:bg-[#181818] rounded">

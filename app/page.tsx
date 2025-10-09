@@ -252,7 +252,7 @@ const Page = () => {
         </div>
         <div className="flex items-center gap-4">
           <span className="text-gray-500 px-[6px] py-[1px] border rounded">
-            MVP Version: <span className="tracking-[-2px]">0.4.9</span> beta
+            MVP Version: <span className="tracking-[-2px]">0.5.2</span> beta
           </span>
         </div>
       </header>
