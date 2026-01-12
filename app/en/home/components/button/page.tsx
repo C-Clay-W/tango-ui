@@ -1,12 +1,22 @@
 "use client";
 import React, { useState } from "react";
-import { Button, Table, MaterialButton } from "tango-ui-cw";
+import { Button, Table, MaterialButton, Space } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoBlockEn";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import {
+  Md10K,
+  Md12Mp,
+  Md6K,
+  Md7K,
+  Md6Mp,
+  Md4kPlus,
+  Md5kPlus,
+} from "react-icons/md";
 
 const ButtonComponent = () => {
   const [activeSection, setActiveSection] = useState("");
   const theme = useCurrentTheme();
+  const logoUrl = "/logoblack.png";
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -17,6 +27,8 @@ const ButtonComponent = () => {
     { id: "material", label: "Material" },
     { id: "neumorphism", label: "Neumorphism" },
     { id: "diasbled", label: "Diasbled" },
+    { id: "loading", label: "Loading" },
+    { id: "icon", label: "Icon" },
   ];
 
   const sections2 = [{ id: "props", label: "Universal Props" }];
@@ -112,6 +124,33 @@ const ButtonComponent = () => {
       defaultValue: "-",
       version: "-",
     },
+    {
+      key: "9",
+      name: "loading",
+      type: "boolean",
+      value: "true | false",
+      description: "Indicates that the button is loading.",
+      defaultValue: "true",
+      version: "0.6.0",
+    },
+    {
+      key: "10",
+      name: "icon",
+      type: "object",
+      value: "object",
+      description: "Icon to display in the button.",
+      defaultValue: "-",
+      version: "0.6.0",
+    },
+    {
+      key: "11",
+      name: "iconPosition",
+      type: "string",
+      value: "left | right",
+      description: "Position of the icon within the button.",
+      defaultValue: "left",
+      version: "0.6.0",
+    },
   ];
 
   const columns = [
@@ -192,7 +231,14 @@ const ButtonComponent = () => {
               title="Transparent"
               imports="Button"
               code={`<Button type="transparent">Transparent</Button>`}
-              jsx={<Button type="transparent" className="dark:!text-white dark:!border dark:!border-white">Transparent</Button>}
+              jsx={
+                <Button
+                  type="transparent"
+                  className="dark:!text-white dark:!border dark:!border-white"
+                >
+                  Transparent
+                </Button>
+              }
             />
           </div>
 
@@ -230,22 +276,486 @@ const ButtonComponent = () => {
             />
           </div>
 
-          {/* props */}
-          {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
-            Props
-          </div>
-          <div id="props" className="scroll-mt-10">
-            <div className="mb-5 dark:text-neutral-300">Universal Props</div>
+          {/* loading */}
+          <div id="loading" className="scroll-mt-10">
+            <DemoBlock
+              title="Loading"
+              imports="Button"
+              code={`<Button loading>Loading</Button>`}
+              jsx={<Button loading>Loading</Button>}
+            />
           </div>
 
-          <Table
-            dataSource={dataSource}
-            columns={columns}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
-          />
-          {/* </div> */}
+          <div className="scroll-mt-10 font-bold">Usage</div>
+
+          {/* Basic Loading Usage */}
+          <div className="mt-4 mb-2 text-sm font-semibold text-gray-700">
+            Basic Loading
+          </div>
+          <div className="space-y-3">
+            {/* Default loading (dark) */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button loading={true}>Submitting...</Button>
+              </div>
+              <code className="text-sm text-gray-600">
+                loading={"{"}true{"}"}
+              </code>
+            </div>
+
+            {/* Light loading */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button
+                  loading="light"
+                  sx={{ bg: "black", c: "white", bColor: "white" }}
+                >
+                  Submitting...
+                </Button>
+              </div>
+              <code className="text-sm text-gray-600">loading="light"</code>
+            </div>
+
+            {/* Dark loading */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button loading="dark">Submitting...</Button>
+              </div>
+              <code className="text-sm text-gray-600">loading="dark"</code>
+            </div>
+          </div>
+
+          {/* Array Format Usage */}
+          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+            Array Format Loading
+          </div>
+          <p className="text-sm text-gray-500 mb-3">
+            Use array format [showLoading, type] for dynamic control
+          </p>
+          <div className="space-y-3">
+            {/* Array with dark loading */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button loading={[true, "dark"]}>Saving...</Button>
+              </div>
+              <code className="text-sm text-gray-600">
+                loading={"{"}[true, "dark"]{"}"}
+              </code>
+            </div>
+
+            {/* Array with light loading */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button
+                  loading={[true, "light"]}
+                  sx={{ bg: "black", c: "white", bColor: "white" }}
+                >
+                  Processing...
+                </Button>
+              </div>
+              <code className="text-sm text-gray-600">
+                loading={"{"}[true, "light"]{"}"}
+              </code>
+            </div>
+          </div>
+
+          {/* Loading States Table */}
+          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+            Loading States Reference
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full border border-gray-200 dark:border-gray-700">
+              <thead className="bg-gray-50 dark:bg-gray-800">
+                <tr>
+                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
+                    Value
+                  </th>
+                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
+                    Type
+                  </th>
+                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
+                    Color
+                  </th>
+                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      true
+                    </code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Boolean
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Dark
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Default dark loading spinner
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      "light"
+                    </code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    String
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Light
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Light color loading spinner
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      "dark"
+                    </code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    String
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Dark
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Explicit dark loading spinner
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      [true, "dark"]
+                    </code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Array
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Dark
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Array format with dark spinner
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      [true, "light"]
+                    </code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Array
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Light
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Array format with light spinner
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      [false, "dark"]
+                    </code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Array
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    -
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Loading disabled
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Usage Notes */}
+          <div className="mt-6 mb-10 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded">
+            <div className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-1">
+              Important Notes:
+            </div>
+            <ul className="text-sm text-blue-700 dark:text-blue-400 space-y-1">
+              <li>
+                • When{" "}
+                <code className="bg-blue-100 dark:bg-blue-800 px-1 py-0.5 rounded text-blue-800 dark:text-blue-200">
+                  loading=true
+                </code>
+                , it defaults to dark spinner
+              </li>
+              <li>
+                • Array format is useful for dynamic state control:{" "}
+                <code className="bg-blue-100 dark:bg-blue-800 px-1 py-0.5 rounded text-blue-800 dark:text-blue-200">
+                  [isLoading, "dark"] (useState)
+                </code>
+              </li>
+              <li>
+                • The first element in array controls visibility (boolean)
+              </li>
+              <li>
+                • The second element in array controls spinner type ("light" or
+                "dark")
+              </li>
+              <li>
+                • If second element is omitted or invalid, defaults to "light"
+              </li>
+            </ul>
+          </div>
+
+          {/* icon */}
+          <div id="icon" className="scroll-mt-10">
+            <DemoBlock
+              title="Icon"
+              imports="Button"
+              code={`<Button icon={logoUrl}>Icon</Button>`}
+              jsx={
+                <Button sx={{ mt: -1 }} icon={logoUrl}>
+                  Icon
+                </Button>
+              }
+            />
+          </div>
+
+          <div className="scroll-mt-10 font-bold">Usage</div>
+
+          {/* Basic Icon Usage */}
+          <div className="mt-4 mb-2 text-sm font-semibold text-gray-700">
+            Basic Icon Usage
+          </div>
+          <div className="space-y-3">
+            {/* String path (image) */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button icon="/setting.png">Settings</Button>
+              </div>
+              <code className="text-sm text-gray-600">icon="/setting.png"</code>
+            </div>
+
+            {/* React element (JSX) */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button icon={<Md6Mp />}>Settings</Button>
+              </div>
+              <code className="text-sm text-gray-600">
+                icon={"{"}&lt;FiSettings /&gt;{"}"}
+              </code>
+            </div>
+
+            {/* React component */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button icon={<Md4kPlus />}>Settings</Button>
+              </div>
+              <code className="text-sm text-gray-600">
+                icon={"{"}FiSettings{"}"}
+              </code>
+            </div>
+
+            {/* Icon only button */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button icon={<Md5kPlus />} />
+              </div>
+              <code className="text-sm text-gray-600">
+                icon={"{"}&lt;FiSearch /&gt;{"}"}
+              </code>
+              <span className="text-xs text-gray-500">(Icon-only button)</span>
+            </div>
+          </div>
+
+          {/* Icon with Loading Combination */}
+          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+            Icon with Loading State
+          </div>
+          <div className="space-y-3">
+            {/* Icon with loading */}
+            <div className="flex items-center space-x-4">
+              <div className="w-48">
+                <Button icon={<Md10K />} loading={[true, "dark"]}>
+                  Uploading...
+                </Button>
+              </div>
+              <code className="text-sm text-gray-600">
+                icon={"{"}&lt;FiUpload /&gt;{"}"}
+                <br />
+                loading={"{"}[true, "dark"]{"}"}
+              </code>
+            </div>
+
+            {/* Icon replaced by loading */}
+            <div className="p-3 bg-yellow-50 border border-yellow-100 rounded">
+              <div className="text-sm font-medium text-yellow-800 mb-1">
+                Note:
+              </div>
+              <p className="text-sm text-yellow-700">
+                When loading is active, the icon will be replaced by the loading
+                spinner.
+              </p>
+            </div>
+          </div>
+
+          {/* Supported Icon Types Table */}
+          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+            Supported Icon Types
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full border border-gray-200 dark:border-gray-700">
+              <thead className="bg-gray-50 dark:bg-gray-800">
+                <tr>
+                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
+                    Type
+                  </th>
+                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
+                    Format
+                  </th>
+                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
+                    Example
+                  </th>
+                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    String
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Image path
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      "/icons/user.png"
+                    </code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Renders as{" "}
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      &lt;img&gt;
+                    </code>{" "}
+                    tag
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    React Element
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    JSX
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">{`<FiHome />`}</code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Cloned with additional props
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    React Component
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Component reference
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                      FiHome
+                    </code>
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
+                    Rendered as component
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Real-world Examples */}
+          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+            Real-world Examples
+          </div>
+          <div className="space-y-4">
+            {/* Example 1: Social login */}
+            <div className="p-3 border border-gray-200 rounded">
+              <div className="text-sm font-medium text-gray-700 mb-2">
+                Social Login Button:
+              </div>
+              <div className="flex items-center space-x-4">
+                <div className="w-64">
+                  <Button icon="/google.png" variant="outline">
+                    Sign in with Google
+                  </Button>
+                </div>
+                <div className="text-sm text-gray-600">
+                  <code>
+                    icon="/google.png"
+                    <br />
+                    variant="outline"
+                  </code>
+                </div>
+              </div>
+            </div>
+
+            {/* Important Notes */}
+            <div className="mt-6 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded">
+              <div className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-1">
+                Important Notes:
+              </div>
+              <ul className="text-sm text-blue-700 dark:text-blue-400 space-y-1">
+                <li>
+                  • Icon size is automatically adjusted based on button size
+                </li>
+                <li>
+                  • Custom styles on icon elements are preserved and merged
+                </li>
+                <li>
+                  • When loading is active, icon is replaced by loading spinner
+                </li>
+                <li>
+                  • For React elements, className and style props are
+                  intelligently merged
+                </li>
+                <li>
+                  • All icon types automatically get the{" "}
+                  <code className="bg-blue-100 dark:bg-blue-800 px-1 py-0.5 rounded text-blue-800 dark:text-blue-200">
+                    .btn-icon
+                  </code>{" "}
+                  CSS class
+                </li>
+              </ul>
+            </div>
+
+            {/* props */}
+            {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
+            <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+              Props
+            </div>
+            <div id="props" className="scroll-mt-10">
+              <div className="mb-5 dark:text-neutral-300">Universal Props</div>
+            </div>
+
+            <Table
+              dataSource={dataSource}
+              columns={columns}
+              containerStyles={theme === "light" ? {} : { color: "white" }}
+              hoverColor="#a6a6a6"
+            />
+
+            {/* </div> */}
+          </div>
         </div>
 
         {/* 锚点索引区域 */}
