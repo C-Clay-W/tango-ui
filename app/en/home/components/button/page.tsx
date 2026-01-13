@@ -5,9 +5,6 @@ import DemoBlock from "@/components/DemoBlockEn";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 import {
   Md10K,
-  Md12Mp,
-  Md6K,
-  Md7K,
   Md6Mp,
   Md4kPlus,
   Md5kPlus,

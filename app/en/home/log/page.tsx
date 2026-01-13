@@ -14,7 +14,7 @@ function Log() {
             The Button component adds icon, iconPosition, and loading
             attributes.
           </li>
-          <li className={CONTENT_STYLE}>Improve Button Zh documentation.</li>
+          <li className={CONTENT_STYLE}>Improve Button En documentation.</li>
         </ul>
       </div>
       <div className={BOX_STYLE}>
