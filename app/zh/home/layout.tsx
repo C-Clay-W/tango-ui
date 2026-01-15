@@ -143,16 +143,16 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-43 h-10 ${activeIndex === 29 ? "font-bold" : ""}`}
-                onClick={() => handleClick(29)}
+                className={`w-43 h-10 ${activeIndex === 20 ? "font-bold" : ""}`}
+                onClick={() => handleClick(20)}
               >
                 <Link href="/zh/home/tangocss" className={style}>
                   Tango Css 样式
                 </Link>
               </li>
               <li
-                className={`w-27 h-10 ${activeIndex === 30 ? "font-bold" : ""}`}
-                onClick={() => handleClick(30)}
+                className={`w-27 h-10 ${activeIndex === 21 ? "font-bold" : ""}`}
+                onClick={() => handleClick(21)}
               >
                 <Link href="/zh/home/tangocss/mapping" className={style}>
                   样式映射
@@ -184,6 +184,8 @@ export default function HomeLayout({
                 "ColorPicker 颜色选择器",
                 "DatePicker 日期选择器",
                 "Upload 上传",
+                "Banner 横幅",
+
               ].map((item, index) => (
                 <li
                   key={index}
@@ -214,8 +216,8 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-55 h-10 ${activeIndex === 18 ? "font-bold" : ""}`}
-                onClick={() => handleClick(18)}
+                className={`w-55 h-10 ${activeIndex === 22 ? "font-bold" : ""}`}
+                onClick={() => handleClick(22)}
               >
                 <Link href="/zh/home/store" className={style}>
                   Tango Store 状态管理

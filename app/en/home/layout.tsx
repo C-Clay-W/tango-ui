@@ -147,16 +147,16 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-32 h-10 ${activeIndex === 18 ? "font-bold" : ""}`}
-                onClick={() => handleClick(29)}
+                className={`w-32 h-10 ${activeIndex === 20 ? "font-bold" : ""}`}
+                onClick={() => handleClick(20)}
               >
                 <Link href="/en/home/tangocss" className={style}>
                   Tango Css
                 </Link>
               </li>
               <li
-                className={`w-27 h-10 ${activeIndex === 30 ? "font-bold" : ""}`}
-                onClick={() => handleClick(30)}
+                className={`w-27 h-10 ${activeIndex === 21 ? "font-bold" : ""}`}
+                onClick={() => handleClick(21)}
               >
                 <Link href="/en/home/tangocss/mapping" className={style}>
                   Mapping
@@ -188,6 +188,8 @@ export default function HomeLayout({
                 "ColorPicker",
                 "DatePicker",
                 "Upload",
+                "Banner",
+
               ].map((item, index) => (
                 <li
                   key={index}
@@ -218,8 +220,8 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-38 h-10 ${activeIndex === 18 ? "font-bold" : ""}`}
-                onClick={() => handleClick(18)}
+                className={`w-38 h-10 ${activeIndex === 22 ? "font-bold" : ""}`}
+                onClick={() => handleClick(22)}
               >
                 <Link href="/en/home/store" className={style}>
                   Tango Store
