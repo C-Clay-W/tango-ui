@@ -173,6 +173,13 @@ const ButtonComponent = () => {
     { title: "版本", dataIndex: "version", key: "version" },
   ];
 
+  function login() {
+    window.open(
+      "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com.hk%2Findex.html&dsh=S-1926229897%3A1768525286017124&ec=futura_exp_og_so_72776762_e&hl=zh-CN&ifkv=AXbMIuCEx58KCQ28Qi75tO-z191PySfXVzZFjv3pXoQ4BDG2mM_KpCYv8MWA5rb8SWIGDCJSvpri&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
+      "_blank"
+    );
+  }
+
   return (
     <>
       <div className="flex">
@@ -351,7 +358,7 @@ const ButtonComponent = () => {
 
           {/* Loading States Table */}
           <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
-          加载状态参考
+            加载状态参考
           </div>
           <div className="overflow-x-auto">
             <table className="min-w-full border border-gray-200 dark:border-gray-700">
@@ -385,7 +392,7 @@ const ButtonComponent = () => {
                     Dark
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                  默认深色加载标志
+                    默认深色加载标志
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -401,7 +408,7 @@ const ButtonComponent = () => {
                     Light
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                  亮色加载标志
+                    亮色主题（深色加载标志）
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -417,7 +424,7 @@ const ButtonComponent = () => {
                     Dark
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                  显式深色加载标志
+                  深色主题（亮色加载标志）
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -433,7 +440,7 @@ const ButtonComponent = () => {
                     Dark
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                  数组形式深色加载标志
+                    数组形式深色加载标志
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -449,7 +456,7 @@ const ButtonComponent = () => {
                     Light
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                  数组形式亮色加载标志
+                    数组形式亮色加载标志
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -483,7 +490,7 @@ const ButtonComponent = () => {
                 <code className="bg-blue-100 dark:bg-blue-800 px-1 py-0.5 rounded text-blue-800 dark:text-blue-200">
                   loading=true
                 </code>
-                时, 默认为深色加载标志
+                &nbsp;时, 默认为深色加载标志
               </li>
               <li>
                 • 数组格式可用于动态控制:{" "}
@@ -491,16 +498,9 @@ const ButtonComponent = () => {
                   [isLoading, "dark"] (useState)
                 </code>
               </li>
-              <li>
-                • 第一个元素控制加载标志 (boolean)
-              </li>
-              <li>
-                • 第二个元素控制加载标志类型 ("light" or
-                "dark")
-              </li>
-              <li>
-                • 如果第二个元素被省略或无效，则默认为“light”。
-              </li>
+              <li>• 第一个元素控制加载标志 (boolean)</li>
+              <li>• 第二个元素控制加载标志类型 ("light" or "dark")</li>
+              <li>• 如果第二个元素被省略或无效，则默认为“light”。</li>
             </ul>
           </div>
 
@@ -522,7 +522,7 @@ const ButtonComponent = () => {
 
           {/* Basic Icon Usage */}
           <div className="mt-4 mb-2 text-sm font-semibold text-gray-700">
-          基本形态
+            基本形态
           </div>
           <div className="space-y-3">
             {/* String path (image) */}
@@ -604,7 +604,7 @@ const ButtonComponent = () => {
               <thead className="bg-gray-50 dark:bg-gray-800">
                 <tr>
                   <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                  类型
+                    类型
                   </th>
                   <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
                     格式
@@ -613,7 +613,7 @@ const ButtonComponent = () => {
                     示例
                   </th>
                   <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                  描述
+                    描述
                   </th>
                 </tr>
               </thead>
@@ -665,7 +665,7 @@ const ButtonComponent = () => {
                     </code>
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                  渲染一个图标组件
+                    渲染一个图标组件
                   </td>
                 </tr>
               </tbody>
@@ -684,7 +684,7 @@ const ButtonComponent = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-64">
-                  <Button icon="/google.png" variant="outline">
+                  <Button icon="/google.png" variant="outline" onClick={login}>
                     登录 Google
                   </Button>
                 </div>
@@ -692,7 +692,7 @@ const ButtonComponent = () => {
                   <code>
                     icon="/google.png"
                     <br />
-                    variant="outline"
+                    type="default"
                   </code>
                 </div>
               </div>
@@ -701,19 +701,13 @@ const ButtonComponent = () => {
           {/* Important Notes */}
           <div className="mt-6 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded">
             <div className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-1">
-            关键信息:
+              关键信息:
             </div>
             <ul className="text-sm text-blue-700 dark:text-blue-400 space-y-1">
-              <li>
-                • 图标大小基于按钮大小自适应。
-              </li>
+              <li>• 图标大小基于按钮大小自适应。</li>
               <li>• 图标元素的自定义样式将被保留并合并。</li>
-              <li>
-                • 当 loading=true 时,图标将被替换为加载标志。
-              </li>
-              <li>
-                • 对于 React 元素，className 和 style 属性会智能地合并。
-              </li>
+              <li>• 当 loading=true 时,图标将被替换为加载标志。</li>
+              <li>• 对于 React 元素，className 和 style 属性会智能地合并。</li>
               <li>
                 • 所有图标按钮都有{" "}
                 <code className="bg-blue-100 dark:bg-blue-800 px-1 py-0.5 rounded text-blue-800 dark:text-blue-200">

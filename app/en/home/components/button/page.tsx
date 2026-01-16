@@ -3,12 +3,7 @@ import React, { useState } from "react";
 import { Button, Table, MaterialButton, Space } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoBlockEn";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
-import {
-  Md10K,
-  Md6Mp,
-  Md4kPlus,
-  Md5kPlus,
-} from "react-icons/md";
+import { Md10K, Md6Mp, Md4kPlus, Md5kPlus } from "react-icons/md";
 
 const ButtonComponent = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -178,6 +173,13 @@ const ButtonComponent = () => {
     },
     { title: "Version", dataIndex: "version", key: "version" },
   ];
+
+  function login() {
+    window.open(
+      "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com.hk%2Findex.html&dsh=S-1926229897%3A1768525286017124&ec=futura_exp_og_so_72776762_e&hl=zh-CN&ifkv=AXbMIuCEx58KCQ28Qi75tO-z191PySfXVzZFjv3pXoQ4BDG2mM_KpCYv8MWA5rb8SWIGDCJSvpri&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
+      "_blank"
+    );
+  }
 
   return (
     <>
@@ -408,7 +410,7 @@ const ButtonComponent = () => {
                     Light
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Light color loading spinner
+                  Light theme (Dark color loading spinner)
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -424,7 +426,7 @@ const ButtonComponent = () => {
                     Dark
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Explicit dark loading spinner
+                  Dark theme (Light color loading spinner)
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -692,7 +694,7 @@ const ButtonComponent = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-64">
-                  <Button icon="/google.png" variant="outline">
+                  <Button icon="/google.png" variant="outline" onClick={login}>
                     Sign in with Google
                   </Button>
                 </div>
@@ -700,7 +702,7 @@ const ButtonComponent = () => {
                   <code>
                     icon="/google.png"
                     <br />
-                    variant="outline"
+                    type="default"
                   </code>
                 </div>
               </div>
