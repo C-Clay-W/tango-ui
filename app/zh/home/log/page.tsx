@@ -8,6 +8,14 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2026-01-16</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            取消所有组件的defaultProps，升级类型安全性，<span className="bg-amber-300 dark:text-black">维护一年啦！</span>
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-01-15</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
