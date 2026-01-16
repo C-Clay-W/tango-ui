@@ -83,7 +83,7 @@ function Introduction() {
             },
             {
               title: "Customizable Styling",
-              desc: "Flexible styling system with CSS-in-JS support and theme customization",
+              desc: "Flexible styling system base on TailwindCss support and theme customization",
               icon: "🎯"
             }
           ].map((feature, index) => (

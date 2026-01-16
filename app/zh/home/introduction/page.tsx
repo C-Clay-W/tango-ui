@@ -266,7 +266,7 @@ function Introduction() {
             },
             {
               title: "强大的样式系统",
-              desc: "提供丰富的样式系统，基于TiaiwindCss，支持自定义主题和样式覆盖",
+              desc: "提供丰富的样式系统，基于TailwindCss，支持自定义主题和样式覆盖",
               icon: "🎯"
             }
           ].map((feature, index) => (
