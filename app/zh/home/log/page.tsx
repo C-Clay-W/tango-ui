@@ -10,8 +10,13 @@ function Log() {
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-01-16</h2>
         <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>完善介绍模块</li>
           <li className={CONTENT_STYLE}>
-            取消所有组件的defaultProps，升级类型安全性，<span className="bg-amber-300 dark:text-black">维护一年啦！</span>
+            Notice组件新增React19的使用方式，文档完善
+          </li>
+          <li className={CONTENT_STYLE}>
+            取消所有组件的defaultProps，升级类型安全性，
+            <span className="bg-amber-300 dark:text-black">维护一年啦！</span>
           </li>
         </ul>
       </div>

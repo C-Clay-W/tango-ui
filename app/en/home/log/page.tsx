@@ -10,9 +10,17 @@ function Log() {
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-01-16</h2>
         <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>Improve the Introduction.</li>
+          <li className={CONTENT_STYLE}>
+            The Notice component now includes React 19 usage examples, and the
+            documentation has been improved.
+          </li>
           <li className={CONTENT_STYLE}>
             Removed defaultProps from all components, upgraded type security,
-            and has been <span className="bg-amber-300 dark:text-black">maintained for a year!</span>
+            and has been{" "}
+            <span className="bg-amber-300 dark:text-black">
+              maintained for a year!
+            </span>
           </li>
         </ul>
       </div>

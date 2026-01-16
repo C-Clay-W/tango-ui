@@ -48,7 +48,7 @@ const Page = () => {
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   function enter() {
-    router.push("/en/home/components/button");
+    router.push("/en/home/introduction");
   }
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -252,7 +252,7 @@ const Page = () => {
         </div>
         <div className="flex items-center gap-4">
           <span className="text-gray-500 px-[6px] py-[1px] border rounded">
-            MVP Version: <span className="tracking-[-2px]">0.7.0</span> beta
+            MVP Version: <span className="tracking-[-2px]">0.7.6</span> beta
           </span>
         </div>
       </header>
