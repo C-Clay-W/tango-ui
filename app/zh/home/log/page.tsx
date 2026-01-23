@@ -11,7 +11,7 @@ function Log() {
         <h2 className={HEADER_STYLE}>2026-01-23</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
-            tango-excel-cw新增wrapText自动换行属性
+            tango-excel-cw新增wrapText自动换行、alignment设置单元格格式属性
           </li>
         </ul>
       </div>

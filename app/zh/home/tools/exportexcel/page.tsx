@@ -17,6 +17,7 @@ import copylogoblack from "@/assets/copyblack.png";
 import copylogowhite from "@/assets/copywhite.png";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 import { useExcelExporter } from "tango-excel-cw";
+import { div } from "framer-motion/client";
 
 const ExportExcel = () => {
   const theme = useCurrentTheme();
@@ -48,6 +49,23 @@ const ExportExcel = () => {
   const closeModal = () => {
     setIsShowModal(false);
   };
+
+  function format() {
+    return (
+      <div>
+        单独控制：['B2',{"{ vertical: 'middle', horizontal: 'left' }"}]，
+        <br />
+        <br />
+        批量控制：[['B2',{"{ vertical: 'middle', horizontal: 'left' }"}], ['C2',
+        {"{ vertical: 'middle', horizontal: 'left' }"}]]
+        <br />
+        <br />
+        vertical值：top/middle/bottom，
+        <br />
+        horizontal值：left/center/right
+      </div>
+    );
+  }
 
   const dataSource = [
     {
@@ -171,6 +189,15 @@ const ExportExcel = () => {
       description: "设置单元格自动换行",
       defaultValue: "-",
       verson: "0.1.1",
+    },
+    {
+      key: 12,
+      name: "alignment",
+      type: "Array<Array> | Array<[String, Object]>",
+      value: format(),
+      description: "设置单元格对齐方式",
+      defaultValue: "-",
+      verson: "0.2.0",
     },
   ];
 
@@ -375,7 +402,7 @@ const ExportExcel = () => {
             </Space>
           </Tooltip>
           <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
-            0.1.1
+            0.2.0
           </Space>
         </Space>
 
@@ -704,7 +731,13 @@ export default Demo;
         />
 
         <div className="mt-10 border-2 border-white p-2">
-          <Image src={Case} alt="Case" width={800} height={100} className="mx-auto"/>
+          <Image
+            src={Case}
+            alt="Case"
+            width={800}
+            height={100}
+            className="mx-auto"
+          />
         </div>
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">

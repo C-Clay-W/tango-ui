@@ -49,6 +49,23 @@ const ExportExcel = () => {
     setIsShowModal(false);
   };
 
+  function format() {
+    return (
+      <div>
+        single control：['B2',{"{ vertical: 'middle', horizontal: 'left' }"}]，
+        <br />
+        <br />
+        batch control：[['B2',{"{ vertical: 'middle', horizontal: 'left' }"}], ['C2',
+        {"{ vertical: 'middle', horizontal: 'left' }"}]]
+        <br />
+        <br />
+        vertical values：top/middle/bottom，
+        <br />
+        horizontal values：left/center/right
+      </div>
+    );
+  }
+
   const dataSource = [
     {
       key: 1,
@@ -176,6 +193,15 @@ const ExportExcel = () => {
       description: "setting wrap text",
       defaultValue: "-",
       verson: "0.1.1",
+    },
+    {
+      key: 12,
+      name: "alignment",
+      type: "Array<Array> | Array<[String, Object]>",
+      value: format(),
+      description: "set cell alignment",
+      defaultValue: "-",
+      verson: "0.2.0",
     },
   ];
 
@@ -383,7 +409,7 @@ const ExportExcel = () => {
             </Space>
           </Tooltip>
           <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
-            0.1.1
+          0.2.0
           </Space>
         </Space>
 
