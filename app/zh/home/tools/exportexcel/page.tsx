@@ -28,6 +28,7 @@ const ExportExcel = () => {
 
   const Tree = "/Tree.jpg";
   const DemoExcel = "/DemoExcel.xlsx";
+  const Case = "/demo.png";
 
   const copyCreateRef = () => {
     const content =
@@ -162,6 +163,15 @@ const ExportExcel = () => {
       defaultValue: "-",
       verson: "0.0.3",
     },
+    {
+      key: 11,
+      name: "wrapText",
+      type: "Array<String>",
+      value: "['B2','H1:H20']",
+      description: "设置单元格自动换行",
+      defaultValue: "-",
+      verson: "0.1.1",
+    },
   ];
 
   const columnsProps = [
@@ -217,7 +227,7 @@ const ExportExcel = () => {
       name: "tl",
       type: "Object",
       value: "Object",
-      description: "区域左上角坐标",
+      description: "图片位于左上角的坐标，顶点为 { col: 0, row: 0 } (A1左上角)",
       defaultValue: "-",
     },
     {
@@ -225,7 +235,7 @@ const ExportExcel = () => {
       name: "br",
       type: "Object",
       value: "Object",
-      description: "区域右下角坐标",
+      description: "图片位于右下角的坐标，顶点为 { col: 1, row: 1 } (A1右下角)",
       defaultValue: "-",
     },
   ];
@@ -335,9 +345,9 @@ const ExportExcel = () => {
     image: {
       url: Tree,
       range: {
-        // 控制图片大小
-        tl: { col: 6, row: 2 }, // 3：表示空出前3列，4：表示空出前4行
-        br: { col: 7, row: 3 }, // 8：表示图片右边在第8列，6：表示图片底边在第6行
+        // 控制图片所在范围
+        tl: { col: 6, row: 2 },
+        br: { col: 7, row: 3 },
       },
     },
     onBeforeExport: () => console.log("准备导出..."),
@@ -365,7 +375,7 @@ const ExportExcel = () => {
             </Space>
           </Tooltip>
           <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
-            0.0.5
+            0.1.1
           </Space>
         </Space>
 
@@ -479,9 +489,9 @@ function Demo() {
     image: {
       url: Tree,
       range: {
-        // 控制图片位置
-        tl: { col: 6, row: 2 }, // tl.col：空出前n列， tl.row：空出前n行
-        br: { col: 7, row: 3 }, // br.col：图片右边在第n列， br.row：图片底边在第n行
+        // 控制图片所在范围
+        tl: { col: 6, row: 2 }, // tl.col：图片左上角位于第6列， tl.row：图片左上角位于第2行
+        br: { col: 7, row: 3 }, // br.col：图片右下角位于第7列， br.row：图片右下角位于第3行
       },
     },
     onBeforeExport: () => console.log("准备导出..."),
@@ -550,9 +560,9 @@ function Demo() {
     image: {
       url: Tree,
       range: {
-        // 控制图片位置
-        tl: { col: 6, row: 2 }, // tl.col：空出前n列， tl.row：空出前n行
-        br: { col: 7, row: 3 }, // br.col：图片右边在第n列， br.row：图片底边在第n行
+        // 控制图片所在范围
+        tl: { col: 6, row: 2 }, // tl.col：图片左上角位于第6列， tl.row：图片左上角位于第2行
+        br: { col: 7, row: 3 }, // br.col：图片右下角位于第7列， br.row：图片右下角位于第3行
       },
     },
     onBeforeExport: () => console.log("准备导出..."),
@@ -692,6 +702,10 @@ export default Demo;
           containerStyles={theme === "light" ? {} : { color: "white" }}
           hoverColor="#a6a6a6"
         />
+
+        <div className="mt-10 border-2 border-white p-2">
+          <Image src={Case} alt="Case" width={800} height={100} className="mx-auto"/>
+        </div>
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
           InRange Props

@@ -28,6 +28,7 @@ const ExportExcel = () => {
 
   const Tree = "/Tree.jpg";
   const DemoExcel = "/DemoExcelEn.xlsx";
+  const Case = "/demo.png";
 
   const copyCreateRef = () => {
     const content =
@@ -167,6 +168,15 @@ const ExportExcel = () => {
       defaultValue: "-",
       verson: "0.0.3",
     },
+    {
+      key: 11,
+      name: "wrapText",
+      type: "Array<String>",
+      value: "['B2','H1:H20']",
+      description: "setting wrap text",
+      defaultValue: "-",
+      verson: "0.1.1",
+    },
   ];
 
   const columnsProps = [
@@ -223,7 +233,8 @@ const ExportExcel = () => {
       name: "tl",
       type: "Object",
       value: "Object",
-      description: "coordinates of top left",
+      description:
+        "The image is located at the top-left corner coordinates, with vertex { col: 0, row: 0 } (top-left corner of A1).",
       defaultValue: "-",
     },
     {
@@ -231,7 +242,8 @@ const ExportExcel = () => {
       name: "br",
       type: "Object",
       value: "Object",
-      description: "coordinates of bottom right",
+      description:
+        "The image is located at the bottom right corner, with vertex {col: 1, row: 1} (bottom right corner of A1).",
       defaultValue: "-",
     },
   ];
@@ -371,7 +383,7 @@ const ExportExcel = () => {
             </Space>
           </Tooltip>
           <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
-            0.0.5
+            0.1.1
           </Space>
         </Space>
 
@@ -704,6 +716,16 @@ export default Demo;
           containerStyles={theme === "light" ? {} : { color: "white" }}
           hoverColor="#a6a6a6"
         />
+
+        <div className="mt-10 border-2 border-white p-2">
+          <Image
+            src={Case}
+            alt="Case"
+            width={800}
+            height={100}
+            className="mx-auto"
+          />
+        </div>
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
           InRange Props
