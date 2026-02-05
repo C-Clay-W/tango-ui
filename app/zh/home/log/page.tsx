@@ -8,6 +8,14 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2026-02-05</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+          完善Installation文档、新增CDN引入方式、MaterialButton新增RippleColor属性
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-01-23</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
