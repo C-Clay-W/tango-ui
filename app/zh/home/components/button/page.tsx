@@ -142,6 +142,15 @@ const ButtonComponent = () => {
       defaultValue: "left",
       version: "0.6.0",
     },
+    {
+      key: "12",
+      name: "RippleColor",
+      type: "string",
+      value: "rgba|rgb|#hex",
+      description: "自定义波纹颜色",
+      defaultValue: "rgba(255, 255, 255, 0.6)",
+      version: "0.8.3",
+    },
   ];
 
   const columns = [
