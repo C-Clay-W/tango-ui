@@ -15,7 +15,10 @@ const TooltipComponent = () => {
     { id: "color", label: "颜色" },
   ];
 
-  const sections2 = [{ id: "props", label: "通用属性" }];
+  const sections2 = [
+    { id: "props", label: "通用属性" },
+    { id: "qs", label: "存在的问题" },
+  ];
   const onNavClick = (id: string) => {
     setActiveSection(id);
     const el = document.getElementById(id);
@@ -196,6 +199,13 @@ const TooltipComponent = () => {
             containerStyles={theme === "light" ? {} : { color: "white" }}
             hoverColor="#a6a6a6"
           />
+          <div className="text-2xl font-bold mt-10 mb-5 dark:text-neutral-300">
+            存在的问题
+          </div>
+          <div id="qs" className="scroll-mt-10">
+            <div className="mb-5 dark:text-neutral-300">在Flex布局中可能存在样式偏差</div>
+          </div>
+
           {/* </div> */}
         </div>
 

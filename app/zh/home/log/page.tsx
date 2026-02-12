@@ -5,13 +5,34 @@ function Log() {
   const CONTENT_STYLE =
     "text-base text-gray-700 dark:text-gray-300 mb-2 pl-2 border-l-2 border-black dark:border-white bg-gray-100 dark:bg-[#181818] rounded";
 
+  const VERSION = "font-bold text-xl text-amber-300";
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2026-02-05</h2>
+        <h2 className={HEADER_STYLE}>2026-02-12</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
-          完善Installation文档、新增CDN引入方式、MaterialButton新增RippleColor属性
+            文档存在大量维护，增加了临时提示弹窗
+          </li>
+          <li className={CONTENT_STYLE}>Tooltip文档新增问题标记</li>
+          <li className={CONTENT_STYLE}>
+            Table文档完善了rowStyle和cellStyle属性的示例以及API类型标记
+          </li>
+          <li className={CONTENT_STYLE}>
+            修正Drawer、Table和Modal组件文档中存在的示例错误
+          </li>
+          <li className={CONTENT_STYLE}>
+            移除文档侧边栏中未完成的组件和栏目，更新日志增加版本标记
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-02-05 <span className={VERSION}>0.8.3</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            完善Installation文档、新增CDN引入方式、MaterialButton新增RippleColor属性
           </li>
         </ul>
       </div>
@@ -24,7 +45,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2026-01-16</h2>
+        <h2 className={HEADER_STYLE}>
+          2026-01-16 <span className={VERSION}>0.7.0</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>完善介绍模块</li>
           <li className={CONTENT_STYLE}>
@@ -45,7 +68,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2026-01-12</h2>
+        <h2 className={HEADER_STYLE}>
+          2026-01-12 <span className={VERSION}>0.6.0</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Button组件新增icon、iconPosition和loading 属性
@@ -54,7 +79,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-10-09</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-10-09 <span className={VERSION}>0.5.2</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>新增Upload上传组件</li>
         </ul>
@@ -68,7 +95,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-09-02</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-09-02 <span className={VERSION}>0.4.9</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             useExcelExporter新增保持图片原始比例属性
@@ -76,7 +105,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-08-28</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-08-28 <span className={VERSION}>0.4.5</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>Tooltip组件新增左侧气泡</li>
 
@@ -120,13 +151,17 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-08-05</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-08-05 <span className={VERSION}>0.4.3</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>修正Input组件问题</li>
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-08-04</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-08-04 <span className={VERSION}>0.4.1</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>修正文档中对于sx属性的描述</li>
           <li className={CONTENT_STYLE}>
@@ -136,7 +171,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-08-01</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-08-01 <span className={VERSION}>0.3.5</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>完善Table组件文档</li>
           <li className={CONTENT_STYLE}>
@@ -147,7 +184,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-31</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-31 <span className={VERSION}>0.3.3</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>更新了tango-ui-cw组件源码并发布</li>
           <li className={CONTENT_STYLE}>修复了DataDisplay组件的问题</li>
@@ -197,7 +236,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-30</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-30 <span className={VERSION}>0.3.2</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             完善useExcelExporter导出Excel英文文档
@@ -317,7 +358,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-07</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-07 <span className={VERSION}>0.3.1</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>迁移并完善按钮双语文档</li>
         </ul>
@@ -331,7 +374,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-05</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-05 <span className={VERSION}>0.2.0</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Tango
@@ -341,7 +386,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-04</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-04 <span className={VERSION}>🎉0.0.1</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red bg-gray-100 dark:bg-[#181818] rounded">
             Tango UI库已发布到NPM！！ {"("}版本: 0.0.1{")"}

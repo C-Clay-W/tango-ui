@@ -200,9 +200,9 @@ const DrawerComponent = () => {
             cancel: { color: "black", backgroundColor: "white" },
           }}
         >
-          <p className="dark:text-black">here is drawer info...</p>
-          <p className="dark:text-black">here is drawer info...</p>
-          <p className="dark:text-black">here is drawer info...</p>
+          <p>here is drawer info...</p>
+          <p>here is drawer info...</p>
+          <p>here is drawer info...</p>
         </Drawer>
       </>
     );
@@ -246,10 +246,10 @@ const DrawerComponent = () => {
             cancel: { color: "black", backgroundColor: "white" },
           }}
         >
-          <p className="dark:text-black">here is drawer info...</p>
-          <p className="dark:text-black">here is drawer info...</p>
-          <p className="dark:text-black">here is drawer info...</p>
-          <p className="font-bold mt-5 dark:text-black">
+          <p>here is drawer info...</p>
+          <p>here is drawer info...</p>
+          <p>here is drawer info...</p>
+          <p className="font-bold mt-5">
             current is{" "}
             {directions.find((d) => d.type === drawerState.type)?.label} drawer.
           </p>
@@ -289,7 +289,7 @@ const DrawerComponent = () => {
           headerStyles={{ color: "brown" }}
           footerStyles={{ background: "#d6a37e" }}
           btnStyles={{
-            ok: { backgroundColor: "#3166d4" },
+            // ok: { backgroundColor: "#3166d4" },
             cancel: { color: "gray" },
             export: { color: "green" },
           }}
@@ -299,11 +299,11 @@ const DrawerComponent = () => {
             { key: "export", text: "export", onClick: handleExport },
           ]}
         >
-          <p className="dark:text-black">1.Customize Drawer container style</p>
-          <p className="dark:text-black">2.Customize Drawer container style</p>
-          <p className="dark:text-black">3.Customize Drawer footer style</p>
-          <p className="dark:text-black">4.Customize Drawer button style</p>
-          <p className="dark:text-black">5.Customize Drawer footer's button</p>
+          <p>1.Customize Drawer container style</p>
+          <p>2.Customize Drawer container style</p>
+          <p>3.Customize Drawer footer style</p>
+          <p>4.Customize Drawer button style</p>
+          <p>5.Customize Drawer footer's button</p>
         </Drawer>
       </>
     );
@@ -351,9 +351,9 @@ export function Demo () {
             cancel: { color: "black", backgroundColor: "white" },
           }}
         >
-          <p className="dark:text-black">here is drawer info...</p>
-          <p className="dark:text-black">here is drawer info...</p>
-          <p className="dark:text-black">here is drawer info...</p>
+          <p>here is drawer info...</p>
+          <p>here is drawer info...</p>
+          <p>here is drawer info...</p>
         </Drawer>
       </>
     );
@@ -462,7 +462,7 @@ export function Demo () {
           headerStyles={{ color: "brown" }}
           footerStyles={{}}
           btnStyles={{
-            ok: { backgroundColor: "#3166d4" },
+            // ok: { backgroundColor: "#3166d4" },
             cancel: { color: "gray" },
             export: { color: "green" },
           }}
@@ -472,11 +472,11 @@ export function Demo () {
             { key: "export", text: "export", onClick: handleExport },
           ]}
         >
-          <p className="dark:text-black">1.Customize Drawer container style</p>
-          <p className="dark:text-black">2.Customize Drawer container style</p>
-          <p className="dark:text-black">3.Customize Drawer footer style</p>
-          <p className="dark:text-black">4.Customize Drawer button style</p>
-          <p className="dark:text-black">5.Customize Drawer footer's button</p>
+          <p>1.Customize Drawer container style</p>
+          <p>2.Customize Drawer container style</p>
+          <p>3.Customize Drawer footer style</p>
+          <p>4.Customize Drawer button style</p>
+          <p>5.Customize Drawer footer's button</p>
         </Drawer>
       </>
     );

@@ -58,7 +58,6 @@ const ModalComponent = () => {
       key: "default",
     },
     { title: "版本", dataIndex: "version", key: "version" },
-
   ];
 
   const dataSourceZh = [
@@ -69,7 +68,6 @@ const ModalComponent = () => {
       description: "对话框默认标题文本",
       default: "自定义标题",
       version: "-",
-
     },
     {
       property: "open",
@@ -78,7 +76,6 @@ const ModalComponent = () => {
       description: "对话框是否可见",
       default: "false",
       version: "-",
-
     },
     {
       property: "onClose",
@@ -87,7 +84,6 @@ const ModalComponent = () => {
       description: "点击关闭图标或取消按钮的回调函数",
       default: "-",
       version: "-",
-
     },
     {
       property: "okText",
@@ -96,7 +92,6 @@ const ModalComponent = () => {
       description: "确认按钮文字",
       default: "确定",
       version: "-",
-
     },
     {
       property: "cancelText",
@@ -105,7 +100,6 @@ const ModalComponent = () => {
       description: "取消按钮文字",
       default: "取消",
       version: "-",
-
     },
     {
       property: "containerStyles",
@@ -114,7 +108,6 @@ const ModalComponent = () => {
       description: "自定义Modal弹窗样式",
       default: "-",
       version: "0.3.2",
-
     },
     {
       property: "headerStyles",
@@ -123,7 +116,6 @@ const ModalComponent = () => {
       description: "自定义Modal弹窗标题样式",
       default: "-",
       version: "0.3.2",
-
     },
     {
       property: "footerStyles",
@@ -132,7 +124,6 @@ const ModalComponent = () => {
       description: "自定义Modal弹窗底部区域样式",
       default: "-",
       version: "0.3.2",
-
     },
     {
       property: "btnStyles",
@@ -141,7 +132,6 @@ const ModalComponent = () => {
       description: "自定义Modal弹窗底部的按钮样式",
       default: "-",
       version: "0.3.2",
-
     },
     {
       property: "footerButtons",
@@ -150,7 +140,6 @@ const ModalComponent = () => {
       description: "自定义Modal弹窗底部按钮",
       default: "-",
       version: "0.3.2",
-
     },
     {
       property: "maskClosable",
@@ -159,7 +148,6 @@ const ModalComponent = () => {
       description: "是否启用点击蒙版关闭弹窗",
       default: "true",
       version: "0.3.4",
-
     },
   ];
 
@@ -179,18 +167,18 @@ const ModalComponent = () => {
         <Button onClick={showModal} size="middle">
           显示弹窗
         </Button>
-        <Modal title="自定义标题" open={isShowModal} onClose={closeModal}
-        btnStyles={{
-          cancel: { color: "black", backgroundColor: "white" },
-          ok: { color: "white", backgroundColor: "black" },
-        }}
-        footerButtons={[
-          { key: "cancel", text: "取消", onClick: closeModal },
-          { key: "ok", text: "确认", onClick: closeModal },
-        ]}>
-          <p className="dark:text-black">这是弹窗的内容区域...</p>
-          <p className="dark:text-black">这是弹窗的内容区域...</p>
-          <p className="dark:text-black">这是弹窗的内容区域...</p>
+        <Modal
+          title="自定义标题"
+          open={isShowModal}
+          onClose={closeModal}
+          btnStyles={{
+            cancel: { color: "black", backgroundColor: "white" },
+            // ok: { color: "white", backgroundColor: "black" },
+          }}
+        >
+          <p>这是弹窗的内容区域...</p>
+          <p>这是弹窗的内容区域...</p>
+          <p>这是弹窗的内容区域...</p>
         </Modal>
       </>
     );
@@ -225,7 +213,7 @@ const ModalComponent = () => {
           headerStyles={{ color: "brown" }}
           footerStyles={{}}
           btnStyles={{
-            ok: { backgroundColor: "#3166d4" },
+            // ok: { backgroundColor: "#3166d4" },
             cancel: { color: "gray" },
             export: { color: "green" },
           }}
@@ -235,11 +223,11 @@ const ModalComponent = () => {
             { key: "export", text: "导出", onClick: handleExport },
           ]}
         >
-          <p className="dark:text-black">1.可自定义弹窗的背景样式</p>
-          <p className="dark:text-black">2.可自定义弹窗的标题样式</p>
-          <p className="dark:text-black">3.可自定义弹窗的底部样式</p>
-          <p className="dark:text-black">4.可自定义弹窗的底部按钮样式</p>
-          <p className="dark:text-black">5.可自定义弹窗的底部按钮数量</p>
+          <p>1.可自定义弹窗的背景样式</p>
+          <p>2.可自定义弹窗的标题样式</p>
+          <p>3.可自定义弹窗的底部样式</p>
+          <p>4.可自定义弹窗的底部按钮样式</p>
+          <p>5.可自定义弹窗的底部按钮数量</p>
         </Modal>
       </>
     );
@@ -249,7 +237,9 @@ const ModalComponent = () => {
     <>
       <div className="flex w-full">
         <div className="w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">Modal 模态框</div>
+          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">
+            Modal 模态框
+          </div>
           <div className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw] dark:text-neutral-300">
             展示一个对话框，提供标题、内容区、操作区。
           </div>
@@ -280,12 +270,9 @@ export function Demo () {
         <Modal title="自定义标题" open={isShowModal} onClose={closeModal}
         btnStyles={{
           cancel: { color: "black", backgroundColor: "white" },
-          ok: { color: "white", backgroundColor: "black" },
+          // ok: { color: "white", backgroundColor: "black" },
         }}
-        footerButtons={[
-          { key: "cancel", text: "取消", onClick: closeModal },
-          { key: "ok", text: "确认", onClick: closeModal },
-        ]}>>
+        >
           <p>这是弹窗的内容区域...</p>
           <p>这是弹窗的内容区域...</p>
           <p>这是弹窗的内容区域...</p>
@@ -334,7 +321,7 @@ export function Demo () {
           headerStyles={{ color: "brown" }}
           footerStyles={{}}
           btnStyles={{
-            ok: { backgroundColor: "#3166d4" },
+            // ok: { backgroundColor: "#3166d4" },
             cancel: { color: "gray" },
             export: { color: "green" },
           }}
@@ -344,11 +331,11 @@ export function Demo () {
             { key: "export", text: "导出", onClick: handleExport },
           ]}
         >
-          <p className="dark:text-black">1.可自定义弹窗的背景样式</p>
-          <p className="dark:text-black">2.可自定义弹窗的标题样式</p>
-          <p className="dark:text-black">3.可自定义弹窗的底部样式</p>
-          <p className="dark:text-black">4.可自定义弹窗的底部按钮样式</p>
-          <p className="dark:text-black">5.可自定义弹窗的底部按钮数量</p>
+          <p>1.可自定义弹窗的背景样式</p>
+          <p>2.可自定义弹窗的标题样式</p>
+          <p>3.可自定义弹窗的底部样式</p>
+          <p>4.可自定义弹窗的底部按钮样式</p>
+          <p>5.可自定义弹窗的底部按钮数量</p>
         </Modal>
       </>
     );
@@ -360,12 +347,19 @@ export function Demo () {
 
           {/* props */}
           {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">属性</div>
+          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+            属性
+          </div>
           <div id="props" className="scroll-mt-10">
             <div className="mb-5 dark:text-neutral-300">通用属性</div>
           </div>
 
-          <Table dataSource={dataSourceZh} columns={columnsZh} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+          <Table
+            dataSource={dataSourceZh}
+            columns={columnsZh}
+            containerStyles={theme === "light" ? {} : { color: "white" }}
+            hoverColor="#a6a6a6"
+          />
           {/* </div> */}
         </div>
 
@@ -374,7 +368,9 @@ export function Demo () {
           <div className="text-gray-400 dark:text-gray-400 text-sm mb-3">
             索引
           </div>
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300">模态框</div>
+          <div className="text-sm mb-3 font-bold  dark:text-neutral-300">
+            模态框
+          </div>
 
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             {sections.map(({ id, label }) => (
@@ -387,7 +383,9 @@ export function Demo () {
                       : "hover:text-black dark:hover:text-white"
                   }`}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">-</span>
+                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                    -
+                  </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
                     {label}
                   </span>
@@ -410,7 +408,9 @@ export function Demo () {
                       : "hover:text-black dark:hover:text-white"
                   }`}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">-</span>
+                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                    -
+                  </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
                     {label}
                   </span>

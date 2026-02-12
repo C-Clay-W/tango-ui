@@ -4,14 +4,41 @@ function Log() {
     "text-lg text-gray-800 dark:text-gray-200 mb-2 pb-1 border-b border-gray-200 dark:border-gray-700";
   const CONTENT_STYLE =
     "text-base text-gray-700 dark:text-gray-300 mb-2 pl-2 border-l-2 border-black dark:border-white bg-gray-100 dark:bg-[#181818] rounded";
-
+  const VERSION = "font-bold text-xl text-amber-300";
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2026-02-05</h2>
+        <h2 className={HEADER_STYLE}>2026-02-12</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
-          Improve Installation document、new CDN import method、MaterialButton added RippleColor prop
+            The document requires extensive maintenance, and a temporary pop-up
+            notification has been added.
+          </li>
+          <li className={CONTENT_STYLE}>
+            Tooltip documentation adds issue markers
+          </li>
+          <li className={CONTENT_STYLE}>
+            The Table documentation has improved the examples for the rowStyle
+            and cellStyle properties, as well as API type markers.
+          </li>
+          <li className={CONTENT_STYLE}>
+            Correcting example errors in the documentation for the Drawer,
+            Table, and Modal components.
+          </li>
+          <li className={CONTENT_STYLE}>
+            Removed incomplete components and sections from the document
+            sidebar,and added version markers to the changelog.
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-02-05 <span className={VERSION}>0.8.3</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Improve Installation document、new CDN import method、MaterialButton
+            added RippleColor prop
           </li>
         </ul>
       </div>
@@ -24,7 +51,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2026-01-16</h2>
+        <h2 className={HEADER_STYLE}>
+          2026-01-16 <span className={VERSION}>0.7.0</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>Improve the Introduction.</li>
           <li className={CONTENT_STYLE}>
@@ -49,7 +78,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2026-01-12</h2>
+        <h2 className={HEADER_STYLE}>
+          2026-01-12 <span className={VERSION}>0.6.0</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             The Button component adds icon, iconPosition, and loading
@@ -59,7 +90,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-10-09</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-10-09 <span className={VERSION}>0.5.2</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>Added Upload component</li>
         </ul>
@@ -74,7 +107,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-09-02</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-09-02 <span className={VERSION}>0.4.9</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             useExcelExporter adds the property of keeping the original
@@ -83,7 +118,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-08-28</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-08-28 <span className={VERSION}>0.4.5</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Tooltip component adds a tip on the left
@@ -136,14 +173,18 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-08-05</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-08-05 <span className={VERSION}>0.4.3</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>Fix bugs for Input component</li>
         </ul>
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-08-04</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-08-04 <span className={VERSION}>0.4.1</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Corrected the description of the sx attribute in the documentation
@@ -155,7 +196,9 @@ function Log() {
         </ul>
       </div>
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-08-01</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-08-01 <span className={VERSION}>0.3.5</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Improve documentation for Table component
@@ -171,7 +214,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-31</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-31 <span className={VERSION}>0.3.3</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Updated the tango-ui-cw component source code and released it.
@@ -243,7 +288,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-30</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-30 <span className={VERSION}>0.3.2</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Improve useExcelExporter export Excel English documents
@@ -401,7 +448,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-07</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-07 <span className={VERSION}>0.3.1</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Migrate and improved bilingual documentation for Button component
@@ -417,7 +466,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-05</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-05 <span className={VERSION}>0.2.0</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Migrated Tango UI official documentation from React to Next,
@@ -428,7 +479,9 @@ function Log() {
       </div>
 
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>2025-07-04</h2>
+        <h2 className={HEADER_STYLE}>
+          2025-07-04 <span className={VERSION}>🎉0.0.1</span>
+        </h2>
         <ul className="m-0 p-0 list-none">
           <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red bg-gray-100 dark:bg-[#181818] rounded">
             Tango UI library published to NPM!! {"("}Version: 0.0.1{")"}

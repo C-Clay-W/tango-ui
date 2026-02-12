@@ -177,7 +177,7 @@ const TableComponent = () => {
     {
       key: "12",
       property: "rowStyle",
-      type: "() => void",
+      type: "() => void | object",
       values: "-",
       description: "自定义表格行的行内样式",
       default: "-",
@@ -195,7 +195,7 @@ const TableComponent = () => {
     {
       key: "14",
       property: "cellStyle",
-      type: "() => void",
+      type: "() => void | object",
       values: "-",
       description: "自定义表格单元格的行内样式",
       default: "-",
@@ -847,7 +847,7 @@ export function Demo () {
               code={`import { Table, Space, Button } from 'tango-ui-cw' 
 
 export function Demo () {
-  const [btnText, setBtnText] = useState("隐藏年龄列");
+    const [btnText, setBtnText] = useState("隐藏年龄列");
     const [btnTextMore, setBtnTextMore] = useState("隐藏更多列");
     const [hiddenColumns, setHiddenColumns] = useState<string[] | undefined>(
       undefined
@@ -956,7 +956,7 @@ export function Demo () {
               code={`import { Table, Space, Button } from 'tango-ui-cw' 
 
 export function Demo () {
-  const [btnTextEven, setBtnTextEven] = useState("设置偶数行颜色");
+    const [btnTextEven, setBtnTextEven] = useState("设置偶数行颜色");
     const [btnTextCol, setBtnTextCol] = useState("设置奇数列字体颜色");
 
     const [tableEvenColor, setTableEvenColor] = useState(""); // 控制偶数行背景色
@@ -1077,7 +1077,8 @@ export function Demo () {
               style={codeStyle}
               className="rounded-xl mb-2"
             >
-              {`rowStyle = (row, rowIndex, rowParity) => {...}`}
+              {`结构1：rowStyle = (row, rowIndex, rowParity) => {...}
+结构2：rowStyle = {{ backgroundColor: "red", color: "white" }}`}
             </SyntaxHighlighter>
           </div>
           <p className="mb-5 mt-5 dark:text-neutral-300">使用示例</p>
@@ -1137,7 +1138,8 @@ export function Demo () {
               style={codeStyle}
               className="rounded-xl mb-2"
             >
-              {`cellStyle = (row, col, rowIndex, colIndex, rowParity, colParity) => {...}`}
+              {`结构1：cellStyle = (row, col, rowIndex, colIndex, rowParity, colParity) => {...}
+结构1：cellStyle = {{ backgroundColor: "red", color: "white" }}`}
             </SyntaxHighlighter>
           </div>
           <p className="mb-5 mt-5 dark:text-neutral-300">使用示例</p>

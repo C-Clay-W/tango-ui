@@ -7,6 +7,7 @@ import Image from "next/image";
 import LogoBlack from "@/assets/logoblack.png";
 import LogoWhite from "@/assets/logowhite.png";
 import { useRouter } from "next/navigation";
+import { Modal } from "tango-ui-cw";
 
 export default function HomeLayout({
   children,
@@ -16,6 +17,7 @@ export default function HomeLayout({
   const [isDark, setIsDark] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // 存储当前激活的项
   const router = useRouter();
+  const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
   useEffect(() => {
     document.title = "Tango UI Doc";
@@ -56,6 +58,14 @@ export default function HomeLayout({
   const handleClick = (index: number) => {
     setActiveIndex(index); // 设置点击的索引为 active
   };
+
+  const closeModal = () => {
+    setIsShowModal(false);
+  };
+
+  useEffect(() => {
+    setIsShowModal(true);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -104,6 +114,9 @@ export default function HomeLayout({
           </Link>
         </div>
         <div className="flex items-center gap-4">
+          <span className="text-black bg-amber-300 px-2 py-1 text-sm">
+            Under maintenance
+          </span>
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
             MVP Verson: <span className="tracking-[-2px]">0.8.3</span> beta
           </span>
@@ -179,7 +192,7 @@ export default function HomeLayout({
                 "Search",
                 "Notice",
                 "Tooltip",
-                "Layout",
+                // "Layout",
                 "Modal",
                 "Table",
                 "Drawer",
@@ -189,7 +202,6 @@ export default function HomeLayout({
                 "DatePicker",
                 "Upload",
                 "Banner",
-
               ].map((item, index) => (
                 <li
                   key={index}
@@ -236,8 +248,8 @@ export default function HomeLayout({
                 </Link>
               </li>
             </ul>
-              {/* 地图 */}
-              <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
+            {/* 地图 */}
+            <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
               Map
             </div>
             <ul className="space-y-1">
@@ -273,16 +285,16 @@ export default function HomeLayout({
                 </Link>
               </li>
 
-              <li
+              {/* <li
                 className={`w-41 h-10 ${activeIndex === 22 ? "font-bold" : ""}`}
                 onClick={() => handleClick(22)}
               >
                 <Link href="/en/home/tools/preexcel" className={style}>
                   Preview Excel
                 </Link>
-              </li>
+              </li> */}
 
-              <li
+              {/* <li
                 className={`w-38 h-10 ${activeIndex === 23 ? "font-bold" : ""}`}
                 onClick={() => handleClick(23)}
               >
@@ -298,16 +310,16 @@ export default function HomeLayout({
                 <Link href="/en/home/tools/preppt" className={style}>
                   Preview PPT
                 </Link>
-              </li>
+              </li> */}
 
-              <li
+              {/* <li
                 className={`w-33 h-10 ${activeIndex === 25 ? "font-bold" : ""}`}
                 onClick={() => handleClick(25)}
               >
                 <Link href="/en/home/tools/exportpdf" className={style}>
                   Export PDF
                 </Link>
-              </li>
+              </li> */}
 
               <li
                 className={`w-39 h-10 ${activeIndex === 26 ? "font-bold" : ""}`}
@@ -318,7 +330,7 @@ export default function HomeLayout({
                 </Link>
               </li>
 
-              <li
+              {/* <li
                 className={`w-37 h-10 ${activeIndex === 27 ? "font-bold" : ""}`}
                 onClick={() => handleClick(27)}
               >
@@ -334,7 +346,7 @@ export default function HomeLayout({
                 <Link href="/en/home/tools/exportppt" className={style}>
                   Export PPT
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
 
@@ -360,6 +372,27 @@ export default function HomeLayout({
         <main className="flex-1 h-full  p-6 bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 overflow-auto overflow-x-hidden pb-10 hide-scrollbar sm:h-[calc(100vh-3.25rem)] md:px-4 lg:px-6 xl:px-10 2xl:px-18">
           <div className="max-w-7xl mx-auto w-full">{children}</div>
         </main>
+
+        {/* 维护中弹窗 */}
+        <Modal
+          title="Caution"
+          open={isShowModal}
+          onClose={closeModal}
+          btnStyles={{
+            cancel: { color: "black", backgroundColor: "white" },
+            // ok: { color: "white", backgroundColor: "black" },
+          }}
+        >
+          <p className="dark:text-black">
+            Many components are currently under maintenance. The next version
+            will refactor the underlying structure, optimize the styles of most
+            components, improve performance, stability, and accessibility, and
+            support rich style features such as theme switching!
+            <br />
+            <br />
+            20260212 @Clayw
+          </p>
+        </Modal>
       </div>
     </div>
   );

@@ -179,7 +179,7 @@ const TableComponent = () => {
     {
       key: "12",
       property: "rowStyle",
-      type: "() => void",
+      type: "() => void | object",
       values: "-",
       description: "Custom inline styles for row.",
       default: "-",
@@ -197,7 +197,7 @@ const TableComponent = () => {
     {
       key: "14",
       property: "cellStyle",
-      type: "() => void",
+      type: "() => void | object",
       values: "-",
       description: "Custom inline styles for cell.",
       default: "-",
@@ -849,7 +849,7 @@ export function Demo () {
               code={`import { Table, Space, Button } from 'tango-ui-cw' 
 
 export function Demo () {
-  const [btnText, setBtnText] = useState("hide Age column");
+    const [btnText, setBtnText] = useState("hide Age column");
     const [btnTextMore, setBtnTextMore] = useState("hide more columns");
     const [hiddenColumns, setHiddenColumns] = useState<string[] | undefined>(
       undefined
@@ -960,7 +960,7 @@ export function Demo () {
               code={`import { Table, Space, Button } from 'tango-ui-cw' 
 
 export function Demo () {
-  const [btnTextEven, setBtnTextEven] = useState("set even color");
+    const [btnTextEven, setBtnTextEven] = useState("set even color");
     const [btnTextCol, setBtnTextCol] = useState("set col color");
 
     const [tableEvenColor, setTableEvenColor] = useState(""); // 控制偶数行背景色
@@ -1078,7 +1078,8 @@ export function Demo () {
               style={codeStyle}
               className="rounded-xl mb-2"
             >
-              {`rowStyle = (row, rowIndex, rowParity) => {...}`}
+              {`Grammar1: rowStyle = (row, rowIndex, rowParity) => {...}
+Grammar2: rowStyle = {{ backgroundColor: "red", color: "white" }}`}
             </SyntaxHighlighter>
           </div>
           <p className="mb-5 mt-5 dark:text-neutral-300">Example</p>
@@ -1138,7 +1139,8 @@ export function Demo () {
               style={codeStyle}
               className="rounded-xl mb-2"
             >
-              {`cellStyle = (row, col, rowIndex, colIndex, rowParity, colParity) => {...}`}
+              {`Grammar1: cellStyle = (row, col, rowIndex, colIndex, rowParity, colParity) => {...}
+Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
             </SyntaxHighlighter>
           </div>
           <p className="mb-5 mt-5 dark:text-neutral-300">Example</p>

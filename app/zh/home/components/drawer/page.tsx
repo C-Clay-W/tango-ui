@@ -197,9 +197,9 @@ const DrawerComponent = () => {
             cancel: { color: "black", backgroundColor: "white" },
           }}
         >
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
         </Drawer>
       </>
     );
@@ -243,9 +243,9 @@ const DrawerComponent = () => {
             cancel: { color: "black", backgroundColor: "white" },
           }}
         >
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
           <p className="font-bold mt-5 dark:text-black">
             当前为{directions.find((d) => d.type === drawerState.type)?.label}
             抽屉。
@@ -284,7 +284,7 @@ const DrawerComponent = () => {
           headerStyles={{ color: "brown" }}
           footerStyles={{ background: "#d6a37e" }}
           btnStyles={{
-            ok: { backgroundColor: "#3166d4" },
+            // ok: { backgroundColor: "#3166d4" },
             cancel: { color: "gray" },
             export: { color: "green" },
           }}
@@ -294,11 +294,11 @@ const DrawerComponent = () => {
             { key: "export", text: "export", onClick: handleExport },
           ]}
         >
-          <p className="dark:text-black">1.可自定义抽屉的背景样式</p>
-          <p className="dark:text-black">2.可自定义抽屉的标题样式</p>
-          <p className="dark:text-black">3.可自定义抽屉的底部样式</p>
-          <p className="dark:text-black">4.可自定义抽屉的底部按钮样式</p>
-          <p className="dark:text-black">5.可自定义抽屉的底部按钮数量</p>
+          <p>1.可自定义抽屉的背景样式</p>
+          <p>2.可自定义抽屉的标题样式</p>
+          <p>3.可自定义抽屉的底部样式</p>
+          <p>4.可自定义抽屉的底部按钮样式</p>
+          <p>5.可自定义抽屉的底部按钮数量</p>
         </Drawer>
       </>
     );
@@ -344,9 +344,9 @@ export function Demo () {
             cancel: { color: "black", backgroundColor: "white" },
           }}
         >
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
         </Drawer>
       </>
     );
@@ -404,10 +404,10 @@ export function Demo () {
             cancel: { color: "black", backgroundColor: "white" },
           }}
         >
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="dark:text-black">这是抽屉的内容区域...</p>
-          <p className="font-bold mt-5 dark:text-black">
+          <p>这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
+          <p>这是抽屉的内容区域...</p>
+          <p className="font-bold mt-5">
             当前为{directions.find((d) => d.type === drawerState.type)?.label}
             抽屉。
           </p>
@@ -456,7 +456,7 @@ export function Demo () {
           headerStyles={{ color: "brown" }}
           footerStyles={{}}
           btnStyles={{
-            ok: { backgroundColor: "#3166d4" },
+            // ok: { backgroundColor: "#3166d4" },
             cancel: { color: "gray" },
             export: { color: "green" },
           }}
@@ -466,11 +466,11 @@ export function Demo () {
             { key: "export", text: "export", onClick: handleExport },
           ]}
         >
-          <p className="dark:text-black">1.可自定义抽屉的背景样式</p>
-          <p className="dark:text-black">2.可自定义抽屉的标题样式</p>
-          <p className="dark:text-black">3.可自定义抽屉的底部样式</p>
-          <p className="dark:text-black">4.可自定义抽屉的底部按钮样式</p>
-          <p className="dark:text-black">5.可自定义抽屉的底部按钮数量</p>
+          <p>1.可自定义抽屉的背景样式</p>
+          <p>2.可自定义抽屉的标题样式</p>
+          <p>3.可自定义抽屉的底部样式</p>
+          <p>4.可自定义抽屉的底部按钮样式</p>
+          <p>5.可自定义抽屉的底部按钮数量</p>
         </Drawer>
       </>
     );

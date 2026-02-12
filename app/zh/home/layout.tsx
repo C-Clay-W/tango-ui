@@ -7,6 +7,7 @@ import Image from "next/image";
 import LogoBlack from "@/assets/logoblack.png";
 import LogoWhite from "@/assets/logowhite.png";
 import { useRouter } from "next/navigation";
+import { Modal } from "tango-ui-cw";
 
 export default function HomeLayout({
   children,
@@ -16,6 +17,7 @@ export default function HomeLayout({
   const [isDark, setIsDark] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // 记录点击的 li
   const router = useRouter();
+  const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
   // 判断是否为暗黑模式
   useEffect(() => {
@@ -52,6 +54,14 @@ export default function HomeLayout({
   const handleClick = (index: number) => {
     setActiveIndex(index);
   };
+
+  const closeModal = () => {
+    setIsShowModal(false);
+  };
+
+  useEffect(() => {
+    setIsShowModal(true);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -100,6 +110,9 @@ export default function HomeLayout({
           </Link>
         </div>
         <div className="flex items-center gap-4">
+          <span className="text-black bg-amber-300 px-2 py-1 text-sm">
+            正在维护中
+          </span>
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
             MVP 版本: <span className="tracking-[-2px]">0.8.3</span> beta
           </span>
@@ -175,7 +188,7 @@ export default function HomeLayout({
                 "Search 搜索框",
                 "Notice 提示",
                 "Tooltip 浮窗气泡",
-                "Layout 布局",
+                // "Layout 布局",
                 "Modal 模态框",
                 "Table 表格",
                 "Drawer 抽屉",
@@ -185,7 +198,6 @@ export default function HomeLayout({
                 "DatePicker 日期选择器",
                 "Upload 上传",
                 "Banner 横幅",
-
               ].map((item, index) => (
                 <li
                   key={index}
@@ -271,16 +283,16 @@ export default function HomeLayout({
                 </Link>
               </li>
 
-              <li
+              {/* <li
                 className={`w-32 h-10 ${activeIndex === 22 ? "font-bold" : ""}`}
                 onClick={() => handleClick(22)}
               >
                 <Link href="/zh/home/tools/preexcel" className={style}>
                   浏览 Excel
                 </Link>
-              </li>
+              </li> */}
 
-              <li
+              {/* <li
                 className={`w-31 h-10 ${activeIndex === 23 ? "font-bold" : ""}`}
                 onClick={() => handleClick(23)}
               >
@@ -296,16 +308,16 @@ export default function HomeLayout({
                 <Link href="/zh/home/tools/preppt" className={style}>
                   浏览 PPT
                 </Link>
-              </li>
+              </li> */}
 
-              <li
+              {/* <li
                 className={`w-28 h-10 ${activeIndex === 25 ? "font-bold" : ""}`}
                 onClick={() => handleClick(25)}
               >
                 <Link href="/zh/home/tools/exportpdf" className={style}>
                   导出 PDF
                 </Link>
-              </li>
+              </li> */}
 
               <li
                 className={`w-32 h-10 ${activeIndex === 26 ? "font-bold" : ""}`}
@@ -316,7 +328,7 @@ export default function HomeLayout({
                 </Link>
               </li>
 
-              <li
+              {/* <li
                 className={`w-31 h-10 ${activeIndex === 27 ? "font-bold" : ""}`}
                 onClick={() => handleClick(27)}
               >
@@ -332,7 +344,7 @@ export default function HomeLayout({
                 <Link href="/zh/home/tools/exportppt" className={style}>
                   导出 PPT
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
 
@@ -358,6 +370,23 @@ export default function HomeLayout({
         <main className="flex-1 h-full  p-6 bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 overflow-auto overflow-x-hidden pb-10 hide-scrollbar sm:h-[calc(100vh-3.25rem)] md:px-4 lg:px-6 xl:px-10 2xl:px-18">
           <div className="max-w-7xl mx-auto w-full ">{children}</div>
         </main>
+        {/* 维护中弹窗 */}
+        <Modal
+          title="请注意"
+          open={isShowModal}
+          onClose={closeModal}
+          btnStyles={{
+            cancel: { color: "black", backgroundColor: "white" },
+            // ok: { color: "white", backgroundColor: "black" },
+          }}
+        >
+          <p className="dark:text-black">
+            大量组件正在维护中，下一版本将重构底层，优化大部分组件样式，提升性能、稳定性以及可访问性，支持主题切换等丰富的样式功能！
+            <br />
+            <br />
+            20260212 @Clayw
+          </p>
+        </Modal>
       </div>
     </div>
   );

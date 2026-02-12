@@ -175,12 +175,12 @@ const ModalComponent = () => {
           cancelText="Cancel"
           btnStyles={{
             cancel: { color: "black", backgroundColor: "white" },
-            ok: { color: "white", backgroundColor: "black" },
+            // ok: { color: "white", backgroundColor: "black" },
           }}
         >
-          <p className="dark:text-black">here is modal info...</p>
-          <p className="dark:text-black">here is modal info...</p>
-          <p className="dark:text-black">here is modal info...</p>
+          <p>here is modal info...</p>
+          <p>here is modal info...</p>
+          <p>here is modal info...</p>
         </Modal>
       </>
     );
@@ -215,7 +215,7 @@ const ModalComponent = () => {
           headerStyles={{ color: "brown" }}
           footerStyles={{}}
           btnStyles={{
-            ok: { backgroundColor: "#3166d4" },
+            // ok: { backgroundColor: "#3166d4" },
             cancel: { color: "gray" },
             export: { color: "green" },
           }}
@@ -225,11 +225,11 @@ const ModalComponent = () => {
             { key: "export", text: "export", onClick: handleExport },
           ]}
         >
-          <p className="dark:text-black">1.Customize Modal container style</p>
-          <p className="dark:text-black">2.Customize Modal container style</p>
-          <p className="dark:text-black">3.Customize Modal footer style</p>
-          <p className="dark:text-black">4.Customize Modal button style</p>
-          <p className="dark:text-black">5.Customize Modal footer's button</p>
+          <p>1.Customize Modal container style</p>
+          <p>2.Customize Modal container style</p>
+          <p>3.Customize Modal footer style</p>
+          <p>4.Customize Modal button style</p>
+          <p>5.Customize Modal footer's button</p>
         </Modal>
       </>
     );
@@ -278,12 +278,12 @@ export function Demo () {
             cancelText="Cancel"
             btnStyles={{
               cancel: { color: "black", backgroundColor: "white" },
-              ok: { color: "white", backgroundColor: "black" },
+              // ok: { color: "white", backgroundColor: "black" },
             }}
           >
-            <p className="dark:text-black">here is modal info...</p>
-            <p className="dark:text-black">here is modal info...</p>
-            <p className="dark:text-black">here is modal info...</p>
+            <p>here is modal info...</p>
+            <p>here is modal info...</p>
+            <p>here is modal info...</p>
           </Modal>
       </>
     );
@@ -329,7 +329,7 @@ export function Demo () {
           headerStyles={{ color: "brown" }}
           footerStyles={{}}
           btnStyles={{
-            ok: { backgroundColor: "#3166d4" },
+            // ok: { backgroundColor: "#3166d4" },
             cancel: { color: "gray" },
             export: { color: "green" },
           }}
@@ -339,11 +339,11 @@ export function Demo () {
             { key: "export", text: "export", onClick: handleExport },
           ]}
         >
-          <p className="dark:text-black">1.Customize Modal container style</p>
-          <p className="dark:text-black">2.Customize Modal container style</p>
-          <p className="dark:text-black">3.Customize Modal footer style</p>
-          <p className="dark:text-black">4.Customize Modal button style</p>
-          <p className="dark:text-black">5.Customize Modal footer's button</p>
+          <p>1.Customize Modal container style</p>
+          <p>2.Customize Modal container style</p>
+          <p>3.Customize Modal footer style</p>
+          <p>4.Customize Modal button style</p>
+          <p>5.Customize Modal footer's button</p>
         </Modal>
       </>
     );
