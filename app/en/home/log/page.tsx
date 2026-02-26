@@ -8,6 +8,65 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-02-26 <span className={VERSION}>0.9.2</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Fixed a potential issue with the ThemeProvider component during theme switching
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-02-13 <span className={VERSION}>0.9.0</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Added Next.js client identifier to all components
+          </li>
+          <li className={CONTENT_STYLE}>
+            Adjusted the btnStyle property passing logic in the Upload component
+          </li>
+          <li className={CONTENT_STYLE}>
+            Table component now supports object syntax for rowStyle and
+            cellStyle properties
+          </li>
+          <li className={CONTENT_STYLE}>
+            Adjusted overall Table component styles, added rounded corners
+          </li>
+          <li className={CONTENT_STYLE}>
+            Enhanced Table component documentation with additional code examples
+            for rowStyle and cellStyle properties
+          </li>
+          <li className={CONTENT_STYLE}>
+            Fixed and improved example descriptions in Drawer and Modal
+            documentation
+          </li>
+          <li className={CONTENT_STYLE}>
+            Fixed issue where the close button in the top-right corner of Drawer
+            and Modal did not follow dark mode switching
+          </li>
+          <li className={CONTENT_STYLE}>
+            MaterialButton component: renamed RippleColor property to
+            rippleColor and removed non-functional properties
+          </li>
+          <li className={CONTENT_STYLE}>
+            Adjusted default styles such as size and spacing for the Button
+            component
+          </li>
+          <li className={CONTENT_STYLE}>
+            Adapted Button, MaterialButton, Space, Input, MaterialInput, Drawer,
+            Table, Modal, Search, Tooltip to support theme colors
+          </li>
+          <li className={CONTENT_STYLE}>
+            Added theme switching functionality, supporting light mode, dark
+            mode, and user-defined theme colors
+          </li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-02-12</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>

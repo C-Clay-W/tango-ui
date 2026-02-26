@@ -9,6 +9,52 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-02-26 <span className={VERSION}>0.9.2</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            修复了主题切换ThemeProvider组件潜在的问题
+          </li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-02-13 <span className={VERSION}>0.9.0</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>所有组件新增Next.js客户端标识</li>
+          <li className={CONTENT_STYLE}>
+            调整了Upload组件的样式btnStyle属性传递逻辑
+          </li>
+          <li className={CONTENT_STYLE}>
+            Table组件rowStyle和cellStyle属性支持对象写法
+          </li>
+          <li className={CONTENT_STYLE}>Table组件调整整体样式，支持圆角</li>
+          <li className={CONTENT_STYLE}>
+            Table组件文档对于rowStyle和cellStyle属性丰富了示例代码
+          </li>
+          <li className={CONTENT_STYLE}>
+            Drawer和Modal文档中修复并完善了示例描述
+          </li>
+          <li className={CONTENT_STYLE}>
+            Drawer和Modal修复了右上角关闭按钮无法跟随暗色切换的问题
+          </li>
+          <li className={CONTENT_STYLE}>
+            MaterialButton组件调整了RippleColor属性改为rippleColor，去除了不生效的属性
+          </li>
+          <li className={CONTENT_STYLE}>Button组件调整了大小间距等默认样式</li>
+          <li className={CONTENT_STYLE}>
+            Button、MaterialButton、Space、Input、MaterialInput、Drawer、Table、Modal、Search、Tooltip适配了主题色
+          </li>
+          <li className={CONTENT_STYLE}>
+            新增主题切换功能，支持浅色、深色模式和用户自定义主题色
+          </li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-02-12</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>

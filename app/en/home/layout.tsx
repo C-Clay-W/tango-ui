@@ -84,8 +84,8 @@ export default function HomeLayout({
             onClick={() => router.push("/")}
           >
             Tango UI
-            <span className="absolute -top-2 -right-9 tracking-[-2px] text-xs bg-black dark:bg-white text-neutral-300 dark:text-black px-[4px] py-[1px] pt-[1px] rounded">
-              0.8.3
+            <span className="absolute -top-2 -right-9 tracking-[-2px] text-xs bg-black dark:bg-white text-neutral-300 dark:text-black px-[4px] py-[1px] pt-[1px] pr-[6px] rounded">
+              0.9.2
             </span>
           </span>
           <Link
@@ -118,7 +118,7 @@ export default function HomeLayout({
             Under maintenance
           </span>
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
-            MVP Verson: <span className="tracking-[-2px]">0.8.3</span> beta
+            MVP Verson: <span className="tracking-[-2px]">0.9.2</span> beta
           </span>
           <ThemeToggle />
         </div>
