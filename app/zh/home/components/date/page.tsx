@@ -211,7 +211,7 @@ const DateComponent = () => {
             <div className="mb-5 dark:text-neutral-300">通用属性</div>
           </div>
 
-          <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+          <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
           {/* </div> */}
         </div>
 

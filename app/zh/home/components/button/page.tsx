@@ -738,7 +738,7 @@ const ButtonComponent = () => {
             dataSource={dataSource}
             columns={columns}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
         </div>
         <div className="pl-30 ml-5 pt-30 fixed right-0 hidden sm:hidden md:hidden lg:block lg:w-80 xl:block xl:w-80">

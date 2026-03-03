@@ -588,7 +588,7 @@ export default Demo;
           dataSource={inkifyDataSource}
           columns={inkifyColumns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
@@ -599,7 +599,7 @@ export default Demo;
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
       </Space>
     </Space>

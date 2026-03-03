@@ -581,7 +581,7 @@ function EditBeforeDemo (){
             dataSource={dataSource}
             columns={columns}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
           {/* </div> */}
         </div>

@@ -311,7 +311,7 @@ const InputComponent = () => {
             <div className="mb-5 dark:text-neutral-300">Input</div>
           </div>
 
-          <Table dataSource={dataSourceEN} columns={columnsEN} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+          <Table dataSource={dataSourceEN} columns={columnsEN} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
           <div id="materialInput" className="scroll-mt-10">
             <div className="mb-5 mt-5 dark:text-neutral-300">MaterialInput</div>
           </div>
@@ -319,7 +319,7 @@ const InputComponent = () => {
           <Table
             dataSource={dataSourcENHMaterial}
             columns={columnsENMaterial}
-            containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"
+            containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"
           />
           {/* </div> */}
         </div>

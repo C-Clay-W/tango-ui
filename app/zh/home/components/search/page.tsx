@@ -240,7 +240,7 @@ export function Demo () {
             dataSource={dataSourceZH}
             columns={columnsZH}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
           {/* </div> */}
         </div>

@@ -430,7 +430,7 @@ const TableComponent = () => {
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
       </>
     );
@@ -496,7 +496,7 @@ const TableComponent = () => {
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
       </>
     );
@@ -593,7 +593,7 @@ const TableComponent = () => {
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
           hide={hiddenColumns}
         />
       </Space>
@@ -937,7 +937,7 @@ export function Demo () {
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
           hide={hiddenColumns}
         />
       </Space>
@@ -1126,7 +1126,7 @@ export function Demo () {
             dataSource={rowStyleDataSourceZh}
             columns={rowStyleColumnsZh}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
           <div className="text-2xl font-bold mb-5 mt-5 dark:text-neutral-300">
             cellStyle
@@ -1195,7 +1195,7 @@ export function Demo () {
             dataSource={cellStyleDataSourceZh}
             columns={cellStyleColumnsZh}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
 
           {/* props */}
@@ -1211,7 +1211,7 @@ export function Demo () {
             dataSource={dataSourceZh}
             columns={columnsZh}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
           <div id="columns" className="scroll-mt-10 mt-10">
             <div className="mb-5 dark:text-neutral-300">栏</div>
@@ -1220,7 +1220,7 @@ export function Demo () {
             dataSource={columnsDataSourceZh}
             columns={columnsZh}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
 
           <div id="render" className="scroll-mt-10 mt-10">
@@ -1230,7 +1230,7 @@ export function Demo () {
             dataSource={dataSourceRanderZh}
             columns={columnsZh}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
 
           {/* </div> */}

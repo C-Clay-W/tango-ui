@@ -199,7 +199,7 @@ const TooltipComponent = () => {
             dataSource={dataSource}
             columns={columns}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
 
           <div className="text-2xl font-bold mt-10 mb-5 dark:text-neutral-300">

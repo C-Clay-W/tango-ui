@@ -177,7 +177,7 @@ const Page = () => {
           </Space>
        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">createTangoStore 参数</Space>
           
-         <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+         <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
         </Space>
       </Space>
   )

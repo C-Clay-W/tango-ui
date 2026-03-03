@@ -433,7 +433,7 @@ const TableComponent = () => {
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
       </>
     );
@@ -499,7 +499,7 @@ const TableComponent = () => {
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
       </>
     );
@@ -598,7 +598,7 @@ const TableComponent = () => {
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
           hide={hiddenColumns}
         />
       </Space>
@@ -937,7 +937,7 @@ export function Demo () {
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
           hide={hiddenColumns}
         />
       </Space>
@@ -1127,7 +1127,7 @@ Grammar2: rowStyle = {{ backgroundColor: "red", color: "white" }}`}
             dataSource={rowStyleDataSourceEN}
             columns={rowStyleColumnsEN}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
           <div className="text-2xl font-bold mb-5 mt-5 dark:text-neutral-300">
             cellStyle
@@ -1196,7 +1196,7 @@ Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
             dataSource={cellStyleDataSourceEN}
             columns={cellStyleColumnsEN}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
 
           {/* props */}
@@ -1212,7 +1212,7 @@ Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
             dataSource={dataSourceEN}
             columns={columnsEN}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
           <div id="columns" className="scroll-mt-10 mt-10">
             <div className="mb-5 dark:text-neutral-300">Columns</div>
@@ -1221,7 +1221,7 @@ Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
             dataSource={columnsDataSourceEN}
             columns={columnsEN}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
 
           <div id="render" className="scroll-mt-10 mt-10">
@@ -1231,7 +1231,7 @@ Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
             dataSource={dataSourceRanderEN}
             columns={columnsEN}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
 
           {/* </div> */}

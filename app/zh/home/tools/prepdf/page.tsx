@@ -403,15 +403,15 @@ export default Demo;
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">usePreview Tokens</Space>
 
-        <Table dataSource={dataSourceTokens} columns={columnsTokens} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table dataSource={dataSourceTokens} columns={columnsTokens} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">usePreview Props</Space>
 
-        <Table dataSource={dataSourceProps} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table dataSource={dataSourceProps} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">PDFViewer Props</Space>
 
-        <Table dataSource={dataSourcePDFViewer} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table dataSource={dataSourcePDFViewer} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
       </Space>
     </Space>
   );

@@ -606,7 +606,7 @@ const allLines = [
             dataSource={dataSource}
             columns={columns}
             containerStyles={theme === "light" ? {} : { color: "white" }}
-            hoverColor="#a6a6a6"
+            // hoverColor="#a6a6a6"
           />
         </Space>
         {/* 锚点索引区域 */}

@@ -630,7 +630,7 @@ export default Demo;
           dataSource={dataSourceDemo}
           columns={columnsDemo}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
 
         <Space className="text-xl font-bold mb-3 mt-3 dark:text-neutral-300">
@@ -707,7 +707,7 @@ export default Demo;
           dataSource={dataSource}
           columns={columns}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
@@ -718,7 +718,7 @@ export default Demo;
           dataSource={dataSourceProps}
           columns={columnsProps}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
@@ -729,7 +729,7 @@ export default Demo;
           dataSource={dataSourceImage}
           columns={columnsProps}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
@@ -740,7 +740,7 @@ export default Demo;
           dataSource={dataSourceRange}
           columns={columnsProps}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
 
         <div className="mt-10 border-2 border-white p-2">
@@ -761,7 +761,7 @@ export default Demo;
           dataSource={dataSourceInRange}
           columns={columnsProps}
           containerStyles={theme === "light" ? {} : { color: "white" }}
-          hoverColor="#a6a6a6"
+          // hoverColor="#a6a6a6"
         />
       </Space>
       <Modal

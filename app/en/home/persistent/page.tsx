@@ -184,7 +184,7 @@ const Page = () => {
           createTangoStore parameters
         </Space>
 
-        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} hoverColor="#a6a6a6"/>
+        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
       </Space>
     </Space>
   );
