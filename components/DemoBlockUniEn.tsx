@@ -17,7 +17,7 @@ export default function DemoBlock({ title, code, jsx, imports }) {
   const previewRef = useRef();
   const codeRef = useRef();
   const demoRef = useRef();
-  const notice = useNotice();
+  // const notice = useNotice();
 
   const switchToPreview = () => {
     setShowPreview(true);
@@ -36,7 +36,7 @@ export default function DemoBlock({ title, code, jsx, imports }) {
   const copy = () => {
     const content = demoRef.current.textContent || demoRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success('copy success!');
+      // notice.success('copy success!');
     });
   };
 

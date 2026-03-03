@@ -17,7 +17,7 @@ export default function HomeLayout({
   const [isDark, setIsDark] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // 记录点击的 li
   const router = useRouter();
-  const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
+  // const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
   // 判断是否为暗黑模式
   useEffect(() => {
@@ -55,13 +55,13 @@ export default function HomeLayout({
     setActiveIndex(index);
   };
 
-  const closeModal = () => {
-    setIsShowModal(false);
-  };
+  // const closeModal = () => {
+  //   setIsShowModal(false);
+  // };
 
-  useEffect(() => {
-    setIsShowModal(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsShowModal(true);
+  // }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -371,7 +371,7 @@ export default function HomeLayout({
           <div className="max-w-7xl mx-auto w-full ">{children}</div>
         </main>
         {/* 维护中弹窗 */}
-        <Modal
+        {/* <Modal
           title="请注意"
           open={isShowModal}
           onClose={closeModal}
@@ -386,7 +386,7 @@ export default function HomeLayout({
             <br />
             20260212 @Clayw
           </p>
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );

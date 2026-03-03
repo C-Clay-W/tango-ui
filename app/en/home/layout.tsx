@@ -17,7 +17,7 @@ export default function HomeLayout({
   const [isDark, setIsDark] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // 存储当前激活的项
   const router = useRouter();
-  const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
+  // const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
   useEffect(() => {
     document.title = "Tango UI Doc";
@@ -59,13 +59,13 @@ export default function HomeLayout({
     setActiveIndex(index); // 设置点击的索引为 active
   };
 
-  const closeModal = () => {
-    setIsShowModal(false);
-  };
+  // const closeModal = () => {
+  //   setIsShowModal(false);
+  // };
 
-  useEffect(() => {
-    setIsShowModal(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsShowModal(true);
+  // }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -374,7 +374,7 @@ export default function HomeLayout({
         </main>
 
         {/* 维护中弹窗 */}
-        <Modal
+        {/* <Modal
           title="Caution"
           open={isShowModal}
           onClose={closeModal}
@@ -392,7 +392,7 @@ export default function HomeLayout({
             <br />
             20260212 @Clayw
           </p>
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );
