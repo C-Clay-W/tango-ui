@@ -565,10 +565,10 @@ export default Demo;
         </Space>
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">useInkify Props</Space>
 
-        <Table dataSource={inkifyDataSource} columns={inkifyColumns} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
+        <Table dataSource={inkifyDataSource} columns={inkifyColumns} containerStyles={theme === "light" ? {} : { color: "white" }} />
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">useInkify Tokens</Space>
 
-        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
+        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }}/>
       </Space>
     </Space>
   );
