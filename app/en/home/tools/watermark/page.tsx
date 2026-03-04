@@ -21,7 +21,7 @@ import { useInkify } from "tango-watermark";
 const WaterMark = () => {
   const theme = useCurrentTheme();
   const createRef = useRef();
-  const notice = useNotice();
+  // const notice = useNotice();
   const [finalUrl, setFinalUrl] = useState("");
   const [lang, setLang] = useState("React");
   const [textValue, setTextValue] = useState("Tango UI");
@@ -39,7 +39,7 @@ const WaterMark = () => {
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("copy success!");
+      // notice.success("copy success!");
     });
   };
 

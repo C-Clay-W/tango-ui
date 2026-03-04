@@ -9,11 +9,29 @@ function Log() {
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>
+          2026-03-04 <span className={VERSION}>0.9.5</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Adjusted Notice component icon styles
+          </li>
+          <li className={CONTENT_STYLE}>
+            Fixed Space component ref attribute not working
+          </li>
+          <li className={CONTENT_STYLE}>
+            Adjusted global style import method
+          </li>
+        </ul>
+      </div>
+      
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
           2026-02-26 <span className={VERSION}>0.9.2</span>
         </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
-            Fixed a potential issue with the ThemeProvider component during theme switching
+            Fixed a potential issue with the ThemeProvider component during
+            theme switching
           </li>
         </ul>
       </div>

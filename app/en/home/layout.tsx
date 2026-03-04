@@ -85,7 +85,7 @@ export default function HomeLayout({
           >
             Tango UI
             <span className="absolute -top-2 -right-9 tracking-[-2px] text-xs bg-black dark:bg-white text-neutral-300 dark:text-black px-[4px] py-[1px] pt-[1px] pr-[6px] rounded">
-              0.9.2
+              0.9.5
             </span>
           </span>
           <Link
@@ -118,7 +118,7 @@ export default function HomeLayout({
             Under maintenance
           </span>
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
-            MVP Verson: <span className="tracking-[-2px]">0.9.2</span> beta
+            MVP Verson: <span className="tracking-[-2px]">0.9.5</span> beta
           </span>
           <ThemeToggle />
         </div>
@@ -190,7 +190,7 @@ export default function HomeLayout({
                 "Line",
                 "Input",
                 "Search",
-                "Notice",
+                // "Notice",
                 "Tooltip",
                 // "Layout",
                 "Modal",
@@ -357,8 +357,8 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-40 h-10 ${activeIndex === 17 ? "font-bold" : ""}`}
-                onClick={() => handleClick(17)}
+                className={`w-40 h-10 ${activeIndex === 32 ? "font-bold" : ""}`}
+                onClick={() => handleClick(32)}
               >
                 <Link href="/en/home/log" className={style}>
                   Update Log

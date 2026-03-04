@@ -22,7 +22,7 @@ import { div } from "framer-motion/client";
 const ExportExcel = () => {
   const theme = useCurrentTheme();
   const createRef = useRef();
-  const notice = useNotice();
+  // const notice = useNotice();
   const [lang, setLang] = useState("React");
   const [isShowModal, setIsShowModal] = useState(false);
   const [record, setRecord] = useState();
@@ -35,7 +35,7 @@ const ExportExcel = () => {
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("复制成功!");
+      // notice.success("复制成功!");
     });
   };
 

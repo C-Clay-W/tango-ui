@@ -7,7 +7,7 @@ import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 const UploadComponent = () => {
   const [activeSection, setActiveSection] = useState("");
   const theme = useCurrentTheme();
-  const notice = useNotice();
+  // const notice = useNotice();
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -298,7 +298,7 @@ const UploadComponent = () => {
             if (sizeInMB > 1) {
               console.log("if中的sizeInMB ==> ", sizeInMB);
               setFiles([]); // 只更新状态，不上传
-              notice.caution("文件大小不能超过1MB!");
+              // notice.caution("文件大小不能超过1MB!");
             }
             //  上传逻辑
           }}

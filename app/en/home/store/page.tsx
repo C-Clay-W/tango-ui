@@ -16,27 +16,27 @@ function TangoStore() {
   const aRef = useRef();
   const bRef = useRef();
 
-  const notice = useNotice();
+  // const notice = useNotice();
 
   const copyCreateRef = () => {
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("copy success!");
+      // notice.success("copy success!");
     });
   };
 
   const copyARef = () => {
     const content = aRef.current.textContent || aRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("copy success!");
+      // notice.success("copy success!");
     });
   };
 
   const copyBRef = () => {
     const content = bRef.current.textContent || bRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("copy success!");
+      // notice.success("copy success!");
     });
   };
 

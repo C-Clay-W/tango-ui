@@ -14,7 +14,7 @@ import { usePreview, PDFViewer } from "tango-pdf-cw";
 const PrePDF = () => {
   const theme = useCurrentTheme();
   const createRef = useRef();
-  const notice = useNotice();
+  // const notice = useNotice();
   const [lang, setLang] = useState("React");
   const [role, setRole] = useState("admin");
   const [token, setToken] = useState("123");
@@ -25,7 +25,7 @@ const PrePDF = () => {
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("复制成功!");
+      // notice.success("复制成功!");
     });
   };
 
@@ -403,15 +403,15 @@ export default Demo;
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">usePreview Tokens</Space>
 
-        <Table dataSource={dataSourceTokens} columns={columnsTokens} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
+        <Table dataSource={dataSourceTokens} columns={columnsTokens} containerStyles={theme === "light" ? {} : { color: "white" }}/>
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">usePreview Props</Space>
 
-        <Table dataSource={dataSourceProps} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
+        <Table dataSource={dataSourceProps} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }}/>
 
         <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">PDFViewer Props</Space>
 
-        <Table dataSource={dataSourcePDFViewer} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }} // hoverColor="#a6a6a6"/>
+        <Table dataSource={dataSourcePDFViewer} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }}/>
       </Space>
     </Space>
   );

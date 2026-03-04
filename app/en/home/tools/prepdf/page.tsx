@@ -14,7 +14,7 @@ import { usePreview, PDFViewer } from "tango-pdf-cw";
 const PrePDF = () => {
   const theme = useCurrentTheme();
   const createRef = useRef();
-  const notice = useNotice();
+  // const notice = useNotice();
   const [lang, setLang] = useState("React");
   const [role, setRole] = useState("admin");
   const [token, setToken] = useState("123");
@@ -25,7 +25,7 @@ const PrePDF = () => {
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("copy success!");
+      // notice.success("copy success!");
     });
   };
 

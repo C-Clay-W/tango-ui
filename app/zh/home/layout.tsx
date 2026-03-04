@@ -30,7 +30,7 @@ export default function HomeLayout({
     } else {
       // 跟随系统
       const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
       setIsDark(prefersDark);
     }
@@ -52,6 +52,7 @@ export default function HomeLayout({
 
   // 处理 li 的点击事件
   const handleClick = (index: number) => {
+   
     setActiveIndex(index);
   };
 
@@ -81,7 +82,7 @@ export default function HomeLayout({
           >
             Tango UI
             <span className="absolute -top-2 -right-9 tracking-[-2px] text-xs bg-black dark:bg-white text-neutral-300 dark:text-black px-[4px] py-[1px] pt-[1px] pr-[6px] rounded">
-              0.9.2
+              0.9.5
             </span>
           </span>
           <Link
@@ -114,7 +115,7 @@ export default function HomeLayout({
             正在维护中
           </span>
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
-            MVP 版本: <span className="tracking-[-2px]">0.9.2</span> beta
+            MVP 版本: <span className="tracking-[-2px]">0.9.5</span> beta
           </span>
           <ThemeToggle />
         </div>
@@ -186,7 +187,7 @@ export default function HomeLayout({
                 "Line 分割线",
                 "Input 输入框",
                 "Search 搜索框",
-                "Notice 提示",
+                // "Notice 提示", // 这里暂时屏蔽，版本095，修复完再打开
                 "Tooltip 浮窗气泡",
                 // "Layout 布局",
                 "Modal 模态框",
@@ -213,6 +214,7 @@ export default function HomeLayout({
                       item.toLowerCase().split(" ")[0]
                     }`}
                     className={style}
+                   
                   >
                     {item}
                   </Link>
@@ -355,8 +357,8 @@ export default function HomeLayout({
           <nav>
             <ul className="space-y-1">
               <li
-                className={`w-54 h-10 ${activeIndex === 17 ? "font-bold" : ""}`}
-                onClick={() => handleClick(17)}
+                className={`w-54 h-10 ${activeIndex === 32 ? "font-bold" : ""}`}
+                onClick={() => handleClick(32)}
               >
                 <Link href="/zh/home/log" className={style}>
                   Update Log 更新日志
