@@ -22,7 +22,7 @@ const Page = () => {
   const [mode, setMode] = useState("2D");
   const createRef = useRef();
   const [activeSection, setActiveSection] = useState("");
-  const notice = useNotice();
+  // const notice = useNotice();
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -45,7 +45,7 @@ const Page = () => {
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("copy success!");
+      // notice.success("copy success!");
     });
   };
 

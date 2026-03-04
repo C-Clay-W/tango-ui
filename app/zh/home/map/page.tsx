@@ -26,7 +26,7 @@ const Page = () => {
   const locationRef = useRef(); // 位置
 
   const [activeSection, setActiveSection] = useState("");
-  const notice = useNotice();
+  // const notice = useNotice();
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -49,7 +49,7 @@ const Page = () => {
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
-      notice.success("复制成功!");
+      // notice.success("复制成功!");
     });
   };
 
