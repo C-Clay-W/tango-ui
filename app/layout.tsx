@@ -3,8 +3,9 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import ThemeProvider from "@/components/ThemeProvider";
-// import { NoticeProvider } from "tango-ui-cw";
+// import ThemeProvider from "@/components/ThemeProvider";
+import { ThemeProvider } from "tango-ui-cw";
+
 import "tango-ui-cw/tango.css";
 
 // const geistSans = Geist({
@@ -35,7 +36,8 @@ export default function RootLayout({
       <body
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>{children}
+        <ThemeProvider>
+         {children}
           {/* <NoticeProvider></NoticeProvider> */}
         </ThemeProvider>
       </body>

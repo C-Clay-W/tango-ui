@@ -10,21 +10,27 @@ function Log() {
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>
-          2026-03-04 <span className={VERSION}>0.9.5</span>
+          2026-03-05 <span className={VERSION}>0.9.7</span>
         </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
-            调整Notice组件图标样式
+            修复ThemeProvider在Next15/14中SSR错误问题
           </li>
           <li className={CONTENT_STYLE}>
-            修复Space组件ref属性不可用问题
-          </li>
-          <li className={CONTENT_STYLE}>
-            调整全局样式引入方式
+            完善ThemeProvider文档，新增主题切换功能的使用示例
           </li>
         </ul>
       </div>
-
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-03-04 <span className={VERSION}>0.9.5</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>调整Notice组件图标样式</li>
+          <li className={CONTENT_STYLE}>修复Space组件ref属性不可用问题</li>
+          <li className={CONTENT_STYLE}>调整全局样式引入方式</li>
+        </ul>
+      </div>
 
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>

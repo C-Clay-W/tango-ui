@@ -9,6 +9,7 @@ import {
   MaterialButton,
   MaterialInput,
   Date,
+  useTheme
 } from "tango-ui-cw";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -46,8 +47,10 @@ const Page = () => {
   const router = useRouter();
   const [visible, setVisible] = useState(true);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+  const { setTheme } = useTheme();
 
   function enter() {
+    setTheme("light")
     router.push("/en/home/introduction");
   }
 
@@ -75,6 +78,11 @@ const Page = () => {
       window.removeEventListener("scroll", handleScroll);
       if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
     };
+  }, []);
+
+  // 自动重置主题色
+  useEffect(() => {
+    setTheme("light")
   }, []);
 
   const dataSource = [
@@ -252,7 +260,7 @@ const Page = () => {
         </div>
         <div className="flex items-center gap-4">
           <span className="text-gray-500 px-[6px] py-[1px] border rounded">
-            MVP Version: <span className="tracking-[-2px]">0.9.5</span> beta
+            MVP Version: <span className="tracking-[-2px]">{process.env.NEXT_PUBLIC_TANGO_UI_VERSION}</span> beta
           </span>
         </div>
       </header>

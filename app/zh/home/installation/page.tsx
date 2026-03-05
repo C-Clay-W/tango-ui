@@ -13,20 +13,20 @@ function Installation() {
   const pnpmInstall = `pnpm add tango-ui-cw`;
   
   const importCSS = `// 在根组件中导入CSS (App.jsx / layout.tsx)
-import 'tango-ui-cw/index.css';`;
+import 'tango-ui-cw/tango.css';`;
   
   const typeDeclaration = `// tango-ui-cw.d.ts (临时类型声明)
 declare module 'tango-ui-cw';`;
   
   const unpkgCDN = `<!-- 在HTML文件的<head>标签中添加 -->
-<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@0.8.3/dist/index.css" />
-<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@0.8.3/dist/index.js" />
-<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@0.8.3/dist/index.mjs" />`;
+<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.css" />
+<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.js" />
+<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.mjs" />`;
   
   const unpkgImport = `// 在JavaScript/TypeScript中动态加载
-import('https://unpkg.com/tango-ui-cw@0.8.3/dist/index.css');
-import('https://unpkg.com/tango-ui-cw@0.8.3/dist/index.js');
-import('https://unpkg.com/tango-ui-cw@0.8.3/dist/index.mjs');`;
+import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.css');
+import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.js');
+import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.mjs');`;
 
   return (
     <div className="space-y-8">
@@ -156,7 +156,7 @@ import('https://unpkg.com/tango-ui-cw@0.8.3/dist/index.mjs');`;
       {/* UNPKG CDN 方式 */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
-          🌐 通过 UNPKG CDN 使用
+          🌐 通过 UNPKG CDN 使用（正在维护）
         </h2>
         <p className="text-gray-600 dark:text-neutral-400">
           无需安装，直接在HTML中通过CDN引入：

@@ -7,6 +7,19 @@ function Log() {
   const VERSION = "font-bold text-xl text-amber-300";
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
+       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-03-05 <span className={VERSION}>0.9.7</span>
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Fixed SSR error in ThemeProvider with Next15/14
+          </li>
+          <li className={CONTENT_STYLE}>
+            Improved ThemeProvider documentation with usage examples for theme switching
+          </li>
+        </ul>
+      </div>
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>
           2026-03-04 <span className={VERSION}>0.9.5</span>

@@ -13,7 +13,7 @@ function Installation() {
   const pnpmInstall = `pnpm add tango-ui-cw`;
   
   const importCSS = `// Import root component CSS (App.jsx / layout.tsx)
-import 'tango-ui-cw/index.css';`;
+import 'tango-ui-cw/tango.css';`;
   
   const typeDeclaration = `// tango-ui-cw.d.ts (temporary type declaration)
 declare module 'tango-ui-cw';`;
@@ -156,7 +156,7 @@ import('https://unpkg.com/tango-ui-cw@0.8.3/dist/index.mjs');`;
       {/* UNPKG CDN 方式 */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
-          🌐 Use via UNPKG CDN
+          🌐 Use via UNPKG CDN（Under maintenance）
         </h2>
         <p className="text-gray-600 dark:text-neutral-400">
         No installation required; simply include it in your HTML via CDN：

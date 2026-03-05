@@ -19,9 +19,9 @@ export default function HomeLayout({
   const router = useRouter();
   // const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
-  // 判断是否为暗黑模式
+  // 判断是否为暗黑模式，默认亮色
   useEffect(() => {
-    localStorage.setItem("theme", "dark");
+    localStorage.setItem("theme", "light");
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
       setIsDark(true);
@@ -82,7 +82,7 @@ export default function HomeLayout({
           >
             Tango UI
             <span className="absolute -top-2 -right-9 tracking-[-2px] text-xs bg-black dark:bg-white text-neutral-300 dark:text-black px-[4px] py-[1px] pt-[1px] pr-[6px] rounded">
-              0.9.5
+              {process.env.NEXT_PUBLIC_TANGO_UI_VERSION}
             </span>
           </span>
           <Link
@@ -115,7 +115,7 @@ export default function HomeLayout({
             正在维护中
           </span>
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
-            MVP 版本: <span className="tracking-[-2px]">0.9.5</span> beta
+            MVP 版本: <span className="tracking-[-2px]">{process.env.NEXT_PUBLIC_TANGO_UI_VERSION}</span> beta
           </span>
           <ThemeToggle />
         </div>
@@ -172,6 +172,31 @@ export default function HomeLayout({
                   样式映射
                 </Link>
               </li>
+            </ul>
+          </nav>
+
+          {/* 主题 */}
+          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
+            主题
+          </div>
+          <nav>
+            <ul className="space-y-1">
+              <li
+                className={`w-26 h-10 ${activeIndex === 33 ? "font-bold" : ""}`}
+                onClick={() => handleClick(33)}
+              >
+                <Link href="/zh/home/theme/switch" className={style}>
+                  主题切换
+                </Link>
+              </li>
+              {/* <li
+                className={`w-26 h-10 ${activeIndex === 34 ? "font-bold" : ""}`}
+                onClick={() => handleClick(34)}
+              >
+                <Link href="/zh/home/theme/customize" className={style}>
+                  主题定制
+                </Link>
+              </li> */}
             </ul>
           </nav>
 
