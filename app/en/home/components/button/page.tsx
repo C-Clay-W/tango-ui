@@ -145,7 +145,7 @@ const ButtonComponent = () => {
     },
     {
       key: "12",
-      name: "RippleColor",
+      name: "rippleColor",
       type: "string",
       value: "rgba|rgb|#hex",
       description: "customize the color of the ripple effect.",

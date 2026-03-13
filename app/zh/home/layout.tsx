@@ -17,6 +17,7 @@ export default function HomeLayout({
   const [isDark, setIsDark] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // 记录点击的 li
   const router = useRouter();
+  const [primaryColor, setPrimaryColor] = useState("#fafafa");
   // const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
   // 判断是否为暗黑模式，默认亮色
@@ -52,7 +53,6 @@ export default function HomeLayout({
 
   // 处理 li 的点击事件
   const handleClick = (index: number) => {
-   
     setActiveIndex(index);
   };
 
@@ -63,6 +63,11 @@ export default function HomeLayout({
   // useEffect(() => {
   //   setIsShowModal(true);
   // }, []);
+
+  const changeThemeColor = (color) => {
+    document.documentElement.style.setProperty("--primary", color);
+    setPrimaryColor(color);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -110,14 +115,28 @@ export default function HomeLayout({
             更新日志
           </Link>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <span className="text-black bg-amber-300 px-2 py-1 text-sm">
             正在维护中
           </span>
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
-            MVP 版本: <span className="tracking-[-2px]">{process.env.NEXT_PUBLIC_TANGO_UI_VERSION}</span> beta
+            MVP 版本:{" "}
+            <span className="tracking-[-2px]">
+              {process.env.NEXT_PUBLIC_TANGO_UI_VERSION}
+            </span>{" "}
+            beta
           </span>
           <ThemeToggle />
+          <input
+            type="color"
+            value={primaryColor}
+            onChange={(e) => changeThemeColor(e.target.value)}
+            className="w-6 h-6 rounded-full cursor-pointer border-2 border-gray-300 dark:border-gray-600 
+             [&::-webkit-color-swatch-wrapper]:p-0 
+             [&::-webkit-color-swatch]:border-0 
+             [&::-webkit-color-swatch]:rounded-full"
+            title="选择自定义颜色"
+          />
         </div>
       </header>
 
@@ -239,7 +258,6 @@ export default function HomeLayout({
                       item.toLowerCase().split(" ")[0]
                     }`}
                     className={style}
-                   
                   >
                     {item}
                   </Link>

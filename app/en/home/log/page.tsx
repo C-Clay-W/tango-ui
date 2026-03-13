@@ -7,7 +7,24 @@ function Log() {
   const VERSION = "font-bold text-xl text-amber-300";
   return (
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
-       <div className={BOX_STYLE}>
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
+          2026-03-13
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Fixed Button document attribute error
+          </li>
+          <li className={CONTENT_STYLE}>
+            Added theme color customization at the top of the documentation
+          </li>
+          <li className={CONTENT_STYLE}>
+            Improved ThemeProvider documentation with related notes
+          </li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>
           2026-03-05 <span className={VERSION}>0.9.7</span>
         </h2>
@@ -16,7 +33,8 @@ function Log() {
             Fixed SSR error in ThemeProvider with Next15/14
           </li>
           <li className={CONTENT_STYLE}>
-            Improved ThemeProvider documentation with usage examples for theme switching
+            Improved ThemeProvider documentation with usage examples for theme
+            switching
           </li>
         </ul>
       </div>
@@ -31,12 +49,10 @@ function Log() {
           <li className={CONTENT_STYLE}>
             Fixed Space component ref attribute not working
           </li>
-          <li className={CONTENT_STYLE}>
-            Adjusted global style import method
-          </li>
+          <li className={CONTENT_STYLE}>Adjusted global style import method</li>
         </ul>
       </div>
-      
+
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>
           2026-02-26 <span className={VERSION}>0.9.2</span>

@@ -13,7 +13,7 @@ import {
 
 const Page = () => {
   const { theme, toggleTheme, setTheme } = useTheme();
-  const [primaryColor, setPrimaryColor] = useState("#fff");
+  const [primaryColor, setPrimaryColor] = useState("#fafafa");
   console.log("theme ==> ", theme);
 
   const dataSource = [
@@ -157,6 +157,35 @@ const Page = () => {
         </p>
       </div>
 
+      {/* 注意 */}
+      <div className="mb-8 p-6 bg-gradient-to-r from-[#fffaec] to-[#fff1cf] rounded-xl border border-blue-100 dark:border-gray-700">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-2 bg-[#f8e9c3] rounded-lg">
+            <svg
+              className="w-6 h-6 text-[#ffb800]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-black">注意</h3>
+        </div>
+
+        <div className="space-y-4">
+          <p className="text-gray-700 font-bold">
+            所有Tango
+            UI组件均可直接支持主题切换，若想要其他元素也支持主题色，必须使用Space组件
+          </p>
+        </div>
+      </div>
+
       {/* 实时演示部分 */}
       <Space className="mb-10 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
         <Space className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
@@ -235,7 +264,10 @@ const Page = () => {
                       type="color"
                       value={primaryColor}
                       onChange={(e) => changeThemeColor(e.target.value)}
-                      className="w-100 h-10 rounded-lg cursor-pointer border border-gray-300 dark:border-gray-600"
+                      className="w-9 h-9 rounded-full cursor-pointer border-2 border-gray-300 dark:border-gray-600 
+             [&::-webkit-color-swatch-wrapper]:p-0 
+             [&::-webkit-color-swatch]:border-0 
+             [&::-webkit-color-swatch]:rounded-full"
                       title="选择自定义颜色"
                     />
                   </Space>

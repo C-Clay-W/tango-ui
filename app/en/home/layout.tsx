@@ -17,6 +17,7 @@ export default function HomeLayout({
   const [isDark, setIsDark] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // 存储当前激活的项
   const router = useRouter();
+    const [primaryColor, setPrimaryColor] = useState("#fafafa");
   // const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
   useEffect(() => {
@@ -67,6 +68,11 @@ export default function HomeLayout({
   //   setIsShowModal(true);
   // }, []);
 
+    const changeThemeColor = (color) => {
+    document.documentElement.style.setProperty("--primary", color);
+    setPrimaryColor(color);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* 顶部导航栏 */}
@@ -113,7 +119,7 @@ export default function HomeLayout({
             Update Log
           </Link>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <span className="text-black bg-amber-300 px-2 py-1 text-sm">
             Under maintenance
           </span>
@@ -121,6 +127,16 @@ export default function HomeLayout({
             MVP Verson: <span className="tracking-[-2px]">{process.env.NEXT_PUBLIC_TANGO_UI_VERSION}</span> beta
           </span>
           <ThemeToggle />
+          <input
+            type="color"
+            value={primaryColor}
+            onChange={(e) => changeThemeColor(e.target.value)}
+            className="w-6 h-6 rounded-full cursor-pointer border-2 border-gray-300 dark:border-gray-600 
+             [&::-webkit-color-swatch-wrapper]:p-0 
+             [&::-webkit-color-swatch]:border-0 
+             [&::-webkit-color-swatch]:rounded-full"
+            title="选择自定义颜色"
+          />
         </div>
       </header>
 

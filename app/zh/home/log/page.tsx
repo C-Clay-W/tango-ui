@@ -10,6 +10,23 @@ function Log() {
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>
+          2026-03-13
+        </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            修正Button文档中属性错误问题
+          </li>
+          <li className={CONTENT_STYLE}>
+            文档顶部新增主题色定制
+          </li>
+          <li className={CONTENT_STYLE}>
+            完善ThemeProvider文档相关注意事项
+          </li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>
           2026-03-05 <span className={VERSION}>0.9.7</span>
         </h2>
         <ul className="m-0 p-0 list-none">

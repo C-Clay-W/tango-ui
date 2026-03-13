@@ -144,7 +144,7 @@ const ButtonComponent = () => {
     },
     {
       key: "12",
-      name: "RippleColor",
+      name: "rippleColor",
       type: "string",
       value: "rgba|rgb|#hex",
       description: "自定义波纹颜色",

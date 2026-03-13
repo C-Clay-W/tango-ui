@@ -13,7 +13,7 @@ import {
 
 const Page = () => {
   const { theme, toggleTheme, setTheme } = useTheme();
-  const [primaryColor, setPrimaryColor] = useState("#fff");
+  const [primaryColor, setPrimaryColor] = useState("#fafafa");
   console.log("theme ==> ", theme);
 
   const dataSource = [
@@ -79,7 +79,8 @@ const Page = () => {
       name: "theme",
       type: "string",
       value: "light | dark",
-      description: "specify the current theme,two themes are supported: 'light' and 'dark'.",
+      description:
+        "specify the current theme,two themes are supported: 'light' and 'dark'.",
       defaultValue: "light",
     },
     {
@@ -101,7 +102,7 @@ const Page = () => {
   ];
 
   const columnsAPI = [
-   {
+    {
       title: "Prop",
       dataIndex: "name",
       key: "name",
@@ -144,8 +145,9 @@ const Page = () => {
           Summary
         </h2>
         <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-          Tango UI provides a simple and efficient theme switching feature, supporting dynamic switching between light and dark themes.
-          Through the built-in{" "}
+          Tango UI provides a simple and efficient theme switching feature,
+          supporting dynamic switching between light and dark themes. Through
+          the built-in{" "}
           <code className="bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-blue-400 px-2 py-1 rounded font-mono text-sm">
             ThemeProvider
           </code>{" "}
@@ -155,6 +157,36 @@ const Page = () => {
           </code>{" "}
           Hook, you can easily implement theme management for your application.
         </p>
+      </div>
+
+      {/* 注意 */}
+      <div className="mb-8 p-6 bg-gradient-to-r from-[#fffaec] to-[#fff1cf] rounded-xl border border-blue-100 dark:border-gray-700">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-2 bg-[#f8e9c3] rounded-lg">
+            <svg
+              className="w-6 h-6 text-[#ffb800]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-black">Caution</h3>
+        </div>
+
+        <div className="space-y-4">
+          <p className="text-gray-700 font-bold">
+            All Tango UI components can directly support theme switching. If you
+            want other elements to also support theme colors, you must use the
+            Space component.
+          </p>
+        </div>
       </div>
 
       {/* 实时演示部分 */}
@@ -235,7 +267,10 @@ const Page = () => {
                       type="color"
                       value={primaryColor}
                       onChange={(e) => changeThemeColor(e.target.value)}
-                      className="w-100 h-10 rounded-lg cursor-pointer border border-gray-300 dark:border-gray-600"
+                      className="w-9 h-9 rounded-full cursor-pointer border-2 border-gray-300 dark:border-gray-600 
+             [&::-webkit-color-swatch-wrapper]:p-0 
+             [&::-webkit-color-swatch]:border-0 
+             [&::-webkit-color-swatch]:rounded-full"
                       title="Select Custom Color"
                     />
                   </Space>
@@ -277,7 +312,8 @@ const Page = () => {
 
                 {/* 颜色说明 */}
                 <Space className="text-xs text-gray-500 dark:text-gray-400 mt-2 p-2 bg-gray-50 dark:bg-gray-800 rounded">
-                  💡 Click on preset colors or use the color picker to customize the theme color, and preview the changes in real-time.
+                  💡 Click on preset colors or use the color picker to customize
+                  the theme color, and preview the changes in real-time.
                 </Space>
               </Space>
             </Space>
@@ -294,7 +330,8 @@ const Page = () => {
                   Card Title
                 </Space>
                 <Space className="text-sm text-gray-600 dark:text-gray-400">
-                  This is a sample card that demonstrates the style changes after theme switching.
+                  This is a sample card that demonstrates the style changes
+                  after theme switching.
                 </Space>
               </Space>
               <Space className="p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
@@ -302,7 +339,8 @@ const Page = () => {
                   Card Title
                 </Space>
                 <Space className="text-sm text-gray-600 dark:text-gray-400">
-                  This is a sample card that demonstrates the style changes after theme switching.
+                  This is a sample card that demonstrates the style changes
+                  after theme switching.
                 </Space>
               </Space>
             </Space>
@@ -336,7 +374,11 @@ const Page = () => {
               Search
             </Space>
             <Space>
-              <Search size="" btnText="Search" placeholder="Enter search content..." />
+              <Search
+                size=""
+                btnText="Search"
+                placeholder="Enter search content..."
+              />
             </Space>
           </Space>
 
@@ -421,7 +463,10 @@ function ThemeSwitch() {
         <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-lg">
           <ul className="list-disc pl-6 div-y-2 text-gray-700 dark:text-gray-300">
             <li>Use ThemeProvider at the top level of your application</li>
-            <li>Place the theme switch button in a global component or navigation area</li>
+            <li>
+              Place the theme switch button in a global component or navigation
+              area
+            </li>
           </ul>
         </div>
       </div>
