@@ -14,6 +14,9 @@ function Log() {
         </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
+            优化封面Table示例样式
+          </li>
+          <li className={CONTENT_STYLE}>
             修正Button文档中属性错误问题
           </li>
           <li className={CONTENT_STYLE}>

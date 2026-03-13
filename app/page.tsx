@@ -9,7 +9,7 @@ import {
   MaterialButton,
   MaterialInput,
   Date,
-  useTheme
+  useTheme,
 } from "tango-ui-cw";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -25,7 +25,7 @@ const TiltedCard = dynamic(() => import("@/components/ReactBits/TiltedCard"), {
 });
 const SpotlightCard = dynamic(
   () => import("@/components/ReactBits/SpotlightCard"),
-  { ssr: false }
+  { ssr: false },
 );
 const Particles = dynamic(() => import("@/components/ReactBits/Particles"), {
   ssr: false,
@@ -50,7 +50,7 @@ const Page = () => {
   const { setTheme } = useTheme();
 
   function enter() {
-    setTheme("light")
+    setTheme("light");
     router.push("/en/home/introduction");
   }
 
@@ -82,7 +82,7 @@ const Page = () => {
 
   // 自动重置主题色
   useEffect(() => {
-    setTheme("light")
+    setTheme("light");
   }, []);
 
   const dataSource = [
@@ -233,34 +233,26 @@ const Page = () => {
           >
             Tango UI
           </span>
-          <Link
-            href="/en/home/components/button"
-            className="text-neutral-300"
-          >
+          <Link href="/en/home/components/button" className="text-neutral-300">
             Components
           </Link>
-          <Link
-            href="/en/home/store"
-            className="text-neutral-300"
-          >
+          <Link href="/en/home/store" className="text-neutral-300">
             Tango Store
           </Link>
-          <Link
-            href="/en/home/tools/watermark"
-            className="text-neutral-300"
-          >
+          <Link href="/en/home/tools/watermark" className="text-neutral-300">
             Tools
           </Link>
-          <Link
-            href="/en/home/log"
-            className="text-neutral-300"
-          >
+          <Link href="/en/home/log" className="text-neutral-300">
             Update Log
           </Link>
         </div>
         <div className="flex items-center gap-4">
           <span className="text-gray-500 px-[6px] py-[1px] border rounded">
-            MVP Version: <span className="tracking-[-2px]">{process.env.NEXT_PUBLIC_TANGO_UI_VERSION}</span> beta
+            MVP Version:{" "}
+            <span className="tracking-[-2px]">
+              {process.env.NEXT_PUBLIC_TANGO_UI_VERSION}
+            </span>{" "}
+            beta
           </span>
         </div>
       </header>
@@ -355,14 +347,12 @@ const Page = () => {
                   <Table
                     dataSource={dataSource}
                     columns={columns}
-                    containerStyles={{ color: "#e5e5e5" }}
-                    hoverColor="#2a2c32"
                     cellStyle={(row: any, col: any) => {
                       if (col.dataIndex === "englishScore") {
                         const maxScore = 150;
                         const percent = Math.min(
                           (row.englishScore / maxScore) * 100,
-                          100
+                          100,
                         );
 
                         // 低于 90 分橘黄色
@@ -384,7 +374,7 @@ const Page = () => {
                     }}
                   />
 
-                  <div className="codeArea w-[100%] h-60 overflow-auto border-1 mt-2">
+                  <div className="codeArea w-[100%] h-60 overflow-auto border-1 mt-2 rounded-xl hide-scrollbar">
                     <SyntaxHighlighter
                       language="jsx"
                       style={atomOneDark}
@@ -497,7 +487,8 @@ const columns = [
                         </p>
                         <div className="w-[15vw] h-[11vw] lg:h-[10vw] xl:h-[11vw] overflow-hidden">
                           <p className="tilted-card-demo-text text-xs lg:text-sm xl:text-xl 2xl:text-2xl p-8">
-                          Headless <br/>Style
+                            Headless <br />
+                            Style
                           </p>
                           <p className="text-xs px-8 text-neutral-300 -mt-7 xl:-mt-5 2xl:-mt-3 2xl:text-sm">
                             Build beautiful UIs with ease. Start with Tango UI,

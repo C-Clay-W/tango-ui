@@ -13,7 +13,10 @@ function Log() {
         </h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
-            Fixed Button document attribute error
+            Optimized cover Table example styles
+          </li>
+          <li className={CONTENT_STYLE}>
+            Fixed Button documentation attribute error
           </li>
           <li className={CONTENT_STYLE}>
             Added theme color customization at the top of the documentation
