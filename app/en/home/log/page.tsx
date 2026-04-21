@@ -9,8 +9,32 @@ function Log() {
     <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>
-          2026-03-13
+          2026-04-21 <span className={VERSION}>0.9.9</span>
         </h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Adjusted default styles for Modal and Drawer components
+          </li>
+          <li className={CONTENT_STYLE}>
+            Fixed issue with Input and Search component borders overlapping with
+            default theme colors on focus
+          </li>
+          <li className={CONTENT_STYLE}>
+            Adjusted default styles for DatePicker component
+          </li>
+
+          <li className={CONTENT_STYLE}>
+            Adjusted default styles for ColorPicker component
+          </li>
+          <li className={CONTENT_STYLE}>
+            Fixed issue with Input and Search component borders not being
+            controlled by custom theme colors
+          </li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2026-03-13</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>
             Optimized cover Table example styles

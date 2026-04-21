@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { Button, Table, MaterialButton, Space } from "tango-ui-cw";
+import { Button, Table, MaterialButton, Space, useTheme } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoBlockEn";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 import { Md10K, Md6Mp, Md4kPlus, Md5kPlus } from "react-icons/md";
 
 const ButtonComponent = () => {
   const [activeSection, setActiveSection] = useState("");
-  const theme = useCurrentTheme();
+  const { toggleTheme } = useTheme();
   const logoUrl = "/logoblack.png";
 
   // 平滑滚动到锚点位置
@@ -186,7 +186,7 @@ const ButtonComponent = () => {
   function login() {
     window.open(
       "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com.hk%2Findex.html&dsh=S-1926229897%3A1768525286017124&ec=futura_exp_og_so_72776762_e&hl=zh-CN&ifkv=AXbMIuCEx58KCQ28Qi75tO-z191PySfXVzZFjv3pXoQ4BDG2mM_KpCYv8MWA5rb8SWIGDCJSvpri&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
-      "_blank"
+      "_blank",
     );
   }
 
@@ -419,7 +419,7 @@ const ButtonComponent = () => {
                     Light
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                  Light theme (Dark color loading spinner)
+                    Light theme (Dark color loading spinner)
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -435,7 +435,7 @@ const ButtonComponent = () => {
                     Dark
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                  Dark theme (Light color loading spinner)
+                    Dark theme (Light color loading spinner)
                   </td>
                 </tr>
                 <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
@@ -754,11 +754,11 @@ const ButtonComponent = () => {
             <div id="props" className="scroll-mt-10">
               <div className="mb-5 dark:text-neutral-300">Universal Props</div>
             </div>
-
+            
             <Table
               dataSource={dataSource}
               columns={columns}
-              containerStyles={theme === "light" ? {} : { color: "white" }}
+              // containerStyles={theme === "light" ? {} : { color: "white" }}
               // hoverColor="#a6a6a6"
             />
 

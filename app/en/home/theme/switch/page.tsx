@@ -70,6 +70,11 @@ const Page = () => {
 
   const changeThemeColor = (color) => {
     document.documentElement.style.setProperty("--primary", color);
+    // 下边四个为语义化主题变量实现方法，各自独立控制，需要就set不需要就不写
+    document.documentElement.style.setProperty("--input-accent", color); // 输入类控件交互强调色
+		document.documentElement.style.setProperty("--modal-ok-bg", color); // Modal 的 OK 按钮色
+		document.documentElement.style.setProperty("--drawer-ok-bg", color); // Drawer 的 OK 按钮色
+    document.documentElement.style.setProperty("--datepicker-confirm-bg", color); // DatePicker 颜色控制
     setPrimaryColor(color);
   };
 

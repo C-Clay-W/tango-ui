@@ -1,34 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
 import ToggleLogoWhite from "@/assets/togglewhite.png";
 import ToggleLogoBlack from "@/assets/toogleblack.png";
 import LangWhite from "@/assets/langwhite.png";
 import LangBlack from "@/assets/langblack.png";
 import { usePathname, useRouter } from "next/navigation";
+import { useTheme } from "tango-ui-cw";
 
 import Image from "next/image";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
   const pathname = usePathname();
   const router = useRouter();
-
-  useEffect(() => {
-    const saved = localStorage.getItem("theme") as "light" | "dark" | null;
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const current = saved || (prefersDark ? "dark" : "light");
-    setTheme(current);
-    document.documentElement.classList.toggle("dark", current === "dark");
-  }, []);
-
-  const toggleTheme = () => {
-    const next = theme === "light" ? "dark" : "light";
-    document.documentElement.classList.toggle("dark", next === "dark");
-    localStorage.setItem("theme", next);
-    setTheme(next);
-  };
+  const { theme, toggleTheme } = useTheme();
 
   const toggleLang = () => {
     const segments = pathname.split("/");

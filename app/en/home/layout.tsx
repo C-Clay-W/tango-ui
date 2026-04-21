@@ -7,7 +7,7 @@ import Image from "next/image";
 import LogoBlack from "@/assets/logoblack.png";
 import LogoWhite from "@/assets/logowhite.png";
 import { useRouter } from "next/navigation";
-import { Modal } from "tango-ui-cw";
+import { Space, useTheme } from "tango-ui-cw";
 
 export default function HomeLayout({
   children,
@@ -17,7 +17,8 @@ export default function HomeLayout({
   const [isDark, setIsDark] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // 存储当前激活的项
   const router = useRouter();
-    const [primaryColor, setPrimaryColor] = useState("#fafafa");
+  const [primaryColor, setPrimaryColor] = useState("#fafafa");
+  const { theme } = useTheme();
   // const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
   useEffect(() => {
@@ -35,7 +36,7 @@ export default function HomeLayout({
     } else {
       // 跟随系统
       const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
       setIsDark(prefersDark);
     }
@@ -68,63 +69,67 @@ export default function HomeLayout({
   //   setIsShowModal(true);
   // }, []);
 
-    const changeThemeColor = (color) => {
+  const changeThemeColor = (color) => {
     document.documentElement.style.setProperty("--primary", color);
     setPrimaryColor(color);
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <Space className="flex flex-col min-h-screen">
       {/* 顶部导航栏 */}
-      <header className="h-13 min-w-[800px] bg-white dark:bg-[#0a0a0a] flex items-center justify-between px-6  fixed w-full">
-        <div className="flex items-center gap-7">
+      <Space className="!h-13 min-w-[800px] bg-white dark:bg-[#0a0a0a] flex items-center justify-between px-6  fixed !w-full">
+        <Space className="flex items-center gap-7">
           <Image
-            src={isDark ? LogoWhite : LogoBlack}
+            src={theme === "dark" ? LogoWhite : LogoBlack}
             alt="Logo"
             width={26}
             height={26}
           />
 
-          <span
+          <Space
             className="relative text-xl font-bold ml-[-5px] mr-3 text-black dark:text-neutral-300 cursor-pointer"
             onClick={() => router.push("/")}
           >
             Tango UI
-            <span className="absolute -top-2 -right-9 tracking-[-2px] text-xs bg-black dark:bg-white text-neutral-300 dark:text-black px-[4px] py-[1px] pt-[1px] pr-[6px] rounded">
+            <Space className="absolute -top-2 -right-9 tracking-[-2px] text-xs bg-black dark:bg-white text-neutral-300 dark:text-black px-[4px] py-[1px] pt-[1px] pr-[6px] rounded">
               {process.env.NEXT_PUBLIC_TANGO_UI_VERSION}
-            </span>
-          </span>
+            </Space>
+          </Space>
           <Link
             href="/en/home/components/button"
             className="text-black dark:text-neutral-300"
           >
-            Components
+            <Space>Components</Space>
           </Link>
           <Link
             href="/en/home/store"
             className="text-black dark:text-neutral-300"
           >
-            Tango Store
+            <Space>Tango Store</Space>
           </Link>
           <Link
             href="/en/home/tools/watermark"
             className="text-black dark:text-neutral-300"
           >
-            Tools
+            <Space>Tools</Space>
           </Link>
           <Link
             href="/en/home/log"
             className="text-black dark:text-neutral-300"
           >
-            Update Log
+            <Space>Update Log</Space>
           </Link>
-        </div>
+        </Space>
         <div className="flex items-center gap-3">
           <span className="text-black bg-amber-300 px-2 py-1 text-sm">
             Under maintenance
           </span>
           <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
-            MVP Verson: <span className="tracking-[-2px]">{process.env.NEXT_PUBLIC_TANGO_UI_VERSION}</span> beta
+            MVP Verson:{" "}
+            <span className="tracking-[-2px]">
+              {process.env.NEXT_PUBLIC_TANGO_UI_VERSION}
+            </span>{" "}
+            beta
           </span>
           <ThemeToggle />
           <input
@@ -138,12 +143,12 @@ export default function HomeLayout({
             title="选择自定义颜色"
           />
         </div>
-      </header>
+      </Space>
 
       {/* 下方区域：左右布局 */}
-      <div className="flex flex-1 mt-13">
+      <Space className="flex flex-1 mt-13">
         {/* 左侧侧边栏 */}
-        <aside className="hidden h-[calc(100vh-3.25rem)] bg-white dark:bg-[#0a0a0a] p-4 pt-15 overflow-auto pb-10 hide-scrollbar sm:hidden md:hidden lg:hidden xl:block xl:w-80 2xl:block 2xl:w-80">
+        <Space className="hidden h-[calc(100vh-3.25rem)] bg-white dark:bg-[#0a0a0a] p-4 pt-15 overflow-auto pb-10 hide-scrollbar sm:hidden md:hidden lg:hidden xl:block xl:w-80 2xl:block 2xl:w-80">
           {/* 准备工作 */}
           <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5">
             Get Started
@@ -155,7 +160,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(0)}
               >
                 <Link href="/en/home/introduction" className={style}>
-                  Introduction
+                  <Space>Introduction</Space>
                 </Link>
               </li>
               <li
@@ -163,7 +168,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(1)}
               >
                 <Link href="/en/home/installation" className={style}>
-                  Installation
+                  <Space>Installation</Space>
                 </Link>
               </li>
             </ul>
@@ -180,7 +185,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(20)}
               >
                 <Link href="/en/home/tangocss" className={style}>
-                  Tango Css
+                  <Space>Tango Css</Space>
                 </Link>
               </li>
               <li
@@ -188,13 +193,13 @@ export default function HomeLayout({
                 onClick={() => handleClick(21)}
               >
                 <Link href="/en/home/tangocss/mapping" className={style}>
-                  Mapping
+                  <Space>Mapping</Space>
                 </Link>
               </li>
             </ul>
           </nav>
 
-           {/* 主题 */}
+          {/* 主题 */}
           <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
             Theme
           </div>
@@ -205,7 +210,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(33)}
               >
                 <Link href="/en/home/theme/switch" className={style}>
-                  Theme Switch
+                  <Space>Theme Switch</Space>
                 </Link>
               </li>
               {/* <li
@@ -259,7 +264,7 @@ export default function HomeLayout({
                     }`}
                     className={style}
                   >
-                    {item}
+                    <Space>{item}</Space>
                   </Link>
                 </li>
               ))}
@@ -277,7 +282,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(22)}
               >
                 <Link href="/en/home/store" className={style}>
-                  Tango Store
+                  <Space>Tango Store</Space>
                 </Link>
               </li>
               <li
@@ -285,7 +290,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(19)}
               >
                 <Link href="/en/home/persistent" className={style}>
-                  Persistent
+                  <Space>Persistent</Space>
                 </Link>
               </li>
             </ul>
@@ -299,7 +304,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(31)}
               >
                 <Link href="/en/home/map" className={style}>
-                  TangoMapViewer
+                  <Space>TangoMapViewer</Space>
                 </Link>
               </li>
             </ul>
@@ -313,7 +318,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(20)}
               >
                 <Link href="/en/home/tools/watermark" className={style}>
-                  WaterMark
+                  <Space>WaterMark</Space>
                 </Link>
               </li>
 
@@ -322,7 +327,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(21)}
               >
                 <Link href="/en/home/tools/prepdf" className={style}>
-                  Preview PDF
+                  <Space>Preview PDF</Space>
                 </Link>
               </li>
 
@@ -367,7 +372,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(26)}
               >
                 <Link href="/en/home/tools/exportexcel" className={style}>
-                  Export Excel
+                  <Space>Export Excel</Space>
                 </Link>
               </li>
 
@@ -402,12 +407,12 @@ export default function HomeLayout({
                 onClick={() => handleClick(32)}
               >
                 <Link href="/en/home/log" className={style}>
-                  Update Log
+                  <Space>Update Log</Space>
                 </Link>
               </li>
             </ul>
           </nav>
-        </aside>
+        </Space>
 
         {/* 右侧主内容区 */}
         <main className="flex-1 h-full  p-6 bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 overflow-auto overflow-x-hidden pb-10 hide-scrollbar sm:h-[calc(100vh-3.25rem)] md:px-4 lg:px-6 xl:px-10 2xl:px-18">
@@ -434,7 +439,7 @@ export default function HomeLayout({
             20260212 @Clayw
           </p>
         </Modal> */}
-      </div>
-    </div>
+      </Space>
+    </Space>
   );
 }

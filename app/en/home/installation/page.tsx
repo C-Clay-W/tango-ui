@@ -19,14 +19,14 @@ import 'tango-ui-cw/tango.css';`;
 declare module 'tango-ui-cw';`;
   
   const unpkgCDN = `<!-- Add in HTML file's <head> tag -->
-<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@0.8.3/dist/index.css" />
-<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@0.8.3/dist/index.js" />
-<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@0.8.3/dist/index.mjs" />`;
+<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.css" />
+<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.js" />
+<link rel="stylesheet" href="https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.mjs" />`;
   
   const unpkgImport = `// Dynamic loading in JavaScript/TypeScript
-import('https://unpkg.com/tango-ui-cw@0.8.3/dist/index.css');
-import('https://unpkg.com/tango-ui-cw@0.8.3/dist/index.js');
-import('https://unpkg.com/tango-ui-cw@0.8.3/dist/index.mjs');`;
+import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.css');
+import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.js');
+import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION}/dist/index.mjs');`;
 
   return (
     <div className="space-y-8">
