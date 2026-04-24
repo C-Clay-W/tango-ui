@@ -127,10 +127,22 @@ export default function HomeLayout({
           </Link>
         </Space>
         <div className="flex items-center gap-3">
-          <span className="text-black bg-amber-300 px-2 py-1 text-sm">
+          {/* <span className="text-black bg-amber-300 px-2 py-1 text-sm">
             正在维护中
-          </span>
-          <span className="bg-gray-200  text-gray-500 dark:bg-[#292c33] px-[6px] py-[1px] rounded">
+          </span> */}
+          <span
+            className="px-[6px] py-[1px] rounded"
+            style={{
+              backgroundColor:
+                theme === "dark"
+                  ? "var(--doc-btn-secondary-bg)"
+                  : "var(--doc-btn-secondary-bg)",
+              color:
+                theme === "dark"
+                  ? "var(--doc-btn-secondary-text)"
+                  : "var(--doc-text-secondary)",
+            }}
+          >
             MVP 版本:{" "}
             <span className="tracking-[-2px]">
               {process.env.NEXT_PUBLIC_TANGO_UI_VERSION}
