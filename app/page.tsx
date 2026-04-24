@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import {
   Button,
@@ -50,7 +50,9 @@ const Page = () => {
   const { setTheme } = useTheme();
 
   function enter() {
-    setTheme("light");
+    setTheme("dark");
+    localStorage.setItem("theme", "dark");
+    document.documentElement.classList.add("dark");
     router.push("/en/home/introduction");
   }
 
@@ -81,9 +83,11 @@ const Page = () => {
   }, []);
 
   // 自动重置主题色
-  useEffect(() => {
-    setTheme("light");
-  }, []);
+  useLayoutEffect(() => {
+    setTheme("dark");
+    localStorage.setItem("theme", "dark");
+    document.documentElement.classList.add("dark");
+  }, [setTheme]);
 
   const dataSource = [
     {

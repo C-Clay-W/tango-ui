@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,27 +18,37 @@ export default function HomeLayout({
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // 存储当前激活的项
   const router = useRouter();
   const [primaryColor, setPrimaryColor] = useState("#fafafa");
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   // const [isShowModal, setIsShowModal] = useState(false); // 维护中提示弹窗
 
   useEffect(() => {
     document.title = "Tango UI Doc";
   }, []);
 
-  // 判断是否为暗黑模式，默认亮色
-  useEffect(() => {
-    localStorage.setItem("theme", "light");
+  // 判断是否为暗黑模式，默认暗色
+  useLayoutEffect(() => {
     const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
+    if (!storedTheme) {
+      localStorage.setItem("theme", "dark");
       setIsDark(true);
+      document.documentElement.classList.add("dark");
+      setTheme("dark");
+    } else if (storedTheme === "dark") {
+      setIsDark(true);
+      document.documentElement.classList.add("dark");
+      setTheme("dark");
     } else if (storedTheme === "light") {
       setIsDark(false);
+      document.documentElement.classList.remove("dark");
+      setTheme("light");
     } else {
       // 跟随系统
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)",
       ).matches;
       setIsDark(prefersDark);
+      document.documentElement.classList.toggle("dark", prefersDark);
+      setTheme(prefersDark ? "dark" : "light");
     }
 
     // 监听 class 变化（可选：保持响应式）
@@ -51,7 +61,7 @@ export default function HomeLayout({
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [setTheme]);
 
   const style =
     "py-2 pl-5 block rounded-xl text-black dark:text-neutral-300 hover:bg-gray-200 dark:hover:bg-gray-800";
