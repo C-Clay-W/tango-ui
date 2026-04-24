@@ -183,6 +183,89 @@ const ButtonComponent = () => {
     { title: "Version", dataIndex: "version", key: "version" },
   ];
 
+  const loadingColumns = [
+    { title: "Value", dataIndex: "value", key: "value" },
+    { title: "Type", dataIndex: "type", key: "type" },
+    { title: "Color", dataIndex: "color", key: "color" },
+    { title: "Description", dataIndex: "description", key: "description" },
+  ];
+
+  const loadingDataSource = [
+    {
+      key: "loading-1",
+      value: "true",
+      type: "Boolean",
+      color: "Dark",
+      description: "Default dark loading spinner",
+    },
+    {
+      key: "loading-2",
+      value: '"light"',
+      type: "String",
+      color: "Light",
+      description: "Light theme (Dark color loading spinner)",
+    },
+    {
+      key: "loading-3",
+      value: '"dark"',
+      type: "String",
+      color: "Dark",
+      description: "Dark theme (Light color loading spinner)",
+    },
+    {
+      key: "loading-4",
+      value: '[true, "dark"]',
+      type: "Array",
+      color: "Dark",
+      description: "Array format with dark spinner",
+    },
+    {
+      key: "loading-5",
+      value: '[true, "light"]',
+      type: "Array",
+      color: "Light",
+      description: "Array format with light spinner",
+    },
+    {
+      key: "loading-6",
+      value: '[false, "dark"]',
+      type: "Array",
+      color: "-",
+      description: "Loading disabled",
+    },
+  ];
+
+  const iconColumns = [
+    { title: "Type", dataIndex: "type", key: "type" },
+    { title: "Format", dataIndex: "format", key: "format" },
+    { title: "Example", dataIndex: "example", key: "example" },
+    { title: "Description", dataIndex: "description", key: "description" },
+  ];
+
+  const iconDataSource = [
+    {
+      key: "icon-1",
+      type: "String",
+      format: "Image path",
+      example: '"/icons/user.png"',
+      description: "Renders as <img> tag",
+    },
+    {
+      key: "icon-2",
+      type: "React Element",
+      format: "JSX",
+      example: "<FiHome />",
+      description: "Cloned with additional props",
+    },
+    {
+      key: "icon-3",
+      type: "React Component",
+      format: "Component reference",
+      example: "FiHome",
+      description: "Rendered as component",
+    },
+  ];
+
   function login() {
     window.open(
       "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com.hk%2Findex.html&dsh=S-1926229897%3A1768525286017124&ec=futura_exp_og_so_72776762_e&hl=zh-CN&ifkv=AXbMIuCEx58KCQ28Qi75tO-z191PySfXVzZFjv3pXoQ4BDG2mM_KpCYv8MWA5rb8SWIGDCJSvpri&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
@@ -294,10 +377,12 @@ const ButtonComponent = () => {
             />
           </div>
 
-          <div className="scroll-mt-10 font-bold">Usage</div>
+          <div className="scroll-mt-10 font-bold" style={{ color: "var(--doc-text-primary)" }}>
+            Usage
+          </div>
 
           {/* Basic Loading Usage */}
-          <div className="mt-4 mb-2 text-sm font-semibold text-gray-700">
+          <div className="mt-4 mb-2 text-sm font-semibold" style={{ color: "var(--doc-text-primary)" }}>
             Basic Loading
           </div>
           <div className="space-y-3">
@@ -306,7 +391,7 @@ const ButtonComponent = () => {
               <div className="w-48">
                 <Button loading={true}>Submitting...</Button>
               </div>
-              <code className="text-sm text-gray-600">
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                 loading={"{"}true{"}"}
               </code>
             </div>
@@ -321,7 +406,9 @@ const ButtonComponent = () => {
                   Submitting...
                 </Button>
               </div>
-              <code className="text-sm text-gray-600">loading="light"</code>
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
+                loading="light"
+              </code>
             </div>
 
             {/* Dark loading */}
@@ -329,15 +416,17 @@ const ButtonComponent = () => {
               <div className="w-48">
                 <Button loading="dark">Submitting...</Button>
               </div>
-              <code className="text-sm text-gray-600">loading="dark"</code>
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
+                loading="dark"
+              </code>
             </div>
           </div>
 
           {/* Array Format Usage */}
-          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+          <div className="mt-6 mb-2 text-sm font-semibold" style={{ color: "var(--doc-text-primary)" }}>
             Array Format Loading
           </div>
-          <p className="text-sm text-gray-500 mb-3">
+          <p className="text-sm mb-3" style={{ color: "var(--doc-text-secondary)" }}>
             Use array format [showLoading, type] for dynamic control
           </p>
           <div className="space-y-3">
@@ -346,7 +435,7 @@ const ButtonComponent = () => {
               <div className="w-48">
                 <Button loading={[true, "dark"]}>Saving...</Button>
               </div>
-              <code className="text-sm text-gray-600">
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                 loading={"{"}[true, "dark"]{"}"}
               </code>
             </div>
@@ -361,151 +450,52 @@ const ButtonComponent = () => {
                   Processing...
                 </Button>
               </div>
-              <code className="text-sm text-gray-600">
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                 loading={"{"}[true, "light"]{"}"}
               </code>
             </div>
           </div>
 
           {/* Loading States Table */}
-          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+          <div className="mt-6 mb-2 text-sm font-semibold" style={{ color: "var(--doc-text-primary)" }}>
             Loading States Reference
           </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full border border-gray-200 dark:border-gray-700">
-              <thead className="bg-gray-50 dark:bg-gray-800">
-                <tr>
-                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                    Value
-                  </th>
-                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                    Type
-                  </th>
-                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                    Color
-                  </th>
-                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                    Description
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      true
-                    </code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Boolean
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Dark
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Default dark loading spinner
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      "light"
-                    </code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    String
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Light
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Light theme (Dark color loading spinner)
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      "dark"
-                    </code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    String
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Dark
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Dark theme (Light color loading spinner)
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      [true, "dark"]
-                    </code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Array
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Dark
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Array format with dark spinner
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      [true, "light"]
-                    </code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Array
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Light
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Array format with light spinner
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      [false, "dark"]
-                    </code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Array
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    -
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Loading disabled
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <Table dataSource={loadingDataSource} columns={loadingColumns} />
 
           {/* Usage Notes */}
-          <div className="mt-6 mb-10 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded">
-            <div className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-1">
+          <div
+            className="mt-6 mb-10 p-3 border rounded"
+            style={{
+              backgroundColor: "var(--doc-info-bg)",
+              borderColor: "var(--doc-info-border)",
+            }}
+          >
+            <div className="text-sm font-medium mb-1" style={{ color: "var(--doc-info-title)" }}>
               Important Notes:
             </div>
-            <ul className="text-sm text-blue-700 dark:text-blue-400 space-y-1">
+            <ul className="text-sm space-y-1" style={{ color: "var(--doc-info-text)" }}>
               <li>
                 • When{" "}
-                <code className="bg-blue-100 dark:bg-blue-800 px-1 py-0.5 rounded text-blue-800 dark:text-blue-200">
+                <code
+                  className="px-1 py-0.5 rounded"
+                  style={{
+                    backgroundColor: "var(--doc-code-header-bg)",
+                    color: "var(--doc-info-title)",
+                  }}
+                >
                   loading=true
                 </code>
                 , it defaults to dark spinner
               </li>
               <li>
                 • Array format is useful for dynamic state control:{" "}
-                <code className="bg-blue-100 dark:bg-blue-800 px-1 py-0.5 rounded text-blue-800 dark:text-blue-200">
+                <code
+                  className="px-1 py-0.5 rounded"
+                  style={{
+                    backgroundColor: "var(--doc-code-header-bg)",
+                    color: "var(--doc-info-title)",
+                  }}
+                >
                   [isLoading, "dark"] (useState)
                 </code>
               </li>
@@ -536,10 +526,12 @@ const ButtonComponent = () => {
             />
           </div>
 
-          <div className="scroll-mt-10 font-bold">Usage</div>
+          <div className="scroll-mt-10 font-bold" style={{ color: "var(--doc-text-primary)" }}>
+            Usage
+          </div>
 
           {/* Basic Icon Usage */}
-          <div className="mt-4 mb-2 text-sm font-semibold text-gray-700">
+          <div className="mt-4 mb-2 text-sm font-semibold" style={{ color: "var(--doc-text-primary)" }}>
             Basic Icon Usage
           </div>
           <div className="space-y-3">
@@ -548,7 +540,9 @@ const ButtonComponent = () => {
               <div className="w-48">
                 <Button icon="/setting.png">Settings</Button>
               </div>
-              <code className="text-sm text-gray-600">icon="/setting.png"</code>
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
+                icon="/setting.png"
+              </code>
             </div>
 
             {/* React element (JSX) */}
@@ -556,7 +550,7 @@ const ButtonComponent = () => {
               <div className="w-48">
                 <Button icon={<Md6Mp />}>Settings</Button>
               </div>
-              <code className="text-sm text-gray-600">
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                 icon={"{"}&lt;FiSettings /&gt;{"}"}
               </code>
             </div>
@@ -566,7 +560,7 @@ const ButtonComponent = () => {
               <div className="w-48">
                 <Button icon={<Md4kPlus />}>Settings</Button>
               </div>
-              <code className="text-sm text-gray-600">
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                 icon={"{"}FiSettings{"}"}
               </code>
             </div>
@@ -576,15 +570,17 @@ const ButtonComponent = () => {
               <div className="w-48">
                 <Button icon={<Md5kPlus />} />
               </div>
-              <code className="text-sm text-gray-600">
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                 icon={"{"}&lt;FiSearch /&gt;{"}"}
               </code>
-              <span className="text-xs text-gray-500">(Icon-only button)</span>
+              <span className="text-xs" style={{ color: "var(--doc-text-secondary)" }}>
+                (Icon-only button)
+              </span>
             </div>
           </div>
 
           {/* Icon with Loading Combination */}
-          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+          <div className="mt-6 mb-2 text-sm font-semibold" style={{ color: "var(--doc-text-primary)" }}>
             Icon with Loading State
           </div>
           <div className="space-y-3">
@@ -595,7 +591,7 @@ const ButtonComponent = () => {
                   Uploading...
                 </Button>
               </div>
-              <code className="text-sm text-gray-600">
+              <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                 icon={"{"}&lt;FiUpload /&gt;{"}"}
                 <br />
                 loading={"{"}[true, "dark"]{"}"}
@@ -603,11 +599,17 @@ const ButtonComponent = () => {
             </div>
 
             {/* Icon replaced by loading */}
-            <div className="p-3 bg-yellow-50 border border-yellow-100 rounded">
-              <div className="text-sm font-medium text-yellow-800 mb-1">
+            <div
+              className="p-3 border rounded"
+              style={{
+                backgroundColor: "var(--doc-warn-bg)",
+                borderColor: "var(--doc-warn-border)",
+              }}
+            >
+              <div className="text-sm font-medium mb-1" style={{ color: "var(--doc-warn-text)" }}>
                 Note:
               </div>
-              <p className="text-sm text-yellow-700">
+              <p className="text-sm" style={{ color: "var(--doc-warn-text)" }}>
                 When loading is active, the icon will be replaced by the loading
                 spinner.
               </p>
@@ -615,90 +617,19 @@ const ButtonComponent = () => {
           </div>
 
           {/* Supported Icon Types Table */}
-          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+          <div className="mt-6 mb-2 text-sm font-semibold" style={{ color: "var(--doc-text-primary)" }}>
             Supported Icon Types
           </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full border border-gray-200 dark:border-gray-700">
-              <thead className="bg-gray-50 dark:bg-gray-800">
-                <tr>
-                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                    Type
-                  </th>
-                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                    Format
-                  </th>
-                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                    Example
-                  </th>
-                  <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600">
-                    Description
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    String
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Image path
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      "/icons/user.png"
-                    </code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Renders as{" "}
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      &lt;img&gt;
-                    </code>{" "}
-                    tag
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    React Element
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    JSX
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">{`<FiHome />`}</code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Cloned with additional props
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    React Component
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Component reference
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                      FiHome
-                    </code>
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-900 dark:text-gray-100 border-b dark:border-gray-700">
-                    Rendered as component
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <Table dataSource={iconDataSource} columns={iconColumns} />
 
           {/* Real-world Examples */}
-          <div className="mt-6 mb-2 text-sm font-semibold text-gray-700">
+          <div className="mt-6 mb-2 text-sm font-semibold" style={{ color: "var(--doc-text-primary)" }}>
             Real-world Examples
           </div>
           <div className="space-y-4">
             {/* Example 1: Social login */}
-            <div className="p-3 border border-gray-200 rounded">
-              <div className="text-sm font-medium text-gray-700 mb-2">
+            <div className="p-3 border rounded" style={{ borderColor: "var(--doc-card-border)" }}>
+              <div className="text-sm font-medium mb-2" style={{ color: "var(--doc-text-primary)" }}>
                 Social Login Button:
               </div>
               <div className="flex items-center space-x-4">
@@ -707,7 +638,7 @@ const ButtonComponent = () => {
                     Sign in with Google
                   </Button>
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                   <code>
                     icon="/google.png"
                     <br />
@@ -718,11 +649,17 @@ const ButtonComponent = () => {
             </div>
 
             {/* Important Notes */}
-            <div className="mt-6 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded">
-              <div className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-1">
+            <div
+              className="mt-6 p-3 border rounded"
+              style={{
+                backgroundColor: "var(--doc-info-bg)",
+                borderColor: "var(--doc-info-border)",
+              }}
+            >
+              <div className="text-sm font-medium mb-1" style={{ color: "var(--doc-info-title)" }}>
                 Important Notes:
               </div>
-              <ul className="text-sm text-blue-700 dark:text-blue-400 space-y-1">
+              <ul className="text-sm space-y-1" style={{ color: "var(--doc-info-text)" }}>
                 <li>
                   • Icon size is automatically adjusted based on button size
                 </li>
@@ -738,7 +675,13 @@ const ButtonComponent = () => {
                 </li>
                 <li>
                   • All icon types automatically get the{" "}
-                  <code className="bg-blue-100 dark:bg-blue-800 px-1 py-0.5 rounded text-blue-800 dark:text-blue-200">
+                  <code
+                    className="px-1 py-0.5 rounded"
+                    style={{
+                      backgroundColor: "var(--doc-code-header-bg)",
+                      color: "var(--doc-info-title)",
+                    }}
+                  >
                     .btn-icon
                   </code>{" "}
                   CSS class
@@ -768,25 +711,28 @@ const ButtonComponent = () => {
 
         {/* 锚点索引区域 */}
         <div className="pl-30 ml-5 pt-30 fixed right-0 hidden sm:hidden md:hidden lg:block lg:w-80 xl:block xl:w-80">
-          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3">
+          <div className="text-sm mb-3" style={{ color: "var(--doc-text-secondary)" }}>
             On This Page
           </div>
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300">
+          <div className="text-sm mb-3 font-bold" style={{ color: "var(--doc-text-primary)" }}>
             Button
           </div>
 
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm" style={{ color: "var(--doc-text-primary)" }}>
             {sections.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                  <span className="mr-2 text-xl leading-none" style={{ color: "var(--doc-text-primary)" }}>
                     -
                   </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
@@ -809,21 +755,27 @@ const ButtonComponent = () => {
             Success
           </Button> */}
 
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300 mt-5">
+          <div
+            className="text-sm mb-3 font-bold mt-5"
+            style={{ color: "var(--doc-text-primary)" }}
+          >
             Props
           </div>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm" style={{ color: "var(--doc-text-primary)" }}>
             {sections2.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick2(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                  <span className="mr-2 text-xl leading-none" style={{ color: "var(--doc-text-primary)" }}>
                     -
                   </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none  ">

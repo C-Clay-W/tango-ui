@@ -8,11 +8,9 @@ const TangoMapViewer = dynamic(
 );
 
 import { useState, useRef } from "react";
-import { Space, Tooltip, MaterialButton, Table, useNotice } from "tango-ui-cw";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Space, Tooltip, MaterialButton, Table } from "tango-ui-cw";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import DocCodeBlock from "@/components/DocCodeBlock";
 import Image from "next/image";
 import copylogoblack from "@/assets/copyblack.png";
 import copylogowhite from "@/assets/copywhite.png";
@@ -317,24 +315,14 @@ const Page = () => {
             1.安装
           </Space>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-            <SyntaxHighlighter
-              language="tsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`npm i tango-map-cw @amap/amap-jsapi-loader`}
-            </SyntaxHighlighter>
+            <DocCodeBlock code={`npm i tango-map-cw @amap/amap-jsapi-loader`} />
           </div>
           <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
             *
             若您想使用openlayers的底图，在之上实现更多openlayers的原生功能，那您需要额外安装：
           </div>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-            <SyntaxHighlighter
-              language="tsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`npm i ol`}
-            </SyntaxHighlighter>
+            <DocCodeBlock code={`npm i ol`} />
           </div>
           <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
             之后您可以在TangoMapViewer中使用，tango-map-cw已为开发者暴露了ol的调用原生能力的方法，可以直接调用所有原生API
@@ -344,11 +332,8 @@ const Page = () => {
             2.引入
           </Space>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-            <SyntaxHighlighter
-              language="tsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`// React
+            <DocCodeBlock
+              code={`// React
 import { TangoMapViewer } from "tango-map-cw";
 
 // Next
@@ -359,7 +344,7 @@ const TangoMapViewer = dynamic(
   { ssr: false }
 );
 `}
-            </SyntaxHighlighter>
+          />
           </div>
           <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
             3.使用
@@ -389,11 +374,8 @@ const TangoMapViewer = dynamic(
             />
 
             <div ref={createRef}>
-              <SyntaxHighlighter
-                language="jsx"
-                style={theme === "dark" ? atomOneDark : coy}
-              >
-                {`// 提供WGS84坐标系
+              <DocCodeBlock
+                code={`// 提供WGS84坐标系
 const beijingGugong: [number, number] = [116.390741, 39.917351];
 
 <TangoMapViewer
@@ -404,7 +386,7 @@ const beijingGugong: [number, number] = [116.390741, 39.917351];
   style={{ width: "600px", height: "400px" }}
 />
 `}
-              </SyntaxHighlighter>
+              />
             </div>
           </Space>
 
@@ -413,11 +395,8 @@ const beijingGugong: [number, number] = [116.390741, 39.917351];
               在地图上创建点标记
             </Space>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-              <SyntaxHighlighter
-                language="tsx"
-                style={theme === "dark" ? atomOneDark : coy}
-              >
-                {`// 提供WGS84坐标系标记点，可以一个或多个，多个以数组形式传入
+              <DocCodeBlock
+                code={`// 提供WGS84坐标系标记点，可以一个或多个，多个以数组形式传入
 
 type Marker = {
   id: string | number;
@@ -454,7 +433,7 @@ const markers = [
   markers={markers} // 点位信息
 />
 `}
-              </SyntaxHighlighter>
+              />
             </div>
             <TangoMapViewer
               provider="amap"
@@ -470,11 +449,8 @@ const markers = [
               在地图上创建矢量折线
             </Space>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-              <SyntaxHighlighter
-                language="tsx"
-                style={theme === "dark" ? atomOneDark : coy}
-              >
-                {`// 提供WGS84坐标系标记点，可以一个或多个，多个以数组形式传入
+              <DocCodeBlock
+                code={`// 提供WGS84坐标系标记点，可以一个或多个，多个以数组形式传入
 
 type Line ={
   id: string | number;
@@ -512,7 +488,7 @@ const allLines = [
   line={allLines} // 矢量折线
 />
 `}
-              </SyntaxHighlighter>
+              />
             </div>
             <TangoMapViewer
               provider="amap"
@@ -532,11 +508,8 @@ const allLines = [
               （或localhost）才可使用此功能，且用户需要授权浏览器定位权限
             </div>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-              <SyntaxHighlighter
-                language="tsx"
-                style={theme === "dark" ? atomOneDark : coy}
-              >
-                {`<TangoMapViewer
+              <DocCodeBlock
+                code={`<TangoMapViewer
   provider="amap"
   mapKey="你申请的key"
   center={beijingGugong}
@@ -548,7 +521,7 @@ const allLines = [
   }}
 />
 `}
-              </SyntaxHighlighter>
+              />
             </div>
             <TangoMapViewer
               provider="amap"

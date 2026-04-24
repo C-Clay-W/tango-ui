@@ -1,13 +1,8 @@
 "use client";
 
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import DocCodeBlock from "@/components/DocCodeBlock";
 
 function Installation() {
-  const theme = useCurrentTheme();
-
   const npmInstall = `npm install tango-ui-cw`;
   const yarnInstall = `yarn add tango-ui-cw`;
   const pnpmInstall = `pnpm add tango-ui-cw`;
@@ -32,69 +27,78 @@ import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION
     <div className="space-y-8">
       {/* 标题 */}
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-neutral-100">
+        <h1
+          className="text-4xl font-bold doc-theme-title"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           安装
         </h1>
-        <p className="text-lg text-gray-600 dark:text-neutral-400">
+        <p
+          className="text-lg doc-theme-muted"
+          style={{ color: "var(--doc-text-secondary)" }}
+        >
           选择最适合你的方式来安装和使用 Tango UI
         </p>
       </div>
 
       {/* NPM/Yarn/PNPM 安装 */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
+        <h2
+          className="text-2xl font-bold doc-theme-color"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           1. 通过包管理器安装
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* NPM */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-gray-700 dark:text-neutral-300 flex items-center gap-2">
+            <h3
+              className="font-semibold flex items-center gap-2 doc-theme-color"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               <span className="inline-block w-2 h-2 bg-red-500 rounded-full"></span>
               NPM
             </h3>
-            <div className="rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
-              <SyntaxHighlighter
-                language="bash"
-                style={theme === "dark" ? atomOneDark : coy}
-                customStyle={{ margin: 0, fontSize: '14px' }}
-              >
-                {npmInstall}
-              </SyntaxHighlighter>
+            <div
+              className="rounded-lg border overflow-hidden doc-theme-code-wrapper"
+              style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+            >
+              <DocCodeBlock code={npmInstall} />
             </div>
           </div>
 
           {/* Yarn */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-gray-700 dark:text-neutral-300 flex items-center gap-2">
+            <h3
+              className="font-semibold flex items-center gap-2 doc-theme-color"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               <span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span>
               Yarn（未来支持）
             </h3>
-            <div className="rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
-              <SyntaxHighlighter
-                language="bash"
-                style={theme === "dark" ? atomOneDark : coy}
-                customStyle={{ margin: 0, fontSize: '14px' }}
-              >
-                {yarnInstall}
-              </SyntaxHighlighter>
+            <div
+              className="rounded-lg border overflow-hidden doc-theme-code-wrapper"
+              style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+            >
+              <DocCodeBlock code={yarnInstall} />
             </div>
           </div>
 
           {/* PNPM */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-gray-700 dark:text-neutral-300 flex items-center gap-2">
+            <h3
+              className="font-semibold flex items-center gap-2 doc-theme-color"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               <span className="inline-block w-2 h-2 bg-orange-500 rounded-full"></span>
               PNPM（未来支持）
             </h3>
-            <div className="rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
-              <SyntaxHighlighter
-                language="bash"
-                style={theme === "dark" ? atomOneDark : coy}
-                customStyle={{ margin: 0, fontSize: '14px' }}
-              >
-                {pnpmInstall}
-              </SyntaxHighlighter>
+            <div
+              className="rounded-lg border overflow-hidden doc-theme-code-wrapper"
+              style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+            >
+              <DocCodeBlock code={pnpmInstall} />
             </div>
           </div>
         </div>
@@ -102,118 +106,169 @@ import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION
 
       {/* 导入样式 */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
+        <h2
+          className="text-2xl font-bold doc-theme-color"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           2. 导入样式文件
         </h2>
-        <p className="text-gray-600 dark:text-neutral-400">
+        <p className="doc-theme-muted" style={{ color: "var(--doc-text-secondary)" }}>
           在你的项目根组件中导入CSS文件：
         </p>
-        <div className="rounded-xl border border-gray-300 dark:border-gray-700 overflow-hidden">
-          <div className="px-4 py-2 bg-gray-50 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700">
-            <span className="text-sm font-medium text-gray-600 dark:text-neutral-400">
+        <div
+          className="rounded-xl border overflow-hidden doc-theme-code-wrapper"
+          style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+        >
+          <div
+            className="px-4 py-2 border-b doc-theme-code-header"
+            style={{
+              backgroundColor: "var(--doc-code-header-bg)",
+              borderColor: "var(--doc-code-header-border)",
+            }}
+          >
+            <span
+              className="text-sm font-medium doc-theme-muted"
+              style={{ color: "var(--doc-text-secondary)" }}
+            >
               App.jsx / layout.tsx
             </span>
           </div>
-          <SyntaxHighlighter
-            language="tsx"
-            style={theme === "dark" ? atomOneDark : coy}
-            customStyle={{ margin: 0, fontSize: '14px' }}
-          >
-            {importCSS}
-          </SyntaxHighlighter>
+          <DocCodeBlock code={importCSS} />
         </div>
       </section>
 
       {/* 类型声明 */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
+        <h2
+          className="text-2xl font-bold doc-theme-color"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           3. 类型声明（TypeScript用户）
         </h2>
-        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+        <div
+          className="border rounded-lg p-4"
+          style={{
+            backgroundColor: "var(--doc-warn-bg)",
+            borderColor: "var(--doc-warn-border)",
+          }}
+        >
           <div className="flex items-start gap-2">
-            <span className="text-amber-600 dark:text-amber-400">⚠️</span>
-            <p className="text-amber-800 dark:text-amber-300 text-sm">
+            <span style={{ color: "var(--doc-warn-text)" }}>⚠️</span>
+            <p className="text-sm" style={{ color: "var(--doc-warn-text)" }}>
               临时解决方案：在项目根目录创建类型声明文件来启用TypeScript支持
             </p>
           </div>
         </div>
-        <div className="rounded-xl border border-gray-300 dark:border-gray-700 overflow-hidden">
-          <div className="px-4 py-2 bg-gray-50 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700">
-            <span className="text-sm font-medium text-gray-600 dark:text-neutral-400">
+        <div
+          className="rounded-xl border overflow-hidden doc-theme-code-wrapper"
+          style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+        >
+          <div
+            className="px-4 py-2 border-b doc-theme-code-header"
+            style={{
+              backgroundColor: "var(--doc-code-header-bg)",
+              borderColor: "var(--doc-code-header-border)",
+            }}
+          >
+            <span
+              className="text-sm font-medium doc-theme-muted"
+              style={{ color: "var(--doc-text-secondary)" }}
+            >
               tango-ui-cw.d.ts
             </span>
           </div>
-          <SyntaxHighlighter
-            language="typescript"
-            style={theme === "dark" ? atomOneDark : coy}
-            customStyle={{ margin: 0, fontSize: '14px' }}
-          >
-            {typeDeclaration}
-          </SyntaxHighlighter>
+          <DocCodeBlock code={typeDeclaration} />
         </div>
       </section>
 
       {/* UNPKG CDN 方式 */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
+        <h2
+          className="text-2xl font-bold doc-theme-color"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           🌐 通过 UNPKG CDN 使用（正在维护）
         </h2>
-        <p className="text-gray-600 dark:text-neutral-400">
+        <p className="doc-theme-muted" style={{ color: "var(--doc-text-secondary)" }}>
           无需安装，直接在HTML中通过CDN引入：
         </p>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* HTML方式 */}
           <div className="space-y-3">
-            <h3 className="font-semibold text-gray-700 dark:text-neutral-300">
+            <h3
+              className="font-semibold doc-theme-color"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               HTML文件引入
             </h3>
-            <div className="rounded-xl border border-gray-300 dark:border-gray-700 overflow-hidden">
-              <div className="px-4 py-2 bg-gray-50 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700">
-                <span className="text-sm font-medium text-gray-600 dark:text-neutral-400">
+            <div
+              className="rounded-xl border overflow-hidden doc-theme-code-wrapper"
+              style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+            >
+              <div
+                className="px-4 py-2 border-b doc-theme-code-header"
+                style={{
+                  backgroundColor: "var(--doc-code-header-bg)",
+                  borderColor: "var(--doc-code-header-border)",
+                }}
+              >
+                <span
+                  className="text-sm font-medium doc-theme-muted"
+                  style={{ color: "var(--doc-text-secondary)" }}
+                >
                   index.html
                 </span>
               </div>
-              <SyntaxHighlighter
-                language="html"
-                style={theme === "dark" ? atomOneDark : coy}
-                customStyle={{ margin: 0, fontSize: '14px' }}
-              >
-                {unpkgCDN}
-              </SyntaxHighlighter>
+              <DocCodeBlock code={unpkgCDN} />
             </div>
           </div>
 
           {/* JS动态加载 */}
           <div className="space-y-3">
-            <h3 className="font-semibold text-gray-700 dark:text-neutral-300">
+            <h3
+              className="font-semibold doc-theme-color"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               动态导入（推荐用于现代框架）
             </h3>
-            <div className="rounded-xl border border-gray-300 dark:border-gray-700 overflow-hidden">
-              <div className="px-4 py-2 bg-gray-50 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700">
-                <span className="text-sm font-medium text-gray-600 dark:text-neutral-400">
+            <div
+              className="rounded-xl border overflow-hidden doc-theme-code-wrapper"
+              style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+            >
+              <div
+                className="px-4 py-2 border-b doc-theme-code-header"
+                style={{
+                  backgroundColor: "var(--doc-code-header-bg)",
+                  borderColor: "var(--doc-code-header-border)",
+                }}
+              >
+                <span
+                  className="text-sm font-medium doc-theme-muted"
+                  style={{ color: "var(--doc-text-secondary)" }}
+                >
                   组件文件
                 </span>
               </div>
-              <SyntaxHighlighter
-                language="javascript"
-                style={theme === "dark" ? atomOneDark : coy}
-                customStyle={{ margin: 0, fontSize: '14px' }}
-              >
-                {unpkgImport}
-              </SyntaxHighlighter>
+              <DocCodeBlock code={unpkgImport} />
             </div>
           </div>
         </div>
 
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+        <div
+          className="border rounded-lg p-4"
+          style={{
+            backgroundColor: "var(--doc-info-bg)",
+            borderColor: "var(--doc-info-border)",
+          }}
+        >
           <div className="flex items-start gap-2">
-            <span className="text-blue-600 dark:text-blue-400">💡</span>
+            <span style={{ color: "var(--doc-info-text)" }}>💡</span>
             <div>
-              <p className="text-blue-800 dark:text-blue-300 font-medium">
+              <p className="font-medium" style={{ color: "var(--doc-info-title)" }}>
                 CDN优势
               </p>
-              <ul className="text-blue-700 dark:text-blue-400 text-sm mt-1 space-y-1">
+              <ul className="text-sm mt-1 space-y-1" style={{ color: "var(--doc-info-text)" }}>
                 <li>• 无需构建步骤，快速原型开发</li>
                 <li>• 自动获取最新版本</li>
                 <li>• 适合静态网站或简单项目</li>
@@ -225,15 +280,24 @@ import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION
 
       {/* 完成提示 */}
       <section className="space-y-4">
-        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-6 text-center">
+        <div
+          className="border rounded-xl p-6 text-center"
+          style={{
+            backgroundColor: "var(--doc-success-bg)",
+            borderColor: "var(--doc-success-border)",
+          }}
+        >
           <div className="flex flex-col items-center gap-3">
-            <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
-              <span className="text-2xl text-green-600 dark:text-green-400">✓</span>
+            <div
+              className="w-12 h-12 rounded-full flex items-center justify-center"
+              style={{ backgroundColor: "var(--doc-success-icon-bg)" }}
+            >
+              <span className="text-2xl" style={{ color: "var(--doc-success-text)" }}>✓</span>
             </div>
-            <h3 className="text-xl font-bold text-green-800 dark:text-green-300">
+            <h3 className="text-xl font-bold" style={{ color: "var(--doc-success-title)" }}>
               大功告成！
             </h3>
-            <p className="text-green-700 dark:text-green-400">
+            <p style={{ color: "var(--doc-success-text)" }}>
               Tango UI 已经准备就绪，开始构建精美的界面吧！
             </p>
           </div>
@@ -241,8 +305,14 @@ import('https://unpkg.com/tango-ui-cw@${process.env.NEXT_PUBLIC_TANGO_UI_VERSION
       </section>
 
       {/* 相关链接 */}
-      <section className="space-y-4 pt-8 border-t border-gray-200 dark:border-gray-800">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
+      <section
+        className="space-y-4 pt-8 border-t doc-theme-section-border"
+        style={{ borderColor: "var(--doc-section-border)" }}
+      >
+        <h2
+          className="text-2xl font-bold doc-theme-color"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           相关链接
         </h2>
         <div className="flex flex-wrap gap-4">

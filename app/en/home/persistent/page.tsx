@@ -1,14 +1,12 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Space, useNotice, Table } from "tango-ui-cw";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Space, Table } from "tango-ui-cw";
 import Image from "next/image";
 import copylogoblack from "@/assets/copyblack.png";
 import copylogowhite from "@/assets/copywhite.png";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import DocCodeBlock from "@/components/DocCodeBlock";
 
 const Page = () => {
   const theme = useCurrentTheme();
@@ -127,11 +125,7 @@ const Page = () => {
         <Space className="text-xl font-bold mb-3 dark:text-neutral-300">Case</Space>
         <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">1.Code format</Space>
         <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-          <SyntaxHighlighter
-            language="tsx"
-            style={theme === "dark" ? atomOneDark : coy}
-          >
-            {`const myStore = createTangoStore(
+          <DocCodeBlock code={`const myStore = createTangoStore(
   initialValue: {},
   options: { 
     storageKey: '',
@@ -139,8 +133,7 @@ const Page = () => {
     Storage: ''
   },  
   persistentFields: [] 
-);`}
-          </SyntaxHighlighter>
+);`} />
         </div>
         <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">2.Demo</Space>
 
@@ -159,16 +152,11 @@ const Page = () => {
             className="absolute top-3 right-3 z-10 cursor-pointer"
             onClick={copyCreateRef}
           />
-          <SyntaxHighlighter
-            language="jsx"
-            style={theme === "dark" ? atomOneDark : coy}
-          >
-            {`const myStore = createTangoStore(
+          <DocCodeBlock code={`const myStore = createTangoStore(
   { user: 'John Doe', theme: 'dark' },
   { storageKey: 'my-store', Eternity: true, Storage: 'session'},  
   ['theme'] 
-);`}
-          </SyntaxHighlighter>
+);`} />
         </Space>
         <Space className="mt-3 mb-3">
           <p className=" dark:text-neutral-300">

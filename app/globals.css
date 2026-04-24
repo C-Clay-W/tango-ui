@@ -3,6 +3,39 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --dark-text-color: #e5e7eb;
+  --light-text-color: #374151;
+  --doc-title-color: #111827;
+  --doc-text-primary: #1f2937;
+  --doc-text-secondary: #4b5563;
+  --doc-card-bg: #ffffff;
+  --doc-card-border: #e5e7eb;
+  --doc-gradient-from: #eff6ff;
+  --doc-gradient-to: #eef2ff;
+  --doc-footer-border: #e5e7eb;
+  --doc-code-header-bg: #f9fafb;
+  --doc-code-header-border: #d1d5db;
+  --doc-code-wrapper-border: #d1d5db;
+  --doc-section-border: #e5e7eb;
+  --doc-code-bg: #f8fafc;
+  --doc-code-text: #1f2937;
+  --doc-warn-bg: #fffbeb;
+  --doc-warn-border: #fde68a;
+  --doc-warn-text: #92400e;
+  --doc-info-bg: #eff6ff;
+  --doc-info-border: #bfdbfe;
+  --doc-info-title: #1e3a8a;
+  --doc-info-text: #1d4ed8;
+  --doc-success-bg: #ecfdf5;
+  --doc-success-border: #bbf7d0;
+  --doc-success-icon-bg: #dcfce7;
+  --doc-success-title: #166534;
+  --doc-success-text: #15803d;
+  --doc-btn-secondary-bg: #e5e7eb;
+  --doc-btn-secondary-text: #374151;
+  --doc-log-page-bg: #f9fafb;
+  --doc-log-box-bg: #ffffff;
+  --doc-log-item-bg: #f3f4f6;
 }
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -20,6 +53,86 @@
   }
 }
 
+:where(.dark, [data-theme="dark"], [data-theme="dark"] *) {
+  --doc-title-color: #d4d4d8;
+  --doc-text-primary: #e5e7eb;
+  --doc-text-secondary: #9ca3af;
+  --doc-card-bg: #1f2937;
+  --doc-card-border: #374151;
+  --doc-gradient-from: #1f2937;
+  --doc-gradient-to: #111827;
+  --doc-footer-border: #1f2937;
+  --doc-code-header-bg: #1f2937;
+  --doc-code-header-border: #374151;
+  --doc-code-wrapper-border: #374151;
+  --doc-section-border: #1f2937;
+  --doc-code-bg: #111827;
+  --doc-code-text: #d1d5db;
+  --doc-warn-bg: rgba(120, 53, 15, 0.24);
+  --doc-warn-border: #92400e;
+  --doc-warn-text: #fcd34d;
+  --doc-info-bg: rgba(30, 58, 138, 0.24);
+  --doc-info-border: #1d4ed8;
+  --doc-info-title: #93c5fd;
+  --doc-info-text: #bfdbfe;
+  --doc-success-bg: rgba(20, 83, 45, 0.24);
+  --doc-success-border: #166534;
+  --doc-success-icon-bg: #14532d;
+  --doc-success-title: #86efac;
+  --doc-success-text: #bbf7d0;
+  --doc-btn-secondary-bg: #374151;
+  --doc-btn-secondary-text: #d1d5db;
+  --doc-log-page-bg: #0c0c0c;
+  --doc-log-box-bg: #000000;
+  --doc-log-item-bg: #181818;
+}
+
+.doc-theme-color {
+  color: var(--doc-text-primary) !important;
+}
+
+.doc-theme-muted {
+  color: var(--doc-text-secondary) !important;
+}
+
+.doc-theme-title {
+  color: var(--doc-title-color) !important;
+}
+
+.doc-theme-card {
+  background-color: var(--doc-card-bg) !important;
+  border-color: var(--doc-card-border) !important;
+}
+
+.doc-theme-footer-border {
+  border-color: var(--doc-footer-border) !important;
+}
+
+.doc-theme-code-header {
+  background-color: var(--doc-code-header-bg) !important;
+  border-color: var(--doc-code-header-border) !important;
+}
+
+.doc-theme-code-wrapper {
+  border-color: var(--doc-code-wrapper-border) !important;
+}
+
+.doc-theme-section-border {
+  border-color: var(--doc-section-border) !important;
+}
+
+.doc-log-page {
+  background-color: var(--doc-log-page-bg) !important;
+}
+
+.doc-log-box {
+  background-color: var(--doc-log-box-bg) !important;
+}
+
+.doc-log-item-bg {
+  background-color: var(--doc-log-item-bg) !important;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -28,14 +141,15 @@ body {
 
 .hide-scrollbar {
   scrollbar-width: none !important;
-  -ms-overflow-style: none !important; 
+  -ms-overflow-style: none !important;
 }
 .hide-scrollbar::-webkit-scrollbar {
-  display: none !important; 
+  display: none !important;
 }
 @font-face {
   font-family: "Roboto Mono";
-  src: url("/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf") format("truetype");
+  src: url("/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf")
+    format("truetype");
   font-weight: 100 700;
   font-style: normal;
   font-display: swap;
@@ -49,25 +163,31 @@ body {
   font-display: swap;
 } */
 
-html, body {
+html,
+body {
   font-family: "Roboto Mono", monospace;
   min-width: 880px !important;
   background-color: black !important;
 }
 
-.darkVeil canvas{
+.darkVeil canvas {
   height: 100vh !important;
 }
 
-.codeArea pre{
+.codeArea pre {
   background: none !important;
-  line-height: 5px  !important;
-  font-weight: 100  !important;
+  line-height: 5px !important;
+  font-weight: 100 !important;
 }
-.codeArea span{
+.codeArea span {
   font-size: 14px !important;
-  line-height: 5px !important;;
+  line-height: 5px !important;
 }
 /* body div{
   border:1px solid red !important;
 } */
+
+::selection {
+  background-color: #f13b6c;
+  color: #ffffff;
+}

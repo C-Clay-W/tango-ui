@@ -1,66 +1,71 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import copylogoblack from '@/assets/copyblack.png';
 import copylogowhite from '@/assets/copywhite.png';
 import { useCurrentTheme } from '@/hooks/useCurrentTheme';
-import {useNotice} from 'tango-ui-cw'
+import DocCodeBlock from '@/components/DocCodeBlock';
 
-export default function DemoBlock({ title, code, jsx, imports }) {
+type DemoBlockProps = {
+  title: string;
+  code: string;
+  jsx: React.ReactNode;
+  imports: string;
+};
+
+export default function DemoBlock({ title, code, jsx, imports }: DemoBlockProps) {
   const [showPreview, setShowPreview] = useState(true);
   const [showCode, setShowCode] = useState(false);
   const theme = useCurrentTheme();
-  const previewRef = useRef();
-  const codeRef = useRef();
-  const demoRef = useRef();
-  // const notice = useNotice();
+  const demoCode = `import { ${imports} } from "tango-ui-cw";\n\nexport function Demo() {\n  return (\n    ${code}\n  );\n}`;
 
   const switchToPreview = () => {
     setShowPreview(true);
     setShowCode(false);
-    previewRef.current.style.color = theme === 'dark' ? 'white' : 'black';
-    codeRef.current.style.color = 'gray';
   };
 
   const switchToCode = () => {
     setShowPreview(false);
     setShowCode(true);
-    codeRef.current.style.color = theme === 'dark' ? 'white' : 'black';
-    previewRef.current.style.color = 'gray';
   };
 
   const copy = () => {
-    const content = demoRef.current.textContent || demoRef.current.innerText;
-    navigator.clipboard.writeText(content).then(() => {
-      // notice.success('copy success!');
-    });
+    navigator.clipboard.writeText(demoCode);
   };
 
   return (
     <>
-      <div className="text-2xl font-bold mb-5 ml-7 dark:text-neutral-300">{title}</div>
+      <div className="text-2xl font-bold mb-5 ml-7" style={{ color: 'var(--doc-text-primary)' }}>
+        {title}
+      </div>
       <div className="mb-5">
         <span
           onClick={switchToPreview}
-          className="ml-5 p-2 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-neutral-300 cursor-pointer"
-          ref={previewRef}
+          className="ml-5 p-2 rounded-sm cursor-pointer"
+          style={{
+            backgroundColor: showPreview ? 'var(--doc-code-header-bg)' : 'transparent',
+            color: showPreview ? 'var(--doc-text-primary)' : 'var(--doc-text-secondary)',
+          }}
         >
           Preview
         </span>
         <span
           onClick={switchToCode}
-          className="p-2 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-neutral-300 cursor-pointer"
-          ref={codeRef}
+          className="p-2 rounded-sm cursor-pointer"
+          style={{
+            backgroundColor: showCode ? 'var(--doc-code-header-bg)' : 'transparent',
+            color: showCode ? 'var(--doc-text-primary)' : 'var(--doc-text-secondary)',
+          }}
         >
           Code
         </span>
       </div>
 
-      <div className="w-full h-[30vh] sm:w-[30vw] sm:h-[40vh] md:w-[30vw] md:h-[40vh] lg:w-[30vw] lg:h-[50vh] xl:w-[30vw] xl:h-[50vh] 2xl:w-[35vw] mb-10 border rounded-xl border-gray-800 flex justify-center items-center relative">
+      <div
+        className="w-full h-[30vh] sm:w-[30vw] sm:h-[40vh] md:w-[30vw] md:h-[40vh] lg:w-[30vw] lg:h-[50vh] xl:w-[30vw] xl:h-[50vh] 2xl:w-[35vw] mb-10 border rounded-xl flex justify-center items-center relative"
+        style={{ borderColor: 'var(--doc-card-border)' }}
+      >
         {showCode && (
           <Image
             src={theme === 'dark' ? copylogoblack : copylogowhite}
@@ -74,16 +79,8 @@ export default function DemoBlock({ title, code, jsx, imports }) {
 
         {showPreview && jsx}
         {showCode && (
-          <div
-            ref={demoRef}
-            className="w-full h-full rounded-xl pt-2 dark:border-none dark:p-4 dark:bg-[#292c33] overflow-hidden"
-          >
-            <SyntaxHighlighter
-              language="tsx"
-              style={theme === 'dark' ? atomOneDark : coy}
-            >
-              {`import { ${imports} } from "tango-ui-cw";\n\nexport function Demo() {\n  return (\n    ${code}\n  );\n}`}
-            </SyntaxHighlighter>
+          <div className="w-full h-full rounded-xl overflow-hidden">
+            <DocCodeBlock code={demoCode} className="h-full" />
           </div>
         )}
       </div>

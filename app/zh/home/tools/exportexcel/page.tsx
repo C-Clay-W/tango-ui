@@ -9,14 +9,12 @@ import {
   Modal,
   Tooltip,
 } from "tango-ui-cw";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Image from "next/image";
 import copylogoblack from "@/assets/copyblack.png";
 import copylogowhite from "@/assets/copywhite.png";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 import { useExcelExporter } from "tango-excel-cw";
+import DocCodeBlock from "@/components/DocCodeBlock";
 import { div } from "framer-motion/client";
 
 const ExportExcel = () => {
@@ -430,24 +428,14 @@ const ExportExcel = () => {
           1.安装
         </Space>
         <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-          <SyntaxHighlighter
-            language="tsx"
-            style={theme === "dark" ? atomOneDark : coy}
-          >
-            {`npm i tango-excel-cw exceljs file-saver`}
-          </SyntaxHighlighter>
+          <DocCodeBlock code={`npm i tango-excel-cw exceljs file-saver`} />
         </div>
 
         <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
           2.引入
         </Space>
         <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-          <SyntaxHighlighter
-            language="tsx"
-            style={theme === "dark" ? atomOneDark : coy}
-          >
-            {`import { useExcelExporter } from "tango-excel-cw";`}
-          </SyntaxHighlighter>
+          <DocCodeBlock code={`import { useExcelExporter } from "tango-excel-cw";`} />
         </div>
 
         <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
@@ -487,11 +475,8 @@ const ExportExcel = () => {
               className="absolute top-3 right-3 z-10 cursor-pointer"
               onClick={copyCreateRef}
             />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`// react
+            <DocCodeBlock
+              code={`// react
 import { useExcelExporter } from "tango-excel-cw";
 import { MaterialButton } from "tango-ui-cw";
 import Tree from "@/assets/yourimg.jpg";
@@ -539,7 +524,7 @@ function Demo() {
 
 export default Demo;
 `}
-            </SyntaxHighlighter>
+            />
           </Space>
         ) : (
           <Space
@@ -557,11 +542,8 @@ export default Demo;
               className="absolute top-3 right-3 z-10 cursor-pointer"
               onClick={copyCreateRef}
             />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`// next
+            <DocCodeBlock
+              code={`// next
 import { useExcelExporter } from "tango-excel-cw";
 import { MaterialButton } from "tango-ui-cw";
 
@@ -610,7 +592,7 @@ function Demo() {
 
 export default Demo;
 `}
-            </SyntaxHighlighter>
+            />
           </Space>
         )}
 
@@ -648,11 +630,8 @@ export default Demo;
             className="absolute top-3 right-3 z-10 cursor-pointer"
             onClick={copyCreateRef}
           />
-          <SyntaxHighlighter
-            language="jsx"
-            style={theme === "dark" ? atomOneDark : coy}
-          >
-            {`
+          <DocCodeBlock
+            code={`
   // 遍历请求回来的表格数据finalDatas
   const dataRows = finalDatas.map(item => ({
     date: item.time,
@@ -683,7 +662,7 @@ export default Demo;
     },
   };
 `}
-          </SyntaxHighlighter>
+          />
         </Space>
 
         <Space className="text-xl font-bold mb-3 mt-30 dark:text-neutral-300">

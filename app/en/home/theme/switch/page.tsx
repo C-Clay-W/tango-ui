@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import DocCodeBlock from "@/components/DocCodeBlock";
 import {
   useTheme,
   Space,
@@ -14,7 +15,6 @@ import {
 const Page = () => {
   const { theme, toggleTheme, setTheme } = useTheme();
   const [primaryColor, setPrimaryColor] = useState("#fafafa");
-  console.log("theme ==> ", theme);
 
   const dataSource = [
     {
@@ -138,7 +138,10 @@ const Page = () => {
     <div className="max-w-7xl mx-auto p-8">
       {/* 页面标题 */}
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+        <h1
+          className="text-4xl font-bold mb-2"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Theme Switch
         </h1>
         {/* <div className="w-20 h-1 bg-blue-500 rounded-full" /> */}
@@ -146,18 +149,36 @@ const Page = () => {
 
       {/* 概述部分 */}
       <div className="mb-10">
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        <h2
+          className="text-2xl font-semibold mb-4"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           Summary
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+        <p
+          className="leading-relaxed text-lg"
+          style={{ color: "var(--doc-text-secondary)" }}
+        >
           Tango UI provides a simple and efficient theme switching feature,
           supporting dynamic switching between light and dark themes. Through
           the built-in{" "}
-          <code className="bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-blue-400 px-2 py-1 rounded font-mono text-sm">
+          <code
+            className="px-2 py-1 rounded font-mono text-sm"
+            style={{
+              backgroundColor: "var(--doc-code-header-bg)",
+              color: "var(--doc-info-text)",
+            }}
+          >
             ThemeProvider
           </code>{" "}
           and{" "}
-          <code className="bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-blue-400 px-2 py-1 rounded font-mono text-sm">
+          <code
+            className="px-2 py-1 rounded font-mono text-sm"
+            style={{
+              backgroundColor: "var(--doc-code-header-bg)",
+              color: "var(--doc-info-text)",
+            }}
+          >
             useTheme
           </code>{" "}
           Hook, you can easily implement theme management for your application.
@@ -165,11 +186,22 @@ const Page = () => {
       </div>
 
       {/* 注意 */}
-      <div className="mb-8 p-6 bg-gradient-to-r from-[#fffaec] to-[#fff1cf] rounded-xl border border-blue-100 dark:border-gray-700">
+      <div
+        className="mb-8 p-6 rounded-xl border"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, var(--doc-warn-bg), var(--doc-card-bg))",
+          borderColor: "var(--doc-warn-border)",
+        }}
+      >
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-[#f8e9c3] rounded-lg">
+          <div
+            className="p-2 rounded-lg"
+            style={{ backgroundColor: "var(--doc-success-icon-bg)" }}
+          >
             <svg
-              className="w-6 h-6 text-[#ffb800]"
+              className="w-6 h-6"
+              style={{ color: "var(--doc-warn-text)" }}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -182,11 +214,13 @@ const Page = () => {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-semibold text-black">Caution</h3>
+          <h3 className="text-xl font-semibold" style={{ color: "var(--doc-text-primary)" }}>
+            Caution
+          </h3>
         </div>
 
         <div className="space-y-4">
-          <p className="text-gray-700 font-bold">
+          <p className="font-bold" style={{ color: "var(--doc-text-primary)" }}>
             All Tango UI components can directly support theme switching. If you
             want other elements to also support theme colors, you must use the
             Space component.
@@ -195,8 +229,17 @@ const Page = () => {
       </div>
 
       {/* 实时演示部分 */}
-      <Space className="mb-10 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-        <Space className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
+      <Space
+        className="mb-10 p-6 rounded-xl border border-gray-500"
+        // style={{
+        //   backgroundColor: "var(--doc-code-header-bg)",
+        //   borderColor: "var(--doc-card-border)",
+        // }}
+      >
+        <Space
+          className="text-2xl font-semibold mb-6"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           Demo
         </Space>
 
@@ -204,7 +247,13 @@ const Page = () => {
           {/* 控制区域 */}
           <Space className="space-y-4">
             {/* 主题切换主控 */}
-            <Space className="flex flex-wrap items-center gap-4 p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+            <Space
+              className="flex flex-wrap items-center gap-4 p-4 rounded-lg border border-gray-500"
+              // style={{
+              //   backgroundColor: "var(--doc-card-bg)",
+              //   borderColor: "var(--doc-card-border)",
+              // }}
+            >
               <Space className="flex items-center gap-4 flex-wrap">
                 <Button
                   onClick={toggleTheme}
@@ -215,7 +264,7 @@ const Page = () => {
                 </Button>
 
                 <Space className="flex items-center gap-2">
-                  <Space className="text-sm text-gray-500 dark:text-gray-400">
+                  <Space className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                     Quick Settings:
                   </Space>
                   <Button
@@ -223,8 +272,16 @@ const Page = () => {
                     className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                       theme === "light"
                         ? "bg-blue-500 text-white"
-                        : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
+                        : ""
                     }`}
+                    style={
+                      theme === "light"
+                        ? undefined
+                        : {
+                            backgroundColor: "var(--doc-btn-secondary-bg)",
+                            color: "var(--doc-btn-secondary-text)",
+                          }
+                    }
                   >
                     Light
                   </Button>
@@ -233,8 +290,16 @@ const Page = () => {
                     className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                       theme === "dark"
                         ? "bg-blue-500 text-white"
-                        : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
+                        : ""
                     }`}
+                    style={
+                      theme === "dark"
+                        ? undefined
+                        : {
+                            backgroundColor: "var(--doc-btn-secondary-bg)",
+                            color: "var(--doc-btn-secondary-text)",
+                          }
+                    }
                   >
                     Dark
                   </Button>
@@ -243,19 +308,31 @@ const Page = () => {
             </Space>
 
             {/* 主题色自定义区域 */}
-            <Space className="p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+            <Space
+              className="p-4 rounded-lg border border-gray-500"
+              // style={{
+              //   backgroundColor: "var(--doc-card-bg)",
+              //   borderColor: "var(--doc-card-border)",
+              // }}
+            >
               <Space className="space-y-3">
                 {/* 当前颜色显示 */}
                 <Space className="flex items-center justify-between">
-                  <Space className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <Space
+                    className="text-sm font-medium"
+                    style={{ color: "var(--doc-text-primary)" }}
+                  >
                     Current Theme Color
                   </Space>
                   <Space className="flex items-center gap-2">
                     <Space
-                      className="w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600"
+                      className="w-6 h-6 rounded-full border"
                       style={{ backgroundColor: primaryColor }}
                     />
-                    <Space className="text-sm text-gray-600 dark:text-gray-400 font-mono">
+                    <Space
+                      className="text-sm font-mono"
+                      style={{ color: "var(--doc-text-secondary)" }}
+                    >
                       {primaryColor}
                     </Space>
                   </Space>
@@ -265,24 +342,31 @@ const Page = () => {
                 <Space className="flex items-start gap-4">
                   {/* 自定义颜色选择器 */}
                   <Space className="flex-1">
-                    <Space className="text-sm font-medium text-gray-700 dark:text-gray-300 block mb-1">
+                    <Space
+                      className="text-sm font-medium block mb-1"
+                      style={{ color: "var(--doc-text-primary)" }}
+                    >
                       Custom Color
                     </Space>
                     <input
                       type="color"
                       value={primaryColor}
                       onChange={(e) => changeThemeColor(e.target.value)}
-                      className="w-9 h-9 rounded-full cursor-pointer border-2 border-gray-300 dark:border-gray-600 
+                      className="w-9 h-9 rounded-full cursor-pointer border-2 
              [&::-webkit-color-swatch-wrapper]:p-0 
              [&::-webkit-color-swatch]:border-0 
              [&::-webkit-color-swatch]:rounded-full"
+                      style={{ borderColor: "var(--doc-card-border)" }}
                       title="Select Custom Color"
                     />
                   </Space>
 
                   {/* 预设颜色 */}
                   <Space className="flex-2">
-                    <Space className="text-sm font-medium text-gray-700 dark:text-gray-300 block mb-1">
+                    <Space
+                      className="text-sm font-medium block mb-1"
+                      style={{ color: "var(--doc-text-primary)" }}
+                    >
                       Preset Colors
                     </Space>
                     <Space className="flex flex-wrap gap-2">
@@ -316,7 +400,13 @@ const Page = () => {
                 </Space>
 
                 {/* 颜色说明 */}
-                <Space className="text-xs text-gray-500 dark:text-gray-400 mt-2 p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                <Space
+                  className="text-xs mt-2 p-2 rounded"
+                  style={{
+                    color: "var(--doc-text-secondary)",
+                    backgroundColor: "var(--doc-code-header-bg)",
+                  }}
+                >
                   💡 Click on preset colors or use the color picker to customize
                   the theme color, and preview the changes in real-time.
                 </Space>
@@ -326,24 +416,39 @@ const Page = () => {
 
           {/* 卡片组件示例 */}
           <Space className="space-y-2">
-            <Space className="text-lg font-medium text-gray-700 dark:text-gray-300">
+            <Space
+              className="text-lg font-medium"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               Card
             </Space>
             <Space className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Space className="p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                <Space className="font-medium text-gray-900 dark:text-white mb-2">
+              <Space
+                className="p-4 rounded-lg border border-gray-500"
+                // style={{
+                //   backgroundColor: "var(--doc-card-bg)",
+                //   borderColor: "var(--doc-card-border)",
+                // }}
+              >
+                <Space className="font-medium mb-2" style={{ color: "var(--doc-text-primary)" }}>
                   Card Title
                 </Space>
-                <Space className="text-sm text-gray-600 dark:text-gray-400">
+                <Space className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                   This is a sample card that demonstrates the style changes
                   after theme switching.
                 </Space>
               </Space>
-              <Space className="p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                <Space className="font-medium text-gray-900 dark:text-white mb-2">
+              <Space
+                className="p-4 rounded-lg border border-gray-500"
+                // style={{
+                //   backgroundColor: "var(--doc-card-bg)",
+                //   borderColor: "var(--doc-card-border)",
+                // }}
+              >
+                <Space className="font-medium mb-2" style={{ color: "var(--doc-text-primary)" }}>
                   Card Title
                 </Space>
-                <Space className="text-sm text-gray-600 dark:text-gray-400">
+                <Space className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
                   This is a sample card that demonstrates the style changes
                   after theme switching.
                 </Space>
@@ -353,7 +458,10 @@ const Page = () => {
 
           {/* MaterialButton 组件示例 */}
           <Space className="space-y-2">
-            <Space className="text-lg font-medium text-gray-700 dark:text-gray-300">
+            <Space
+              className="text-lg font-medium"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               MaterialButton
             </Space>
             <Space>
@@ -365,7 +473,10 @@ const Page = () => {
 
           {/* Input 组件示例 */}
           <Space className="space-y-2">
-            <Space className="text-lg font-medium text-gray-700 dark:text-gray-300">
+            <Space
+              className="text-lg font-medium"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               Input
             </Space>
             <Space>
@@ -375,7 +486,10 @@ const Page = () => {
 
           {/* Search 组件示例 */}
           <Space className="space-y-2">
-            <Space className="text-lg font-medium text-gray-700 dark:text-gray-300">
+            <Space
+              className="text-lg font-medium"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               Search
             </Space>
             <Space>
@@ -389,7 +503,10 @@ const Page = () => {
 
           {/* Table 组件示例 */}
           <Space className="space-y-2">
-            <Space className="text-lg font-medium text-gray-700 dark:text-gray-300">
+            <Space
+              className="text-lg font-medium"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               Table
             </Space>
             <Space>
@@ -401,17 +518,26 @@ const Page = () => {
 
       {/* 安装与配置 */}
       <div className="mb-10">
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        <h2
+          className="text-2xl font-semibold mb-4"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           Installation and Configuration
         </h2>
 
         <div className="div-y-6">
           <div>
-            <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <h3
+              className="text-lg font-medium mb-2"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               1. Import the ThemeProvider from root component
             </h3>
-            <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
-              <code>{`import { ThemeProvider } from "tango-ui-cw";
+            <div
+              className="rounded-lg border overflow-hidden"
+              style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+            >
+              <DocCodeBlock code={`import { ThemeProvider } from "tango-ui-cw";
 
 function Root() {
   return (
@@ -419,16 +545,22 @@ function Root() {
       <App />
     </ThemeProvider>
   );
-}`}</code>
-            </pre>
+}`} />
+            </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <h3
+              className="text-lg font-medium mb-2"
+              style={{ color: "var(--doc-text-primary)" }}
+            >
               2. Use in Component
             </h3>
-            <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
-              <code>{`import { useTheme } from "tango-ui-cw";
+            <div
+              className="rounded-lg border overflow-hidden"
+              style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+            >
+              <DocCodeBlock code={`import { useTheme } from "tango-ui-cw";
 
 function ThemeSwitch() {
   const { toggleTheme } = useTheme();
@@ -438,35 +570,49 @@ function ThemeSwitch() {
       Switch Theme
     </button>
   );
-}`}</code>
-            </pre>
+}`} />
+            </div>
           </div>
         </div>
       </div>
 
       {/* 语法 */}
       <div>
-        <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+        <div className="text-2xl font-bold mb-5" style={{ color: "var(--doc-text-primary)" }}>
           Syntax
         </div>
-        <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
-          <code>{`const { theme, toggleTheme, setTheme } = useTheme();`}</code>
-        </pre>
+        <div
+          className="rounded-lg border overflow-hidden"
+          style={{ borderColor: "var(--doc-code-wrapper-border)" }}
+        >
+          <DocCodeBlock code={`const { theme, toggleTheme, setTheme } = useTheme();`} />
+        </div>
       </div>
 
       {/* API 参考 */}
       <div className="mt-8">
-        <div className="text-2xl font-bold mb-5 dark:text-neutral-300">API</div>
+        <div className="text-2xl font-bold mb-5" style={{ color: "var(--doc-text-primary)" }}>
+          API
+        </div>
         <Table dataSource={dataSourceAPI} columns={columnsAPI} />
       </div>
 
       {/* 最佳实践 */}
       <div>
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4 mt-8">
+        <h2
+          className="text-2xl font-semibold mb-4 mt-8"
+          style={{ color: "var(--doc-text-primary)" }}
+        >
           Best Practices
         </h2>
-        <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-lg">
-          <ul className="list-disc pl-6 div-y-2 text-gray-700 dark:text-gray-300">
+        <div
+          className="border-l-4 p-4 rounded-r-lg"
+          style={{
+            backgroundColor: "var(--doc-info-bg)",
+            borderColor: "var(--doc-info-border)",
+          }}
+        >
+          <ul className="list-disc pl-6 div-y-2" style={{ color: "var(--doc-info-text)" }}>
             <li>Use ThemeProvider at the top level of your application</li>
             <li>
               Place the theme switch button in a global component or navigation

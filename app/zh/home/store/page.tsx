@@ -1,14 +1,12 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Space, useNotice, Tooltip } from "tango-ui-cw";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Space, Tooltip } from "tango-ui-cw";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 import Image from "next/image";
 import copylogoblack from "@/assets/copyblack.png";
 import copylogowhite from "@/assets/copywhite.png";
+import DocCodeBlock from "@/components/DocCodeBlock";
 
 function TangoStore() {
   const theme = useCurrentTheme();
@@ -170,12 +168,7 @@ function TangoStore() {
             1.安装
           </Space>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-            <SyntaxHighlighter
-              language="tsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`npm i tango-store-cw`}
-            </SyntaxHighlighter>
+            <DocCodeBlock code={`npm i tango-store-cw`} />
           </div>
           <Space className="mt-3 mb-3 font-bold">
             <span className=" dark:text-neutral-300">
@@ -206,11 +199,7 @@ function TangoStore() {
               className="absolute top-3 right-3 z-10 cursor-pointer"
               onClick={copyCreateRef}
             />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`import { createTangoStore } from "tango-store-cw";
+            <DocCodeBlock code={`import { createTangoStore } from "tango-store-cw";
 
 // 定义初始值
 export const initialValue = createTangoStore({ name: "小明", age: 18 });
@@ -222,8 +211,7 @@ export const setName = (v) => {
 
 export const setAge = (v) => {
   initialValue.setState({ age: v });
-};`}
-            </SyntaxHighlighter>
+};`} />
           </Space>
           <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
             3.使用
@@ -249,11 +237,7 @@ export const setAge = (v) => {
               className="absolute top-3 right-3 z-10 cursor-pointer"
               onClick={copyARef}
             />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`import React from "react";
+            <DocCodeBlock code={`import React from "react";
 import { initialValue } from "@/TangoStore/TangoStore";
 import TSpace from "@/component/TSpace/index";
 import { useTango } from "tango-store-cw";
@@ -272,8 +256,7 @@ const CaseA = () => {
 };
 
 export default CaseA;
-`}
-            </SyntaxHighlighter>
+`} />
           </Space>
           <span className=" dark:text-neutral-300">页面 B 修改数据</span>
           <Space className="mt-3 mb-3 dark:text-neutral-300">
@@ -294,11 +277,7 @@ export default CaseA;
               className="absolute top-3 right-3 z-10 cursor-pointer"
               onClick={copyBRef}
             />
-            <SyntaxHighlighter
-              language="jsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`import React from "react";
+            <DocCodeBlock code={`import React from "react";
 import { setName, setAge } from "@/TangoStore/TangoStore";
 import TButton from "@/component/TButton/index";
 
@@ -317,8 +296,7 @@ const CaseB = () => {
 };
 
 export default CaseB;
-`}
-            </SyntaxHighlighter>
+`} />
           </Space>
         </Space>
       </Space>

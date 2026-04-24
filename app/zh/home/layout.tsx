@@ -142,9 +142,9 @@ export default function HomeLayout({
       </Space>
 
       {/* 下方区域：左右布局 */}
-      <Space className="flex flex-1 mt-13">
+      <div className="flex mt-13 h-[calc(100vh-3.25rem)] overflow-hidden">
         {/* 左侧侧边栏 */}
-        <Space className="hidden h-[calc(100vh-3.25rem)] bg-white dark:bg-[#0a0a0a] p-4 pt-15 overflow-auto pb-10 hide-scrollbar sm:hidden md:hidden lg:hidden xl:block xl:w-80 2xl:block 2xl:w-80">
+        <Space className="hidden w-1/7 h-full bg-white dark:bg-[#0a0a0a] p-4 pt-15 overflow-y-auto pb-10 hide-scrollbar xl:block 2xl:block">
           {/* 准备工作 */}
           <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5">
             起手技
@@ -155,17 +155,21 @@ export default function HomeLayout({
                 className={`w-19 h-10 ${activeIndex === 0 ? "font-bold" : ""}`}
                 onClick={() => handleClick(0)}
               >
-                <Link href="/zh/home/introduction" className={style}>
-                  <Space>介绍</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/introduction" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">介绍</Space>
+                  </Link>
+                </Space>
               </li>
               <li
                 className={`w-19 h-10 ${activeIndex === 1 ? "font-bold" : ""}`}
                 onClick={() => handleClick(1)}
               >
-                <Link href="/zh/home/installation" className={style}>
-                  <Space>安装</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/installation" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">安装</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
           </nav>
@@ -180,17 +184,21 @@ export default function HomeLayout({
                 className={`w-43 h-10 ${activeIndex === 20 ? "font-bold" : ""}`}
                 onClick={() => handleClick(20)}
               >
-                <Link href="/zh/home/tangocss" className={style}>
-                  <Space>Tango Css 样式</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/tangocss" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Tango Css 样式</Space>
+                  </Link>
+                </Space>
               </li>
               <li
                 className={`w-27 h-10 ${activeIndex === 21 ? "font-bold" : ""}`}
                 onClick={() => handleClick(21)}
               >
-                <Link href="/zh/home/tangocss/mapping" className={style}>
-                  <Space>样式映射</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/tangocss/mapping" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">样式映射</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
           </nav>
@@ -205,9 +213,11 @@ export default function HomeLayout({
                 className={`w-26 h-10 ${activeIndex === 33 ? "font-bold" : ""}`}
                 onClick={() => handleClick(33)}
               >
-                <Link href="/zh/home/theme/switch" className={style}>
-                  <Space>主题切换</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/theme/switch" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">主题切换</Space>
+                  </Link>
+                </Space>
               </li>
               {/* <li
                 className={`w-26 h-10 ${activeIndex === 34 ? "font-bold" : ""}`}
@@ -254,14 +264,16 @@ export default function HomeLayout({
                   } rounded-xl ${activeIndex === index + 2 ? "font-bold" : ""}`}
                   onClick={() => handleClick(index + 2)}
                 >
-                  <Link
-                    href={`/zh/home/components/${
-                      item.toLowerCase().split(" ")[0]
-                    }`}
-                    className={style}
-                  >
-                    <Space>{item}</Space>
-                  </Link>
+                  <Space>
+                    <Link
+                      href={`/zh/home/components/${
+                        item.toLowerCase().split(" ")[0]
+                      }`}
+                      className={style} style={{background:'transparent'}}
+                    >
+                      <Space className="hover:!text-[#f13b6c]">{item}</Space>
+                    </Link>
+                  </Space>
                 </li>
               ))}
             </ul>
@@ -277,17 +289,21 @@ export default function HomeLayout({
                 className={`w-55 h-10 ${activeIndex === 22 ? "font-bold" : ""}`}
                 onClick={() => handleClick(22)}
               >
-                <Link href="/zh/home/store" className={style}>
-                  <Space>Tango Store 状态管理</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/store" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Tango Store 状态管理</Space>
+                  </Link>
+                </Space>
               </li>
               <li
                 className={`w-48 h-10 ${activeIndex === 19 ? "font-bold" : ""}`}
                 onClick={() => handleClick(19)}
               >
-                <Link href="/zh/home/persistent" className={style}>
-                  <Space>Persistent 持久化</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/persistent" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Persistent 持久化</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
 
@@ -300,9 +316,11 @@ export default function HomeLayout({
                 className={`w-43 h-10 ${activeIndex === 31 ? "font-bold" : ""}`}
                 onClick={() => handleClick(31)}
               >
-                <Link href="/zh/home/map" className={style}>
-                  <Space>TangoMapViewer</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/map" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">TangoMapViewer</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
 
@@ -315,18 +333,22 @@ export default function HomeLayout({
                 className={`w-41 h-10 ${activeIndex === 20 ? "font-bold" : ""}`}
                 onClick={() => handleClick(20)}
               >
-                <Link href="/zh/home/tools/watermark" className={style}>
-                  <Space>WaterMark 水印</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/tools/watermark" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">WaterMark 水印</Space>
+                  </Link>
+                </Space>
               </li>
 
               <li
                 className={`w-28 h-10 ${activeIndex === 21 ? "font-bold" : ""}`}
                 onClick={() => handleClick(21)}
               >
-                <Link href="/zh/home/tools/prepdf" className={style}>
-                  <Space>浏览 PDF</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/tools/prepdf" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">浏览 PDF</Space>
+                  </Link>
+                </Space>
               </li>
 
               {/* <li
@@ -369,9 +391,11 @@ export default function HomeLayout({
                 className={`w-32 h-10 ${activeIndex === 26 ? "font-bold" : ""}`}
                 onClick={() => handleClick(26)}
               >
-                <Link href="/zh/home/tools/exportexcel" className={style}>
-                  <Space>导出 Excel</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/tools/exportexcel" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">导出 Excel</Space>
+                  </Link>
+                </Space>
               </li>
 
               {/* <li
@@ -404,18 +428,20 @@ export default function HomeLayout({
                 className={`w-54 h-10 ${activeIndex === 32 ? "font-bold" : ""}`}
                 onClick={() => handleClick(32)}
               >
-                <Link href="/zh/home/log" className={style}>
-                  <Space>Update Log 更新日志</Space>
-                </Link>
+                <Space>
+                  <Link href="/zh/home/log" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Update Log 更新日志</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
           </nav>
         </Space>
 
         {/* 右侧主内容区 */}
-        <main className="flex-1 h-full  p-6 bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 overflow-auto overflow-x-hidden pb-10 hide-scrollbar sm:h-[calc(100vh-3.25rem)] md:px-4 lg:px-6 xl:px-10 2xl:px-18">
-          <div className="max-w-7xl mx-auto w-full ">{children}</div>
-        </main>
+        <Space className="flex-1 h-full p-6 bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 overflow-y-auto overflow-x-hidden pb-10 hide-scrollbar md:px-4 lg:px-6 xl:px-10 2xl:px-18">
+          <Space className="max-w-7xl mx-auto w-full ">{children}</Space>
+        </Space>
         {/* 维护中弹窗 */}
         {/* <Modal
           title="请注意"
@@ -433,7 +459,7 @@ export default function HomeLayout({
             20260212 @Clayw
           </p>
         </Modal> */}
-      </Space>
+      </div>
     </Space>
   );
 }

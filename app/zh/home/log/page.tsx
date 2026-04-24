@@ -1,13 +1,13 @@
 function Log() {
-  const BOX_STYLE = "mb-5 p-3 bg-white dark:bg-black rounded-lg shadow-xs";
+  const BOX_STYLE = "mb-5 p-3 doc-log-box rounded-lg shadow-xs";
   const HEADER_STYLE =
-    "text-lg text-gray-800 dark:text-gray-200 mb-2 pb-1 border-b border-gray-200 dark:border-gray-700";
+    "text-lg doc-theme-title mb-2 pb-1 border-b border-gray-200 dark:border-gray-700";
   const CONTENT_STYLE =
-    "text-base text-gray-700 dark:text-gray-300 mb-2 pl-2 border-l-2 border-black dark:border-white bg-gray-100 dark:bg-[#181818] rounded";
+    "text-base doc-theme-color mb-2 pl-2 border-l-2 border-black dark:border-white doc-log-item-bg rounded";
 
   const VERSION = "font-bold text-xl text-amber-300";
   return (
-    <div className="p-5 font-sans leading-relaxed bg-gray-50 dark:bg-[#0c0c0c] rounded-lg shadow-sm mt-2">
+    <div className="p-5 font-sans leading-relaxed doc-log-page rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>
           2026-04-21 <span className={VERSION}>0.9.9</span>
@@ -187,7 +187,7 @@ function Log() {
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2025-09-11</h2>
         <ul className="m-0 p-0 list-none">
-          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red bg-gray-100 dark:bg-[#181818] rounded">
+          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red doc-log-item-bg rounded">
             新增tango-map-cw地图浏览库，已发布到NPM！ {"("}版本:1.1.0{")"}
           </li>
         </ul>
@@ -355,7 +355,7 @@ function Log() {
       <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2025-07-28</h2>
         <ul className="m-0 p-0 list-none">
-          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red bg-gray-100 dark:bg-[#181818] rounded">
+          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red doc-log-item-bg rounded">
             tango-excel-cw库发布到NPM！ {"("}版本: 0.0.1{")"}
           </li>
           <li className={CONTENT_STYLE}>
@@ -368,7 +368,7 @@ function Log() {
         <h2 className={HEADER_STYLE}>2025-07-27</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>完善PDF等文件预览usePerview双语文档</li>
-          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red bg-gray-100 dark:bg-[#181818] rounded">
+          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red doc-log-item-bg rounded">
             tango-pdf-cw库发布到NPM！ {"("}版本: 0.0.1{")"}
           </li>
           <li className={CONTENT_STYLE}>
@@ -393,7 +393,7 @@ function Log() {
         <h2 className={HEADER_STYLE}>2025-07-23</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>迁移并完善双语WaterMark文档</li>
-          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red bg-gray-100 dark:bg-[#181818] rounded">
+          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red doc-log-item-bg rounded">
             tango-watermark库发布到NPM！ {"("}版本: 0.0.2{")"}
           </li>
         </ul>
@@ -488,7 +488,7 @@ function Log() {
           2025-07-04 <span className={VERSION}>🎉0.0.1</span>
         </h2>
         <ul className="m-0 p-0 list-none">
-          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red bg-gray-100 dark:bg-[#181818] rounded">
+          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red doc-log-item-bg rounded">
             Tango UI库已发布到NPM！！ {"("}版本: 0.0.1{")"}
           </li>
         </ul>
@@ -570,7 +570,7 @@ function Log() {
         <h2 className={HEADER_STYLE}>2025-02-21</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>新增Mark标记组件</li>
-          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red  bg-gray-100 dark:bg-[#181818] rounded">
+          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red doc-log-item-bg rounded">
             TangoStore库已发布到NPM！！
           </li>
         </ul>

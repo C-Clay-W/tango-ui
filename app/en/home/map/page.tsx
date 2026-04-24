@@ -8,11 +8,9 @@ const TangoMapViewer = dynamic(
 );
 
 import { useState, useRef } from "react";
-import { Space, Tooltip, MaterialButton, Table, useNotice } from "tango-ui-cw";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Space, Tooltip, MaterialButton, Table } from "tango-ui-cw";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import DocCodeBlock from "@/components/DocCodeBlock";
 import Image from "next/image";
 import copylogoblack from "@/assets/copyblack.png";
 import copylogowhite from "@/assets/copywhite.png";
@@ -326,24 +324,14 @@ const Page = () => {
             1.Installation
           </Space>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-            <SyntaxHighlighter
-              language="tsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`npm i tango-map-cw @amap/amap-jsapi-loader`}
-            </SyntaxHighlighter>
+            <DocCodeBlock code={`npm i tango-map-cw @amap/amap-jsapi-loader`} />
           </div>
           <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
             * If you want to use the OpenLayers basemap and implement more
             native OpenLayers features, you need to install additional:
           </div>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-            <SyntaxHighlighter
-              language="tsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`npm i ol`}
-            </SyntaxHighlighter>
+            <DocCodeBlock code={`npm i ol`} />
           </div>
           <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
             After that, you can use it in TangoMapViewer. Tango-map-cw has
@@ -355,11 +343,8 @@ const Page = () => {
             2.Import
           </Space>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-            <SyntaxHighlighter
-              language="tsx"
-              style={theme === "dark" ? atomOneDark : coy}
-            >
-              {`// React
+            <DocCodeBlock
+              code={`// React
 import { TangoMapViewer } from "tango-map-cw";
 
 // Next
@@ -370,7 +355,7 @@ const TangoMapViewer = dynamic(
   { ssr: false }
 );
 `}
-            </SyntaxHighlighter>
+            />
           </div>
           <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
             3.Usage
@@ -400,11 +385,8 @@ const TangoMapViewer = dynamic(
               onClick={copyCreateRef}
             />
             <div ref={createRef}>
-              <SyntaxHighlighter
-                language="jsx"
-                style={theme === "dark" ? atomOneDark : coy}
-              >
-                {`// provide WGS84
+              <DocCodeBlock
+                code={`// provide WGS84
 const beijingGugong: [number, number] = [116.390741, 39.917351];
 
 <TangoMapViewer
@@ -415,7 +397,7 @@ const beijingGugong: [number, number] = [116.390741, 39.917351];
   style={{ width: "600px", height: "400px" }}
 />
 `}
-              </SyntaxHighlighter>
+              />
             </div>
           </Space>
 
@@ -424,11 +406,8 @@ const beijingGugong: [number, number] = [116.390741, 39.917351];
               Create markers on the map
             </Space>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-              <SyntaxHighlighter
-                language="tsx"
-                style={theme === "dark" ? atomOneDark : coy}
-              >
-                {`// provide WGS84
+              <DocCodeBlock
+                code={`// provide WGS84
 
 type Marker = {
   id: string | number;
@@ -465,7 +444,7 @@ const markers = [
   markers={markers} // markers array
 />
 `}
-              </SyntaxHighlighter>
+              />
             </div>
             <TangoMapViewer
               provider="amap"
@@ -481,11 +460,8 @@ const markers = [
               Creating vector polylines on the map
             </Space>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-              <SyntaxHighlighter
-                language="tsx"
-                style={theme === "dark" ? atomOneDark : coy}
-              >
-                {`// provide WGS84
+              <DocCodeBlock
+                code={`// provide WGS84
 
 type Line ={
   id: string | number;
@@ -523,7 +499,7 @@ const allLines = [
   line={allLines} // polylines array
 />
 `}
-              </SyntaxHighlighter>
+              />
             </div>
             <TangoMapViewer
               provider="amap"
@@ -544,11 +520,8 @@ const allLines = [
               browser location permissions
             </div>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-              <SyntaxHighlighter
-                language="tsx"
-                style={theme === "dark" ? atomOneDark : coy}
-              >
-                {`<TangoMapViewer
+              <DocCodeBlock
+                code={`<TangoMapViewer
   provider="amap"
   mapKey="your map key"
   center={beijingGugong}
@@ -560,7 +533,7 @@ const allLines = [
   }}
 />
 `}
-              </SyntaxHighlighter>
+              />
             </div>
             <TangoMapViewer
               provider="amap"

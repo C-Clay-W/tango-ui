@@ -146,9 +146,9 @@ export default function HomeLayout({
       </Space>
 
       {/* 下方区域：左右布局 */}
-      <Space className="flex flex-1 mt-13">
+      <div className="flex mt-13 h-[calc(100vh-3.25rem)] overflow-hidden">
         {/* 左侧侧边栏 */}
-        <Space className="hidden h-[calc(100vh-3.25rem)] bg-white dark:bg-[#0a0a0a] p-4 pt-15 overflow-auto pb-10 hide-scrollbar sm:hidden md:hidden lg:hidden xl:block xl:w-80 2xl:block 2xl:w-80">
+        <Space className="hidden w-1/7 h-full bg-white dark:bg-[#0a0a0a] p-4 pt-15 overflow-y-auto pb-10 hide-scrollbar xl:block 2xl:block">
           {/* 准备工作 */}
           <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5">
             Get Started
@@ -159,17 +159,21 @@ export default function HomeLayout({
                 className={`w-40 h-10 ${activeIndex === 0 ? "font-bold" : ""}`} // 条件添加背景色1
                 onClick={() => handleClick(0)}
               >
-                <Link href="/en/home/introduction" className={style}>
-                  <Space>Introduction</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/introduction" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Introduction</Space>
+                  </Link>
+                </Space>
               </li>
               <li
                 className={`w-40 h-10 ${activeIndex === 1 ? "font-bold" : ""}`} // 条件添加背景色
                 onClick={() => handleClick(1)}
               >
-                <Link href="/en/home/installation" className={style}>
-                  <Space>Installation</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/installation" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Installation</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
           </nav>
@@ -184,17 +188,21 @@ export default function HomeLayout({
                 className={`w-32 h-10 ${activeIndex === 20 ? "font-bold" : ""}`}
                 onClick={() => handleClick(20)}
               >
-                <Link href="/en/home/tangocss" className={style}>
-                  <Space>Tango Css</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/tangocss" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Tango Css</Space>
+                  </Link>
+                </Space>
               </li>
               <li
                 className={`w-27 h-10 ${activeIndex === 21 ? "font-bold" : ""}`}
                 onClick={() => handleClick(21)}
               >
-                <Link href="/en/home/tangocss/mapping" className={style}>
-                  <Space>Mapping</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/tangocss/mapping" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Mapping</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
           </nav>
@@ -209,16 +217,18 @@ export default function HomeLayout({
                 className={`w-39 h-10 ${activeIndex === 33 ? "font-bold" : ""}`}
                 onClick={() => handleClick(33)}
               >
-                <Link href="/en/home/theme/switch" className={style}>
-                  <Space>Theme Switch</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/theme/switch" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Theme Switch</Space>
+                  </Link>
+                </Space>
               </li>
               {/* <li
                 className={`w-46 h-10 ${activeIndex === 34 ? "font-bold" : ""}`}
                 onClick={() => handleClick(34)}
               >
-                <Link href="/en/home/theme/customize" className={style}>
-                  Theme Customize
+                <Link href="/en/home/theme/customize" className={style} style={{background:'transparent'}}>
+                  <Space>Theme Customize</Space>
                 </Link>
               </li> */}
             </ul>
@@ -258,14 +268,16 @@ export default function HomeLayout({
                   } rounded-xl ${activeIndex === index + 2 ? "font-bold" : ""}`}
                   onClick={() => handleClick(index + 2)}
                 >
-                  <Link
-                    href={`/en/home/components/${
-                      item.toLowerCase().split(" ")[0]
-                    }`}
-                    className={style}
-                  >
-                    <Space>{item}</Space>
-                  </Link>
+                  <Space>
+                    <Link
+                      href={`/en/home/components/${
+                        item.toLowerCase().split(" ")[0]
+                      }`}
+                      className={style} style={{background:'transparent'}}
+                    >
+                      <Space className="hover:!text-[#f13b6c]">{item}</Space>
+                    </Link>
+                  </Space>
                 </li>
               ))}
             </ul>
@@ -281,17 +293,21 @@ export default function HomeLayout({
                 className={`w-38 h-10 ${activeIndex === 22 ? "font-bold" : ""}`}
                 onClick={() => handleClick(22)}
               >
-                <Link href="/en/home/store" className={style}>
-                  <Space>Tango Store</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/store" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Tango Store</Space>
+                  </Link>
+                </Space>
               </li>
               <li
                 className={`w-35 h-10 ${activeIndex === 19 ? "font-bold" : ""}`}
                 onClick={() => handleClick(19)}
               >
-                <Link href="/en/home/persistent" className={style}>
-                  <Space>Persistent</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/persistent" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Persistent</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
             {/* 地图 */}
@@ -303,9 +319,11 @@ export default function HomeLayout({
                 className={`w-43 h-10 ${activeIndex === 31 ? "font-bold" : ""}`}
                 onClick={() => handleClick(31)}
               >
-                <Link href="/en/home/map" className={style}>
-                  <Space>TangoMapViewer</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/map" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">TangoMapViewer</Space>
+                  </Link>
+                </Space>
               </li>
             </ul>
             {/* 工具 */}
@@ -317,18 +335,22 @@ export default function HomeLayout({
                 className={`w-31 h-10 ${activeIndex === 20 ? "font-bold" : ""}`}
                 onClick={() => handleClick(20)}
               >
-                <Link href="/en/home/tools/watermark" className={style}>
-                  <Space>WaterMark</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/tools/watermark" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">WaterMark</Space>
+                  </Link>
+                </Space>
               </li>
 
               <li
                 className={`w-35 h-10 ${activeIndex === 21 ? "font-bold" : ""}`}
                 onClick={() => handleClick(21)}
               >
-                <Link href="/en/home/tools/prepdf" className={style}>
-                  <Space>Preview PDF</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/tools/prepdf" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Preview PDF</Space>
+                  </Link>
+                </Space>
               </li>
 
               {/* <li
@@ -336,7 +358,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(22)}
               >
                 <Link href="/en/home/tools/preexcel" className={style}>
-                  Preview Excel
+                  <Space>Preview Excel</Space>
                 </Link>
               </li> */}
 
@@ -345,7 +367,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(23)}
               >
                 <Link href="/en/home/tools/preword" className={style}>
-                  Preview Word
+                  <Space>Preview Word</Space>
                 </Link>
               </li>
 
@@ -354,7 +376,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(24)}
               >
                 <Link href="/en/home/tools/preppt" className={style}>
-                  Preview PPT
+                  <Space>Preview PPT</Space>
                 </Link>
               </li> */}
 
@@ -363,7 +385,7 @@ export default function HomeLayout({
                 onClick={() => handleClick(25)}
               >
                 <Link href="/en/home/tools/exportpdf" className={style}>
-                  Export PDF
+                  <Space>Export PDF</Space>
                 </Link>
               </li> */}
 
@@ -371,17 +393,19 @@ export default function HomeLayout({
                 className={`w-39 h-10 ${activeIndex === 26 ? "font-bold" : ""}`}
                 onClick={() => handleClick(26)}
               >
-                <Link href="/en/home/tools/exportexcel" className={style}>
-                  <Space>Export Excel</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/tools/exportexcel" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Export Excel</Space>
+                  </Link>
+                </Space>
               </li>
 
               {/* <li
                 className={`w-37 h-10 ${activeIndex === 27 ? "font-bold" : ""}`}
                 onClick={() => handleClick(27)}
               >
-                <Link href="/en/home/tools/exportword" className={style}>
-                  Export Word
+                <Link href="/en/home/tools/exportword" className={style} style={{background:'transparent'}}>
+                  <Space>Export Word</Space>
                 </Link>
               </li>
 
@@ -389,8 +413,8 @@ export default function HomeLayout({
                 className={`w-35 h-10 ${activeIndex === 28 ? "font-bold" : ""}`}
                 onClick={() => handleClick(28)}
               >
-                <Link href="/en/home/tools/exportppt" className={style}>
-                  Export PPT
+                <Link href="/en/home/tools/exportppt" className={style} style={{background:'transparent'}}>
+                  <Space>Export PPT</Space>
                 </Link>
               </li> */}
             </ul>
@@ -406,18 +430,20 @@ export default function HomeLayout({
                 className={`w-40 h-10 ${activeIndex === 32 ? "font-bold" : ""}`}
                 onClick={() => handleClick(32)}
               >
-                <Link href="/en/home/log" className={style}>
-                  <Space>Update Log</Space>
-                </Link>
+                <Space>
+                  <Link href="/en/home/log" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Update Log</Space> 
+                  </Link>
+                </Space>
               </li>
             </ul>
           </nav>
         </Space>
 
         {/* 右侧主内容区 */}
-        <main className="flex-1 h-full  p-6 bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 overflow-auto overflow-x-hidden pb-10 hide-scrollbar sm:h-[calc(100vh-3.25rem)] md:px-4 lg:px-6 xl:px-10 2xl:px-18">
-          <div className="max-w-7xl mx-auto w-full">{children}</div>
-        </main>
+        <Space className="flex-1 h-full p-6 bg-white dark:bg-[#0a0a0a] text-black  transition-colors duration-300 overflow-y-auto overflow-x-hidden pb-10 hide-scrollbar md:px-4 lg:px-6 xl:px-10 2xl:px-18">
+          <Space className="max-w-7xl mx-auto w-full">{children}</Space>
+        </Space>
 
         {/* 维护中弹窗 */}
         {/* <Modal
@@ -439,7 +465,7 @@ export default function HomeLayout({
             20260212 @Clayw
           </p>
         </Modal> */}
-      </Space>
+      </div>
     </Space>
   );
 }
