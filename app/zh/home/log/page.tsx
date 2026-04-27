@@ -9,9 +9,20 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed doc-log-page rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
-        <h2 className={HEADER_STYLE}>
-          2026-04-24
-        </h2>
+        <h2 className={HEADER_STYLE}>2026-04-27</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>新增主题定制文档</li>
+        </ul>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>更多文档适配了主题色</li>
+        </ul>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>修正了文档中的错误</li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2026-04-24</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>文档暗色主题统一适配与修复</li>
         </ul>

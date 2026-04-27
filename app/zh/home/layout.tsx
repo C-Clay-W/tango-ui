@@ -241,14 +241,16 @@ export default function HomeLayout({
                   </Link>
                 </Space>
               </li>
-              {/* <li
+              <li
                 className={`w-26 h-10 ${activeIndex === 34 ? "font-bold" : ""}`}
                 onClick={() => handleClick(34)}
               >
-                <Link href="/zh/home/theme/customize" className={style}>
-                  主题定制
-                </Link>
-              </li> */}
+                <Space>
+                  <Link href="/zh/home/theme/customize" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">主题定制</Space>
+                  </Link>
+                </Space>
+              </li>
             </ul>
           </nav>
 
@@ -352,8 +354,8 @@ export default function HomeLayout({
             </div>
             <ul className="space-y-1">
               <li
-                className={`w-41 h-10 ${activeIndex === 20 ? "font-bold" : ""}`}
-                onClick={() => handleClick(20)}
+                className={`w-41 h-10 ${activeIndex === 23 ? "font-bold" : ""}`}
+                onClick={() => handleClick(23)}
               >
                 <Space>
                   <Link href="/zh/home/tools/watermark" className={style} style={{background:'transparent'}}>
@@ -363,8 +365,8 @@ export default function HomeLayout({
               </li>
 
               <li
-                className={`w-28 h-10 ${activeIndex === 21 ? "font-bold" : ""}`}
-                onClick={() => handleClick(21)}
+                className={`w-28 h-10 ${activeIndex === 24 ? "font-bold" : ""}`}
+                onClick={() => handleClick(24)}
               >
                 <Space>
                   <Link href="/zh/home/tools/prepdf" className={style} style={{background:'transparent'}}>

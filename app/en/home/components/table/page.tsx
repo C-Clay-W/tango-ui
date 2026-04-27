@@ -2,15 +2,10 @@
 import React, { useState } from "react";
 import { Button, Table, Space } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoWideEn";
-import { useCurrentTheme } from "@/hooks/useCurrentTheme";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
+import DocCodeBlock from "@/components/DocCodeBlock";
 
 const TableComponent = () => {
   const [activeSection, setActiveSection] = useState("");
-  const theme = useCurrentTheme();
-  const codeStyle = theme === "dark" ? atomOneDark : coy;
 
 
   // 平滑滚动到锚点位置
@@ -432,7 +427,7 @@ const TableComponent = () => {
         <Table
           dataSource={dataSource}
           columns={columns}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
       </>
@@ -498,7 +493,7 @@ const TableComponent = () => {
         <Table
           dataSource={dataSource}
           columns={columns}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
       </>
@@ -597,7 +592,7 @@ const TableComponent = () => {
         <Table
           dataSource={dataSource}
           columns={columns}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
           hide={hiddenColumns}
         />
@@ -691,7 +686,7 @@ const TableComponent = () => {
         <Table
           dataSource={dataSource}
           columns={columns}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           rowStyle={(row, rowIndex, parity) =>
             parity === "even" && tableEvenColor
               ? { backgroundColor: tableEvenColor }
@@ -711,10 +706,13 @@ const TableComponent = () => {
     <>
       <div className="flex w-full">
         <div className="w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-4xl font-bold mb-5" style={{ color: "var(--doc-title-color)" }}>
             Table
           </div>
-          <div className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw] dark:text-neutral-300">
+          <div
+            className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]"
+            style={{ color: "var(--doc-text-secondary)" }}
+          >
             A responsive table component.
           </div>
 
@@ -1065,31 +1063,25 @@ export function Demo () {
             />
           </div>
 
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-2xl font-bold mb-5" style={{ color: "var(--doc-text-primary)" }}>
             Usage
           </div>
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-2xl font-bold mb-5" style={{ color: "var(--doc-text-primary)" }}>
             rowStyle
           </div>
-          <p className="mb-5 dark:text-neutral-300">Grammar</p>
+          <p className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>Syntax</p>
           <div className="">
-            <SyntaxHighlighter
-              language="jsx"
-              style={codeStyle}
+            <DocCodeBlock
               className="rounded-xl mb-2"
-            >
-              {`Grammar1: rowStyle = (row, rowIndex, rowParity) => {...}
-Grammar2: rowStyle = {{ backgroundColor: "red", color: "white" }}`}
-            </SyntaxHighlighter>
+              code={`Syntax1: rowStyle = (row, rowIndex, rowParity) => {...}
+Syntax2: rowStyle = {{ backgroundColor: "red", color: "white" }}`}
+            />
           </div>
-          <p className="mb-5 mt-5 dark:text-neutral-300">Example</p>
+          <p className="mb-5 mt-5" style={{ color: "var(--doc-text-secondary)" }}>Example</p>
           <div className="">
-            <SyntaxHighlighter
-              language="jsx"
-              style={codeStyle}
+            <DocCodeBlock
               className="rounded-xl mb-2"
-            >
-              {`// example 1 (simple):
+              code={`// example 1 (simple):
 <Table
   dataSource={dataSource}
   columns={columns}
@@ -1116,41 +1108,35 @@ Grammar2: rowStyle = {{ backgroundColor: "red", color: "white" }}`}
   }}
 />
 `}
-            </SyntaxHighlighter>
+            />
           </div>
           <div>
-            <p className="mb-5 mt-5 dark:text-neutral-300">
+            <p className="mb-5 mt-5" style={{ color: "var(--doc-text-secondary)" }}>
             Use the rowStyle property to adjust the style of the row. If you want to update the precise style of each cell, including the style of each row, or more complex requirements such as zebra crossings, highlighting key columns, etc., then use the more powerful cellStyle property.
             </p>
           </div>
           <Table
             dataSource={rowStyleDataSourceEN}
             columns={rowStyleColumnsEN}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
+            containerStyles={{ color: "var(--doc-text-primary)" }}
             // hoverColor="#a6a6a6"
           />
-          <div className="text-2xl font-bold mb-5 mt-5 dark:text-neutral-300">
+          <div className="text-2xl font-bold mb-5 mt-5" style={{ color: "var(--doc-text-primary)" }}>
             cellStyle
           </div>
-          <p className="mb-5 dark:text-neutral-300">Grammar</p>
+          <p className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>Syntax</p>
           <div className="">
-            <SyntaxHighlighter
-              language="jsx"
-              style={codeStyle}
+            <DocCodeBlock
               className="rounded-xl mb-2"
-            >
-              {`Grammar1: cellStyle = (row, col, rowIndex, colIndex, rowParity, colParity) => {...}
-Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
-            </SyntaxHighlighter>
+              code={`Syntax1: cellStyle = (row, col, rowIndex, colIndex, rowParity, colParity) => {...}
+Syntax2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
+            />
           </div>
-          <p className="mb-5 mt-5 dark:text-neutral-300">Example</p>
+          <p className="mb-5 mt-5" style={{ color: "var(--doc-text-secondary)" }}>Example</p>
           <div className="">
-            <SyntaxHighlighter
-              language="jsx"
-              style={codeStyle}
+            <DocCodeBlock
               className="rounded-xl mb-2"
-            >
-              {`// example 1 (simple):
+              code={`// example 1 (simple):
 <Table
   dataSource={dataSource}
   columns={columns}
@@ -1180,13 +1166,13 @@ Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
   }}
 />
 `}
-            </SyntaxHighlighter>
+            />
           </div>
           <div>
-            <p className="mb-5 mt-5 dark:text-neutral-300">
+            <p className="mb-5 mt-5" style={{ color: "var(--doc-text-secondary)" }}>
             Using the cellStyle property, you can precisely control the style of each cell, such as setting the background color or font color, and can customize it as needed. cellStyle takes precedence over rowStyle and will override the default style at the rendering level. If you only want to set the style for an entire row, use the rowStyle property.
             </p>
-            <p className="mb-5 mt-5 dark:text-neutral-300">
+            <p className="mb-5 mt-5" style={{ color: "var(--doc-text-secondary)" }}>
             <b>Suggestion</b>:<br/>
               &emsp;&emsp;&emsp;Entire row style: use rowStyle<br/>
               &emsp;&emsp;&emsp;Cell style: use cellStyle
@@ -1195,42 +1181,42 @@ Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
           <Table
             dataSource={cellStyleDataSourceEN}
             columns={cellStyleColumnsEN}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
+            containerStyles={{ color: "var(--doc-text-primary)" }}
             // hoverColor="#a6a6a6"
           />
 
           {/* props */}
           {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-          <div className="text-2xl font-bold mb-5 mt-20 dark:text-neutral-300">
+          <div className="text-2xl font-bold mb-5 mt-20" style={{ color: "var(--doc-text-primary)" }}>
             Props
           </div>
           <div id="table" className="scroll-mt-10">
-            <div className="mb-5 dark:text-neutral-300">Table</div>
+            <div className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>Table</div>
           </div>
 
           <Table
             dataSource={dataSourceEN}
             columns={columnsEN}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
+            containerStyles={{ color: "var(--doc-text-primary)" }}
             // hoverColor="#a6a6a6"
           />
           <div id="columns" className="scroll-mt-10 mt-10">
-            <div className="mb-5 dark:text-neutral-300">Columns</div>
+            <div className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>Columns</div>
           </div>
           <Table
             dataSource={columnsDataSourceEN}
             columns={columnsEN}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
+            containerStyles={{ color: "var(--doc-text-primary)" }}
             // hoverColor="#a6a6a6"
           />
 
           <div id="render" className="scroll-mt-10 mt-10">
-            <div className="mb-5 dark:text-neutral-300">Render</div>
+            <div className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>Render</div>
           </div>
           <Table
             dataSource={dataSourceRanderEN}
             columns={columnsEN}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
+            containerStyles={{ color: "var(--doc-text-primary)" }}
             // hoverColor="#a6a6a6"
           />
 
@@ -1239,25 +1225,28 @@ Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
 
         {/* 锚点索引区域 */}
         <div className="pl-30 ml-5 pt-30 fixed right-0 hidden sm:hidden md:hidden lg:block lg:w-80 xl:block xl:w-80">
-          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3">
+          <div className="text-sm mb-3" style={{ color: "var(--doc-text-secondary)" }}>
             On This Page
           </div>
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300">
+          <div className="text-sm mb-3 font-bold" style={{ color: "var(--doc-text-primary)" }}>
             Table
           </div>
 
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm" style={{ color: "var(--doc-text-primary)" }}>
             {sections.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                  <span className="mr-2 text-xl leading-none" style={{ color: "var(--doc-text-primary)" }}>
                     -
                   </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
@@ -1268,21 +1257,24 @@ Grammar2: cellStyle = {{ backgroundColor: "red", color: "white" }}`}
             ))}
           </ul>
 
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300 mt-5">
+          <div className="text-sm mb-3 font-bold mt-5" style={{ color: "var(--doc-text-primary)" }}>
             Props
           </div>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm" style={{ color: "var(--doc-text-primary)" }}>
             {sections2.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick2(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                  <span className="mr-2 text-xl leading-none" style={{ color: "var(--doc-text-primary)" }}>
                     -
                   </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">

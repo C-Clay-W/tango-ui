@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { Table, Search } from "tango-ui-cw";
-import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 
 const data = [
   { cw: "mt", css: "marginTop", description: "Top margin" },
@@ -95,7 +94,6 @@ const columns = [
   { title: "Description", dataIndex: "description", key: "description" },
 ];
 const Mapping = () => {
-  const theme = useCurrentTheme();
   const [filteredData, setFilteredData] = useState(data); // 添加状态管理
 
   const onSearch = (v: string) => {
@@ -115,7 +113,7 @@ const Mapping = () => {
 
   return (
     <>
-      <div className="text-4xl font-bold mb-5 dark:text-neutral-300">
+      <div className="text-4xl font-bold mb-5" style={{ color: "var(--doc-title-color)" }}>
         Tango CSS Mapping
       </div>
       <Search
@@ -128,7 +126,7 @@ const Mapping = () => {
       <Table
         dataSource={filteredData}
         columns={columns}
-        containerStyles={theme === "light" ? {} : { color: "white" }}
+        containerStyles={{ color: "var(--doc-text-primary)" }}
       />
     </>
   );

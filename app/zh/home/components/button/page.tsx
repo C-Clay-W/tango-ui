@@ -3,12 +3,16 @@ import React, { useState } from "react";
 import { Button, Table, MaterialButton } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoBlockZh";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import LogoBlack from "@/assets/logoblack.png";
+import LogoWhite from "@/assets/logowhite.png";
 import { Md10K, Md6Mp, Md4kPlus, Md5kPlus } from "react-icons/md";
 
 const ButtonComponent = () => {
   const [activeSection, setActiveSection] = useState("");
   const theme = useCurrentTheme();
-  const logoUrl = "/logoblack.png";
+  const logoUrl = theme === "dark" ? LogoWhite.src : LogoBlack.src;
+  const settingIconUrl =
+    theme === "dark" ? "/setting-new-dark.png.png" : "/setting-new-light.png";
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -276,10 +280,10 @@ const ButtonComponent = () => {
     <>
       <div className="flex">
         <div className="sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-4xl font-bold mb-5" style={{ color: "var(--doc-title-color)" }}>
             Button 按钮
           </div>
-          <div className="mb-10 dark:text-neutral-300">
+          <div className="mb-10" style={{ color: "var(--doc-text-secondary)" }}>
             Button
             组件用于触发动作或事件，例如提交表单、打开对话框、取消或执行删除操作等。
           </div>
@@ -529,10 +533,10 @@ const ButtonComponent = () => {
             {/* String path (image) */}
             <div className="flex items-center space-x-4">
               <div className="w-48">
-                <Button icon="/setting.png">设置</Button>
+                <Button icon={settingIconUrl}>设置</Button>
               </div>
               <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
-                icon="/setting.png"
+                icon={'{'}settingIconUrl{'}'}
               </code>
             </div>
 

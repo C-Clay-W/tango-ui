@@ -2,11 +2,9 @@
 import React, { useState } from "react";
 import { Date, Table, Space } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoBlockEn";
-import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 
 const DateComponent = () => {
   const [activeSection, setActiveSection] = useState("");
-  const theme = useCurrentTheme();
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -113,10 +111,13 @@ const DateComponent = () => {
     <>
       <div className="flex w-full">
         <div className="w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-4xl font-bold mb-5" style={{ color: "var(--doc-title-color)" }}>
             Date
           </div>
-          <div className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw] dark:text-neutral-300">
+          <div
+            className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]"
+            style={{ color: "var(--doc-text-secondary)" }}
+          >
             Display a current date.
           </div>
 
@@ -202,38 +203,41 @@ const DateComponent = () => {
 
           {/* props */}
           {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-2xl font-bold mb-5" style={{ color: "var(--doc-text-primary)" }}>
             Props
           </div>
           <div id="props" className="scroll-mt-10">
-            <div className="mb-5 dark:text-neutral-300">Universal Props</div>
+            <div className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>Universal Props</div>
           </div>
 
-          <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} />
+          <Table dataSource={dataSource} columns={columns} containerStyles={{ color: "var(--doc-text-primary)" }} />
           {/* </div> */}
         </div>
 
         {/* 锚点索引区域 */}
         <div className="pl-30 ml-5 pt-30 fixed right-0 hidden sm:hidden md:hidden lg:block lg:w-80 xl:block xl:w-80">
-          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3">
+          <div className="text-sm mb-3" style={{ color: "var(--doc-text-secondary)" }}>
             On This Page
           </div>
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300">
+          <div className="text-sm mb-3 font-bold" style={{ color: "var(--doc-text-primary)" }}>
             Date
           </div>
 
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm" style={{ color: "var(--doc-text-primary)" }}>
             {sections.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                  <span className="mr-2 text-xl leading-none" style={{ color: "var(--doc-text-primary)" }}>
                     -
                   </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
@@ -244,21 +248,24 @@ const DateComponent = () => {
             ))}
           </ul>
 
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300 mt-5">
+          <div className="text-sm mb-3 font-bold mt-5" style={{ color: "var(--doc-text-primary)" }}>
             Props
           </div>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm" style={{ color: "var(--doc-text-primary)" }}>
             {sections2.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick2(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                  <span className="mr-2 text-xl leading-none" style={{ color: "var(--doc-text-primary)" }}>
                     -
                   </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">

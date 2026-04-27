@@ -2,13 +2,16 @@
 import React, { useState } from "react";
 import { Button, Table, MaterialButton, Space, useTheme } from "tango-ui-cw";
 import DemoBlock from "@/components/DemoBlockEn";
-import { useCurrentTheme } from "@/hooks/useCurrentTheme";
+import LogoBlack from "@/assets/logoblack.png";
+import LogoWhite from "@/assets/logowhite.png";
 import { Md10K, Md6Mp, Md4kPlus, Md5kPlus } from "react-icons/md";
 
 const ButtonComponent = () => {
   const [activeSection, setActiveSection] = useState("");
-  const { toggleTheme } = useTheme();
-  const logoUrl = "/logoblack.png";
+  const { theme } = useTheme();
+  const logoUrl = theme === "dark" ? LogoWhite.src : LogoBlack.src;
+  const settingIconUrl =
+    theme === "dark" ? "/setting-new-light.png" : "/setting-new-dark.png";
 
   // 平滑滚动到锚点位置
   const sections = [
@@ -277,10 +280,13 @@ const ButtonComponent = () => {
     <>
       <div className="flex w-full">
         <div className="w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-4xl font-bold mb-5" style={{ color: "var(--doc-title-color)" }}>
             Button
           </div>
-          <div className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw] dark:text-neutral-300">
+          <div
+            className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]"
+            style={{ color: "var(--doc-text-secondary)" }}
+          >
             The Button component is used to trigger an action or event, such as
             submitting a form, opening a <br />
             dialog, canceling an action, or performing a delete operation.
@@ -538,10 +544,10 @@ const ButtonComponent = () => {
             {/* String path (image) */}
             <div className="flex items-center space-x-4">
               <div className="w-48">
-                <Button icon="/setting.png">Settings</Button>
+                <Button icon={settingIconUrl}>Settings</Button>
               </div>
               <code className="text-sm" style={{ color: "var(--doc-text-secondary)" }}>
-                icon="/setting.png"
+                icon={'{'}settingIconUrl{'}'}
               </code>
             </div>
 

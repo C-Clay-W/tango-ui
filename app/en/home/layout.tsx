@@ -245,14 +245,16 @@ export default function HomeLayout({
                   </Link>
                 </Space>
               </li>
-              {/* <li
+              <li
                 className={`w-46 h-10 ${activeIndex === 34 ? "font-bold" : ""}`}
                 onClick={() => handleClick(34)}
               >
-                <Link href="/en/home/theme/customize" className={style} style={{background:'transparent'}}>
-                  <Space>Theme Customize</Space>
-                </Link>
-              </li> */}
+                <Space>
+                  <Link href="/en/home/theme/customize" className={style} style={{background:'transparent'}}>
+                    <Space className="hover:!text-[#f13b6c]">Theme Customize</Space>
+                  </Link>
+                </Space>
+              </li>
             </ul>
           </nav>
 
@@ -354,8 +356,8 @@ export default function HomeLayout({
             </div>
             <ul className="space-y-1">
               <li
-                className={`w-31 h-10 ${activeIndex === 20 ? "font-bold" : ""}`}
-                onClick={() => handleClick(20)}
+                className={`w-31 h-10 ${activeIndex === 23 ? "font-bold" : ""}`}
+                onClick={() => handleClick(23)}
               >
                 <Space>
                   <Link href="/en/home/tools/watermark" className={style} style={{background:'transparent'}}>
@@ -365,8 +367,8 @@ export default function HomeLayout({
               </li>
 
               <li
-                className={`w-35 h-10 ${activeIndex === 21 ? "font-bold" : ""}`}
-                onClick={() => handleClick(21)}
+                className={`w-35 h-10 ${activeIndex === 24 ? "font-bold" : ""}`}
+                onClick={() => handleClick(24)}
               >
                 <Space>
                   <Link href="/en/home/tools/prepdf" className={style} style={{background:'transparent'}}>
