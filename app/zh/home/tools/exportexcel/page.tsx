@@ -15,21 +15,31 @@ import copylogowhite from "@/assets/copywhite.png";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 import { useExcelExporter } from "tango-excel-cw";
 import DocCodeBlock from "@/components/DocCodeBlock";
-import { div } from "framer-motion/client";
+
+type TreeRecord = {
+  key: number;
+  id: string;
+  treenumber: string;
+  treekind: string;
+  treelevel: string;
+  location: string;
+  staff: string;
+};
 
 const ExportExcel = () => {
   const theme = useCurrentTheme();
-  const createRef = useRef();
+  const createRef = useRef<HTMLDivElement | null>(null);
   // const notice = useNotice();
   const [lang, setLang] = useState("React");
   const [isShowModal, setIsShowModal] = useState(false);
-  const [record, setRecord] = useState();
+  const [record, setRecord] = useState<TreeRecord | null>(null);
 
   const Tree = "/Tree.jpg";
   const DemoExcel = "/DemoExcel.xlsx";
   const Case = "/demo.png";
 
   const copyCreateRef = () => {
+    if (!createRef.current) return;
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
@@ -37,7 +47,7 @@ const ExportExcel = () => {
     });
   };
 
-  const openModel = (record: any) => {
+  const openModel = (record: TreeRecord) => {
     console.log(record);
 
     setIsShowModal(true);
@@ -325,7 +335,7 @@ const ExportExcel = () => {
     {
       title: "操作",
       key: "action",
-      render: (text: string, record: any) => (
+      render: (_text: string, record: TreeRecord) => (
         <>
           <MaterialButton
             size="small"
@@ -393,18 +403,21 @@ const ExportExcel = () => {
               <a
                 href="https://www.npmjs.com/package/tango-excel-cw"
                 target="_blank"
-                className=" dark:text-neutral-300"
+                style={{ color: "var(--doc-title-color)" }}
               >
                 useExcelExporter
               </a>
             </Space>
           </Tooltip>
-          <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
+          <Space
+            className="ml-3 text-xs rounded "
+            style={{ color: "var(--doc-title-color)" }}
+          >
             0.2.0
           </Space>
         </Space>
 
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-title-color)" }}>
           tango-excel-cw 是一个用于将既定数据导出或生成为Excel的库，
           <code className="font-bold">
             useExcelExporter
@@ -412,7 +425,7 @@ const ExportExcel = () => {
           对象来快速配置导出Excel的相关信息，从而实现Excel的生成，适用于工单生成，年终数据批量导表等。
         </Space>
 
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-title-color)" }}>
           其基于两个三方库封装实现：
           <a href="https://www.npmjs.com/package/exceljs">exceljs</a> 和{" "}
           <a href="https://www.npmjs.com/package/file-saver">file-saver</a>
@@ -421,24 +434,38 @@ const ExportExcel = () => {
           的形式存在，一是为了兼容已安装上述两个三方库的项目使用，二也是有效避免“
           <b>幻影依赖</b>”问题。
         </Space>
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           如何使用？
         </Space>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space
+          className="mt-3 mb-3 font-bold"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           1.安装
         </Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`npm i tango-excel-cw exceljs file-saver`} />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space
+          className="mt-3 mb-3 font-bold"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           2.引入
         </Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-          <DocCodeBlock code={`import { useExcelExporter } from "tango-excel-cw";`} />
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
+          <DocCodeBlock
+            code={`import { useExcelExporter } from "tango-excel-cw";`}
+          />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space
+          className="mt-3 mb-3 font-bold"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           3.使用
         </Space>
         <Space className="mb-2">
@@ -596,20 +623,31 @@ export default Demo;
           </Space>
         )}
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 "
+          style={{ color: "var(--doc-title-color)" }}
+        >
           导出示例
         </Space>
         <Table
           dataSource={dataSourceDemo}
           columns={columnsDemo}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={
+            theme === "light" ? {} : { color: "var(--doc-text-primary)" }
+          }
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-3 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-3"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           批量插入数据与精准控制
         </Space>
-        <Space className=" mb-3 mt-3 dark:text-neutral-300">
+        <Space
+          className=" mb-3 mt-3"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           场景：表格导出后的格式为：表格第一行需要填写统一的‘表格导出时间’，表格的第三行是表格数据的第一行，这时仅通过{" "}
           <code>startRow</code>{" "}
           参数控制数据的起始插入位置做不到将‘表格导出时间’这个数据填写进表格第一行中，所以可以结合{" "}
@@ -672,40 +710,57 @@ export default Demo;
         <Table
           dataSource={dataSource}
           columns={columns}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={
+            theme === "light" ? {} : { color: "var(--doc-text-primary)" }
+          }
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-5"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Config Props
         </Space>
 
         <Table
           dataSource={dataSourceProps}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={
+            theme === "light" ? {} : { color: "var(--doc-text-primary)" }
+          }
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-5"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Image Props
         </Space>
 
         <Table
           dataSource={dataSourceImage}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={
+            theme === "light" ? {} : { color: "var(--doc-text-primary)" }
+          }
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-5"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Range Props
         </Space>
 
         <Table
           dataSource={dataSourceRange}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={
+            theme === "light" ? {} : { color: "var(--doc-text-primary)" }
+          }
           // hoverColor="#a6a6a6"
         />
 
@@ -719,14 +774,19 @@ export default Demo;
           />
         </div>
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-5"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           InRange Props
         </Space>
 
         <Table
           dataSource={dataSourceInRange}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={
+            theme === "light" ? {} : { color: "var(--doc-text-primary)" }
+          }
           // hoverColor="#a6a6a6"
         />
       </Space>

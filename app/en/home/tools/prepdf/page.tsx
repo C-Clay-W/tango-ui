@@ -205,18 +205,21 @@ const PrePDF = () => {
               <a
                 href="https://www.npmjs.com/package/tango-pdf-cw"
                 target="_blank"
-                className=" dark:text-neutral-300"
+                style={{ color: "var(--doc-title-color)" }}
               >
                 usePreview
               </a>
             </Space>
           </Tooltip>
-          <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
+          <Space
+            className="ml-3 text-xs rounded"
+            style={{ color: "var(--doc-text-primary)" }}
+          >
             0.0.2
           </Space>
         </Space>
 
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>
           tango-pdf-cw is a media preview library for permission control. The{" "}
           <code className="font-bold">usePreview</code> hook function is used
           for the safe display of restricted resources (such as PDF, images,
@@ -226,39 +229,39 @@ const PrePDF = () => {
           <code>hasAccess</code>, <code>errorType</code>, etc.) to facilitate
           the UI to make corresponding processing.
         </Space>
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>
           When access fails, the <code>errorType</code> field will provide the
           reason for the failure (such as missing Token, insufficient
           permissions, or Token expired), and a callback function will be
           provided, which can be used to prompt the user or jump to the login
           page, etc.
         </Space>
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>
           <code className="font-bold">{`<PDFViewer />`}</code> The tag is used
           to quickly display media files, and the display style can be adjusted
           through the sx attribute, etc.
         </Space>
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
           How to use?
         </Space>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
           1.Installation
         </Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`npm i tango-pdf-cw`} />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
           2.Import
         </Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock
             code={`import { usePreview, PDFViewer } from "tango-pdf-cw";`}
           />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
           3.Use
         </Space>
         <Space className="mb-2">
@@ -387,12 +390,12 @@ export default Demo;
           </Space>
         )}
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
           PDF Demo
         </Space>
 
         <Space className="flex items-center justify-center gap-5 p-5 font-sans">
-          <span className="font-bold dark:text-neutral-300">
+          <span className="font-bold" style={{ color: "var(--doc-text-primary)" }}>
             Currently role: Admin
           </span>
           <MaterialButton onClick={admin}>Admin role</MaterialButton>
@@ -403,36 +406,36 @@ export default Demo;
 
         <PDFViewer src={finalUrl} sx={{ h: 800 }} />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>
           usePreview Tokens
         </Space>
 
         <Table
           dataSource={dataSourceTokens}
           columns={columnsTokens}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>
           usePreview Props
         </Space>
 
         <Table
           dataSource={dataSourceProps}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>
           PDFViewer Props
         </Space>
 
         <Table
           dataSource={dataSourcePDFViewer}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
       </Space>

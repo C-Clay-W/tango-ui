@@ -204,18 +204,21 @@ const PrePDF = () => {
               <a
                 href="https://www.npmjs.com/package/tango-pdf-cw"
                 target="_blank"
-                className=" dark:text-neutral-300"
+                style={{ color: "var(--doc-title-color)" }}
               >
                 usePreview
               </a>
             </Space>
           </Tooltip>
-          <Space className="ml-3 text-xs text-black dark:text-white  rounded tracking-[-2px]">
+          <Space
+            className="ml-3 text-xs rounded tracking-[-2px]"
+            style={{ color: "var(--doc-text-primary)" }}
+          >
             0.0.2
           </Space>
         </Space>
 
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>
           tango-pdf-cw 是一个用于权限控制的媒体预览库，
           <code className="font-bold">usePreview</code> 钩子函数用于受限资源（如
           PDF、图片、文档等）的安全展示场景。它通过检测用户角色、Token
@@ -223,30 +226,30 @@ const PrePDF = () => {
           <code>hasAccess</code>、<code>errorType</code> 等），便于 UI
           做出相应处理。
         </Space>
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>
           当访问失败时，<code>errorType</code> 字段会提供失败原因（如缺少
           Token、权限不足或 Token
           已过期），将提供一个回调函数，可用于提示用户或跳转登录页面等。
         </Space>
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>
           <code className="font-bold">{`<PDFViewer />`}</code>{" "}
           标签用于快速展示媒体文件，通过sx属性调整展示样式等。
         </Space>
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">如何使用？</Space>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">1.安装</Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>如何使用？</Space>
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>1.安装</Space>
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`npm i tango-pdf-cw`} />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">2.引入</Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>2.引入</Space>
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock
             code={`import { usePreview, PDFViewer } from "tango-pdf-cw";`}
           />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">3.使用</Space>
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>3.使用</Space>
         <Space className="mb-2">
           <MaterialButton
             size="small"
@@ -373,10 +376,10 @@ export default Demo;
           </Space>
         )}
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">PDF示例</Space>
+        <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>PDF示例</Space>
 
         <Space className="flex items-center justify-center gap-5 p-5 font-sans">
-          <span className="font-bold dark:text-neutral-300">当前仅Admin角色可访问</span>
+          <span className="font-bold" style={{ color: "var(--doc-text-primary)" }}>当前仅Admin角色可访问</span>
           <MaterialButton onClick={admin}>Admin 角色</MaterialButton>
           <MaterialButton onClick={guest}>Guest 角色</MaterialButton>
           <MaterialButton onClick={getToken}>获取 Token</MaterialButton>
@@ -385,17 +388,17 @@ export default Demo;
 
         <PDFViewer src={finalUrl} sx={{ h: 800 }} />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">usePreview Tokens</Space>
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>usePreview Tokens</Space>
 
-        <Table dataSource={dataSourceTokens} columns={columnsTokens} containerStyles={theme === "light" ? {} : { color: "white" }}/>
+        <Table dataSource={dataSourceTokens} columns={columnsTokens} containerStyles={{ color: "var(--doc-text-primary)" }}/>
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">usePreview Props</Space>
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>usePreview Props</Space>
 
-        <Table dataSource={dataSourceProps} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }}/>
+        <Table dataSource={dataSourceProps} columns={columnsProps} containerStyles={{ color: "var(--doc-text-primary)" }}/>
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">PDFViewer Props</Space>
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>PDFViewer Props</Space>
 
-        <Table dataSource={dataSourcePDFViewer} columns={columnsProps} containerStyles={theme === "light" ? {} : { color: "white" }}/>
+        <Table dataSource={dataSourcePDFViewer} columns={columnsProps} containerStyles={{ color: "var(--doc-text-primary)" }}/>
       </Space>
     </Space>
   );

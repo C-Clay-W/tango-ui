@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const TangoMapViewer = dynamic(
   () => import("tango-map-cw").then((mod) => mod.TangoMapViewer),
-  { ssr: false }
+  { ssr: false },
 );
 
 import { useState, useRef } from "react";
@@ -245,17 +245,23 @@ const Page = () => {
                 <a
                   href="https://www.npmjs.com/package/tango-map-cw"
                   target="_blank"
-                  className=" dark:text-neutral-300"
+                  style={{ color: "var(--doc-title-color)" }}
                 >
                   TangoMapViewer
                 </a>
               </Space>
             </Tooltip>
-            <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
+            <Space
+              className="ml-3 text-xs text-black dark:text-white  rounded "
+              style={{ color: "var(--doc-text-color)" }}
+            >
               1.1.0
             </Space>
           </Space>
-          <Space className="mb-10 dark:text-neutral-300">
+          <Space
+            className="mb-10"
+            style={{ color: "var(--doc-text-secondary)" }}
+          >
             This is a React map component based on OpenLayers, suitable for
             React and Next;
             <br />
@@ -276,7 +282,10 @@ const Page = () => {
               （AMap）
             </span>
           </div>
-          <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+          <Space
+            className="text-xl font-bold mb-3 "
+            style={{ color: "var(--doc-title-color)" }}
+          >
             Full Demo
           </Space>
           <Space sx={{ flex: true }}>
@@ -315,34 +324,49 @@ const Page = () => {
             </Space>
           </Space>
           <div id="use">
-            <Space className="text-xl font-bold mt-5 mb-3 dark:text-neutral-300">
+            <Space
+              className="text-xl font-bold mt-5 mb-3 "
+              style={{ color: "var(--doc-title-color)" }}
+            >
               How to use？
             </Space>
           </div>
 
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space
+            className="mt-3 mb-3 font-bold "
+            style={{ color: "var(--doc-title-color)" }}
+          >
             1.Installation
           </Space>
-          <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+          <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
             <DocCodeBlock code={`npm i tango-map-cw @amap/amap-jsapi-loader`} />
           </div>
-          <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
+          <div
+            className="mt-3 mb-3 text-sm"
+            style={{ color: "var(--doc-text-secondary)" }}
+          >
             * If you want to use the OpenLayers basemap and implement more
             native OpenLayers features, you need to install additional:
           </div>
-          <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+          <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
             <DocCodeBlock code={`npm i ol`} />
           </div>
-          <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
+          <div
+            className="mt-3 mb-3 text-sm"
+            style={{ color: "var(--doc-text-secondary)" }}
+          >
             After that, you can use it in TangoMapViewer. Tango-map-cw has
             exposed the native capabilities of ol to developers, and can
             directly call all native APIs.
           </div>
 
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space
+            className="mt-3 mb-3 font-bold "
+            style={{ color: "var(--doc-title-color)" }}
+          >
             2.Import
           </Space>
-          <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+          <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
             <DocCodeBlock
               code={`// React
 import { TangoMapViewer } from "tango-map-cw";
@@ -357,7 +381,10 @@ const TangoMapViewer = dynamic(
 `}
             />
           </div>
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space
+            className="mt-3 mb-3 font-bold "
+            style={{ color: "var(--doc-title-color)" }}
+          >
             3.Usage
           </Space>
           <div className="mt-3 mb-3 text-amber-500 text-sm bg-amber-100 p-3 rounded-xl font-bold">
@@ -402,10 +429,13 @@ const beijingGugong: [number, number] = [116.390741, 39.917351];
           </Space>
 
           <div id="markers">
-            <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
+            <Space
+              className="text-2xl font-bold mt-10 mb-3 "
+              style={{ color: "var(--doc-title-color)" }}
+            >
               Create markers on the map
             </Space>
-            <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+            <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
               <DocCodeBlock
                 code={`// provide WGS84
 
@@ -459,7 +489,7 @@ const markers = [
             <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
               Creating vector polylines on the map
             </Space>
-            <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+            <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
               <DocCodeBlock
                 code={`// provide WGS84
 
@@ -511,15 +541,21 @@ const allLines = [
             />
           </div>
           <div id="location">
-            <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
+            <Space
+              className="text-2xl font-bold mt-10 mb-3 "
+              style={{ color: "var(--doc-title-color)" }}
+            >
               Get location on the map
             </Space>
-            <div className="mt-3 mb-3 text-amber-500 text-sm">
+            <div
+              className="mt-3 mb-3 text-sm"
+              style={{ color: "var(--doc-text-secondary)" }}
+            >
               * Your server must be <span className="font-bold">HTTPS</span>（or
               localhost）to use this feature, and users need to authorize
               browser location permissions
             </div>
-            <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+            <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
               <DocCodeBlock
                 code={`<TangoMapViewer
   provider="amap"
@@ -546,7 +582,10 @@ const allLines = [
                 console.log("data ==> ", data);
               }}
             />
-            <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
+            <div
+              className="mt-3 mb-3 text-sm"
+              style={{ color: "var(--doc-text-secondary)" }}
+            >
               * check the print information of successful positioning in the
               browser console
             </div>
@@ -583,7 +622,10 @@ const allLines = [
           </div> */}
 
           <div id="props">
-            <Space className="text-xl font-bold mb-3 mt-10 dark:text-neutral-300">
+            <Space
+              className="text-xl font-bold mb-3 mt-10 "
+              style={{ color: "var(--doc-title-color)" }}
+            >
               TangoMapViewer Props
             </Space>
           </div>
@@ -591,31 +633,48 @@ const allLines = [
           <Table
             dataSource={dataSource}
             columns={columns}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
+            containerStyles={
+              theme === "light" ? {} : { color: "var(--doc-text-primary)" }
+            }
             // hoverColor="#a6a6a6"
           />
         </Space>
         {/* 锚点索引区域 */}
         <div className="pl-30 ml-5 pt-30 fixed right-0 hidden sm:hidden md:hidden lg:block lg:w-80 xl:block xl:w-80">
-          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3">
+          <div
+            className="text-sm mb-3"
+            style={{ color: "var(--doc-text-secondary)" }}
+          >
             On this page
           </div>
 
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul
+            className="space-y-2 text-sm"
+            style={{ color: "var(--doc-text-primary)" }}
+          >
             {sections.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                 className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                  <span
+                    className="mr-2 text-xl leading-none"
+                    style={{ color: "var(--doc-text-secondary)" }}
+                  >
                     -
                   </span>
-                  <span className="mr-2 text-sm mt-[4px] leading-none">
+                  <span
+                    className="mr-2 text-sm mt-[4px] leading-none"
+                    style={{ color: "var(--doc-text-primary)" }}
+                  >
                     {label}
                   </span>
                 </button>

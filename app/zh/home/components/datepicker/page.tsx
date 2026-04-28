@@ -94,8 +94,8 @@ const DatePickerComponent = () => {
     <>
       <div className="flex w-full">
         <div className="w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-          <div className="text-4xl font-bold mb-5 dark:text-neutral-300">DatePicker 日期选择器</div>
-          <div className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw] dark:text-neutral-300">
+          <div className="text-4xl font-bold mb-5 " style={{ color: "var(--doc-title-color)" }}>DatePicker 日期选择器</div>
+          <div className="mb-10 w-full sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]" style={{ color: "var(--doc-text-color)" }} >
           用于选择日期。
           </div>
 
@@ -144,12 +144,12 @@ const DatePickerComponent = () => {
        
           {/* props */}
           {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">属性</div>
+          <div className="text-2xl font-bold mb-5 " style={{ color: "var(--doc-title-color)" }}>属性</div>
           <div id="props" className="scroll-mt-10">
-            <div className="mb-5 dark:text-neutral-300">通用属性</div>
+            <div className="mb-5" style={{ color: "var(--doc-text-color)" }}>通用属性</div>
           </div>
 
-          <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} />
+          <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "var(--doc-text-color)" }} />
           {/* </div> */}
         </div>
 
@@ -158,20 +158,25 @@ const DatePickerComponent = () => {
           <div className="text-gray-400 dark:text-gray-400 text-sm mb-3">
           索引
           </div>
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300">日期选择器</div>
+          <div className="text-sm mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>日期选择器</div>
 
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm" style={{ color: "var(--doc-text-color)" }}>
             {sections.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">-</span>
+                  <span className="mr-2 text-xl leading-none" style={{ color: "var(--doc-text-primary)" }}>
+                    -
+                  </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
                     {label}
                   </span>
@@ -180,21 +185,26 @@ const DatePickerComponent = () => {
             ))}
           </ul>
 
-          <div className="text-sm mb-3 font-bold  dark:text-neutral-300 mt-5">
+          <div className="text-sm mb-3 font-bold  dark:text-neutral-300 mt-5" style={{ color: "var(--doc-title-color)" }}>
           属性
           </div>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm" style={{ color: "var(--doc-text-color)" }}>
             {sections2.map(({ id, label }) => (
               <li key={id}>
-                <button
+               <button
                   onClick={() => onNavClick2(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">-</span>
+                  <span className="mr-2 text-xl leading-none" style={{ color: "var(--doc-text-primary)" }}>
+                    -
+                  </span>
                   <span className="mr-2 text-sm mt-[4px] leading-none">
                     {label}
                   </span>

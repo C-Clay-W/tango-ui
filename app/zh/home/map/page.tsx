@@ -8,7 +8,7 @@ const TangoMapViewer = dynamic(
 );
 
 import { useState, useRef } from "react";
-import { Space, Tooltip, MaterialButton, Table } from "tango-ui-cw";
+import { Space, Tooltip, MaterialButton, Table, useNotice } from "tango-ui-cw";
 import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 import DocCodeBlock from "@/components/DocCodeBlock";
 import Image from "next/image";
@@ -243,17 +243,17 @@ const Page = () => {
                 <a
                   href="https://www.npmjs.com/package/tango-map-cw"
                   target="_blank"
-                  className=" dark:text-neutral-300"
+                  style={{ color: "var(--doc-title-color)" }}
                 >
                   TangoMapViewer
                 </a>
               </Space>
             </Tooltip>
-            <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
+            <Space className="ml-3 text-xs text-black dark:text-white  rounded " style={{ color: "var(--doc-text-color)" }}>
               1.1.0
             </Space>
           </Space>
-          <Space className="mb-10 dark:text-neutral-300">
+          <Space className="mb-10" style={{ color: "var(--doc-text-secondary)" }}>
             这是一个基于 OpenLayers 实现的 React 地图组件，适用于React和Next；
             <br />
             （当前支持的地图服务商有高德和OpenStreetMap），并提供统一的接口，方便开发者集成地图功能。
@@ -267,7 +267,7 @@ const Page = () => {
               （高德）
             </span>
           </div>
-          <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+          <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
             完整示例
           </Space>
           <Space sx={{ flex: true }}>
@@ -306,29 +306,29 @@ const Page = () => {
             </Space>
           </Space>
           <div id="use">
-            <Space className="text-xl font-bold mt-5 mb-3 dark:text-neutral-300">
+            <Space className="text-xl font-bold mt-5 mb-3 " style={{ color: "var(--doc-title-color)" }}>
               如何使用？
             </Space>
           </div>
 
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
             1.安装
           </Space>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
             <DocCodeBlock code={`npm i tango-map-cw @amap/amap-jsapi-loader`} />
           </div>
-          <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
+          <div className="mt-3 mb-3 text-sm" style={{ color: "var(--doc-text-secondary)" }}>
             *
             若您想使用openlayers的底图，在之上实现更多openlayers的原生功能，那您需要额外安装：
           </div>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
             <DocCodeBlock code={`npm i ol`} />
           </div>
-          <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
+          <div className="mt-3 mb-3 text-sm" style={{ color: "var(--doc-text-secondary)" }}>
             之后您可以在TangoMapViewer中使用，tango-map-cw已为开发者暴露了ol的调用原生能力的方法，可以直接调用所有原生API
           </div>
 
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
             2.引入
           </Space>
           <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
@@ -344,9 +344,9 @@ const TangoMapViewer = dynamic(
   { ssr: false }
 );
 `}
-          />
+            />
           </div>
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
             3.使用
           </Space>
           <div className="mt-3 mb-3 text-amber-500 text-sm bg-amber-100 p-3 rounded-xl font-bold">
@@ -391,7 +391,7 @@ const beijingGugong: [number, number] = [116.390741, 39.917351];
           </Space>
 
           <div id="markers">
-            <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
+            <Space className="text-2xl font-bold mt-10 mb-3 " style={{ color: "var(--doc-title-color)" }}>
               在地图上创建点标记
             </Space>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
@@ -445,7 +445,7 @@ const markers = [
             />
           </div>
           <div id="lines">
-            <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
+            <Space className="text-2xl font-bold mt-10 mb-3" style={{ color: "var(--doc-title-color)" }}>
               在地图上创建矢量折线
             </Space>
             <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
@@ -500,7 +500,7 @@ const allLines = [
             />
           </div>
           <div id="location">
-            <Space className="text-2xl font-bold mt-10 mb-3 dark:text-neutral-300">
+            <Space className="text-2xl font-bold mt-10 mb-3" style={{ color: "var(--doc-title-color)" }}>
               在地图上获取当前位置
             </Space>
             <div className="mt-3 mb-3 text-amber-500 text-sm">
@@ -534,7 +534,7 @@ const allLines = [
                 console.log("data ==> ", data);
               }}
             />
-            <div className="mt-3 mb-3 dark:text-neutral-300 text-sm">
+            <div className="mt-3 mb-3 text-sm" style={{ color: "var(--doc-text-secondary)" }}>
               * 在浏览器检查中查看定位成功的打印信息
             </div>
           </div>
@@ -570,7 +570,7 @@ const allLines = [
           </div> */}
 
           <div id="props">
-            <Space className="text-xl font-bold mb-3 mt-10 dark:text-neutral-300">
+            <Space className="text-xl font-bold mb-3 mt-10" style={{ color: "var(--doc-title-color)" }}>
               TangoMapViewer Props
             </Space>
           </div>
@@ -578,31 +578,40 @@ const allLines = [
           <Table
             dataSource={dataSource}
             columns={columns}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
+            containerStyles={theme === "light" ? {} : { color: "var(--doc-text-primary)" }}
             // hoverColor="#a6a6a6"
           />
         </Space>
         {/* 锚点索引区域 */}
         <div className="pl-30 ml-5 pt-30 fixed right-0 hidden sm:hidden md:hidden lg:block lg:w-80 xl:block xl:w-80">
-          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3">
+          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3" style={{ color: "var(--doc-text-secondary)" }}>
             索引
           </div>
 
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300" style={{ color: "var(--doc-text-secondary)" }}>
             {sections.map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => onNavClick(id)}
-                  className={`flex items-center transition ${
-                    activeSection === id
-                      ? "text-black dark:text-white font-semibold"
-                      : "hover:text-black dark:hover:text-white"
-                  }`}
+                  className="flex items-center transition"
+                  style={{
+                    color:
+                      activeSection === id
+                        ? "var(--doc-text-primary)"
+                        : "var(--doc-text-secondary)",
+                    fontWeight: activeSection === id ? 600 : 400,
+                  }}
                 >
-                  <span className="mr-2 text-xl leading-none dark:text-neutral-300">
+                 <span
+                    className="mr-2 text-xl leading-none"
+                    style={{ color: "var(--doc-text-secondary)" }}
+                  >
                     -
                   </span>
-                  <span className="mr-2 text-sm mt-[4px] leading-none">
+                  <span
+                    className="mr-2 text-sm mt-[4px] leading-none"
+                    style={{ color: "var(--doc-text-primary)" }}
+                  >
                     {label}
                   </span>
                 </button>

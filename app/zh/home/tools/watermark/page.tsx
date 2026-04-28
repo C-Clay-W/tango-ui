@@ -215,39 +215,42 @@ const WaterMark = () => {
               <a
                 href="https://www.npmjs.com/package/tango-watermark"
                 target="_blank"
-                className=" dark:text-neutral-300"
+                style={{ color: "var(--doc-title-color)" }}
               >
                 useInkify
               </a>
             </Space>
           </Tooltip>
-          <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
+          <Space
+            className="ml-3 text-xs rounded"
+            style={{ color: "var(--doc-text-primary)" }}
+          >
             0.1.2
           </Space>
         </Space>
 
-        <Space className="mb-10 dark:text-neutral-300">
+        <Space className="mb-10" style={{ color: "var(--doc-text-secondary)" }}>
           <code className="font-bold">useInkify</code>{" "}
           钩子可以很快速的帮你实现在图像上加水印的需求。
         </Space>
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
           如何使用？
         </Space>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
           1.安装
         </Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`npm i tango-watermark`} />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
           2.引入
         </Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`import { useInkify } from "tango-watermark";`} />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
           3.使用
         </Space>
         <Space className="mb-2">
@@ -433,14 +436,14 @@ export default Demo;
           </Space>
         )}
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
           图片水印示例
         </Space>
 
         <Space className="flex flex-col items-center gap-5 p-5 font-sans">
           <Space className="flex gap-10 justify-center">
             <Space className="text-center">
-              <h3 className="my-2 text-gray-600  dark:text-neutral-300">
+              <h3 className="my-2" style={{ color: "var(--doc-text-primary)" }}>
                 水印前
               </h3>
               <Image
@@ -453,7 +456,7 @@ export default Demo;
             </Space>
 
             <Space className="text-center">
-              <h3 className="my-2 text-gray-600 dark:text-neutral-300">
+              <h3 className="my-2" style={{ color: "var(--doc-text-primary)" }}>
                 水印后
               </h3>
               {finalUrl ? (
@@ -465,7 +468,10 @@ export default Demo;
                   className="border border-gray-200 rounded-lg shadow-md"
                 />
               ) : (
-                <Space className="w-[500px] h-[300px] bg-gray-100 flex items-center justify-center dark:text-neutral-300">
+                <Space
+                  className="w-[500px] h-[300px] bg-gray-100 flex items-center justify-center"
+                  style={{ color: "var(--doc-text-primary)" }}
+                >
                   正在生成水印...
                 </Space>
               )}
@@ -479,7 +485,7 @@ export default Demo;
             sx={{ flexWrap: "wrap", alignItems: "center", marginBottom: 15 }}
           >
             {/* 多行水印 */}
-            <span className="mr-3 dark:text-neutral-300">水印行数</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>水印行数</span>
             <Input
               value={lines}
               onChange={(e) => setLines(e)}
@@ -487,7 +493,7 @@ export default Demo;
               sx={{ w: 100, mr: 10 }}
             />
             {/* 水印文字 */}
-            <span className="mr-3 dark:text-neutral-300">水印文字</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>水印文字</span>
             <Input
               value={textValue}
               onChange={(e) => setTextValue(e)}
@@ -496,7 +502,7 @@ export default Demo;
             />
 
             {/* 水印大小 */}
-            <span className="mr-3 dark:text-neutral-300">水印大小</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>水印大小</span>
             <Input
               value={fontSize}
               onChange={(e) => setFontSize(e)}
@@ -505,7 +511,7 @@ export default Demo;
             />
 
             {/* 水印颜色 */}
-            <span className="mr-3 dark:text-neutral-300">水印颜色</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>水印颜色</span>
             <Input
               value={color}
               onChange={(e) => setColor(e)}
@@ -521,7 +527,7 @@ export default Demo;
             sx={{ flexWrap: "wrap", alignItems: "center" }}
           >
             {/* 水印角度 */}
-            <span className="mr-3 dark:text-neutral-300">水印角度</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>水印角度</span>
             <Input
               value={rotate}
               onChange={(e) => setRotate(e)}
@@ -529,7 +535,7 @@ export default Demo;
               sx={{ w: 100, mr: 10 }}
             />
             {/* 水印间距 */}
-            <span className="mr-3 dark:text-neutral-300">水印间距</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>水印间距</span>
             <Input
               value={spacing}
               onChange={(e) => setSpacing(e)}
@@ -547,7 +553,7 @@ export default Demo;
             /> */}
 
             {/* 透明度 */}
-            <span className="mr-3 dark:text-neutral-300">透明度</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>透明度</span>
             <Input
               value={opacity}
               onChange={(e) => setOpacity(e)}
@@ -561,25 +567,25 @@ export default Demo;
           </Space>
         </Space>
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>
           useInkify Props
         </Space>
 
         <Table
           dataSource={inkifyDataSource}
           columns={inkifyColumns}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>
           useInkify Tokens
         </Space>
 
         <Table
           dataSource={dataSource}
           columns={columns}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
       </Space>

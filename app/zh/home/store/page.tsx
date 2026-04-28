@@ -47,23 +47,23 @@ function TangoStore() {
               <a
                 href="https://www.npmjs.com/package/tango-store-cw"
                 target="_blank"
-                className=" text-black dark:text-neutral-300"
+                className=" text-black "
+                style={{ color: "var(--doc-title-color)" }}
               >
                 Tango Store 状态管理库
               </a>
             </Space>
           </Tooltip>
-          <Space className="mb-10 dark:text-neutral-300">
+          <Space className="mb-10" style={{ color: "var(--doc-text-secondary)" }}>
             这是一个基于React开发的极简状态管理库，只用了100行代码实现了状态的同步更新与跨组件间传值，包大小仅
-            <span className="text-black font-bold text-xl dark:text-neutral-300">
+            <span className="text-black font-bold text-xl" style={{ color: "var(--doc-text-secondary)" }}>
               7kb
             </span>
             ，您可以放心的在项目中使用它且没有任何性能的损耗！
           </Space>
-          <Space className="font-bold mb-3 dark:text-neutral-300">好处</Space>
+          <Space className="font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>好处</Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>状态共享便捷，适合中小型项目。</li>
             <li>极少的样板代码，提升开发体验。</li>
@@ -73,10 +73,9 @@ function TangoStore() {
               安全默认值，防止 <code>key</code> 不存在时抛错。
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">新特性</Space>
+          <Space className="font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>新特性</Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>
               简单易用：<code>createTangoStore</code> 和 <code>useTango</code>{" "}
@@ -92,12 +91,11 @@ function TangoStore() {
               <code>key</code> 时不会抛出错误，而是返回默认值。
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
             关键功能
           </Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>
               订阅状态：通过 <code>store.subscribe</code> 订阅状态变化。
@@ -107,12 +105,11 @@ function TangoStore() {
             </li>
             <li>取消订阅：在组件卸载时，取消订阅，避免内存泄漏。</li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
             实现细节
           </Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>
               <code>useState</code>：用于在组件中维护一个局部状态，初始值为{" "}
@@ -133,12 +130,11 @@ function TangoStore() {
               生态中，支持状态变化自动更新 UI，使开发更加简洁。
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
             工作流程
           </Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>
               创建 <code>Store</code>：用户通过 <code>createTangoStore</code>{" "}
@@ -161,24 +157,24 @@ function TangoStore() {
               会自动取消订阅，避免内存泄漏。
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
             使用方法
           </Space>
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
             1.安装
           </Space>
-          <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+          <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
             <DocCodeBlock code={`npm i tango-store-cw`} />
           </div>
-          <Space className="mt-3 mb-3 font-bold">
-            <span className=" dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
+            <span className=" " style={{ color: "var(--doc-title-color)" }}>
               2.创建 <code>store.js</code>
             </span>
           </Space>
-          <span className="dark:text-neutral-300">
+          <span className=" " style={{ color: "var(--doc-text-color)" }}>
             在目录中创建<code> store.js</code>
           </span>
-          <Space className="mt-3 mb-3 dark:text-neutral-300">
+          <Space className="mt-3 mb-3 " style={{ color: "var(--doc-text-color)" }}>
             说明：<code>createTangoStore()</code> 是一个工厂函数，用于创建{" "}
             <code>TangoStore</code> 实例。用户可以传入初始状态{" "}
             <code>initialState</code>，函数会返回一个新的{" "}
@@ -213,11 +209,11 @@ export const setAge = (v) => {
   initialValue.setState({ age: v });
 };`} />
           </Space>
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>
             3.使用
           </Space>
-          <span className=" dark:text-neutral-300">页面 A 展示数据</span>
-          <Space className="mt-3 mb-3 dark:text-neutral-300">
+          <span className=" " style={{ color: "var(--doc-title-color)" }}>页面 A 展示数据</span>
+          <Space className="mt-3 mb-3 " style={{ color: "var(--doc-text-color)" }}>
             说明：<code>useTango Hook</code>，用于在 <code>React</code>{" "}
             组件中订阅 <code>TangoStore</code> 的状态变化，并返回指定{" "}
             <code>key</code> 对应的状态值。
@@ -258,8 +254,8 @@ const CaseA = () => {
 export default CaseA;
 `} />
           </Space>
-          <span className=" dark:text-neutral-300">页面 B 修改数据</span>
-          <Space className="mt-3 mb-3 dark:text-neutral-300">
+          <span className=" " style={{ color: "var(--doc-title-color)" }}>页面 B 修改数据</span>
+          <Space className="mt-3 mb-3 " style={{ color: "var(--doc-text-color)" }}>
             说明：导入更新函数 <code>setName、setAge</code>，修改初始值
           </Space>
           <Space

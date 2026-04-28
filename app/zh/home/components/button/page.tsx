@@ -674,17 +674,17 @@ const ButtonComponent = () => {
             </ul>
           </div>
 
-          <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+          <div className="text-2xl font-bold mb-5 mt-5" style={{ color: "var(--doc-title-color)" }}>
             属性
           </div>
           <div id="props" className="scroll-mt-10">
-            <div className="mb-5 dark:text-neutral-300">通用属性</div>
+            <div className="mb-5 " style={{ color: "var(--doc-text-color)" }}>通用属性</div>
           </div>
 
           <Table
             dataSource={dataSource}
             columns={columns}
-            containerStyles={theme === "light" ? {} : { color: "white" }}
+            containerStyles={theme === "light" ? {} : { color: "var(--doc-text-color)" }}
             // hoverColor="#a6a6a6"
           />
         </div>

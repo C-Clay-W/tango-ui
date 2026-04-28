@@ -8,6 +8,16 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed doc-log-page rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2026-04-28</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>More documentation adapted to theme colors</li>
+        </ul>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>Fixed errors in the documentation</li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-04-27</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>

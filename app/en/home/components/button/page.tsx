@@ -697,11 +697,11 @@ const ButtonComponent = () => {
 
             {/* props */}
             {/* <div className="hidden sm:block md:block lg:block xl:block 2xl:block "> */}
-            <div className="text-2xl font-bold mb-5 dark:text-neutral-300">
+            <div className="text-2xl font-bold mb-5 " style={{ color: "var(--doc-title-color)" }}>
               Props
             </div>
             <div id="props" className="scroll-mt-10">
-              <div className="mb-5 dark:text-neutral-300">Universal Props</div>
+              <div className="mb-5 " style={{ color: "var(--doc-text-color)" }}>Universal Props</div>
             </div>
             
             <Table

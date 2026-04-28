@@ -47,29 +47,30 @@ function TangoStore() {
               <a
                 href="https://www.npmjs.com/package/tango-store-cw"
                 target="_blank"
-                className=" text-black dark:text-neutral-300"
+                className=" text-black "
+                style={{ color: "var(--doc-title-color)" }}
               >
                 Tango Store
               </a>
             </Space>
           </Tooltip>
-          <Space className="mb-10 dark:text-neutral-300">
+          <Space className="mb-10" style={{ color: "var(--doc-text-secondary)" }}>
             This is a minimalist state management library developed based on
             React. It uses only 100 lines of code to implement synchronous state
             updates and value transfer across components. The package size is
             only{" "}
-            <span className="text-black font-bold text-xl  dark:text-neutral-300">
+            <span className="text-black font-bold text-xl" style={{ color: "var(--doc-text-secondary)" }}>
               7kb
             </span>
             . You can use it in your project with confidence without any
             performance loss!
           </Space>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
             Benefit
           </Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
+            
           >
             <li>
               The status sharing is convenient and suitable for small and
@@ -85,12 +86,11 @@ function TangoStore() {
               does not exist.
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3 " style={{ color: "var(--doc-title-color)" }}>
             New features
           </Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>
               Easy to use：<code>createTangoStore</code> and{" "}
@@ -112,12 +112,11 @@ function TangoStore() {
               the default value is returned.
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3 " style={{ color: "var(--doc-title-color)" }}>
             Key functions
           </Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>
               Subscription status: Subscription status changes via{" "}
@@ -132,12 +131,11 @@ function TangoStore() {
               avoid memory leaks.
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>
             Implementation details
           </Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>
               <code>useState</code>： Used to maintain a local state in the
@@ -164,12 +162,11 @@ function TangoStore() {
               development simpler.
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3 " style={{ color: "var(--doc-title-color)" }}>
             Workflow
           </Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }}
-            className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
             <li>
               Create a <code>Store</code>: Users create a{" "}
@@ -198,24 +195,24 @@ function TangoStore() {
               leaks.
             </li>
           </ul>
-          <Space className="font-bold mb-3 dark:text-neutral-300">
+          <Space className="font-bold mb-3 " style={{ color: "var(--doc-title-color)" }}>
             Follow these steps below
           </Space>
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold " style={{ color: "var(--doc-title-color)" }}>
             1.Installation
           </Space>
-          <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+          <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
             <DocCodeBlock code={`npm i tango-store-cw`} />
           </div>
-          <Space className="mt-3 mb-3 font-bold">
-            <span className=" dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold " style={{ color: "var(--doc-title-color)" }}>
+            <span className=" " style={{ color: "var(--doc-title-color)" }}>
               2.Create <code>store.js</code>
             </span>
           </Space>
-          <span className=" dark:text-neutral-300">
+          <span className=" " style={{ color: "var(--doc-text-color)" }}>
             Create<code> store.js</code> in the catalog
           </span>
-          <Space className="mt-3 mb-3 dark:text-neutral-300">
+          <Space className="mt-3 mb-3 " style={{ color: "var(--doc-text-color)" }}>
             Description: <code>createTangoStore()</code> is a factory function
             that creates <code>TangoStore</code> instance. The user can pass in
             the initial state <code>initialState</code>, the function returns a
@@ -250,13 +247,13 @@ export const setAge = (v) => {
   initialValue.setState({ age: v });
 };`} />
           </Space>
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold " style={{ color: "var(--doc-title-color)" }}>
             3.Use
           </Space>
-          <span className=" dark:text-neutral-300">
+          <span className=" " style={{ color: "var(--doc-text-color)" }}>
             Show datas on the page A
           </span>
-          <Space className="mt-3 mb-3 dark:text-neutral-300">
+          <Space className="mt-3 mb-3 " style={{ color: "var(--doc-text-color)" }}>
             Description: <code>useTango Hook</code> for use in{" "}
             <code>React</code> Change in the status of the subscribed{" "}
             <code>TangoStore</code> in the component and return the specified{" "}
@@ -298,10 +295,10 @@ const CaseA = () => {
 export default CaseA;
 `} />
           </Space>
-          <span className=" dark:text-neutral-300">
+          <span className=" " style={{ color: "var(--doc-text-color)" }}>
             Change datas on the page B
           </span>
-          <Space className="mt-3 mb-3 dark:text-neutral-300">
+          <Space className="mt-3 mb-3 " style={{ color: "var(--doc-text-color)" }}>
             Note: Import the update functions <code>setName and setAge</code> to
             modify the initial values
           </Space>

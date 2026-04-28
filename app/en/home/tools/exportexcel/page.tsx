@@ -16,19 +16,30 @@ import { useCurrentTheme } from "@/hooks/useCurrentTheme";
 import DocCodeBlock from "@/components/DocCodeBlock";
 import { useExcelExporter } from "tango-excel-cw";
 
+type TreeRecord = {
+  key: number;
+  id: number;
+  treenumber: string;
+  treekind: string;
+  treelevel: string;
+  location: string;
+  staff: string;
+};
+
 const ExportExcel = () => {
   const theme = useCurrentTheme();
-  const createRef = useRef();
+  const createRef = useRef<HTMLDivElement | null>(null);
   // const notice = useNotice();
   const [lang, setLang] = useState("React");
   const [isShowModal, setIsShowModal] = useState(false);
-  const [record, setRecord] = useState();
+  const [record, setRecord] = useState<TreeRecord | null>(null);
 
   const Tree = "/Tree.jpg";
   const DemoExcel = "/DemoExcelEn.xlsx";
   const Case = "/demo.png";
 
   const copyCreateRef = () => {
+    if (!createRef.current) return;
     const content =
       createRef.current.textContent || createRef.current.innerText;
     navigator.clipboard.writeText(content).then(() => {
@@ -36,7 +47,7 @@ const ExportExcel = () => {
     });
   };
 
-  const openModel = (record: any) => {
+  const openModel = (record: TreeRecord) => {
     console.log(record);
 
     setIsShowModal(true);
@@ -53,7 +64,8 @@ const ExportExcel = () => {
         single control：['B2',{"{ vertical: 'middle', horizontal: 'left' }"}]，
         <br />
         <br />
-        batch control：[['B2',{"{ vertical: 'middle', horizontal: 'left' }"}], ['C2',
+        batch control：[['B2',{"{ vertical: 'middle', horizontal: 'left' }"}],
+        ['C2',
         {"{ vertical: 'middle', horizontal: 'left' }"}]]
         <br />
         <br />
@@ -333,7 +345,7 @@ const ExportExcel = () => {
     {
       title: "action",
       key: "action",
-      render: (text: string, record: any) => (
+      render: (_text: string, record: TreeRecord) => (
         <>
           <MaterialButton
             size="small"
@@ -400,18 +412,21 @@ const ExportExcel = () => {
               <a
                 href="https://www.npmjs.com/package/tango-excel-cw"
                 target="_blank"
-                className=" dark:text-neutral-300"
+                style={{ color: "var(--doc-title-color)" }}
               >
                 useExcelExporter
               </a>
             </Space>
           </Tooltip>
-          <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
-          0.2.0
+          <Space
+            className="ml-3 text-xs rounded"
+            style={{ color: "var(--doc-text-primary)" }}
+          >
+            0.2.0
           </Space>
         </Space>
 
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>
           tango-excel-cw is a library for exporting or generating Excel files
           using a <code className="font-bold">useExcelExporter</code> hook
           function. The <code>config</code> object allows you to quickly
@@ -420,7 +435,7 @@ const ExportExcel = () => {
           batch export of year-end data, and more.
         </Space>
 
-        <Space className="mb-5 dark:text-neutral-300">
+        <Space className="mb-5" style={{ color: "var(--doc-text-secondary)" }}>
           It's based on two third-party libraries:
           <a href="https://www.npmjs.com/package/exceljs"> exceljs</a> and{" "}
           <a href="https://www.npmjs.com/package/file-saver">file-saver</a>.
@@ -432,24 +447,38 @@ const ExportExcel = () => {
           projects that already have these two libraries installed, and also
           effectively avoids the "<b>phantom dependency</b>" issue.
         </Space>
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           How to use?
         </Space>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space
+          className="mt-3 mb-3 font-bold"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           1.Installation
         </Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`npm i tango-excel-cw exceljs file-saver`} />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space
+          className="mt-3 mb-3 font-bold"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           2.Import
         </Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
-          <DocCodeBlock code={`import { useExcelExporter } from "tango-excel-cw";`} />
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
+          <DocCodeBlock
+            code={`import { useExcelExporter } from "tango-excel-cw";`}
+          />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+        <Space
+          className="mt-3 mb-3 font-bold"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           3.Use
         </Space>
         <Space className="mb-2">
@@ -605,20 +634,29 @@ export default Demo;
           </Space>
         )}
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Demo
         </Space>
         <Table
           dataSource={dataSourceDemo}
           columns={columnsDemo}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-3 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-3"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Batch data insertion and precise control
         </Space>
-        <Space className=" mb-3 mt-3 dark:text-neutral-300">
+        <Space
+          className=" mb-3 mt-3"
+          style={{ color: "var(--doc-text-secondary)" }}
+        >
           Scenario: The format after table export is: the first row of the table
           needs to be filled with a unified {`'`}table export time{`'`}, and the
           third row of the table is the first row of table data. In this case,
@@ -678,47 +716,59 @@ export default Demo;
           />
         </Space>
 
-        <Space className="text-xl font-bold mb-3 mt-30 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-30"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           useExcelExporter Function
         </Space>
 
         <Table
           dataSource={dataSource}
           columns={columns}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-5"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Config Props
         </Space>
 
         <Table
           dataSource={dataSourceProps}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-5"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Image Props
         </Space>
 
         <Table
           dataSource={dataSourceImage}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-5"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           Range Props
         </Space>
 
         <Table
           dataSource={dataSourceRange}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
 
@@ -732,14 +782,17 @@ export default Demo;
           />
         </div>
 
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space
+          className="text-xl font-bold mb-3 mt-5"
+          style={{ color: "var(--doc-title-color)" }}
+        >
           InRange Props
         </Space>
 
         <Table
           dataSource={dataSourceInRange}
           columns={columnsProps}
-          containerStyles={theme === "light" ? {} : { color: "white" }}
+          containerStyles={{ color: "var(--doc-text-primary)" }}
           // hoverColor="#a6a6a6"
         />
       </Space>

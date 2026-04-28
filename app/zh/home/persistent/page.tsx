@@ -91,13 +91,13 @@ const Page = () => {
   return (
     <Space className="flex">
         <Space className="sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-          <Space className="text-4xl font-bold mb-5 dark:text-neutral-300">状态持久化</Space>
-          <Space className="mb-10 dark:text-neutral-300">
+          <Space className="text-4xl font-bold mb-5 "  style={{ color: "var(--doc-title-color)" }} >状态持久化</Space>
+          <Space className="mb-10 " style={{ color: "var(--doc-text-secondary)" }}>
           Tango库原生支持开启持久化，并可指定字段持久化，无需引入或搭配其他库即可实现。
           </Space>
-          <Space className="text-xl font-bold mb-3 dark:text-neutral-300">关键特性</Space>
+          <Space className="text-xl font-bold mb-3 " style={{ color: "var(--doc-title-color)" }}>关键特性</Space>
           <ul
-            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }} className=" dark:text-neutral-300"
+            style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}
           >
            <li>
            <span className="underline">存储异常处理</span>：我们对 <code>localStorage</code> 或{" "}
@@ -115,9 +115,9 @@ const Page = () => {
         </li>
           </ul>
         
-          <Space className="text-xl font-bold mb-3 dark:text-neutral-300">示例代码</Space>
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">1.代码格式</Space>
-          <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+          <Space className="text-xl font-bold mb-3 " style={{ color: "var(--doc-title-color)" }}>示例代码</Space>
+          <Space className="mt-3 mb-3 font-bold " style={{ color: "var(--doc-title-color)" }}>1.代码格式</Space>
+          <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
             <DocCodeBlock code={`const myStore = createTangoStore(
   initialValue: {},
   options: { 
@@ -128,7 +128,7 @@ const Page = () => {
   persistentFields: [] 
 );`} />
           </div>
-          <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">
+          <Space className="mt-3 mb-3 font-bold " style={{ color: "var(--doc-title-color)" }}>
             2.示例
           </Space>
          
@@ -154,7 +154,7 @@ const Page = () => {
 );`} />
           </Space>
           <Space className="mt-3 mb-3">
-          <p className=" dark:text-neutral-300">
+          <p className=" " style={{ color: "var(--doc-text-color)" }}>
           <strong>说明：</strong> 初始值为{" "}
           <code>user: 'John Doe', theme: 'dark'</code>， 开启了持久化{" "}
           <code>Eternity: true</code>， 持久化键名{" "}
@@ -163,9 +163,9 @@ const Page = () => {
           字段可以持久化。
         </p>
           </Space>
-       <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">createTangoStore 参数</Space>
+       <Space className="text-xl font-bold mb-3 mt-5 " style={{ color: "var(--doc-title-color)" }}>createTangoStore 参数</Space>
           
-         <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} />
+         <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "var(--doc-text-color)" }} />
         </Space>
       </Space>
   )

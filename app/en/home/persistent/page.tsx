@@ -94,14 +94,14 @@ const Page = () => {
   return (
     <Space className="flex">
       <Space className="sm:w-[80vw] md:w-[80vw] lg:w-[80vw]  xl:w-[50vw] 2xl:w-[50vw]">
-        <Space className="text-4xl font-bold mb-5 dark:text-neutral-300">Eternity</Space>
-        <Space className="mb-10 dark:text-neutral-300">
+        <Space className="text-4xl font-bold mb-5 " style={{ color: "var(--doc-title-color)" }}>Eternity</Space>
+        <Space className="mb-10 " style={{ color: "var(--doc-text-secondary)" }}>
           The Tango Store library natively supports enabling persistence and can
           specify field persistence, which can be achieved without introducing
           or using other libraries.
         </Space>
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">KeyPoints</Space>
-        <ul style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20 }} className=" dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3 " style={{ color: "var(--doc-title-color)" }}>KeyPoints</Space>
+        <ul style={{ marginBottom: "20px", lineHeight: "1.8", marginLeft: 20, color: "var(--doc-text-color)" }}>
           <li>
             <span className="underline">Storage exception handling</span>: We don't have a specific <code></code>
             <code>sessionStorage's</code> exception handling (e.g. storage write
@@ -122,9 +122,9 @@ const Page = () => {
           </li>
         </ul>
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">Case</Space>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">1.Code format</Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <Space className="text-xl font-bold mb-3 " style={{ color: "var(--doc-title-color)" }}>Case</Space>
+        <Space className="mt-3 mb-3 font-bold " style={{ color: "var(--doc-title-color)" }}>1.Code format</Space>
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`const myStore = createTangoStore(
   initialValue: {},
   options: { 
@@ -135,7 +135,7 @@ const Page = () => {
   persistentFields: [] 
 );`} />
         </div>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">2.Demo</Space>
+        <Space className="mt-3 mb-3 font-bold " style={{ color: "var(--doc-title-color)" }}>2.Demo</Space>
 
         <Space
           className="rounded-2xl border border-gray-800 mb-3 bg-[#fdfdfd] overflow-hidden relative"
@@ -158,8 +158,8 @@ const Page = () => {
   ['theme'] 
 );`} />
         </Space>
-        <Space className="mt-3 mb-3">
-          <p className=" dark:text-neutral-300">
+        <Space className="mt-3 mb-3" style={{ color: "var(--doc-text-color)" }}>
+          <p className=" ">
             <strong>Note:</strong> The initial value is{" "}
             <code>user: 'John Doe', theme: 'dark'</code>, with persistence
             turned on <code>Eternity: true</code>, persist keyname{" "}
@@ -168,11 +168,11 @@ const Page = () => {
             <code>theme</code> Fields can be persisted.
           </p>
         </Space>
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>
           createTangoStore parameters
         </Space>
 
-        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }} />
+        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "var(--doc-text-color)" }} />
       </Space>
     </Space>
   );

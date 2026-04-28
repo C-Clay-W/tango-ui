@@ -213,32 +213,35 @@ const WaterMark = () => {
               <a
                 href="https://www.npmjs.com/package/tango-watermark"
                 target="_blank"
-                className=" dark:text-neutral-300"
+                style={{ color: "var(--doc-title-color)" }}
               >
                 useInkify
               </a>
             </Space>
           </Tooltip>
-          <Space className="ml-3 text-xs text-black dark:text-white  rounded ">
+          <Space
+            className="ml-3 text-xs rounded"
+            style={{ color: "var(--doc-text-primary)" }}
+          >
             0.1.2
           </Space>
         </Space>
-        <Space className="mb-10 dark:text-neutral-300">
+        <Space className="mb-10" style={{ color: "var(--doc-text-secondary)" }}>
           <code className="font-bold">useInkify</code> hook can help you quickly
           realize the need to add watermarks on images.
         </Space>
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">How to use?</Space>
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">1.Installation</Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>How to use?</Space>
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>1.Installation</Space>
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`npm i tango-watermark`} />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">2.Import</Space>
-        <div className="rounded-xl border border-gray-300 pt-2 dark:border-none dark:pt-0 overflow-hidden">
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>2.Import</Space>
+        <div className="rounded-xl border border-gray-300 pt-2  overflow-hidden">
           <DocCodeBlock code={`import { useInkify } from "tango-watermark";`} />
         </div>
 
-        <Space className="mt-3 mb-3 font-bold dark:text-neutral-300">3.Use</Space>
+        <Space className="mt-3 mb-3 font-bold" style={{ color: "var(--doc-title-color)" }}>3.Use</Space>
         <Space className="mb-2">
           <MaterialButton
             size="small"
@@ -422,12 +425,12 @@ export default Demo;
           </Space>
         )}
 
-        <Space className="text-xl font-bold mb-3 dark:text-neutral-300">Demo</Space>
+        <Space className="text-xl font-bold mb-3" style={{ color: "var(--doc-title-color)" }}>Demo</Space>
 
         <Space className="flex flex-col items-center gap-5 p-5 font-sans">
           <Space className="flex gap-10 justify-center">
             <Space className="text-center">
-              <h3 className="my-2 text-gray-600  dark:text-neutral-300">Before</h3>
+              <h3 className="my-2" style={{ color: "var(--doc-text-primary)" }}>Before</h3>
               <Image
                 src={imageUrl}
                 alt="original"
@@ -438,7 +441,7 @@ export default Demo;
             </Space>
 
             <Space className="text-center">
-              <h3 className="my-2 text-gray-600  dark:text-neutral-300">After</h3>
+              <h3 className="my-2" style={{ color: "var(--doc-text-primary)" }}>After</h3>
               {finalUrl ? (
                 <Image
                   src={finalUrl}
@@ -448,7 +451,10 @@ export default Demo;
                   className="border border-gray-200 rounded-lg shadow-md"
                 />
               ) : (
-                <Space className="w-[500px] h-[300px] bg-gray-100 flex items-center justify-center dark:text-neutral-300">
+                <Space
+                  className="w-[500px] h-[300px] bg-gray-100 flex items-center justify-center"
+                  style={{ color: "var(--doc-text-primary)" }}
+                >
                   loading...
                 </Space>
               )}
@@ -463,7 +469,7 @@ export default Demo;
             sx={{ flexWrap: "wrap", alignItems: "center", marginBottom: 15 }}
           >
             {/* 多行水印 */}
-            <span className="mr-3 dark:text-neutral-300">Lines</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>Lines</span>
             <Input
               value={lines}
               onChange={(e) => setLines(e)}
@@ -471,7 +477,7 @@ export default Demo;
               sx={{ w: 100, mr: 10 }}
             />
             {/* 水印文字 */}
-            <span className="mr-3 dark:text-neutral-300">Text</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>Text</span>
             <Input
               value={textValue}
               onChange={(e) => setTextValue(e)}
@@ -480,7 +486,7 @@ export default Demo;
             />
 
             {/* 水印大小 */}
-            <span className="mr-3 dark:text-neutral-300">Size</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>Size</span>
             <Input
               value={fontSize}
               onChange={(e) => setFontSize(e)}
@@ -489,7 +495,7 @@ export default Demo;
             />
 
             {/* 水印颜色 */}
-            <span className="mr-3 dark:text-neutral-300">Color</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>Color</span>
             <Input
               value={color}
               onChange={(e) => setColor(e)}
@@ -505,7 +511,7 @@ export default Demo;
             sx={{ flexWrap: "wrap", alignItems: "center" }}
           >
             {/* 水印角度 */}
-            <span className="mr-3 dark:text-neutral-300">Rotate</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>Rotate</span>
             <Input
               value={rotate}
               onChange={(e) => setRotate(e)}
@@ -513,7 +519,7 @@ export default Demo;
               sx={{ w: 100, mr: 10 }}
             />
             {/* 水印间距 */}
-            <span className="mr-3 dark:text-neutral-300">Space</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>Space</span>
             <Input
               value={spacing}
               onChange={(e) => setSpacing(e)}
@@ -531,7 +537,7 @@ export default Demo;
             /> */}
 
             {/* 透明度 */}
-            <span className="mr-3 dark:text-neutral-300">Opacity</span>
+            <span className="mr-3" style={{ color: "var(--doc-text-primary)" }}>Opacity</span>
             <Input
               value={opacity}
               onChange={(e) => setOpacity(e)}
@@ -544,12 +550,12 @@ export default Demo;
             </MaterialButton>
           </Space>
         </Space>
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">useInkify Props</Space>
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>useInkify Props</Space>
 
-        <Table dataSource={inkifyDataSource} columns={inkifyColumns} containerStyles={theme === "light" ? {} : { color: "white" }} />
-        <Space className="text-xl font-bold mb-3 mt-5 dark:text-neutral-300">useInkify Tokens</Space>
+        <Table dataSource={inkifyDataSource} columns={inkifyColumns} containerStyles={{ color: "var(--doc-text-primary)" }} />
+        <Space className="text-xl font-bold mb-3 mt-5" style={{ color: "var(--doc-title-color)" }}>useInkify Tokens</Space>
 
-        <Table dataSource={dataSource} columns={columns} containerStyles={theme === "light" ? {} : { color: "white" }}/>
+        <Table dataSource={dataSource} columns={columns} containerStyles={{ color: "var(--doc-text-primary)" }}/>
       </Space>
     </Space>
   );
