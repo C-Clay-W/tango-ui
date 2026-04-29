@@ -9,6 +9,23 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed doc-log-page rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2026-04-29</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>新增Horizon库使用文档</li>
+        </ul>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Horizon动画库移除Gsap依赖，采用React原生实现横向滚动布局
+          </li>
+        </ul>
+        <ul className="m-0 p-0 list-none">
+          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red doc-log-item-bg rounded">
+            Horizon v1.0.3已发布 NPM ！！
+          </li>
+        </ul>
+      </div>
+
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-04-28</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>更多文档适配了主题色</li>

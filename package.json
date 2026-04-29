@@ -26,6 +26,7 @@
     "react-syntax-highlighter": "^15.6.1",
     "resend": "^6.0.1",
     "tango-excel-cw": "^0.1.1",
+    "tango-horizon-cw": "^1.0.3",
     "tango-map-cw": "^1.1.0",
     "tango-pdf-cw": "^0.0.1",
     "tango-ui-cw": "^0.9.9",

@@ -178,7 +178,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(0)}
               >
                 <Space>
-                  <Link href="/zh/home/introduction" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/zh/home/introduction"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">介绍</Space>
                   </Link>
                 </Space>
@@ -188,7 +192,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(1)}
               >
                 <Space>
-                  <Link href="/zh/home/installation" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/zh/home/installation"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">安装</Space>
                   </Link>
                 </Space>
@@ -207,8 +215,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(20)}
               >
                 <Space>
-                  <Link href="/zh/home/tangocss" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Tango Css 样式</Space>
+                  <Link
+                    href="/zh/home/tangocss"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Tango Css 样式
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -217,7 +231,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(21)}
               >
                 <Space>
-                  <Link href="/zh/home/tangocss/mapping" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/zh/home/tangocss/mapping"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">样式映射</Space>
                   </Link>
                 </Space>
@@ -236,7 +254,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(33)}
               >
                 <Space>
-                  <Link href="/zh/home/theme/switch" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/zh/home/theme/switch"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">主题切换</Space>
                   </Link>
                 </Space>
@@ -246,7 +268,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(34)}
               >
                 <Space>
-                  <Link href="/zh/home/theme/customize" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/zh/home/theme/customize"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">主题定制</Space>
                   </Link>
                 </Space>
@@ -293,13 +319,35 @@ export default function HomeLayout({
                       href={`/zh/home/components/${
                         item.toLowerCase().split(" ")[0]
                       }`}
-                      className={style} style={{background:'transparent'}}
+                      className={style}
+                      style={{ background: "transparent" }}
                     >
                       <Space className="hover:!text-[#f13b6c]">{item}</Space>
                     </Link>
                   </Space>
                 </li>
               ))}
+            </ul>
+          </nav>
+
+            {/* Horizon */}
+          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
+            UI
+          </div>
+          <nav>
+            <ul className="space-y-1">
+              <li
+                className={`w-36 h-10 ${activeIndex === 35 ? "font-bold" : ""}`}
+                onClick={() => handleClick(35)}
+              >
+                <Link
+                  href="/zh/home/horizon"
+                  className={style}
+                  style={{ background: "transparent" }}
+                >
+                  <Space className="hover:!text-[#f13b6c]">Horizon 滚动</Space>
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -314,8 +362,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(22)}
               >
                 <Space>
-                  <Link href="/zh/home/store" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Tango Store 状态管理</Space>
+                  <Link
+                    href="/zh/home/store"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Tango Store 状态管理
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -324,8 +378,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(19)}
               >
                 <Space>
-                  <Link href="/zh/home/persistent" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Persistent 持久化</Space>
+                  <Link
+                    href="/zh/home/persistent"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Persistent 持久化
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -341,8 +401,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(31)}
               >
                 <Space>
-                  <Link href="/zh/home/map" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">TangoMapViewer</Space>
+                  <Link
+                    href="/zh/home/map"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      TangoMapViewer
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -358,8 +424,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(23)}
               >
                 <Space>
-                  <Link href="/zh/home/tools/watermark" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">WaterMark 水印</Space>
+                  <Link
+                    href="/zh/home/tools/watermark"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      WaterMark 水印
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -369,7 +441,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(24)}
               >
                 <Space>
-                  <Link href="/zh/home/tools/prepdf" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/zh/home/tools/prepdf"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">浏览 PDF</Space>
                   </Link>
                 </Space>
@@ -416,7 +492,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(26)}
               >
                 <Space>
-                  <Link href="/zh/home/tools/exportexcel" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/zh/home/tools/exportexcel"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">导出 Excel</Space>
                   </Link>
                 </Space>
@@ -439,8 +519,22 @@ export default function HomeLayout({
                   导出 PPT
                 </Link>
               </li> */}
+
+              <li
+                className={`w-36 h-10 ${activeIndex === 35 ? "font-bold" : ""}`}
+                onClick={() => handleClick(35)}
+              >
+                <Link
+                  href="/zh/home/horizon"
+                  className={style}
+                  style={{ background: "transparent" }}
+                >
+                  <Space className="hover:!text-[#f13b6c]">Horizon 视界</Space>
+                </Link>
+              </li>
             </ul>
           </nav>
+
 
           {/* 日志 */}
           <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
@@ -453,8 +547,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(32)}
               >
                 <Space>
-                  <Link href="/zh/home/log" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Update Log 更新日志</Space>
+                  <Link
+                    href="/zh/home/log"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Update Log 更新日志
+                    </Space>
                   </Link>
                 </Space>
               </li>

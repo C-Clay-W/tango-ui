@@ -182,8 +182,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(0)}
               >
                 <Space>
-                  <Link href="/en/home/introduction" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Introduction</Space>
+                  <Link
+                    href="/en/home/introduction"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Introduction
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -192,8 +198,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(1)}
               >
                 <Space>
-                  <Link href="/en/home/installation" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Installation</Space>
+                  <Link
+                    href="/en/home/installation"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Installation
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -211,7 +223,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(20)}
               >
                 <Space>
-                  <Link href="/en/home/tangocss" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/en/home/tangocss"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">Tango Css</Space>
                   </Link>
                 </Space>
@@ -221,7 +237,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(21)}
               >
                 <Space>
-                  <Link href="/en/home/tangocss/mapping" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/en/home/tangocss/mapping"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">Mapping</Space>
                   </Link>
                 </Space>
@@ -240,8 +260,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(33)}
               >
                 <Space>
-                  <Link href="/en/home/theme/switch" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Theme Switch</Space>
+                  <Link
+                    href="/en/home/theme/switch"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Theme Switch
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -250,8 +276,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(34)}
               >
                 <Space>
-                  <Link href="/en/home/theme/customize" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Theme Customize</Space>
+                  <Link
+                    href="/en/home/theme/customize"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Theme Customize
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -297,13 +329,35 @@ export default function HomeLayout({
                       href={`/en/home/components/${
                         item.toLowerCase().split(" ")[0]
                       }`}
-                      className={style} style={{background:'transparent'}}
+                      className={style}
+                      style={{ background: "transparent" }}
                     >
                       <Space className="hover:!text-[#f13b6c]">{item}</Space>
                     </Link>
                   </Space>
                 </li>
               ))}
+            </ul>
+          </nav>
+
+          {/* Horizon */}
+          <div className="text-gray-400 dark:text-gray-400 text-sm mb-3 ml-5 mt-3">
+            UI
+          </div>
+          <nav>
+            <ul className="space-y-1">
+              <li
+                className={`w-45 h-10 ${activeIndex === 35 ? "font-bold" : ""}`}
+                onClick={() => handleClick(35)}
+              >
+                <Link
+                  href="/en/home/horizon"
+                  className={style}
+                  style={{ background: "transparent" }}
+                >
+                  <Space className="hover:!text-[#f13b6c]">Horizon Scroll</Space>
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -318,7 +372,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(22)}
               >
                 <Space>
-                  <Link href="/en/home/store" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/en/home/store"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">Tango Store</Space>
                   </Link>
                 </Space>
@@ -328,7 +386,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(19)}
               >
                 <Space>
-                  <Link href="/en/home/persistent" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/en/home/persistent"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">Persistent</Space>
                   </Link>
                 </Space>
@@ -344,8 +406,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(31)}
               >
                 <Space>
-                  <Link href="/en/home/map" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">TangoMapViewer</Space>
+                  <Link
+                    href="/en/home/map"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      TangoMapViewer
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -360,7 +428,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(23)}
               >
                 <Space>
-                  <Link href="/en/home/tools/watermark" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/en/home/tools/watermark"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">WaterMark</Space>
                   </Link>
                 </Space>
@@ -371,7 +443,11 @@ export default function HomeLayout({
                 onClick={() => handleClick(24)}
               >
                 <Space>
-                  <Link href="/en/home/tools/prepdf" className={style} style={{background:'transparent'}}>
+                  <Link
+                    href="/en/home/tools/prepdf"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
                     <Space className="hover:!text-[#f13b6c]">Preview PDF</Space>
                   </Link>
                 </Space>
@@ -418,8 +494,14 @@ export default function HomeLayout({
                 onClick={() => handleClick(26)}
               >
                 <Space>
-                  <Link href="/en/home/tools/exportexcel" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Export Excel</Space>
+                  <Link
+                    href="/en/home/tools/exportexcel"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">
+                      Export Excel
+                    </Space>
                   </Link>
                 </Space>
               </li>
@@ -455,8 +537,12 @@ export default function HomeLayout({
                 onClick={() => handleClick(32)}
               >
                 <Space>
-                  <Link href="/en/home/log" className={style} style={{background:'transparent'}}>
-                    <Space className="hover:!text-[#f13b6c]">Update Log</Space> 
+                  <Link
+                    href="/en/home/log"
+                    className={style}
+                    style={{ background: "transparent" }}
+                  >
+                    <Space className="hover:!text-[#f13b6c]">Update Log</Space>
                   </Link>
                 </Space>
               </li>

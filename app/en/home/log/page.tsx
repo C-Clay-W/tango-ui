@@ -8,6 +8,22 @@ function Log() {
   return (
     <div className="p-5 font-sans leading-relaxed doc-log-page rounded-lg shadow-sm mt-2">
       <div className={BOX_STYLE}>
+        <h2 className={HEADER_STYLE}>2026-04-29</h2>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>Added Horizon library usage documentation</li>
+        </ul>
+        <ul className="m-0 p-0 list-none">
+          <li className={CONTENT_STYLE}>
+            Horizon animation library removed Gsap dependency, using React native implementation for horizontal scrolling layout
+          </li>
+        </ul>
+        <ul className="m-0 p-0 list-none">
+          <li className="text-base text-red-500 dark:text-red-400 mb-2 pl-2 border-l-2 border-red doc-log-item-bg rounded">
+            Horizon v1.0.3 has been released on NPM!!
+          </li>
+        </ul>
+      </div>
+      <div className={BOX_STYLE}>
         <h2 className={HEADER_STYLE}>2026-04-28</h2>
         <ul className="m-0 p-0 list-none">
           <li className={CONTENT_STYLE}>More documentation adapted to theme colors</li>
